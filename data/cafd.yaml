@@ -26,10 +26,10 @@ cafd:
   "00001D75": TRSVC       # retrocamera (top/rear view camera)
   "00001EF6": HU_NBT2
   "00001F61": ATM
-  "000024C3": FLE         # fari LED FLEL/FLER (stesso CAFD per i due lati, confermato da report ISTA)
+  "000024C3": FLE         # fari LED, in E-Sys FLE [43] e FLE [44] (sinistro e destro, stesso CAFD)
   "00002742": DME
   "0000297A": DSC
-  "000031C9": EGS         # cambio automatico (confermato da report ISTA)
+  "000031C9": EGS         # cambio automatico, in E-Sys "EGS5"
   "00005B2B": KOMBI
 
 alias:
@@ -43,6 +43,7 @@ alias:
   RFK: TRSVC
   FLER: FLE
   FLEL: FLE
+  EGS5: EGS
 
 firme:
   HU_NBT2: [HMI_ID_VERSION, API_USB_VIDEO, CLIMATE_AUTORECIRCULATION]
