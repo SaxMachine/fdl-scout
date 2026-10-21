@@ -10,7 +10,7 @@ Nessuno dei due viene modificato o scritto sull'auto: si tratta solo di letture.
 ## Cosa serve
 
 - Cavo ENET e un PC Windows con E-Sys.
-- **PSdZData** (va bene anche la versione lite) aggiornati almeno all'i-level dell'auto. Con dati più vecchi alcuni nomi dei parametri mancano o diventano `UnknowParam`.
+- **PSdZData**, va bene anche la versione lite. È consigliabile usarne una il più vicina possibile all'i-level dell'auto: con dati più distanti alcuni nomi dei parametri possono mancare o comparire come `UnknowParam`.
 - La possibilità di aprire l'editor NCD di E-Sys (Edit NCD).
 - Un mantenitore di carica sulla batteria: la lettura di tutte le centraline richiede tempo a quadro acceso.
 
@@ -23,7 +23,7 @@ Nessuno dei due viene modificato o scritto sull'auto: si tratta solo di letture.
 
 ## 2. Leggere la codifica delle centraline
 
-1. Torna in **Expert Mode → Coding** e premi **Read (VCM)** nel riquadro SVT: compare l'albero delle centraline, ognuna con il suo indirizzo e il VIN corto, per esempio `FLE [43] [XXXXXXX]`.
+1. Torna in **Expert Mode → Coding** e premi **Read (ECU)** nel riquadro SVT: compare l'albero delle centraline, ognuna con il suo indirizzo e il VIN corto, per esempio `FLE [43] [XXXXXXX]`.
 2. Espandi la centralina e fai tasto destro sul **CAFD** (in blu) → **Read Coding Data**.
 3. Sotto il CAFD compare una riga **in giallo** con lo stesso nome: è l'NCD, cioè la codifica letta dall'auto.
 
@@ -68,6 +68,6 @@ Alcuni FWL (ATM, KAFAS, KOMBI) contengono il VIN, anche in esadecimale, e altri 
 
 1. Connect via ENET and open **Expert Mode → Coding**.
 2. In the Vehicle Order panel press **Read**, then **Save** and store the FA as a `.txt` file (it is XML inside; FDL Scout recognises it by content).
-3. **Read (VCM)**, then right-click each CAFD → **Read Coding Data**: a yellow NCD line appears under it. Without this step the editor shows CAFD defaults, not your car's values.
+3. **Read (ECU)** in the SVT panel, then right-click each CAFD → **Read Coding Data**: a yellow NCD line appears under it. Without this step the editor shows CAFD defaults, not your car's values.
 4. Right-click the yellow NCD → **Edit NCD**, right-click the `CAF [...]` root → **Expand**, then **File → Save as FWL…** keeping the proposed `CAFD_…fwl` name. Export every CAFD, some units have more than one.
-5. Use PSdZData (lite is fine) at least as new as the car's i-level. Never press **Code**: reading is enough. Share the anonymous footprint, not the raw FWL files (they contain the VIN).
+5. PSdZData lite is fine; ideally use a version as close as possible to the car's i-level. Never press **Code**: reading is enough. Share the anonymous footprint, not the raw FWL files (they contain the VIN).
