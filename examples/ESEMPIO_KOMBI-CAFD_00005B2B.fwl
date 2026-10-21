@@ -1,24 +1,22 @@
-# FWL DI ESEMPIO, ricostruito dai valori documentati nel database (non è un export reale)
-# ECU: KOMBI  CAFD_00005B2B
-
-BC_DISTANZ_ENABLE	nicht_aktiv
-KI_PIA_DISTANZ	nicht_aktiv
-KI_PIA_ANKUNFT	nicht_aktiv
-SLI_WARNUNG_ENABLE	nicht_aktiv
-HUD_FAHRSTUFE_ENABLE	nicht_aktiv
-GPS_UHR	aktiv
-OEL_TEMP_NUMERISCH	nicht_aktiv
-LDM_ISA_ENABLE	nicht_aktiv
-LDM_ISA_HUD_ANZ_ENABLE	nicht_aktiv
-HUD_SLI_ENABLE	aktiv
-HUD_NPI_ENABLE	aktiv
-DIM_NACHT_EIN	aktiv
-DIGITAL_TACHO_ENABLE	05
-BC_LEERZEILE	nicht_aktiv
-BC_AUTORESET_ZEIT	02
-TNK_SCHWELLE_RESERVE	12_5_liter
-BR_KENNUNG	f54
-HUD_VERBAUT	hud
-BC_ANKUNFTSZEIT_ENABLE	aktiv
-BC_MOTORTEMP_ENABLE	aktiv
-UnknowParam0000000000	00
+# FWL DI ESEMPIO nel formato di E-Sys, ricostruito dai valori documentati (non è un export reale)
+CAF_ID:05 00 00 5B 2B 001 001 001 
+BC_ANKUNFTSZEIT_ENABLE: aktiv
+BC_AUTORESET_ZEIT: UnknowParam02 [02]
+BC_DISTANZ_ENABLE: nicht_aktiv
+BC_LEERZEILE: nicht_aktiv
+BC_MOTORTEMP_ENABLE: aktiv
+BR_KENNUNG: f54
+DIGITAL_TACHO_ENABLE: UnknowParam05 [05]
+DIM_NACHT_EIN: aktiv
+GPS_UHR: aktiv
+HUD_FAHRSTUFE_ENABLE: nicht_aktiv
+HUD_NPI_ENABLE: aktiv
+HUD_SLI_ENABLE: aktiv
+HUD_VERBAUT: hud
+KI_PIA_ANKUNFT: nicht_aktiv
+KI_PIA_DISTANZ: nicht_aktiv
+LDM_ISA_ENABLE: nicht_aktiv
+LDM_ISA_HUD_ANZ_ENABLE: nicht_aktiv
+OEL_TEMP_NUMERISCH: nicht_aktiv
+SLI_WARNUNG_ENABLE: nicht_aktiv
+TNK_SCHWELLE_RESERVE: 12_5_liter

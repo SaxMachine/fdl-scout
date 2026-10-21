@@ -82,7 +82,6 @@ export const T = {
     openIssue: 'Apri una segnalazione su GitHub',
     footer: 'Software libero (GPLv3). Database CC BY-SA 4.0. Non affiliato a BMW o MINI. Codifichi a tuo rischio: fai sempre il backup FDL.',
     source: 'Codice e database',
-    unitNames: 'nomi',
   },
   en: {
     title: 'FDL Scout',
@@ -166,6 +165,5 @@ export const T = {
     openIssue: 'Open an issue on GitHub',
     footer: 'Free software (GPLv3). Database CC BY-SA 4.0. Not affiliated with BMW or MINI. Code at your own risk: always back up the FDL.',
     source: 'Code and database',
-    unitNames: 'names',
   },
 };

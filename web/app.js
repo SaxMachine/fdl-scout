@@ -26,7 +26,7 @@ const store = {
 };
 
 const state = {
-  lang: store.get('lang', (navigator.language || 'it').startsWith('en') ? 'en' : 'it'),
+  lang: store.get('lang', (navigator.language || 'it').toLowerCase().startsWith('it') ? 'it' : 'en'),
   db: [], map: { cafd: {}, alias: {}, firme: {}, nomi: {} }, sa: {},
   files: [],            // {name, parsed, ecu, how}
   fa: null,             // {serie, tipo, produzione, sa[]} dalla FA, senza VIN

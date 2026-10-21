@@ -122,8 +122,8 @@ export function esysChecklist(results, selectedIds, lang = 'it') {
     (byEcu[r.entry.centralina] ||= []).push(r);
   }
   const L = lang === 'en'
-    ? { head: 'E-Sys work list', backup: 'Save the FDL of each unit before writing.', set: 'set', choose: 'choose a value' }
-    : { head: 'Lista di lavoro per E-Sys', backup: 'Salva l\'FDL di ogni centralina prima di scrivere.', set: 'imposta', choose: 'scegli un valore' };
+    ? { head: 'E-Sys work list', backup: 'Save the FDL of each unit before writing.', choose: 'choose a value' }
+    : { head: 'Lista di lavoro per E-Sys', backup: 'Salva l\'FDL di ogni centralina prima di scrivere.', choose: 'scegli un valore' };
   const lines = [`# ${L.head}`, `# ${L.backup}`, ''];
   for (const [ecu, rs] of Object.entries(byEcu)) {
     lines.push(`## ${ecu}`);

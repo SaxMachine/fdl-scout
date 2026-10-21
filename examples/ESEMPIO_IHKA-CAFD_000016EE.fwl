@@ -1,9 +1,7 @@
-# FWL DI ESEMPIO, ricostruito dai valori documentati nel database (non è un export reale)
-# ECU: IHKA  CAFD_000016EE
-
-MEMORY_UMLUFT	NICHT_AKTIV
-RESTWAERME	NICHT_AKTIV
-MEMORY_OFF	AKTIV
-AUC	AKTIV
-ZUSATZWASSERPUMPE	nicht_verbaut
-UnknowParam0000000000	00
+# FWL DI ESEMPIO nel formato di E-Sys, ricostruito dai valori documentati (non è un export reale)
+CAF_ID:05 00 00 16 EE 001 001 001 
+AUC: AKTIV
+MEMORY_OFF: AKTIV
+MEMORY_UMLUFT: NICHT_AKTIV
+RESTWAERME: NICHT_AKTIV
+ZUSATZWASSERPUMPE: nicht_verbaut

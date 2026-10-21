@@ -45,7 +45,7 @@ node scripts/serve.mjs          # http://localhost:8080
 node --test tests/*.test.js     # test del motore
 ```
 
-Nella cartella `examples/` ci sono quattro FWL di esempio per provare la pagina. Sono ricostruiti dai valori documentati nel database, non sono export reali.
+Nella cartella `examples/` ci sono quattro FWL e una FA di esempio, nel formato di E-Sys, per provare la pagina. Sono ricostruiti dai valori documentati nel database, non sono export reali.
 
 ## Contribuire
 
