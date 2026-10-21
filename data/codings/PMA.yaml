@@ -18,7 +18,8 @@
   - F60
   note:
     it: 'BimmerCode le colloca nella centralina PMA/PDC (sensori di parcheggio). Il CAFD 00001D75 della F54 di riferimento
-      è la retrocamera e non contiene queste soglie: serve l''FWL della centralina dei sensori.'
+      è la retrocamera (TRSVC) e non contiene queste soglie: serve l''FWL della centralina PMA, presente sulle auto
+      con parcheggio automatico (SA 5DP).'
   osservazioni:
   - telaio: F54
     anno: 2022

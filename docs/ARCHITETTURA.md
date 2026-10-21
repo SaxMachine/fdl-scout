@@ -38,7 +38,7 @@ Sono moduli ES senza dipendenze, usati identici dal browser e dai test Node.
 ## Da fare
 
 - Validare il parser su FWL di altre versioni di E-Sys e altre auto.
-- Confermare i nomi E-Sys delle centraline FLE (fari LED) ed EGS.
+- Mappare SAS e PMA (sensori di parcheggio) appena disponibili i loro FWL.
 - Ospitare i font nel repository, così la pagina non contatta nemmeno Google Fonts.
 - Script che confronta più impronte e propone nuove voci (parametri che cambiano tra allestimenti).
 - Traduzione inglese di titoli e note.

@@ -23,13 +23,13 @@ cafd:
   "00001413": FZD         # tetto panorama
   "000016EE": IHKA
   "000017BE": BDC_BODY
-  "00001D75": PMA         # retrocamera, sensori e parcheggio automatico
+  "00001D75": TRSVC       # retrocamera (top/rear view camera)
   "00001EF6": HU_NBT2
   "00001F61": ATM
-  "000024C3": FLE         # elettronica fari LED (da confermare il nome E-Sys)
+  "000024C3": FLE         # fari LED FLEL/FLER (stesso CAFD per i due lati, confermato da report ISTA)
   "00002742": DME
   "0000297A": DSC
-  "000031C9": EGS         # cambio automatico (da confermare il nome E-Sys)
+  "000031C9": EGS         # cambio automatico (confermato da report ISTA)
   "00005B2B": KOMBI
 
 alias:
@@ -39,8 +39,8 @@ alias:
   NBTEVO: HU_NBT2
   HU_NBTEVO: HU_NBT2
   IHKA2: IHKA
-  TRSVC: PMA
   PDC: PMA
+  RFK: TRSVC
   FLER: FLE
   FLEL: FLE
 
@@ -55,7 +55,7 @@ firme:
   ASD: [Competition Paket, Power Class, Audio Level]
   ACSM: [ZUENDKREIS_0, Gurtzustandsanzeige_Fahrer, FGS_SAT_Hersteller, ALGO_Checksumme]
   FZD: [DWA verbaut, Innenraumschutz, ascCOD_Factory, ascCOD_PanicAllowed]
-  PMA: [PMA Availability, RV Brightness Default, Coded Vehicle Type]
+  TRSVC: [PMA Availability, RV Brightness Default, Coded Vehicle Type]
   ATM: [ECALL_SPEAKER_VOL_DEF, NGTP_KEYTABLE, TELEMATIC_DISABLE]
   FLE: [LWR_ABSENK_OFFSET, AHL_ENABLE, LED_SUPPLY_MIN_ON_V]
   DME: [MSA_Startervariante, IntvlFrcInitial1, fEPM_Basisbordnetz_Batterietyp]
@@ -69,7 +69,8 @@ nomi:
   KAFAS: { it: "Telecamera assistenza alla guida", en: "Driver assistance camera" }
   DME: { it: "Centralina motore", en: "Engine control unit" }
   IHKA: { it: "Climatizzatore", en: "Climate control" }
-  PMA: { it: "Retrocamera, sensori e parcheggio automatico", en: "Rear camera, sensors and parking assistant" }
+  PMA: { it: "Sensori di parcheggio e parcheggio automatico", en: "Parking sensors and park assistant" }
+  TRSVC: { it: "Retrocamera", en: "Rear view camera" }
   ATM: { it: "Telematica", en: "Telematics" }
   ASD: { it: "Active Sound Design", en: "Active Sound Design" }
   FZD: { it: "Centralina tetto (allarme, tetto panorama)", en: "Roof function centre (alarm, sunroof)" }
@@ -78,5 +79,5 @@ nomi:
   ACSM: { it: "Airbag e cinture", en: "Airbags and seat belts" }
   SMFA: { it: "Sedile guida (memoria, riscaldamento)", en: "Driver seat module" }
   ZBE: { it: "Controller iDrive", en: "iDrive controller" }
-  FLE: { it: "Elettronica fari LED", en: "LED headlight electronics" }
+  FLE: { it: "Fari LED (FLEL/FLER)", en: "LED headlights (FLEL/FLER)" }
   EGS: { it: "Cambio automatico", en: "Automatic transmission" }
