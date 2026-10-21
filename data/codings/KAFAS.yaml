@@ -1,0 +1,29 @@
+# Codifiche note per la centralina KAFAS (MINI F5x)
+# Schema: docs/SCHEMA.md
+
+- id: kafas.distanza-dal-veicolo-che-precede
+  centralina: KAFAS
+  titolo:
+    it: Distanza dal veicolo che precede
+  parametri:
+  - nome: DISPLAY_HEADWAY_DISTANCE
+    regolabile: true
+  valori_suggeriti:
+    it: valore on (lista E-Sys)
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Mostra il tempo di distanza. L'ACC su F54 è a telecamera; l'effetto varia.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: coded_off
+    esito: Da verificare

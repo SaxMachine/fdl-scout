@@ -1,0 +1,28 @@
+name: Impronta di un'auto
+description: Condividi l'impronta anonima esportata da FDL Scout
+labels: [impronta]
+body:
+  - type: input
+    id: auto
+    attributes:
+      label: Auto
+      placeholder: F54 Cooper S ALL4, 2022
+    validations:
+      required: true
+  - type: input
+    id: ilevel
+    attributes:
+      label: I-level
+      placeholder: F056-26-03-519
+  - type: textarea
+    id: file
+    attributes:
+      label: Impronta
+      description: Trascina qui il file .json. Controlla prima che non contenga dati che non vuoi condividere.
+    validations:
+      required: true
+  - type: textarea
+    id: note
+    attributes:
+      label: Codifiche già fatte o provate
+      description: Cosa hai cambiato tu rispetto alla fabbrica, e con quale esito.

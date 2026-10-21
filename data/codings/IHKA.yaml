@@ -1,0 +1,98 @@
+# Codifiche note per la centralina IHKA (MINI F5x)
+# Schema: docs/SCHEMA.md
+
+- id: ihka.memoria-del-ricircolo
+  centralina: IHKA
+  titolo:
+    it: Memoria del ricircolo
+  parametri:
+  - nome: MEMORY_UMLUFT
+    target: AKTIV
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Al riavvio il ricircolo resta come l'avevi lasciato.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: NICHT_AKTIV
+    esito: Consigliato
+- id: ihka.calore-residuo-a-motore-spento
+  centralina: IHKA
+  titolo:
+    it: Calore residuo a motore spento
+  parametri:
+  - nome: RESTWAERME
+    regolabile: true
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Manca la pompa acqua elettrica supplementare (ZUSATZWASSERPUMPE non montata).
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: NICHT_AKTIV
+    esito: Non possibile
+- id: ihka.memoria-del-clima-spento
+  centralina: IHKA
+  titolo:
+    it: Memoria del clima spento
+  parametri:
+  - nome: MEMORY_OFF
+    target: AKTIV
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: ''
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: AKTIV
+    esito: Già attivo
+- id: ihka.cambio-colore-del-display-clima
+  centralina: IHKA
+  titolo:
+    it: Cambio colore del display clima
+  parametri: []
+  stato_mappatura: da_mappare
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Elenco BimmerCode. Il display del clima cambia colore (rosso/blu) quando alzi o abbassi la temperatura.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: INAKTIV
+    esito: Da verificare

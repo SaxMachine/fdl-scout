@@ -1,0 +1,1054 @@
+# Codifiche note per la centralina HU_NBT2 (MINI F5x)
+# Schema: docs/SCHEMA.md
+
+- id: hu_nbt2.menu-ricircolo-automatico-auc-nel-clima
+  centralina: HU_NBT2
+  titolo:
+    it: Menu ricircolo automatico (AUC) nel clima
+  parametri:
+  - nome: CLIMATE_AUTORECIRCULATION
+    target: auc_vorhanden
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'IHKA ha AUC=AKTIV e il BDC ha il sensore (AIC_AUC_SENSOR analogico): manca solo la voce nel menu della
+      HU.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: auc_nicht_vorhanden
+    esito: Consigliato
+- id: hu_nbt2.voce-menu-chiusura-automatica-in-marcia
+  centralina: HU_NBT2
+  titolo:
+    it: Voce menu chiusura automatica in marcia
+  parametri:
+  - nome: DOOR_LOCK_AFTER_DRIVING_AWAY
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: La logica è nel BDC (CLI_DEFAULT_LOCK_AT_SPEED già impostato). Così la gestisci dalle impostazioni del veicolo.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Consigliato
+- id: hu_nbt2.voce-menu-ribaltamento-specchietti-alla-chiusura
+  centralina: HU_NBT2
+  titolo:
+    it: Voce menu ribaltamento specchietti alla chiusura
+  parametri:
+  - nome: SETTINGS_AUTOMATIC_EXT_MIRROR_FOLDING
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Nel BDC ASP_BEIKLAPPEN è già attivo. Sulla grafica MINI la voce non sempre compare.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.memoria-sedile-richiamata-dalla-chiave
+  centralina: HU_NBT2
+  titolo:
+    it: Memoria sedile richiamata dalla chiave
+  parametri:
+  - nome: DOORLOCKING_SEATMEMORY
+    target: aktiv
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Richiede SA 459 e la centralina SMFA. Serve anche il parametro corrispondente in SMFA, ancora da mappare.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.voce-menu-conferma-acustica-di-chiusura
+  centralina: HU_NBT2
+  titolo:
+    it: Voce menu conferma acustica di chiusura
+  parametri:
+  - nome: ACOUSTICAL_LOCK_CONFIRM
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Nel BDC VAM_HORN_AT_SECURE è attivo. La voce permette di attivarla o spegnerla dal menu.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.riscaldamento-sedili-automatico
+  centralina: HU_NBT2
+  titolo:
+    it: Riscaldamento sedili automatico
+  parametri:
+  - nome: AKT_AUTO_SITZE_FRONT
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Accende i sedili in base alla temperatura esterna. Su IHKA monozona MINI il supporto non è garantito.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.distanza-alla-prossima-svolta-nell-hud
+  centralina: HU_NBT2
+  titolo:
+    it: Distanza alla prossima svolta nell'HUD
+  parametri:
+  - nome: HUD_DISTANCE_INFO
+    target: aktiv
+  - nome: HUD_CB_ABSTANDSINFO
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: L'HUD MINI (SA 6AD) è gestito dal KOMBI; la HU decide quali dati di navigazione inviargli.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.interruttore-luci-diurne-nel-menu-idrive
+  centralina: HU_NBT2
+  titolo:
+    it: Interruttore luci diurne nel menu iDrive
+  parametri:
+  - nome: DAYDRIVING_LIGHT
+    target: standard
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Confermato su F54 e F56 (stesso passaggio perm_off → standard). Permette di spegnere la DRL dal menu luci,
+      per profilo.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: perm_off
+    esito: Consigliato
+- id: hu_nbt2.video-da-chiavetta-usb
+  centralina: HU_NBT2
+  titolo:
+    it: Video da chiavetta USB
+  parametri:
+  - nome: API_USB_VIDEO
+    target: both
+  - nome: ENT_CODEC_XVID
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Confermato su un''altra F54: API_USB_VIDEO = both, più il codec XVID. Riproduzione a vettura ferma.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: none / nicht_aktiv
+    esito: Consigliato
+- id: hu_nbt2.cambio-ora-legale-automatico
+  centralina: HU_NBT2
+  titolo:
+    it: Cambio ora legale automatico
+  parametri:
+  - nome: CLOCK_CHANGE_AUTOMATIC
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'SETTINGS_TIME_AUTOMATIC è già su online e il KOMBI ha GPS_UHR attivo: manca solo il passaggio automatico
+      all''ora legale.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Consigliato
+- id: hu_nbt2.navigazione-e-menu-in-movimento
+  centralina: HU_NBT2
+  titolo:
+    it: Navigazione e menu in movimento
+  parametri:
+  - nome: SPEEDLOCK_X_KMH_MIN
+    target: FF
+  - nome: SPEEDLOCK_X_KMH_MAX
+    target: FF
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Su F54 documentato con FF. Toglie i blocchi di inserimento in marcia: il guidatore non deve usarlo mentre
+      guida.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: 3_kmh / 3_kmh
+    esito: Sconsigliato
+- id: hu_nbt2.menu-livello-olio-elettronico
+  centralina: HU_NBT2
+  titolo:
+    it: Menu livello olio elettronico
+  parametri:
+  - nome: OELSTANDSMENUE
+    target: aktiv
+  - nome: OELSTAND_OENS
+    target: aktiv
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Mostra il livello olio nell'iDrive. Funziona solo se il B48 ha il sensore OENS; altrimenti il menu resta
+      vuoto.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.disattivazione-active-sound-design
+  centralina: HU_NBT2
+  titolo:
+    it: Disattivazione Active Sound Design
+  parametri:
+  - nome: ASD_SOUND_OFF
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte NAM, testata su F55/F56. Si codifica nella HU, non nella centralina ASD. Spegne il suono sintetico
+      del motore in abitacolo.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Consigliato
+- id: hu_nbt2.menu-configurazione-suono-asd
+  centralina: HU_NBT2
+  titolo:
+    it: Menu configurazione suono ASD
+  parametri:
+  - nome: ASD_CONFIGURATION
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte NAM. Mostra in iDrive la scelta tra i suoni ASD_SOUND_1-4 (già attivi). Alternativa più morbida alla
+      disattivazione totale.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.pressione-e-temperatura-gomme-in-info-veicolo
+  centralina: HU_NBT2
+  titolo:
+    it: Pressione e temperatura gomme in Info veicolo
+  parametri:
+  - nome: RDC_SAFETY
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte NAM. Serve il controllo pressione diretto con sensori nelle ruote. RDC_DRUCK_TEMP è già su pressione
+      e temperatura, quindi è probabile che funzioni.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.frecce-nell-hud
+  centralina: HU_NBT2
+  titolo:
+    it: Frecce nell'HUD
+  parametri:
+  - nome: HUD_TURNSIGNAL
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte NAM. Mostra l'indicatore di direzione nell'Head-Up Display.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.info-limite-di-velocita
+  centralina: HU_NBT2
+  titolo:
+    it: Info limite di velocità
+  parametri:
+  - nome: SPEEDLIMIT_INFO
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte NAM, insieme a KI_PIA_SPEED_LIMIT nel KOMBI (da attivare se non lo è già).
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.data-e-ora-nel-registro-chiamate
+  centralina: HU_NBT2
+  titolo:
+    it: Data e ora nel registro chiamate
+  parametri:
+  - nome: TIMESTAMP_DISPLAY
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte NAM.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Consigliato
+- id: hu_nbt2.dettatura-vocale-per-sms-ed-e-mail
+  centralina: HU_NBT2
+  titolo:
+    it: Dettatura vocale per SMS ed e-mail
+  parametri:
+  - nome: SPEECH_2_TEXT
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte NAM. Dipende dal supporto della lingua italiana.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.suoneria-del-telefono-come-principale
+  centralina: HU_NBT2
+  titolo:
+    it: Suoneria del telefono come principale
+  parametri:
+  - nome: INBAND_RINGING
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte NAM. Usa la suoneria del telefono invece di quella dell'auto.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.importazione-percorsi-nella-navigazione
+  centralina: HU_NBT2
+  titolo:
+    it: Importazione percorsi nella navigazione
+  parametri:
+  - nome: NAVI_TRIP_IMPORT
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte NAM.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.grafica-john-cooper-works-in-idrive
+  centralina: HU_NBT2
+  titolo:
+    it: Grafica John Cooper Works in iDrive
+  parametri:
+  - nome: JOHN_COOPER_WORKS_HMI
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte mini-f56-forum.de e minif56.com. Solo estetica (anello LED e schermate JCW).
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.avviso-superamento-corsia-nel-menu
+  centralina: HU_NBT2
+  titolo:
+    it: Avviso superamento corsia nel menu
+  parametri:
+  - nome: LANE_DEPARTURE_WARNING
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Fonte Bimmerfest. KAFAS ha già la funzione attiva: la voce aggiunge l''impostazione in iDrive.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.scrittura-su-chiavetta-usb
+  centralina: HU_NBT2
+  titolo:
+    it: Scrittura su chiavetta USB
+  parametri:
+  - nome: API_USB_READ_WRITE
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte Bimmerfest. Permette di esportare dati (es. percorsi) su USB.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.scelta-della-velocita-digitale-dal-menu-idrive
+  centralina: HU_NBT2
+  titolo:
+    it: Scelta della velocità digitale dal menu iDrive
+  parametri:
+  - nome: KI_DISP_CB_SPEED_DIGITAL
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Aggiunge la casella in iDrive per scegliere cosa mostrare nel computer di bordo del quadro. Abbinala a DIGITAL_TACHO_ENABLE.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.altre-voci-del-computer-di-bordo-selezionabili
+  centralina: HU_NBT2
+  titolo:
+    it: Altre voci del computer di bordo selezionabili
+  parametri:
+  - nome: KI_DISP_CB_BC_RANGE_ENABLE
+    target: aktiv
+  - nome: KI_DISP_CB_MOTOR_TEMP_BC_ENABLE
+    target: aktiv
+  - nome: KI_DISP_CB_BC_AVERAGE_SPEED_CONS_ENABLE
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Caselle in iDrive per autonomia, temperatura motore e media di velocità/consumo nel quadro. Sono menu:
+      il KOMBI deve supportarle (BC_MOTORTEMP_ENABLE è già attivo).'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.volante-riscaldato-automatico
+  centralina: HU_NBT2
+  titolo:
+    it: Volante riscaldato automatico
+  parametri:
+  - nome: AKT_AUTO_LENKRADHEIZUNG
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Voce di menu: accende il volante in base alla temperatura. Non presente nell''elenco BimmerCode MINI, quindi
+      da provare.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.popup-del-volume
+  centralina: HU_NBT2
+  titolo:
+    it: Popup del volume
+  parametri:
+  - nome: VOLUME_POPUP_DISPLAY
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Elenco BimmerCode. Mostra a schermo il livello del volume quando lo regoli.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.suono-di-avviso
+  centralina: HU_NBT2
+  titolo:
+    it: Suono di avviso
+  parametri:
+  - nome: SOUND_SIGNAL_SET
+    regolabile: true
+  valori_suggeriti:
+    it: mini / bmw_i / rr
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Elenco BimmerCode. Su un'altra F54 documentato 02_RR. Solo gusto personale.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: bmw
+    esito: Da verificare
+- id: hu_nbt2.animazione-di-avvio
+  centralina: HU_NBT2
+  titolo:
+    it: Animazione di avvio
+  parametri:
+  - nome: STARTUP_EMBLEM
+    regolabile: true
+  - nome: STARTUP_TYPE
+    regolabile: true
+  valori_suggeriti:
+    it: variante JCW, MINI, ecc.
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Elenco BimmerCode: animazioni MINI, JCW e altre. Solo estetica.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: variant_00 / animation
+    esito: Da verificare
+- id: hu_nbt2.popup-del-clima-a-ogni-regolazione
+  centralina: HU_NBT2
+  titolo:
+    it: Popup del clima a ogni regolazione
+  parametri:
+  - nome: HVAC_POPUP_AIRDISTR
+    target: aktiv
+  - nome: HVAC_POPUP_AUTO_TOGGLE
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Mostra un riquadro a schermo quando cambi distribuzione aria o modalità AUTO.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.storico-tagliandi
+  centralina: HU_NBT2
+  titolo:
+    it: Storico tagliandi
+  parametri:
+  - nome: SERVICE_HISTORY
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: ''
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv
+    esito: Già attivo
+- id: hu_nbt2.inclinometro-xview
+  centralina: HU_NBT2
+  titolo:
+    it: Inclinometro xView
+  parametri:
+  - nome: X_VIEW
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: ''
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv
+    esito: Già attivo
+- id: hu_nbt2.elenchi-musicali-nell-hud
+  centralina: HU_NBT2
+  titolo:
+    it: Elenchi musicali nell'HUD
+  parametri:
+  - nome: HUD_ENTERTAINMENTLIST
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: ''
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv
+    esito: Già attivo
+- id: hu_nbt2.chiusura-finestrini-quando-piove
+  centralina: HU_NBT2
+  titolo:
+    it: Chiusura finestrini quando piove
+  parametri:
+  - nome: REGEN_SCHLIESSEN
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte Bimmerfest, mai confermata. Aggiunge la voce in iDrive; serve che il BDC supporti la funzione.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.testo-completo-dei-messaggi-in-marcia
+  centralina: HU_NBT2
+  titolo:
+    it: Testo completo dei messaggi in marcia
+  parametri:
+  - nome: PIM_DRIVING_TEXT_LENGTH
+    target: whole_text
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Elenco BimmerCode e NAM. Mostra l''intero SMS anche guidando: leggerlo distrae, valutalo per il passeggero.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: one_page
+    esito: Da verificare
+- id: hu_nbt2.volume-massimo-all-accensione
+  centralina: HU_NBT2
+  titolo:
+    it: Volume massimo all'accensione
+  parametri:
+  - nome: VOL_MAX_ON
+    regolabile: true
+  valori_suggeriti:
+    it: 32 hex = 50%, 4B = 75%
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Elenco BimmerCode, NAM e forum tedesco. La radio non riparte più bassa di questo valore.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: standard (19 hex, 25%)
+    esito: Consigliato
+- id: hu_nbt2.altri-formati-video-da-usb
+  centralina: HU_NBT2
+  titolo:
+    it: Altri formati video da USB
+  parametri:
+  - nome: ENT_VIDEO
+    target: aktiv
+  - nome: ENT_MC_VIDEO_SUPPORT
+    target: aktiv
+  - nome: ENT_CODEC_OGG
+    target: aktiv
+  - nome: ENT_CODEC_VCD
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonti NAM e Bimmerfest, in aggiunta a API_USB_VIDEO e XVID. ENT_MC_VIDEO_SUPPORT permette di salvare i video
+      sul disco della HU.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.streaming-multimediale-via-wi-fi
+  centralina: HU_NBT2
+  titolo:
+    it: Streaming multimediale via Wi-Fi
+  parametri:
+  - nome: ENT_MC_WLAN_STREAM_DMP
+    target: aktiv
+  - nome: ENT_MC_WLAN_STREAM_DMP_COVERART
+    target: aktiv
+  - nome: ENT_MC_WLAN_STREAM_DMP_VIDEO
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte Bimmerfest. Riproduce musica e video da un dispositivo in rete Wi-Fi (DLNA).
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.barra-di-avanzamento-al-reset-pressione-gomme
+  centralina: HU_NBT2
+  titolo:
+    it: Barra di avanzamento al reset pressione gomme
+  parametri:
+  - nome: RDC_FORTSCHRITTSANZEIGE
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte Bimmerfest.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.regolazione-luminosita-luci-ambiente-in-idrive
+  centralina: HU_NBT2
+  titolo:
+    it: Regolazione luminosità luci ambiente in iDrive
+  parametri:
+  - nome: HELLIGKEIT_AMBILIGHT
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Collegato alla voce BimmerCode che separa la luminosità delle luci ambiente da quella del quadro.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.limitatore-automatico-in-base-ai-cartelli
+  centralina: HU_NBT2
+  titolo:
+    it: Limitatore automatico in base ai cartelli
+  parametri:
+  - nome: AUTOLIMITER
+    target: aktiv
+  rischio: alto
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Fonte Bimmerfest. Parte dello Speed Limit Assist: va insieme alle voci LDM_ISA di KOMBI, DSC e SAS.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare

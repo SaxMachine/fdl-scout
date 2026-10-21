@@ -1,0 +1,35 @@
+name: Nuova codifica o correzione
+description: Segnala una codifica che funziona (o che non funziona) sulla tua auto
+labels: [codifica]
+body:
+  - type: input
+    id: centralina
+    attributes:
+      label: Centralina
+      placeholder: KOMBI
+    validations:
+      required: true
+  - type: textarea
+    id: parametri
+    attributes:
+      label: Parametri e valori
+      placeholder: "HUD_FAHRSTUFE_ENABLE: nicht_aktiv -> aktiv"
+    validations:
+      required: true
+  - type: textarea
+    id: effetto
+    attributes:
+      label: Cosa succede in auto
+    validations:
+      required: true
+  - type: input
+    id: auto
+    attributes:
+      label: Auto e i-level su cui l'hai provata
+      placeholder: F54 2022, F056-26-03-519
+    validations:
+      required: true
+  - type: input
+    id: fonte
+    attributes:
+      label: Fonte (link), se c'è

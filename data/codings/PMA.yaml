@@ -1,0 +1,27 @@
+# Codifiche note per la centralina PMA (MINI F5x)
+# Schema: docs/SCHEMA.md
+
+- id: pma.soglie-di-spegnimento-sensori-e-retrocamera
+  centralina: PMA
+  titolo:
+    it: Soglie di spegnimento sensori e retrocamera
+  parametri: []
+  stato_mappatura: da_mappare
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Elenco BimmerCode: velocità e distanza oltre cui PDC e retrocamera si spengono, e attivazione dei sensori
+      quando l''auto arretra in folle.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: —
+    esito: Da verificare

@@ -1,0 +1,54 @@
+# Riconoscimento delle centraline.
+#
+# Il parser prova, in ordine:
+#   1. il nome della centralina scritto nell'intestazione o nel nome del file (es. "HU_NBT2", "BDC_BODY");
+#   2. l'identificativo CAFD (8 cifre esadecimali) cercato in `cafd`;
+#   3. le `firme`: parametri che compaiono solo in quella centralina.
+# Se nessuno funziona, l'utente sceglie la centralina a mano nella pagina.
+#
+# Gli identificativi CAFD vengono da FWL reali (F54 2022, i-level F056-26-03-519).
+# Altre auto avranno CAFD diversi per la stessa centralina: aggiungili qui.
+
+cafd:
+  00001EF6: HU_NBT2
+  000017BE: BDC_BODY
+  00005B2B: KOMBI
+  00001148: KAFAS
+  00002742: DME
+  000016EE: IHKA
+  00001D75: PMA
+  00001F61: ATM
+  00000F9B: ASD
+
+alias:
+  BDC: BDC_BODY
+  HU_NBT: HU_NBT2
+  NBT: HU_NBT2
+  NBTEVO: HU_NBT2
+  HU_NBTEVO: HU_NBT2
+  IHKA2: IHKA
+  TRSVC: PMA
+  PDC: PMA
+
+firme:
+  HU_NBT2: [HMI_ID_VERSION, API_USB_VIDEO, CLIMATE_AUTORECIRCULATION]
+  KOMBI: [BR_KENNUNG, HUD_FAHRSTUFE_ENABLE, BC_LEERZEILE]
+  BDC_BODY: [TFL_MODUS, ASP_BEIKLAPPEN, WL_TIMEOUT, FesInitMode]
+  IHKA: [MEMORY_UMLUFT, RESTWAERME]
+  KAFAS: [DISPLAY_HEADWAY_DISTANCE]
+
+nomi:
+  HU_NBT2: { it: "Head unit NBT EVO", en: "NBT EVO head unit" }
+  BDC_BODY: { it: "Body Domain Controller (carrozzeria)", en: "Body Domain Controller" }
+  KOMBI: { it: "Quadro strumenti e HUD", en: "Instrument cluster and HUD" }
+  KAFAS: { it: "Telecamera assistenza alla guida", en: "Driver assistance camera" }
+  DME: { it: "Centralina motore", en: "Engine control unit" }
+  IHKA: { it: "Climatizzatore", en: "Climate control" }
+  PMA: { it: "Sensori di parcheggio e retrocamera", en: "Parking sensors and rear camera" }
+  ATM: { it: "Telematica", en: "Telematics" }
+  ASD: { it: "Active Sound Design", en: "Active Sound Design" }
+  FZD: { it: "Centralina tetto (luci interne, allarme)", en: "Roof function centre" }
+  SAS: { it: "Assistenza alla guida (ACC)", en: "Driver assistance (ACC)" }
+  DSC: { it: "Controllo stabilità", en: "Stability control" }
+  ACSM: { it: "Airbag e cinture", en: "Airbags and seat belts" }
+  SMFA: { it: "Memoria sedile guida", en: "Driver seat memory" }

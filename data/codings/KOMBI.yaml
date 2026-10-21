@@ -1,0 +1,329 @@
+# Codifiche note per la centralina KOMBI (MINI F5x)
+# Schema: docs/SCHEMA.md
+
+- id: kombi.distanza-percorsa-nel-computer-di-bordo
+  centralina: KOMBI
+  titolo:
+    it: Distanza percorsa nel computer di bordo
+  parametri:
+  - nome: BC_DISTANZ_ENABLE
+    target: aktiv
+  - nome: KI_PIA_DISTANZ
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Aggiunge la pagina di distanza al BC del quadro.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Consigliato
+- id: kombi.ora-di-arrivo-nel-computer-di-bordo
+  centralina: KOMBI
+  titolo:
+    it: Ora di arrivo nel computer di bordo
+  parametri:
+  - nome: KI_PIA_ANKUNFT
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'BC_ANKUNFTSZEIT_ENABLE è già attivo: manca solo la voce selezionabile.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Consigliato
+- id: kombi.avviso-superamento-limite-nel-quadro
+  centralina: KOMBI
+  titolo:
+    it: Avviso superamento limite nel quadro
+  parametri:
+  - nome: SLI_WARNUNG_ENABLE
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: L'HUD lo fa già (HUD_SLI_WARNUNG_ENABLE). Così il segnale lampeggia anche nel quadro quando l'HUD è spento.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Consigliato
+- id: kombi.marcia-inserita-nell-hud
+  centralina: KOMBI
+  titolo:
+    it: Marcia inserita nell'HUD
+  parametri:
+  - nome: HUD_FAHRSTUFE_ENABLE
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Documentato su F55/F56. Le tre voci HUD_SPORTANZEIGE_* sono già attive sia in HU sia nel KOMBI: manca solo
+      questa.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Consigliato
+- id: kombi.ora-sincronizzata-da-gps
+  centralina: KOMBI
+  titolo:
+    it: Ora sincronizzata da GPS
+  parametri:
+  - nome: GPS_UHR
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: ''
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv
+    esito: Già attivo
+- id: kombi.temperatura-olio-numerica
+  centralina: KOMBI
+  titolo:
+    it: Temperatura olio numerica
+  parametri:
+  - nome: OEL_TEMP_NUMERISCH
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Il quadro IC_MID non ha sempre la grafica per mostrarla.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: kombi.speed-limit-assist-acc-adotta-il-limite
+  centralina: KOMBI
+  titolo:
+    it: Speed Limit Assist (ACC adotta il limite)
+  parametri:
+  - nome: LDM_ISA_ENABLE
+    target: aktiv
+  - nome: LDM_ISA_HUD_ANZ_ENABLE
+    target: aktiv
+  rischio: alto
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Richiede supporto in DSC e KAFAS oltre al KOMBI. Non procedere senza l'FWL del DSC.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: kombi.limite-e-divieto-di-sorpasso-nell-hud
+  centralina: KOMBI
+  titolo:
+    it: Limite e divieto di sorpasso nell'HUD
+  parametri:
+  - nome: HUD_SLI_ENABLE
+    target: aktiv
+  - nome: HUD_NPI_ENABLE
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: ''
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv
+    esito: Già attivo
+- id: kombi.quadro-piu-luminoso-di-giorno
+  centralina: KOMBI
+  titolo:
+    it: Quadro più luminoso di giorno
+  parametri:
+  - nome: DIM_NACHT_EIN
+    target: FF
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte NAM. Gli utenti riportano un quadro molto più leggibile alla luce del sole.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv (0A)
+    esito: Da verificare
+- id: kombi.velocita-digitale-nel-computer-di-bordo
+  centralina: KOMBI
+  titolo:
+    it: Velocità digitale nel computer di bordo
+  parametri:
+  - nome: DIGITAL_TACHO_ENABLE
+    regolabile: true
+  valori_suggeriti:
+    it: valore digitale (lista E-Sys)
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Elenco BimmerCode F5x. Mostra i km/h in cifre nel quadro. Con alcuni PSdZData il valore attuale non ha
+      nome: scegli la voce kmh dalla lista.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: '05'
+    esito: Da verificare
+- id: kombi.riga-vuota-nel-computer-di-bordo
+  centralina: KOMBI
+  titolo:
+    it: Riga vuota nel computer di bordo
+  parametri:
+  - nome: BC_LEERZEILE
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Elenco BimmerCode. Permette di lasciare il computer di bordo senza dati, per un quadro più pulito.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: kombi.azzeramento-automatico-delle-medie
+  centralina: KOMBI
+  titolo:
+    it: Azzeramento automatico delle medie
+  parametri:
+  - nome: BC_AUTORESET_ZEIT
+    regolabile: true
+  valori_suggeriti:
+    it: dopo 4 h / 8 h / ogni viaggio / mai
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Elenco BimmerCode. Con alcuni PSdZData il valore attuale non ha nome: scegli dalla lista E-Sys.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: '02'
+    esito: Da verificare
+- id: kombi.soglia-della-riserva-carburante
+  centralina: KOMBI
+  titolo:
+    it: Soglia della riserva carburante
+  parametri:
+  - nome: TNK_SCHWELLE_RESERVE
+    regolabile: true
+  valori_suggeriti:
+    it: valore più basso o più alto
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Elenco BimmerCode (Reservewarnung). Cambia quando compare la spia della riserva, non la capacità reale.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: 12_5_liter
+    esito: Da verificare

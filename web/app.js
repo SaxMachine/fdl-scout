@@ -1,0 +1,284 @@
+import { parseFwl, identifyEcu } from './src/parser.js';
+import { evaluateAll, unexplored, summarize, esysChecklist, STATI } from './src/matcher.js';
+import { buildFootprint } from './src/footprint.js';
+import { T } from './i18n.js';
+
+// Repository pubblico del progetto (link a codice, database e segnalazioni).
+const REPO = 'https://github.com/SaxMachine/fdl-scout';
+
+const $ = s => document.querySelector(s);
+const el = (tag, attrs = {}, ...kids) => {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (v == null || v === false) continue;
+    if (k === 'class') n.className = v;
+    else if (k.startsWith('on')) n.addEventListener(k.slice(2), v);
+    else if (k === 'text') n.textContent = v;
+    else n.setAttribute(k, v === true ? '' : v);
+  }
+  for (const c of kids.flat()) if (c != null) n.append(c);
+  return n;
+};
+const store = {
+  get(k, d) { try { const v = localStorage.getItem('fdlscout.' + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v) { try { localStorage.setItem('fdlscout.' + k, JSON.stringify(v)); } catch { /* storage non disponibile */ } },
+};
+
+const state = {
+  lang: store.get('lang', (navigator.language || 'it').startsWith('en') ? 'en' : 'it'),
+  db: [], map: { cafd: {}, alias: {}, firme: {}, nomi: {} },
+  files: [],            // {name, parsed, ecu, how}
+  selected: new Set(),
+  results: [],
+  tab: 'codings',
+};
+const t = () => T[state.lang];
+const tr = obj => (obj && (obj[state.lang] || obj.it)) || '';
+
+/** Centraline lette, nel formato atteso dal matcher. Più file della stessa centralina si uniscono. */
+function ecus() {
+  const out = {};
+  for (const f of state.files) {
+    if (!f.ecu) continue;
+    const e = out[f.ecu] ||= { cafd: f.parsed.cafd, params: {} };
+    Object.assign(e.params, f.parsed.params);
+  }
+  return out;
+}
+
+// ---------- caricamento ----------
+async function loadDb() {
+  const r = await fetch('db.json');
+  const data = await r.json();
+  state.db = data.voci;
+  state.map = data.centraline;
+  $('#dbDate').textContent = `${state.db.length} · ${data.generato.slice(0, 10)}`;
+}
+
+async function addFiles(fileList) {
+  // Copia subito: la FileList dell'input si svuota appena azzeriamo input.value.
+  const list = [...fileList];
+  for (const file of list) {
+    const text = await file.text();
+    const parsed = parseFwl(text, file.name);
+    const { ecu, how } = identifyEcu(parsed, state.map);
+    state.files = state.files.filter(f => f.name !== file.name);
+    state.files.push({ name: file.name, parsed, ecu, how });
+  }
+  refresh();
+}
+
+const drop = $('#drop');
+const input = $('#files');
+drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); } });
+['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('over'); }));
+['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, () => drop.classList.remove('over')));
+drop.addEventListener('drop', e => { e.preventDefault(); addFiles(e.dataTransfer.files); });
+input.addEventListener('change', () => { addFiles(input.files); input.value = ''; });
+$('#addMore').addEventListener('click', () => input.click());
+$('#reset').addEventListener('click', () => { state.files = []; state.selected.clear(); refresh(); });
+
+// ---------- rendering ----------
+function renderStatic() {
+  document.documentElement.lang = state.lang;
+  document.querySelectorAll('[data-t]').forEach(n => {
+    const v = t()[n.dataset.t];
+    if (typeof v === 'string') n.textContent = v;
+  });
+  document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === state.lang)));
+  $('#fQ').placeholder = t().search;
+  $('#dQ').placeholder = t().discoverFilter;
+  $('#repoLink').href = REPO;
+}
+
+function renderUnits() {
+  const has = state.files.length > 0;
+  $('#loaded').hidden = !has;
+  $('#hero').classList.toggle('compact', has);
+  $('#catalogueNote').hidden = has;
+  if (!has) return;
+  $('#loadedTitle').textContent = t().loaded(Object.keys(ecus()).length);
+  const known = [...new Set([...Object.keys(state.map.nomi || {}), ...state.db.map(e => e.centralina)])].sort();
+  $('#units').replaceChildren(...state.files.map(f => {
+    const n = Object.keys(f.parsed.params).length;
+    const name = f.ecu ? el('strong', { text: f.ecu }) : null;
+    const picker = el('select', {
+      'aria-label': t().chooseEcu,
+      onchange: e => { f.ecu = e.target.value || null; f.how = f.ecu ? 'manuale' : null; refresh(); },
+    }, el('option', { value: '', text: t().chooseEcu }), known.map(k => el('option', { value: k, text: k, selected: k === f.ecu })));
+    return el('li', { class: 'unit' + (f.ecu ? '' : ' unknown') },
+      name || picker,
+      el('span', { class: 'unit-desc', text: f.ecu ? tr(state.map.nomi?.[f.ecu]) : f.name }),
+      el('span', { class: 'unit-meta', text: [f.parsed.cafd && `CAFD ${f.parsed.cafd}`, t().params(n), f.how && t().how[f.how]].filter(Boolean).join(', ') }),
+      f.ecu ? picker : null,
+      f.parsed.vinFound ? el('span', { class: 'unit-vin', text: t().vinWarn }) : null);
+  }));
+}
+
+function renderOverview(counts) {
+  const total = state.results.length;
+  const order = state.files.length ? STATI : ['da_mappare', 'centralina_non_letta'];
+  $('#meter').replaceChildren(...order.filter(s => counts[s]).map(s =>
+    el('span', { class: `seg s-${s}`, style: `flex-grow:${counts[s]}`, title: `${t().stati[s]}: ${counts[s]}` })));
+  $('#legend').replaceChildren(...STATI.filter(s => counts[s]).map(s =>
+    el('li', { class: `s-${s}` },
+      el('button', { type: 'button', title: t().statiHelp[s], onclick: () => { $('#fState').value = s; renderRows(); } },
+        el('b', { text: counts[s] }), ' ', t().stati[s]))));
+  $('#meter').setAttribute('aria-label', `${total}`);
+}
+
+function renderFilters() {
+  const ecuSel = $('#fEcu'), stSel = $('#fState');
+  const keepE = ecuSel.value, keepS = stSel.value;
+  const units = [...new Set(state.db.map(e => e.centralina))].sort();
+  ecuSel.replaceChildren(el('option', { value: '', text: t().allEcus }), units.map(u => el('option', { value: u, text: u })));
+  stSel.replaceChildren(el('option', { value: '', text: t().allStates }), STATI.map(s => el('option', { value: s, text: t().stati[s] })));
+  ecuSel.value = keepE; stSel.value = keepS;
+}
+
+const RANK = { attivabile: 0, regolabile: 1, attiva: 2, non_disponibile: 3, centralina_non_letta: 4, da_mappare: 5 };
+
+function renderRows() {
+  const fe = $('#fEcu').value, fs = $('#fState').value, q = $('#fQ').value.trim().toLowerCase(), hide = $('#fHide').checked;
+  const rows = state.results
+    .filter(r => !fe || r.entry.centralina === fe)
+    .filter(r => !fs || r.stato === fs)
+    .filter(r => !hide || r.entry.consiglio !== 'sconsigliata')
+    .filter(r => !q || [tr(r.entry.titolo), r.entry.centralina, ...r.entry.parametri.map(p => p.nome)].join(' ').toLowerCase().includes(q))
+    .sort((a, b) => RANK[a.stato] - RANK[b.stato] || a.entry.centralina.localeCompare(b.entry.centralina));
+  $('#empty').hidden = rows.length > 0;
+  $('#rows').replaceChildren(...rows.map(rowView));
+}
+
+function valueCell(v) {
+  if (v == null) return el('span', { class: 'v none', text: '—' });
+  return el('code', { class: 'v' }, v);
+}
+
+function rowView(r) {
+  const e = r.entry;
+  const actionable = r.stato === 'attivabile' || r.stato === 'regolabile';
+  const id = 'sel-' + e.id.replace(/\W/g, '-');
+  const titleLang = e.titolo[state.lang] ? null : el('span', { class: 'lang-fallback', text: 'IT', title: 'Not translated yet' });
+  const switchEl = el('span', { class: `toggle s-${r.stato}`, role: 'img', 'aria-label': t().stati[r.stato] }, el('i'));
+
+  const params = el('table', { class: 'params' },
+    el('thead', {}, el('tr', {}, el('th', { text: 'FDL' }), el('th', { text: t().current }), el('th', { text: t().target }))),
+    el('tbody', {}, (r.valori.length ? r.valori : e.parametri.map(p => ({ nome: p.nome, target: p.target, regolabile: p.regolabile, attuale: null }))).map(v =>
+      el('tr', { class: v.target != null && v.attuale != null && String(v.attuale).toLowerCase() === String(v.target).toLowerCase() ? 'ok' : '' },
+        el('td', {}, el('code', { text: v.nome })),
+        el('td', {}, valueCell(v.attuale), v.nominato === false ? el('small', { text: ' ' + t().noName }) : null),
+        el('td', {}, v.target != null ? valueCell(v.target) : el('em', { text: t().choose }))))));
+
+  const tags = [
+    el('span', { class: `risk r-${e.rischio}`, text: t().risk[e.rischio] }),
+    e.consiglio === 'sconsigliata' ? el('span', { class: 'tag bad', text: t().advisedAgainst }) : null,
+    e.affidabilita === 'da_verificare' ? el('span', { class: 'tag', text: t().unverified }) : null,
+  ];
+  const seen = (e.osservazioni || []).map(o => `${o.telaio} ${o.anno || ''} ${o.i_level || ''}`.trim());
+
+  const details = el('details', { class: 'more' },
+    el('summary', { text: e.parametri.length ? e.parametri.map(p => p.nome).join(', ') : t().stati.da_mappare }),
+    e.parametri.length ? params : null,
+    e.valori_suggeriti ? el('p', {}, el('b', { text: t().suggested + ': ' }), tr(e.valori_suggeriti)) : null,
+    tr(e.note) ? el('p', { class: 'note', text: tr(e.note) }) : null,
+    seen.length ? el('p', { class: 'seen', text: `${t().seenOn}: ${seen.join('; ')}` }) : null);
+
+  return el('li', { class: `row s-${r.stato}` + (e.consiglio === 'sconsigliata' ? ' advised-against' : '') },
+    el('div', { class: 'row-main' },
+      switchEl,
+      el('div', { class: 'row-title' },
+        el('h3', {}, tr(e.titolo), titleLang),
+        el('p', { class: 'row-sub' }, el('span', { class: 'ecu', text: e.centralina }), ' ', el('span', { class: 'state', text: t().stati[r.stato] }), ...tags)),
+      actionable ? el('label', { class: 'pick', for: id, title: t().addToList },
+        el('input', { type: 'checkbox', id, checked: state.selected.has(e.id), onchange: ev => { ev.target.checked ? state.selected.add(e.id) : state.selected.delete(e.id); renderDock(); } }),
+        el('span', { class: 'sr', text: t().addToList })) : null),
+    details);
+}
+
+function renderDiscover() {
+  const data = unexplored(state.db, ecus());
+  const total = Object.values(data).reduce((a, l) => a + l.length, 0);
+  $('#discoverCount').textContent = total ? total : '';
+  $('#discoverEmpty').hidden = state.files.length > 0;
+  $('#dQ').hidden = state.files.length === 0;
+  const q = $('#dQ').value.trim().toLowerCase();
+  $('#discover').replaceChildren(...Object.entries(data).map(([ecu, list]) => {
+    const shown = list.filter(p => !q || p.nome.toLowerCase().includes(q));
+    if (!shown.length) return null;
+    return el('details', { class: 'disc', open: Object.keys(data).length === 1 },
+      el('summary', {}, el('strong', { text: ecu }), ` ${tr(state.map.nomi?.[ecu])} `, el('span', { class: 'tab-count', text: shown.length })),
+      el('table', { class: 'params disc-table' }, el('tbody', {}, shown.map(p =>
+        el('tr', {}, el('td', {}, el('code', { text: p.nome })), el('td', {}, el('code', { class: 'v', text: p.valore }), p.nominato ? null : el('small', { text: ' ' + t().noName })))))));
+  }).filter(Boolean));
+}
+
+function renderShare() {
+  const has = state.files.some(f => f.ecu);
+  $('#shareEmpty').hidden = has;
+  $('#shareForm').hidden = !has;
+  if (!has) return;
+  const { removed } = buildFootprint(ecus(), {});
+  $('#removed').textContent = removed.length ? t().removed(removed.length) : '';
+  const title = encodeURIComponent('Impronta: ' + Object.keys(ecus()).join(', '));
+  const body = encodeURIComponent('Allega qui il file .json scaricato da FDL Scout.\n\nTelaio:\nI-level:\nNote:');
+  $('#issueLink').href = `${REPO}/issues/new?labels=impronta&title=${title}&body=${body}`;
+}
+
+$('#shareForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const meta = Object.fromEntries(new FormData(e.target));
+  if (meta.anno) meta.anno = Number(meta.anno) || undefined;
+  const { footprint } = buildFootprint(ecus(), meta);
+  footprint.generatore = 'fdl-scout';
+  footprint.creata = new Date().toISOString().slice(0, 10);
+  save(`impronta-${(meta.telaio || 'mini').toLowerCase()}-${footprint.creata}.json`, JSON.stringify(footprint, null, 2), 'application/json');
+});
+
+function renderDock() {
+  const n = [...state.selected].filter(id => state.results.some(r => r.id === id && (r.stato === 'attivabile' || r.stato === 'regolabile'))).length;
+  $('#dock').hidden = n === 0;
+  $('#openList').textContent = t().listBtn(n);
+}
+
+function save(name, text, type = 'text/plain') {
+  const a = el('a', { href: URL.createObjectURL(new Blob([text], { type })), download: name });
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+$('#openList').addEventListener('click', () => {
+  $('#listText').textContent = esysChecklist(state.results, state.selected, state.lang);
+  $('#listDialog').showModal();
+});
+$('#copyList').addEventListener('click', async e => {
+  try { await navigator.clipboard.writeText($('#listText').textContent); e.target.textContent = t().copied; setTimeout(() => (e.target.textContent = t().copy), 1500); } catch { /* clipboard negato: resta il download */ }
+});
+$('#downloadList').addEventListener('click', () => save('lista-esys.txt', $('#listText').textContent));
+
+// ---------- schede, filtri, lingua ----------
+document.querySelectorAll('[role=tab]').forEach(tab => tab.addEventListener('click', () => {
+  document.querySelectorAll('[role=tab]').forEach(x => x.setAttribute('aria-selected', String(x === tab)));
+  document.querySelectorAll('[role=tabpanel]').forEach(p => (p.hidden = p.id !== tab.getAttribute('aria-controls')));
+}));
+['#fEcu', '#fState', '#fQ', '#fHide'].forEach(s => $(s).addEventListener('input', renderRows));
+$('#dQ').addEventListener('input', renderDiscover);
+document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => {
+  state.lang = b.dataset.lang; store.set('lang', state.lang); renderStatic(); refresh();
+}));
+
+function refresh() {
+  state.results = evaluateAll(state.db, ecus());
+  renderUnits();
+  renderOverview(summarize(state.results));
+  renderFilters();
+  renderRows();
+  renderDiscover();
+  renderShare();
+  renderDock();
+}
+
+renderStatic();
+loadDb().then(refresh).catch(err => {
+  $('#rows').replaceChildren(el('li', { class: 'empty', text: `db.json: ${err.message}` }));
+});

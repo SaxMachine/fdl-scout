@@ -1,0 +1,1006 @@
+# Codifiche note per la centralina BDC_BODY (MINI F5x)
+# Schema: docs/SCHEMA.md
+
+- id: bdc_body.memoria-start-stop-ultimo-stato
+  centralina: BDC_BODY
+  titolo:
+    it: Memoria Start/Stop (ultimo stato)
+  parametri:
+  - nome: TCM_MSA_MEMORY
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Già attivo nel BDC. Nella DME risulta Wert_00, ma la funzione la gestisce il BDC.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv
+    esito: Già attivo
+- id: bdc_body.specchio-passeggero-inclinato-in-retromarcia
+  centralina: BDC_BODY
+  titolo:
+    it: Specchio passeggero inclinato in retromarcia
+  parametri:
+  - nome: ASP_BORDSTEINAUTOMATIK
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Con memoria specchi (ASP_MEMORY_VERBAUT).
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv
+    esito: Già attivo
+- id: bdc_body.ribaltamento-specchietti-alla-chiusura
+  centralina: BDC_BODY
+  titolo:
+    it: Ribaltamento specchietti alla chiusura
+  parametri:
+  - nome: ASP_BEIKLAPPEN
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: ''
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv
+    esito: Già attivo
+- id: bdc_body.angolo-dello-specchio-passeggero-in-retromarcia
+  centralina: BDC_BODY
+  titolo:
+    it: Angolo dello specchio passeggero in retromarcia
+  parametri:
+  - nome: ASP_BORDSTEINAUTOMATIK_DELTA
+    target: '32'
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Su F54 documentato da 55 a 32: lo specchio si abbassa meno. Valore a gusto, ritocca finché vedi bene il
+      marciapiede.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: 85_Digits (55)
+    esito: Consigliato
+- id: bdc_body.memoria-della-modalita-di-guida
+  centralina: BDC_BODY
+  titolo:
+    it: Memoria della modalità di guida
+  parametri:
+  - nome: FesAllowMode4LastFunction
+    target: aktiv
+  - nome: FesAllowMode7LastFunction
+    target: aktiv
+  - nome: FesLastFunctionInterval
+    regolabile: true
+  valori_suggeriti:
+    it: aktiv
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Più utenti F5x la attivano. Abilita il ricordo solo per le modalità presenti nel tuo BDC (parametri FesHasModeN):
+      sulla F54 di riferimento sono 3, 4 e 7, abilita il ricordo per quelle che vuoi mantenere al riavvio.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: bdc_body.idrive-e-radio-spenti-all-apertura-della-porta
+  centralina: BDC_BODY
+  titolo:
+    it: iDrive e radio spenti all'apertura della porta
+  parametri:
+  - nome: TCM_LOGIC_15_OFF_DOOR
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Citata su F55/F56. A motore spento, aprendo la porta del guidatore si spegne il quadro.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: bdc_body.comportamento-drl-con-luci-di-posizione
+  centralina: BDC_BODY
+  titolo:
+    it: Comportamento DRL con luci di posizione
+  parametri:
+  - nome: TFL_MODUS
+    target: tfl_s
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Con il valore 02 l'anello si spegne quando accendi le luci di posizione. Il valore 05 lo tiene sempre acceso.
+      Non lega la DRL alla posizione 0 della levetta.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: tfl_s (02)
+    esito: Già attivo
+- id: bdc_body.stop-lampeggianti-in-frenata-d-emergenza
+  centralina: BDC_BODY
+  titolo:
+    it: Stop lampeggianti in frenata d'emergenza
+  parametri:
+  - nome: ESS_AKTIVIERBARER_AUSGANG
+    target: bremslicht_blinkend
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: ''
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: bremslicht_blinkend
+    esito: Già attivo
+- id: bdc_body.chiusura-comfort-del-tetto-con-la-chiave
+  centralina: BDC_BODY
+  titolo:
+    it: Chiusura comfort del tetto con la chiave
+  parametri:
+  - nome: KOMFORTSCHLIESSUNG
+    target: aktiv
+  - nome: KOMFORT_SCHL_SHD
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Tetto panorama (SA 402) incluso.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv
+    esito: Già attivo
+- id: bdc_body.lampeggio-comfort
+  centralina: BDC_BODY
+  titolo:
+    it: Lampeggio comfort
+  parametri:
+  - nome: PIA_DEFAULT_TIPPBLINKEN
+    regolabile: true
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Numero di lampeggi già regolabile dal menu iDrive. Se lo codifichi a mano (PIA_DEFAULT_TIPPBLINKEN o BLINKZYKLEN_ANZAHL_TIPP),
+      il valore vale lampeggi meno uno: due fonti indipendenti (NAM e Xcar) riportano che 4 dà 5 lampeggi.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: —
+    esito: Già attivo
+- id: bdc_body.fendinebbia-come-luci-di-svolta
+  centralina: BDC_BODY
+  titolo:
+    it: Fendinebbia come luci di svolta
+  parametri:
+  - nome: MAPPING_ABBIEGEL_L_OUTPUT
+    regolabile: true
+  - nome: MAPPING_ABBIEGEL_R_OUTPUT
+    regolabile: true
+  - nome: C_CLC_ENA
+    target: aktiv
+  - nome: C_BLC_ENA
+    target: aktiv
+  - nome: KL_ENABLE_LI
+    target: KL_Ein
+  - nome: KL_ENABLE_RE
+    target: KL_Ein
+  valori_suggeriti:
+    it: nsw_l, nsw_r (o valore hex dei fendinebbia) / aktiv / KL_Ein
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Procedura completa da mini-f56-forum.de. Se nsw_l/nsw_r non funziona, copia nell'uscita il valore che trovi
+      in MAPPING_NEBELSCHW_L/R_OUTPUT. Verifica che resti conforme all'omologazione.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: off / disable / KL_Aus
+    esito: Da verificare
+- id: bdc_body.radio-spenta-in-retromarcia-con-porta-aperta
+  centralina: BDC_BODY
+  titolo:
+    it: Radio spenta in retromarcia con porta aperta
+  parametri:
+  - nome: TCM_LOGIC_R_OFF_DOOR
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte NAM. Variante di TCM_LOGIC_15_OFF_DOOR.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: bdc_body.velocita-di-riapertura-degli-specchietti
+  centralina: BDC_BODY
+  titolo:
+    it: Velocità di riapertura degli specchietti
+  parametri:
+  - nome: ASP_GESCHWINDIGKEIT_AUTO_AUSKLAPPEN
+    regolabile: true
+  valori_suggeriti:
+    it: es. 14 (hex)
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte NAM. Gli specchi ripiegati si riaprono da soli superata questa velocità. Il valore è binario.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: '00'
+    esito: Da verificare
+- id: bdc_body.specchi-ripiegati-con-chiusura-comfort
+  centralina: BDC_BODY
+  titolo:
+    it: Specchi ripiegati con chiusura comfort
+  parametri:
+  - nome: ASP_BEIKLAPPEN_BEI_KOMFORTSCHLIESSEN
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: ''
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv
+    esito: Già attivo
+- id: bdc_body.fendinebbia-accesi-con-luci-di-posizione
+  centralina: BDC_BODY
+  titolo:
+    it: Fendinebbia accesi con luci di posizione
+  parametri:
+  - nome: NSW_EIN_AUF_LDS_STL
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: ''
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv
+    esito: Già attivo
+- id: bdc_body.start-stop-spento-a-ogni-avvio
+  centralina: BDC_BODY
+  titolo:
+    it: Start/Stop spento a ogni avvio
+  parametri:
+  - nome: TCM_MSA_DEFAULT_OFF
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Fonte mini-f56-forum.de, tabella di un F54 03/2018 portato a ID6. Alternativa alla memoria (già attiva):
+      parte sempre spento.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: bdc_body.start-stop-spento-in-eco-pro
+  centralina: BDC_BODY
+  titolo:
+    it: Start/Stop spento in ECO PRO
+  parametri:
+  - nome: TCM_MSA_ECO_MODE
+    target: nicht_aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Stessa fonte. Lo Start/Stop non si attiva da solo in modalità Green.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv
+    esito: Da verificare
+- id: bdc_body.velocita-massima-per-ripiegare-gli-specchi
+  centralina: BDC_BODY
+  titolo:
+    it: Velocità massima per ripiegare gli specchi
+  parametri:
+  - nome: ASP_MAX_GESCHWINDIGKEIT_BEIKLAPPEN
+    regolabile: true
+  valori_suggeriti:
+    it: valore in hex
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Fonte mini-f56-forum.de. Un utente non ha visto effetti: attenzione a decimale/esadecimale.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: '00'
+    esito: Da verificare
+- id: bdc_body.durata-effetto-ambient-light-all-apertura-porta
+  centralina: BDC_BODY
+  titolo:
+    it: Durata effetto ambient light all'apertura porta
+  parametri:
+  - nome: AMBIENTE_RGB_LAUFLICHT_BEI_TUEROEFFNEN
+    regolabile: true
+  valori_suggeriti:
+    it: valore in hex
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Fonte mini-f56-forum.de: il valore è esadecimale, chi l''ha inserito in decimale ha ottenuto l''effetto
+      opposto.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: '32'
+    esito: Da verificare
+- id: bdc_body.lampeggi-di-conferma-alla-chiusura
+  centralina: BDC_BODY
+  titolo:
+    it: Lampeggi di conferma alla chiusura
+  parametri:
+  - nome: QUITTBLK_SICHERN_ANZAHL
+    regolabile: true
+  valori_suggeriti:
+    it: 00–03
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Elenco BimmerCode: 1, 2, 3 volte oppure spento.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: '01'
+    esito: Consigliato
+- id: bdc_body.lampeggi-di-conferma-all-apertura
+  centralina: BDC_BODY
+  titolo:
+    it: Lampeggi di conferma all'apertura
+  parametri:
+  - nome: QUITTBLK_ENTSCHAERFEN_ANZAHL
+    regolabile: true
+  valori_suggeriti:
+    it: 00–03
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Elenco BimmerCode: 1, 2, 3 volte oppure spento.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: '02'
+    esito: Consigliato
+- id: bdc_body.luce-di-benvenuto-solo-al-buio
+  centralina: BDC_BODY
+  titolo:
+    it: Luce di benvenuto solo al buio
+  parametri:
+  - nome: WL_ABHAENGIG_VON_DUNKELHEIT
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Elenco BimmerCode. Evita che fari e luci si accendano di giorno all'apertura.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Consigliato
+- id: bdc_body.durata-della-luce-di-benvenuto
+  centralina: BDC_BODY
+  titolo:
+    it: Durata della luce di benvenuto
+  parametri:
+  - nome: WL_TIMEOUT
+    regolabile: true
+  valori_suggeriti:
+    it: valore in hex
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Elenco BimmerCode: da 5 a 60 secondi. Valore esadecimale.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: 14 (hex)
+    esito: Da verificare
+- id: bdc_body.luci-incluse-nel-benvenuto
+  centralina: BDC_BODY
+  titolo:
+    it: Luci incluse nel benvenuto
+  parametri: []
+  stato_mappatura: da_mappare
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Elenco BimmerCode: si può scegliere per ogni luce (anabbaglianti, fendinebbia, frecce, DRL, targa…). Una
+      riga per luce.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: varia
+    esito: Da verificare
+- id: bdc_body.memoria-del-volante-riscaldato
+  centralina: BDC_BODY
+  titolo:
+    it: Memoria del volante riscaldato
+  parametri:
+  - nome: NACHLAUFZEIT_LENKRADHEIZUNG
+    regolabile: true
+  valori_suggeriti:
+    it: 24 h / illimitata
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Richiede il volante riscaldato (SA 248). Di fabbrica lo stato viene ricordato solo per 15 minuti dopo lo
+      spegnimento.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: 15_min
+    esito: Consigliato
+- id: bdc_body.memoria-dei-sedili-riscaldati
+  centralina: BDC_BODY
+  titolo:
+    it: Memoria dei sedili riscaldati
+  parametri:
+  - nome: NACHLAUFZEIT_SITZHEIZUNG_FRONT
+    regolabile: true
+  valori_suggeriti:
+    it: 24 h / illimitata
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Stesso principio per i sedili anteriori (SA 494).
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: 15_min
+    esito: Consigliato
+- id: bdc_body.sensibilita-del-sensore-pioggia-luce
+  centralina: BDC_BODY
+  titolo:
+    it: Sensibilità del sensore pioggia/luce
+  parametri:
+  - nome: RLS_DEF_FLC_SCHWELLWERT_SATZ
+    regolabile: true
+  valori_suggeriti:
+    it: poco sensibile … molto sensibile
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Elenco BimmerCode. Agisce sull'accensione automatica dei fari in AUTO.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: standart
+    esito: Da verificare
+- id: bdc_body.passate-del-tergicristallo-dopo-il-lavaggio
+  centralina: BDC_BODY
+  titolo:
+    it: Passate del tergicristallo dopo il lavaggio
+  parametri:
+  - nome: WW_ANZAHL_NACHWISCHZ_FRONT
+    regolabile: true
+  valori_suggeriti:
+    it: 1–5
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Elenco BimmerCode.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: 08
+    esito: Da verificare
+- id: bdc_body.tergicristallo-rallenta-da-fermo
+  centralina: BDC_BODY
+  titolo:
+    it: Tergicristallo rallenta da fermo
+  parametri:
+  - nome: WW_STANDRUECKSCHALTUNG
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: ''
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv
+    esito: Già attivo
+- id: bdc_body.tergicristallo-completa-il-ciclo-allo-spegnimento
+  centralina: BDC_BODY
+  titolo:
+    it: Tergicristallo completa il ciclo allo spegnimento
+  parametri:
+  - nome: WW_ZYCLUS_VOLLEND_KLR_AUS
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: ''
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv
+    esito: Già attivo
+- id: bdc_body.velocita-minima-per-le-luci-di-stop-lampeggianti
+  centralina: BDC_BODY
+  titolo:
+    it: Velocità minima per le luci di stop lampeggianti
+  parametri:
+  - nome: ESS_AKTIVIERUNG_GESCHW
+    regolabile: true
+  valori_suggeriti:
+    it: es. 14 (hex, 20 km/h)
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Elenco BimmerCode (Gefahrenbremslicht). Abbassa la velocità da cui scattano in frenata d'emergenza.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: 32 (hex, 50 km/h)
+    esito: Da verificare
+- id: bdc_body.decelerazione-che-attiva-le-luci-di-stop-lampeggianti
+  centralina: BDC_BODY
+  titolo:
+    it: Decelerazione che attiva le luci di stop lampeggianti
+  parametri:
+  - nome: ESS_AKTIVIERUNG_REALE_VERZ
+    regolabile: true
+  valori_suggeriti:
+    it: 5 / 7 / 8 m/s²
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Elenco BimmerCode.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: 0E
+    esito: Da verificare
+- id: bdc_body.modalita-di-guida-all-avvio
+  centralina: BDC_BODY
+  titolo:
+    it: Modalità di guida all'avvio
+  parametri:
+  - nome: FesInitMode
+    regolabile: true
+  valori_suggeriti:
+    it: Sport / Green
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Elenco BimmerCode e forum. Sceglie con quale modalità parte l''auto. Si può scegliere solo tra le modalità
+      presenti nel BDC (FesHasModeN); sulla F54 di riferimento sono MID, Sport e Green (FesHasMode3/4/7): scegli
+      tra queste.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: Basis (MID)
+    esito: Da verificare
+- id: bdc_body.leva-del-cambio-in-s-attiva-la-modalita-sport
+  centralina: BDC_BODY
+  titolo:
+    it: Leva del cambio in S attiva la modalità Sport
+  parametri:
+  - nome: FesGwsKopplung
+    target: aktiv
+  - nome: FesGwsSportMode
+    regolabile: true
+  valori_suggeriti:
+    it: aktiv / Sport
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte mini-f56-forum.de. Spostando la leva in S la vettura passa anche in modalità Sport.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv / Modus_nicht_wechseln
+    esito: Da verificare
+- id: bdc_body.modalita-sport-dsc-meno-invasivo
+  centralina: BDC_BODY
+  titolo:
+    it: Modalità Sport+ (DSC meno invasivo)
+  parametri:
+  - nome: FesHasMode5
+    target: aktiv
+  - nome: FesDtcKopplung
+    target: aktiv
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte mini-f56-forum.de. Cambia l'intervento del controllo di stabilità. Un utente ha poi avuto il quadro
+      senza indicazione della modalità e ha dovuto toccare anche FDS_MENUE_* nel KOMBI.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Sconsigliato
+- id: bdc_body.avvio-motore-senza-premere-il-freno
+  centralina: BDC_BODY
+  titolo:
+    it: Avvio motore senza premere il freno
+  parametri:
+  - nome: TCM_STARTLOCK_BRAKE
+    target: nicht_aktiv
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Citato su NAM. Toglie un blocco di sicurezza contro le partenze involontarie con la marcia inserita.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv
+    esito: Sconsigliato
+- id: bdc_body.clacson-alla-chiusura-con-allarme
+  centralina: BDC_BODY
+  titolo:
+    it: Clacson alla chiusura con allarme
+  parametri:
+  - nome: VAM_HORN_AT_SECURE
+    target: nicht_aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte mini-f56-forum.de. Toglie il colpo di clacson quando inserisci l'allarme.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv
+    esito: Da verificare
+- id: bdc_body.luci-maniglie-in-retromarcia
+  centralina: BDC_BODY
+  titolo:
+    it: Luci maniglie in retromarcia
+  parametri:
+  - nome: OVT_BEI_RUECKFAHRLICHT
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Elenco BimmerCode, NAM e forum tedesco. Alcuni PSdZData non danno un nome al valore attuale: controlla
+      prima in auto se le maniglie già si accendono in retro.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: 64 (senza nome)
+    esito: Da verificare
+- id: bdc_body.tergicristallo-a-intervalli-invece-del-sensore-pioggia
+  centralina: BDC_BODY
+  titolo:
+    it: Tergicristallo a intervalli invece del sensore pioggia
+  parametri:
+  - nome: WW_REGENSENSOR
+    regolabile: true
+  valori_suggeriti:
+    it: nicht verbaut
+  rischio: medio
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Fonte mini-f56-forum.de. Lo stesso sensore gestisce l''accensione automatica dei fari: rischi di perdere
+      anche quella.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: RLS_Verbaut
+    esito: Sconsigliato

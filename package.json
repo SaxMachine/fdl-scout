@@ -1,0 +1,17 @@
+{
+  "name": "fdl-scout",
+  "version": "0.1.0",
+  "description": "Legge gli FWL di E-Sys e dice quali codifiche sono attive, attivabili o ancora da scoprire. Tutto nel browser.",
+  "type": "module",
+  "private": true,
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "build": "python3 scripts/build.py",
+    "validate": "python3 scripts/build.py --check",
+    "test": "node --test tests/*.test.js",
+    "dev": "python3 scripts/build.py && node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

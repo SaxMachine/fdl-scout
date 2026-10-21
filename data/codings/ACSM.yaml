@@ -1,0 +1,26 @@
+# Codifiche note per la centralina ACSM (MINI F5x)
+# Schema: docs/SCHEMA.md
+
+- id: acsm.disattivazione-avviso-cinture
+  centralina: ACSM
+  titolo:
+    it: Disattivazione avviso cinture
+  parametri: []
+  stato_mappatura: da_mappare
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Riguarda la sicurezza attiva. Non lo includo nelle proposte.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: —
+    esito: Sconsigliato

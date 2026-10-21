@@ -1,0 +1,29 @@
+# Codifiche note per la centralina DSC (MINI F5x)
+# Schema: docs/SCHEMA.md
+
+- id: dsc.limitatore-di-velocita-gamma-regolabile
+  centralina: DSC
+  titolo:
+    it: 'Limitatore di velocità: gamma regolabile'
+  parametri:
+  - nome: C_SLD_VMIN_KMH
+    regolabile: true
+  - nome: C_SLD_VMAX_KMH
+    regolabile: true
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Fonte mini-f56-forum.de.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: (FWL non letto)
+    esito: Da verificare

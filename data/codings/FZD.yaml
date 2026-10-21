@@ -1,0 +1,74 @@
+# Codifiche note per la centralina FZD (MINI F5x)
+# Schema: docs/SCHEMA.md
+
+- id: fzd.volume-e-durata-del-segnale-di-chiusura
+  centralina: FZD
+  titolo:
+    it: Volume e durata del segnale di chiusura
+  parametri: []
+  stato_mappatura: da_mappare
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Su F54 il segnale acustico di conferma è gestito dalla FZD. Servono FWL della FZD per mappare i nomi esatti:
+      contributi benvenuti.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: —
+    esito: Da verificare
+- id: fzd.tono-volume-e-durata-della-conferma-acustica
+  centralina: FZD
+  titolo:
+    it: Tono, volume e durata della conferma acustica
+  parametri: []
+  stato_mappatura: da_mappare
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Elenco BimmerCode: si regolano frequenza, volume e durata del segnale.'
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: —
+    esito: Da verificare
+- id: fzd.allarme-suono-sensori-volumetrici-protezione-presa-obd
+  centralina: FZD
+  titolo:
+    it: 'Allarme: suono, sensori volumetrici, protezione presa OBD'
+  parametri: []
+  stato_mappatura: da_mappare
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Elenco BimmerCode (Alarmanlage). Richiede l'allarme (SA 302). Utile disattivare il sensore abitacolo se
+      lasci animali in auto.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: —
+    esito: Da verificare

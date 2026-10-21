@@ -1,0 +1,8 @@
+dist/
+node_modules/
+__pycache__/
+*.ncd
+# FWL reali: mai nel repository (contengono il VIN). Solo esempi ed estratti anonimi.
+*.fwl
+!examples/*.fwl
+!tests/fixtures/*.fwl
