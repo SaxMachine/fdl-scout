@@ -82,7 +82,8 @@ def main():
     shutil.rmtree(dist, ignore_errors=True)
     shutil.copytree(ROOT / "web", dist)
     shutil.copytree(ROOT / "src", dist / "src")
-    payload = {"generato": datetime.now(timezone.utc).isoformat(timespec="seconds"), "voci": db, "centraline": ecu_map}
+    sa = {str(k).upper(): v for k, v in (yaml.safe_load((ROOT / "data" / "sa.yaml").read_text(encoding="utf-8")) or {}).items()}
+    payload = {"generato": datetime.now(timezone.utc).isoformat(timespec="seconds"), "voci": db, "centraline": ecu_map, "sa": sa}
     (dist / "db.json").write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
     print("✓ sito costruito in dist/")
 

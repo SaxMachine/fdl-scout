@@ -57,3 +57,5 @@
     i_level: F056-26-03-519
     valore_letto: initwert / 30
     esito: Da verificare
+  requisiti_sa:
+  - '541'

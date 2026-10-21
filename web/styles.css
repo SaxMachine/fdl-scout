@@ -252,3 +252,7 @@ dialog pre { background: var(--paper); border: 1px solid var(--rule); border-rad
 .toggle.s-manca_optional i { background: var(--ink-2); }
 .row.s-manca_optional { background: transparent; }
 .row.s-manca_optional h3 { color: var(--ink-2); }
+.unit.fa.missing { border-left-color: var(--amber); border-style: dashed; border-left-style: solid; }
+.unit .small { min-height: 2rem; padding: 0 0.8rem; margin-top: 0.35rem; justify-self: start; font-size: 0.8rem; }
+.sa-list { list-style: none; padding: 0; margin: 0.3rem 0 0; display: grid; gap: 0.15rem; font-size: 0.8rem; }
+.sa-list code { color: var(--ink-2); }

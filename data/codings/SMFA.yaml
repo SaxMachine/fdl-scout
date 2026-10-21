@@ -1,0 +1,60 @@
+# Codifiche note per la centralina SMFA (MINI F5x)
+# Schema: docs/SCHEMA.md
+
+- id: smfa.entrata-facilitata
+  centralina: SMFA
+  titolo:
+    it: 'Entrata facilitata: il sedile arretra all''apertura della porta'
+  parametri:
+  - nome: EA_Hilfe
+    target: aktiv
+  requisiti_sa:
+  - '459'
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai: &id001
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Il sedile del guidatore arretra quando apri la porta e torna in posizione all'avvio. Controlla che dietro
+      il sedile non ci siano oggetti o bambini.
+  fonti:
+  - https://bimmercode.app/vehicles/f56
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: smfa.memoria-riscaldamento-sedile
+  centralina: SMFA
+  titolo:
+    it: Memoria del riscaldamento sedile (centralina sedile)
+  parametri:
+  - nome: Nachlauf_Schalter
+    regolabile: true
+  - nome: SA_Nachlaufzeit
+    regolabile: true
+  valori_suggeriti:
+    it: Wert_15 = 15 minuti; scegli un tempo più lungo dalla lista E-Sys.
+  requisiti_sa:
+  - '494'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai: *id001
+  note:
+    it: Sulle auto con sedile elettrico la memoria del riscaldamento può stare nella centralina del sedile oltre
+      che nel BDC (NACHLAUFZEIT_SITZHEIZUNG_FRONT). Se cambiarla nel BDC non basta, prova qui.
+  fonti:
+  - https://bimmercode.app/vehicles/f56
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: Wert_15 / Wert_15
+    esito: Da verificare

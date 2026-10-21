@@ -17,11 +17,13 @@
   - F57
   - F60
   note:
-    it: 'Elenco BimmerCode: velocità e distanza oltre cui PDC e retrocamera si spengono, e attivazione dei sensori
-      quando l''auto arretra in folle.'
+    it: 'BimmerCode le colloca nella centralina PMA/PDC (sensori di parcheggio). Il CAFD 00001D75 della F54 di riferimento
+      è la retrocamera e non contiene queste soglie: serve l''FWL della centralina dei sensori.'
   osservazioni:
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
     valore_letto: —
     esito: Da verificare
+  fonti:
+  - https://bimmercode.app/vehicles/f56

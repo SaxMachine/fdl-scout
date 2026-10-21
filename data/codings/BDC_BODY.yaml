@@ -73,6 +73,8 @@
     i_level: F056-26-03-519
     valore_letto: aktiv
     esito: Già attivo
+  requisiti_sa:
+  - '313'
 - id: bdc_body.angolo-dello-specchio-passeggero-in-retromarcia
   centralina: BDC_BODY
   titolo:
@@ -292,6 +294,8 @@
     i_level: F056-26-03-519
     valore_letto: off / disable / KL_Aus
     esito: Da verificare
+  requisiti_sa:
+  - 5A1
 - id: bdc_body.radio-spenta-in-retromarcia-con-porta-aperta
   centralina: BDC_BODY
   titolo:
@@ -342,6 +346,8 @@
     i_level: F056-26-03-519
     valore_letto: '00'
     esito: Da verificare
+  requisiti_sa:
+  - '313'
 - id: bdc_body.specchi-ripiegati-con-chiusura-comfort
   centralina: BDC_BODY
   titolo:
@@ -366,6 +372,8 @@
     i_level: F056-26-03-519
     valore_letto: aktiv
     esito: Già attivo
+  requisiti_sa:
+  - '313'
 - id: bdc_body.fendinebbia-accesi-con-luci-di-posizione
   centralina: BDC_BODY
   titolo:
@@ -390,6 +398,8 @@
     i_level: F056-26-03-519
     valore_letto: aktiv
     esito: Già attivo
+  requisiti_sa:
+  - 5A1
 - id: bdc_body.start-stop-spento-a-ogni-avvio
   centralina: BDC_BODY
   titolo:
@@ -465,6 +475,8 @@
     i_level: F056-26-03-519
     valore_letto: '00'
     esito: Da verificare
+  requisiti_sa:
+  - '313'
 - id: bdc_body.durata-effetto-ambient-light-all-apertura-porta
   centralina: BDC_BODY
   titolo:
@@ -598,8 +610,19 @@
   centralina: BDC_BODY
   titolo:
     it: Luci incluse nel benvenuto
-  parametri: []
-  stato_mappatura: da_mappare
+  parametri:
+  - nome: MAPPING_ABBLENDL_L_PART_OF
+    regolabile: true
+  - nome: MAPPING_ABBLENDL_R_PART_OF
+    regolabile: true
+  - nome: MAPPING_NEBELSCHW_L_PART_OF
+    regolabile: true
+  - nome: MAPPING_NEBELSCHW_R_PART_OF
+    regolabile: true
+  - nome: MAPPING_TAGFAHRL_1_V_L_PART_OF
+    regolabile: true
+  - nome: MAPPING_TAGFAHRL_1_V_R_PART_OF
+    regolabile: true
   rischio: medio
   consiglio: ok
   affidabilita: da_verificare
@@ -610,15 +633,21 @@
   - F57
   - F60
   note:
-    it: 'Su altre F5x esistono parametri MAPPING_<luce>_PART_OF_WL, uno per luce. Nel BDC della F54 di riferimento
-      (CAFD 000017BE versione 085_010_028) non ci sono: la luce di benvenuto è governata da WELCOME, WL_AKTIVIERUNG
-      e PIA_DEFAULT_WL. Serve qualcuno che li provi.'
+    it: Su questo BDC i parametri si chiamano MAPPING_<luce>_PART_OF (non _PART_OF_WL come su altre F5x). Nella
+      F54 di riferimento luci di posizione, targa e luci design sono già nel benvenuto (WLH_FMH_RL), gli anabbaglianti
+      solo nel follow-me-home (FMH_RL), fendinebbia e DRL anteriori no (off). Cambia una coppia sinistra/destra
+      alla volta.
   osservazioni:
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
-    valore_letto: varia
+    valore_letto: FMH_RL / off / off
     esito: Da verificare
+  valori_suggeriti:
+    it: 'Il valore dice di quali funzioni fa parte la luce: WLH è la luce di benvenuto, FMH il follow-me-home. Per
+      aggiungere una luce al benvenuto scegli dalla lista E-Sys la combinazione che include WLH (es. FMH_RL → WLH_FMH_RL).'
+  fonti:
+  - https://bimmercode.app/vehicles/f56
 - id: bdc_body.memoria-del-volante-riscaldato
   centralina: BDC_BODY
   titolo:
@@ -1011,3 +1040,78 @@
     i_level: F056-26-03-519
     valore_letto: RLS_Verbaut
     esito: Sconsigliato
+- id: bdc_body.clacson-chiudendo-la-porta-senza-p
+  centralina: BDC_BODY
+  titolo:
+    it: Clacson se chiudi la porta del guidatore senza la P inserita
+  parametri:
+  - nome: VAM_HORN_AT_CLOSING_DRD_NOT_IN_P
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai: &id001
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Avviso che l'auto non è in parcheggio quando scendi. Il nome del parametro è chiaro, l'effetto va confermato
+      in auto.
+  fonti:
+  - https://bimmercode.app/vehicles/f56
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: bdc_body.apertura-e-chiusura-comfort-dal-telecomando
+  centralina: BDC_BODY
+  titolo:
+    it: Apertura e chiusura comfort dei finestrini con il telecomando
+  parametri:
+  - nome: KOMFORTOEFFNUNG_FB
+    target: aktiv
+  - nome: KOMFORTSCHLIESSUNG_FB
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai: *id001
+  note:
+    it: 'Tenendo premuto apri o chiudi sul telecomando si aprono o chiudono finestrini e tetto. Nella F54 di riferimento
+      E-Sys mostra ''aktiv'' con dato 00: se non funziona, controlla il valore nella lista.'
+  fonti:
+  - https://bimmercode.app/vehicles/f56
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv / aktiv
+    esito: Da verificare
+- id: bdc_body.richiusura-automatica-a-tempo
+  centralina: BDC_BODY
+  titolo:
+    it: Richiusura automatica delle porte se non vengono aperte
+  parametri:
+  - nome: CLI_DEFAULT_LOCK_AT_TIMEOUT
+    regolabile: true
+  valori_suggeriti:
+    it: Valori dalla lista E-Sys (Nicht Aktiv o un tempo).
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai: *id001
+  note:
+    it: 'Impostazione predefinita della richiusura dopo lo sblocco. Effetto da verificare: potrebbe essere solo
+      il valore iniziale del menu iDrive.'
+  fonti:
+  - https://bimmercode.app/vehicles/f56
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: Nicht Aktiv
+    esito: Da verificare

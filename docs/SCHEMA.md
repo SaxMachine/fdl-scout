@@ -56,3 +56,7 @@ Le codifiche stanno in `data/codings/<CENTRALINA>.yaml`, un file per centralina,
 Il confronto ignora maiuscole e minuscole e la differenza tra spazio e trattino basso (`AKTIV` = `aktiv`, `nicht aktiv` = `nicht_aktiv`). Un target esadecimale viene confrontato anche con il dato tra parentesi quadre dell'FWL, quindi `14` corrisponde a `wert_01 [14]`. I valori esadecimali vanno scritti come appaiono in E-Sys (`14`, `FF`) e tra virgolette se iniziano con zero (`'00'`), altrimenti YAML li legge come numeri.
 
 Alcuni PSdZData non hanno il nome di certi valori: l'FWL mostra `UnknowParam05 [05]`. FDL Scout li tratta come valori senza nome, usa il dato esadecimale e li segnala come "senza nome nel PSdZData".
+
+## Codici SA (`data/sa.yaml`)
+
+Dizionario dei codici optional mostrati nella pagina quando l'utente carica la FA. Contiene solo codici con un significato verificato su una fonte pubblica e coerente su una MINI F5x: alcuni codici hanno significati diversi tra BMW e MINI, e un nome sbagliato è peggio di nessun nome. Formato: `"248": { it: "Volante riscaldato", en: "Heated steering wheel" }`.

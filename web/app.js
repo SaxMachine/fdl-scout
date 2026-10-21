@@ -27,7 +27,7 @@ const store = {
 
 const state = {
   lang: store.get('lang', (navigator.language || 'it').startsWith('en') ? 'en' : 'it'),
-  db: [], map: { cafd: {}, alias: {}, firme: {}, nomi: {} },
+  db: [], map: { cafd: {}, alias: {}, firme: {}, nomi: {} }, sa: {},
   files: [],            // {name, parsed, ecu, how}
   fa: null,             // {serie, tipo, produzione, sa[]} dalla FA, senza VIN
   selected: new Set(),
@@ -55,6 +55,7 @@ async function loadDb() {
   const data = await r.json();
   state.db = data.voci;
   state.map = data.centraline;
+  state.sa = data.sa || {};
   $('#dbDate').textContent = `${state.db.length} · ${data.generato.slice(0, 10)}`;
 }
 
@@ -103,12 +104,21 @@ function renderUnits() {
   if (!has) return;
   $('#loadedTitle').textContent = t().loaded(Object.keys(ecus()).length);
   const known = [...new Set([...Object.keys(state.map.nomi || {}), ...state.db.map(e => e.centralina)])].sort();
-  const faCard = state.fa ? el('li', { class: 'unit fa' },
-    el('strong', { text: 'FA' }),
-    el('span', { class: 'unit-desc', text: [state.fa.serie, state.fa.tipo, state.fa.produzione].filter(Boolean).join(' · ') }),
-    el('span', { class: 'unit-meta', text: t().saCount(state.fa.sa.length) })) : null;
+  const named = state.fa ? state.fa.sa.filter(c => state.sa[c]) : [];
+  const faCard = state.fa
+    ? el('li', { class: 'unit fa' },
+        el('strong', { text: 'FA' }),
+        el('span', { class: 'unit-desc', text: [state.fa.serie, state.fa.tipo, state.fa.produzione].filter(Boolean).join(' · ') }),
+        el('span', { class: 'unit-meta', text: t().saCount(state.fa.sa.length) }),
+        el('details', { class: 'unit-change' }, el('summary', { text: t().saShow(named.length) }),
+          el('ul', { class: 'sa-list' }, ...named.map(c => el('li', {}, el('code', { text: c }), ' ', tr(state.sa[c]))))))
+    : el('li', { class: 'unit fa missing' },
+        el('strong', { text: 'FA' }),
+        el('span', { class: 'unit-desc', text: t().faMissing }),
+        el('span', { class: 'unit-meta', text: t().faWhy }),
+        el('button', { type: 'button', class: 'ghost small', onclick: () => input.click() }, t().faAdd));
   const files = [...state.files].sort((a, b) => (a.ecu || '~').localeCompare(b.ecu || '~') || a.name.localeCompare(b.name));
-  $('#units').replaceChildren(...[faCard].filter(Boolean), ...files.map(f => {
+  $('#units').replaceChildren(faCard, ...files.map(f => {
     const n = Object.keys(f.parsed.params).length;
     const picker = el('select', {
       'aria-label': t().chooseEcu,

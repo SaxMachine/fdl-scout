@@ -174,6 +174,8 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Da verificare
+  requisiti_sa:
+  - '541'
 - id: kombi.limite-e-divieto-di-sorpasso-nell-hud
   centralina: KOMBI
   titolo:
@@ -326,4 +328,55 @@
     anno: 2022
     i_level: F056-26-03-519
     valore_letto: 12_5_liter
+    esito: Da verificare
+- id: kombi.scala-del-consumo-istantaneo
+  centralina: KOMBI
+  titolo:
+    it: Fondo scala dell'indicatore di consumo
+  parametri:
+  - nome: HMI_KVA_SKALA
+    regolabile: true
+  - nome: DIG_KVA_BEREICH
+    regolabile: true
+  valori_suggeriti:
+    it: Valori in l/100 km dalla lista E-Sys (oggi 20).
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai: &id001
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Cambia il valore massimo della barra del consumo nel quadro.
+  fonti:
+  - https://bimmercode.app/vehicles/f56
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: 20l/100km / 20_l/100km
+    esito: Da verificare
+- id: kombi.data-nel-computer-di-bordo
+  centralina: KOMBI
+  titolo:
+    it: Data nel computer di bordo
+  parametri:
+  - nome: BC_DATUM
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai: *id001
+  note:
+    it: Aggiunge la data tra le voci del computer di bordo.
+  fonti:
+  - https://bimmercode.app/vehicles/f56
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: aktiv
     esito: Da verificare

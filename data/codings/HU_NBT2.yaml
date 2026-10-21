@@ -74,6 +74,8 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Da verificare
+  requisiti_sa:
+  - '313'
 - id: hu_nbt2.memoria-sedile-richiamata-dalla-chiave
   centralina: HU_NBT2
   titolo:
@@ -381,6 +383,8 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Da verificare
+  requisiti_sa:
+  - 2VB
 - id: hu_nbt2.frecce-nell-hud
   centralina: HU_NBT2
   titolo:
@@ -1010,6 +1014,8 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Da verificare
+  requisiti_sa:
+  - 2VB
 - id: hu_nbt2.regolazione-luminosita-luci-ambiente-in-idrive
   centralina: HU_NBT2
   titolo:
@@ -1057,4 +1063,32 @@
     anno: 2022
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
+    esito: Da verificare
+- id: hu_nbt2.suoneria-dell-auto
+  centralina: HU_NBT2
+  titolo:
+    it: Suoneria delle chiamate dell'auto
+  parametri:
+  - nome: RINGTONE
+    regolabile: true
+  valori_suggeriti:
+    it: mini, bmw e altri valori dalla lista E-Sys.
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Cambia la suoneria usata dall'auto quando il telefono non trasmette la propria.
+  fonti:
+  - https://bimmercode.app/vehicles/f56
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: mini
     esito: Da verificare

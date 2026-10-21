@@ -1,0 +1,27 @@
+# Codici SA (optional) con significato verificato.
+#
+# Solo codici la cui descrizione è stata controllata su un elenco pubblico dei codici opzione
+# BMW/MINI (https://5series.net/forums/diy-do-yourself-14/all-bmw-option-codes-list-109022/)
+# e che ha senso su una MINI F5x. Alcuni codici hanno significati diversi tra BMW e MINI:
+# nel dubbio un codice resta fuori. Aggiungine solo con una fonte.
+
+"248": { it: "Volante riscaldato", en: "Heated steering wheel" }
+"249": { it: "Volante multifunzione", en: "Multifunction steering wheel" }
+"2VB": { it: "Controllo pressione pneumatici", en: "Tyre pressure monitoring" }
+"302": { it: "Allarme antifurto", en: "Alarm system" }
+"313": { it: "Specchi esterni ripiegabili", en: "Folding exterior mirrors" }
+"322": { it: "Comfort Access", en: "Comfort Access" }
+"3AG": { it: "Retrocamera", en: "Reversing camera" }
+"402": { it: "Tetto panoramico elettrico", en: "Panoramic sunroof" }
+"431": { it: "Specchio interno antiabbagliante automatico", en: "Auto-dimming interior mirror" }
+"459": { it: "Sedile elettrico con memoria", en: "Electric seat with memory" }
+"494": { it: "Sedili riscaldati", en: "Heated seats" }
+"534": { it: "Climatizzatore automatico", en: "Automatic air conditioning" }
+"541": { it: "Cruise control adattivo (ACC)", en: "Active cruise control" }
+"563": { it: "Pacchetto luci", en: "Light package" }
+"5A1": { it: "Fendinebbia LED", en: "LED fog lights" }
+"5DP": { it: "Parcheggio automatico", en: "Park assistant" }
+"654": { it: "Radio DAB", en: "DAB tuner" }
+"6UM": { it: "Navigazione MINI", en: "MINI navigation" }
+"6WB": { it: "Strumentazione digitale", en: "Digital instrument display" }
+"845": { it: "Avviso acustico cinture", en: "Acoustic seat belt warning" }
