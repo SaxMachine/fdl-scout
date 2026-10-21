@@ -556,7 +556,7 @@
 - id: hu_nbt2.avviso-superamento-corsia-nel-menu
   centralina: HU_NBT2
   titolo:
-    it: Avviso superamento corsia nel menu
+    it: 'Avviso uscita di corsia: voce nel menu iDrive'
   parametri:
   - nome: LANE_DEPARTURE_WARNING
     target: aktiv
@@ -570,13 +570,20 @@
   - F57
   - F60
   note:
-    it: 'Fonte Bimmerfest. KAFAS ha già la funzione attiva: la voce aggiunge l''impostazione in iDrive.'
+    it: 'Parte di una procedura su quattro centraline. Nella F54 di riferimento KOMBI, BDC e gran parte della KAFAS
+      sono già pronti: mancano questa voce e le due della KAFAS. Procedura completa su F54 (minif56): KOMBI TLC_VERBAUT,
+      ST_TLC_*; BDC ComAdapterPdu_18A_Steuerung_Vibration_Lenkrad e SPURVERLASSENS_WARNUNG; KAFAS TLC_ON_OFF, SEND_MSG_327/18A;
+      HU LANE_DEPARTURE_WARNING; KAFAS TLC_START_VERSION 01 e DT_LNDT_SEND. Un utente F54 l''ha attivata senza montare
+      il motorino di vibrazione: la vibrazione è leggera. Richiede la telecamera KAFAS.'
   osservazioni:
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Da verificare
+  fonti:
+  - https://www.minif56.com/threads/lane-departure-warning-coding-on-f54-clubman.89617/
+  - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
 - id: hu_nbt2.scrittura-su-chiavetta-usb
   centralina: HU_NBT2
   titolo:

@@ -1115,3 +1115,30 @@
     i_level: F056-26-03-519
     valore_letto: Nicht Aktiv
     esito: Da verificare
+- id: bdc_body.avviso-uscita-corsia-attivo-all-avvio
+  centralina: BDC_BODY
+  titolo:
+    it: Avviso uscita di corsia acceso a ogni avvio
+  parametri:
+  - nome: PIA_DEFAULT_SPURVERLASSENS_WARNUNG
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Valore iniziale del profilo: l''avviso parte già acceso. Ha senso solo dopo aver attivato l''avviso di
+      uscita corsia (voci KAFAS e HU).'
+  fonti:
+  - https://www.minif56.com/threads/lane-departure-warning-coding-on-f54-clubman.89617/
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare

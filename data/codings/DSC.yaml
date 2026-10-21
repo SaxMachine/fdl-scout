@@ -59,3 +59,31 @@
     esito: Da verificare
   requisiti_sa:
   - '541'
+- id: dsc.limitatore-di-velocita
+  centralina: DSC
+  titolo:
+    it: Limitatore di velocità (LIM)
+  parametri:
+  - nome: C_SLD_Funktion
+    target: aktiv
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Il quadro ha già SLD_ENABLE aktiv e il DSC ha C_SpeedLimitDevice_I aktiv, ma la funzione C_SLD_Funktion
+      è spenta. Su Bimmerfest la combinazione KOMBI SLD_ENABLE + DSC C_SLD_Funktion attiva il limitatore con il
+      tasto del cruise control. La gamma regolabile è nella voce ''Limitatore di velocità: gamma regolabile''.'
+  fonti:
+  - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare

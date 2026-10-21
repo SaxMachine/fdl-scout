@@ -380,3 +380,34 @@
     i_level: F056-26-03-519
     valore_letto: aktiv
     esito: Da verificare
+- id: kombi.memoria-segnali-stradali
+  centralina: KOMBI
+  titolo:
+    it: Memoria dei segnali stradali nel quadro (TSM)
+  parametri:
+  - nome: TSM_ENABLE
+    target: aktiv
+  - nome: DISP_FRSG_TIMEOUT
+    target: aktiv
+  - nome: DISP_FRSG_APPL
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Citati su Bimmerfest insieme al riconoscimento dei limiti di velocità (già attivo nella F54 di riferimento).
+      TSM dovrebbe mostrare anche altri cartelli memorizzati; l'effetto su MINI non è confermato.
+  fonti:
+  - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv / nicht_aktiv / nicht_aktiv
+    esito: Da verificare
