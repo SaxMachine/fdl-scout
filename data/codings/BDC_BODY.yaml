@@ -228,6 +228,8 @@
     i_level: F056-26-03-519
     valore_letto: aktiv
     esito: Già attivo
+  requisiti_sa:
+  - '402'
 - id: bdc_body.lampeggio-comfort
   centralina: BDC_BODY
   titolo:
@@ -608,8 +610,9 @@
   - F57
   - F60
   note:
-    it: 'Elenco BimmerCode: si può scegliere per ogni luce (anabbaglianti, fendinebbia, frecce, DRL, targa…). Una
-      riga per luce.'
+    it: 'Su altre F5x esistono parametri MAPPING_<luce>_PART_OF_WL, uno per luce. Nel BDC della F54 di riferimento
+      (CAFD 000017BE versione 085_010_028) non ci sono: la luce di benvenuto è governata da WELCOME, WL_AKTIVIERUNG
+      e PIA_DEFAULT_WL. Serve qualcuno che li provi.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -643,6 +646,8 @@
     i_level: F056-26-03-519
     valore_letto: 15_min
     esito: Consigliato
+  requisiti_sa:
+  - '248'
 - id: bdc_body.memoria-dei-sedili-riscaldati
   centralina: BDC_BODY
   titolo:
@@ -669,6 +674,8 @@
     i_level: F056-26-03-519
     valore_letto: 15_min
     esito: Consigliato
+  requisiti_sa:
+  - '494'
 - id: bdc_body.sensibilita-del-sensore-pioggia-luce
   centralina: BDC_BODY
   titolo:

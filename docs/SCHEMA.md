@@ -37,7 +37,7 @@ Le codifiche stanno in `data/codings/<CENTRALINA>.yaml`, un file per centralina,
 | `centralina` | sì | Uguale al nome del file. I nomi seguono E-Sys (`HU_NBT2`, `BDC_BODY`, `KOMBI`…). |
 | `titolo.it` | sì | Cosa fa la funzione, dal punto di vista di chi guida. `titolo.en` facoltativo. |
 | `parametri` | sì | Lista dei parametri FDL da toccare, anche vuota. |
-| `parametri[].nome` | sì | Nome esatto del parametro come compare nell'FWL. |
+| `parametri[].nome` | sì | Nome esatto del parametro come compare nell'FWL, anche con spazi o trattini (`Akustische Quittierung Schaerfen`, `Display-Farbumschlag`). Il confronto ignora maiuscole e minuscole, ma è meglio copiarlo identico. |
 | `parametri[].target` | uno dei due | Valore da impostare (`aktiv`, `both`, `FF`…). |
 | `parametri[].regolabile` | uno dei due | `true` quando il valore è a scelta: in quel caso usa `valori_suggeriti`. |
 | `valori_suggeriti` | no | Testo libero `it`/`en` con i valori consigliati per i parametri regolabili. |
@@ -46,13 +46,13 @@ Le codifiche stanno in `data/codings/<CENTRALINA>.yaml`, un file per centralina,
 | `consiglio` | sì | `ok` oppure `sconsigliata` per ciò che riduce la sicurezza o è contrario al Codice della strada. |
 | `affidabilita` | sì | `confermata` se almeno un'auto l'ha provata con esito, altrimenti `da_verificare`. |
 | `telai` | no | Telai a cui si applica. |
-| `requisiti_sa` | no | Codici SA necessari, es. `[248]` per il volante riscaldato. |
+| `requisiti_sa` | no | Codici SA necessari, es. `['248']` per il volante riscaldato. Se l'utente carica la FA e il codice manca, la voce risulta "Manca l'optional". Metti solo codici verificati. |
 | `note` | no | `it`/`en`: dipendenze, avvertenze, effetti collaterali. Scrivi in modo generale, non riferito alla tua auto. |
 | `fonti` | no | Link alle discussioni o guide da cui viene la voce. Riassumi con parole tue, non copiare i testi. |
 | `osservazioni` | no | Auto su cui il parametro è stato letto: telaio, anno, i-level, valore letto, esito. È la prova empirica della voce. |
 
 ## Valori
 
-Il confronto ignora maiuscole e minuscole (`AKTIV` = `aktiv`). I valori esadecimali vanno scritti come appaiono in E-Sys (`14`, `FF`) e tra virgolette se iniziano con zero (`'00'`), altrimenti YAML li legge come numeri.
+Il confronto ignora maiuscole e minuscole e la differenza tra spazio e trattino basso (`AKTIV` = `aktiv`, `nicht aktiv` = `nicht_aktiv`). Un target esadecimale viene confrontato anche con il dato tra parentesi quadre dell'FWL, quindi `14` corrisponde a `wert_01 [14]`. I valori esadecimali vanno scritti come appaiono in E-Sys (`14`, `FF`) e tra virgolette se iniziano con zero (`'00'`), altrimenti YAML li legge come numeri.
 
-Alcuni PSdZData recenti non hanno più il nome di certi valori: l'FWL mostra solo il dato esadecimale. FDL Scout li segnala come "senza nome nel PSdZData".
+Alcuni PSdZData non hanno il nome di certi valori: l'FWL mostra `UnknowParam05 [05]`. FDL Scout li tratta come valori senza nome, usa il dato esadecimale e li segnala come "senza nome nel PSdZData".

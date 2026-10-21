@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 RISCHI = {"basso", "medio", "alto"}
 CONSIGLI = {"ok", "sconsigliata"}
 AFFIDABILITA = {"confermata", "da_verificare"}
-PARAM_NAME = re.compile(r"^[A-Za-z][A-Za-z0-9_]*$")
+PARAM_NAME = re.compile(r"^[A-Za-z0-9#][A-Za-z0-9_ .\-#/()+]*$")
 ID_RE = re.compile(r"^[a-z0-9_]+\.[a-z0-9-]+$")
 
 
@@ -48,6 +48,11 @@ def load_db():
                     err(f'{p.get("nome")}: serve "target" oppure "regolabile: true"')
                 if p.get("target") is not None:
                     p["target"] = str(p["target"])  # YAML legge 00 o 14 come numeri
+            if "requisiti_sa" in e:
+                if not isinstance(e["requisiti_sa"], list):
+                    err("requisiti_sa deve essere una lista di codici SA")
+                else:
+                    e["requisiti_sa"] = [str(x).upper() for x in e["requisiti_sa"]]
             if not params and e.get("stato_mappatura") != "da_mappare":
                 err("senza parametri serve stato_mappatura: da_mappare")
             if e.get("rischio") not in RISCHI:

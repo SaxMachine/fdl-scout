@@ -98,6 +98,8 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Da verificare
+  requisiti_sa:
+  - '459'
 - id: hu_nbt2.voce-menu-conferma-acustica-di-chiusura
   centralina: HU_NBT2
   titolo:
@@ -146,6 +148,8 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Da verificare
+  requisiti_sa:
+  - '494'
 - id: hu_nbt2.distanza-alla-prossima-svolta-nell-hud
   centralina: HU_NBT2
   titolo:
@@ -671,6 +675,8 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Da verificare
+  requisiti_sa:
+  - '248'
 - id: hu_nbt2.popup-del-volume
   centralina: HU_NBT2
   titolo:

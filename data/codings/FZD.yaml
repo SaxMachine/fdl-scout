@@ -4,9 +4,14 @@
 - id: fzd.volume-e-durata-del-segnale-di-chiusura
   centralina: FZD
   titolo:
-    it: Volume e durata del segnale di chiusura
-  parametri: []
-  stato_mappatura: da_mappare
+    it: Volume e durata del segnale acustico dell'allarme
+  parametri:
+  - nome: Buzzer level high
+    regolabile: true
+  - nome: Buzzer level low
+    regolabile: true
+  - nome: Buzzer duration
+    regolabile: true
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -17,20 +22,27 @@
   - F57
   - F60
   note:
-    it: 'Su F54 il segnale acustico di conferma è gestito dalla FZD. Servono FWL della FZD per mappare i nomi esatti:
-      contributi benvenuti.'
+    it: Nella F54 di riferimento la conferma acustica è gestita dalla sirena dell'allarme nella FZD (CAFD 00001412).
+      Il clacson alla chiusura è invece VAM_HORN_AT_SECURE nel BDC.
   osservazioni:
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
-    valore_letto: —
+    valore_letto: level_3 / level_2 / 0A
     esito: Da verificare
-- id: fzd.tono-volume-e-durata-della-conferma-acustica
+  valori_suggeriti:
+    it: Livelli level_1…level_3; durata in esadecimale. Prova un valore alla volta.
+  requisiti_sa:
+  - '302'
+- id: fzd.conferma-acustica-inserimento-allarme
   centralina: FZD
   titolo:
-    it: Tono, volume e durata della conferma acustica
-  parametri: []
-  stato_mappatura: da_mappare
+    it: Conferma acustica all'inserimento e al disinserimento dell'allarme
+  parametri:
+  - nome: Akustische Quittierung Schaerfen
+    target: aktiv
+  - nome: Akustische Quittierung Entschaerfen
+    target: aktiv
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -41,19 +53,27 @@
   - F57
   - F60
   note:
-    it: 'Elenco BimmerCode: si regolano frequenza, volume e durata del segnale.'
+    it: La sirena emette un breve segnale quando chiudi (Schaerfen) e quando apri (Entschaerfen). Puoi attivare
+      anche solo uno dei due.
   osservazioni:
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
-    valore_letto: —
+    valore_letto: nicht aktiv / nicht aktiv
     esito: Da verificare
+  requisiti_sa:
+  - '302'
 - id: fzd.allarme-suono-sensori-volumetrici-protezione-presa-obd
   centralina: FZD
   titolo:
-    it: 'Allarme: suono, sensori volumetrici, protezione presa OBD'
-  parametri: []
-  stato_mappatura: da_mappare
+    it: 'Allarme: protezione abitacolo, sensore di inclinazione e presa OBD'
+  parametri:
+  - nome: Innenraumschutz
+    regolabile: true
+  - nome: Neigungssensor
+    regolabile: true
+  - nome: OBD-Alarm
+    regolabile: true
   rischio: medio
   consiglio: ok
   affidabilita: da_verificare
@@ -64,11 +84,16 @@
   - F57
   - F60
   note:
-    it: Elenco BimmerCode (Alarmanlage). Richiede l'allarme (SA 302). Utile disattivare il sensore abitacolo se
-      lasci animali in auto.
+    it: Disattivare la protezione abitacolo (Innenraumschutz) è utile se lasci animali in auto; il sensore di inclinazione
+      (Neigungssensor) può dare falsi allarmi su traghetti o carroattrezzi. OBD-Alarm fa scattare l'allarme se si
+      collega qualcosa alla presa OBD.
   osservazioni:
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
-    valore_letto: —
+    valore_letto: aktiv / aktiv / aktiv
     esito: Da verificare
+  valori_suggeriti:
+    it: aktiv / nicht aktiv per ciascuno.
+  requisiti_sa:
+  - '302'

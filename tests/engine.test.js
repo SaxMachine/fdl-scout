@@ -7,7 +7,7 @@ import { buildFootprint } from '../src/footprint.js';
 // FWL sintetici: riproducono le varianti di formato viste finora (tab, spazi multipli, "=").
 // Vanno sostituiti/affiancati da estratti di FWL reali in tests/fixtures/.
 const HU_TAB = [
-  'ECU: HU_NBT2  CAFD_00001EF6_005_017_004',
+  'ECU HU_NBT2  CAFD_00001EF6_005_017_004',
   'VIN WMW00TEST0A123456',
   '',
   'CLIMATE_AUTORECIRCULATION\tauc_nicht_vorhanden\t00',

@@ -1,6 +1,7 @@
 import { parseFwl, identifyEcu } from './src/parser.js';
 import { evaluateAll, unexplored, summarize, esysChecklist, STATI } from './src/matcher.js';
 import { buildFootprint } from './src/footprint.js';
+import { isFa, parseFa } from './src/fa.js';
 import { T } from './i18n.js';
 
 // Repository pubblico del progetto (link a codice, database e segnalazioni).
@@ -28,6 +29,7 @@ const state = {
   lang: store.get('lang', (navigator.language || 'it').startsWith('en') ? 'en' : 'it'),
   db: [], map: { cafd: {}, alias: {}, firme: {}, nomi: {} },
   files: [],            // {name, parsed, ecu, how}
+  fa: null,             // {serie, tipo, produzione, sa[]} dalla FA, senza VIN
   selected: new Set(),
   results: [],
   tab: 'codings',
@@ -40,7 +42,8 @@ function ecus() {
   const out = {};
   for (const f of state.files) {
     if (!f.ecu) continue;
-    const e = out[f.ecu] ||= { cafd: f.parsed.cafd, params: {} };
+    const e = out[f.ecu] ||= { cafds: [], params: {} };
+    if (f.parsed.cafd) e.cafds.push(f.parsed.cafdVersion ? `${f.parsed.cafd}_${f.parsed.cafdVersion}` : f.parsed.cafd);
     Object.assign(e.params, f.parsed.params);
   }
   return out;
@@ -60,6 +63,7 @@ async function addFiles(fileList) {
   const list = [...fileList];
   for (const file of list) {
     const text = await file.text();
+    if (isFa(text)) { state.fa = parseFa(text); continue; }
     const parsed = parseFwl(text, file.name);
     const { ecu, how } = identifyEcu(parsed, state.map);
     state.files = state.files.filter(f => f.name !== file.name);
@@ -76,7 +80,7 @@ drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') 
 drop.addEventListener('drop', e => { e.preventDefault(); addFiles(e.dataTransfer.files); });
 input.addEventListener('change', () => { addFiles(input.files); input.value = ''; });
 $('#addMore').addEventListener('click', () => input.click());
-$('#reset').addEventListener('click', () => { state.files = []; state.selected.clear(); refresh(); });
+$('#reset').addEventListener('click', () => { state.files = []; state.fa = null; state.selected.clear(); refresh(); });
 
 // ---------- rendering ----------
 function renderStatic() {
@@ -92,25 +96,29 @@ function renderStatic() {
 }
 
 function renderUnits() {
-  const has = state.files.length > 0;
+  const has = state.files.length > 0 || !!state.fa;
   $('#loaded').hidden = !has;
   $('#hero').classList.toggle('compact', has);
   $('#catalogueNote').hidden = has;
   if (!has) return;
   $('#loadedTitle').textContent = t().loaded(Object.keys(ecus()).length);
   const known = [...new Set([...Object.keys(state.map.nomi || {}), ...state.db.map(e => e.centralina)])].sort();
-  $('#units').replaceChildren(...state.files.map(f => {
+  const faCard = state.fa ? el('li', { class: 'unit fa' },
+    el('strong', { text: 'FA' }),
+    el('span', { class: 'unit-desc', text: [state.fa.serie, state.fa.tipo, state.fa.produzione].filter(Boolean).join(' · ') }),
+    el('span', { class: 'unit-meta', text: t().saCount(state.fa.sa.length) })) : null;
+  const files = [...state.files].sort((a, b) => (a.ecu || '~').localeCompare(b.ecu || '~') || a.name.localeCompare(b.name));
+  $('#units').replaceChildren(...[faCard].filter(Boolean), ...files.map(f => {
     const n = Object.keys(f.parsed.params).length;
-    const name = f.ecu ? el('strong', { text: f.ecu }) : null;
     const picker = el('select', {
       'aria-label': t().chooseEcu,
       onchange: e => { f.ecu = e.target.value || null; f.how = f.ecu ? 'manuale' : null; refresh(); },
     }, el('option', { value: '', text: t().chooseEcu }), known.map(k => el('option', { value: k, text: k, selected: k === f.ecu })));
     return el('li', { class: 'unit' + (f.ecu ? '' : ' unknown') },
-      name || picker,
+      f.ecu ? el('strong', { text: f.ecu }) : picker,
       el('span', { class: 'unit-desc', text: f.ecu ? tr(state.map.nomi?.[f.ecu]) : f.name }),
       el('span', { class: 'unit-meta', text: [f.parsed.cafd && `CAFD ${f.parsed.cafd}`, t().params(n), f.how && t().how[f.how]].filter(Boolean).join(', ') }),
-      f.ecu ? picker : null,
+      f.ecu ? el('details', { class: 'unit-change' }, el('summary', { text: t().change }), picker) : null,
       f.parsed.vinFound ? el('span', { class: 'unit-vin', text: t().vinWarn }) : null);
   }));
 }
@@ -131,12 +139,12 @@ function renderFilters() {
   const ecuSel = $('#fEcu'), stSel = $('#fState');
   const keepE = ecuSel.value, keepS = stSel.value;
   const units = [...new Set(state.db.map(e => e.centralina))].sort();
-  ecuSel.replaceChildren(el('option', { value: '', text: t().allEcus }), units.map(u => el('option', { value: u, text: u })));
-  stSel.replaceChildren(el('option', { value: '', text: t().allStates }), STATI.map(s => el('option', { value: s, text: t().stati[s] })));
+  ecuSel.replaceChildren(el('option', { value: '', text: t().allEcus }), ...units.map(u => el('option', { value: u, text: u })));
+  stSel.replaceChildren(el('option', { value: '', text: t().allStates }), ...STATI.map(s => el('option', { value: s, text: t().stati[s] })));
   ecuSel.value = keepE; stSel.value = keepS;
 }
 
-const RANK = { attivabile: 0, regolabile: 1, attiva: 2, non_disponibile: 3, centralina_non_letta: 4, da_mappare: 5 };
+const RANK = { attivabile: 0, regolabile: 1, attiva: 2, manca_optional: 3, non_disponibile: 4, centralina_non_letta: 5, da_mappare: 6 };
 
 function renderRows() {
   const fe = $('#fEcu').value, fs = $('#fState').value, q = $('#fQ').value.trim().toLowerCase(), hide = $('#fHide').checked;
@@ -165,7 +173,7 @@ function rowView(r) {
   const params = el('table', { class: 'params' },
     el('thead', {}, el('tr', {}, el('th', { text: 'FDL' }), el('th', { text: t().current }), el('th', { text: t().target }))),
     el('tbody', {}, (r.valori.length ? r.valori : e.parametri.map(p => ({ nome: p.nome, target: p.target, regolabile: p.regolabile, attuale: null }))).map(v =>
-      el('tr', { class: v.target != null && v.attuale != null && String(v.attuale).toLowerCase() === String(v.target).toLowerCase() ? 'ok' : '' },
+      el('tr', { class: v.ok ? 'ok' : '' },
         el('td', {}, el('code', { text: v.nome })),
         el('td', {}, valueCell(v.attuale), v.nominato === false ? el('small', { text: ' ' + t().noName }) : null),
         el('td', {}, v.target != null ? valueCell(v.target) : el('em', { text: t().choose }))))));
@@ -174,6 +182,7 @@ function rowView(r) {
     el('span', { class: `risk r-${e.rischio}`, text: t().risk[e.rischio] }),
     e.consiglio === 'sconsigliata' ? el('span', { class: 'tag bad', text: t().advisedAgainst }) : null,
     e.affidabilita === 'da_verificare' ? el('span', { class: 'tag', text: t().unverified }) : null,
+    r.sa_mancanti ? el('span', { class: 'tag bad', text: t().missingSa(r.sa_mancanti.join(', ')) }) : null,
   ];
   const seen = (e.osservazioni || []).map(o => `${o.telaio} ${o.anno || ''} ${o.i_level || ''}`.trim());
 
@@ -181,6 +190,7 @@ function rowView(r) {
     el('summary', { text: e.parametri.length ? e.parametri.map(p => p.nome).join(', ') : t().stati.da_mappare }),
     e.parametri.length ? params : null,
     e.valori_suggeriti ? el('p', {}, el('b', { text: t().suggested + ': ' }), tr(e.valori_suggeriti)) : null,
+    e.requisiti_sa?.length ? el('p', {}, el('b', { text: t().needsSa + ': ' }), e.requisiti_sa.join(', ')) : null,
     tr(e.note) ? el('p', { class: 'note', text: tr(e.note) }) : null,
     seen.length ? el('p', { class: 'seen', text: `${t().seenOn}: ${seen.join('; ')}` }) : null);
 
@@ -206,10 +216,20 @@ function renderDiscover() {
   $('#discover').replaceChildren(...Object.entries(data).map(([ecu, list]) => {
     const shown = list.filter(p => !q || p.nome.toLowerCase().includes(q));
     if (!shown.length) return null;
-    return el('details', { class: 'disc', open: Object.keys(data).length === 1 },
-      el('summary', {}, el('strong', { text: ecu }), ` ${tr(state.map.nomi?.[ecu])} `, el('span', { class: 'tab-count', text: shown.length })),
-      el('table', { class: 'params disc-table' }, el('tbody', {}, shown.map(p =>
-        el('tr', {}, el('td', {}, el('code', { text: p.nome })), el('td', {}, el('code', { class: 'v', text: p.valore }), p.nominato ? null : el('small', { text: ' ' + t().noName })))))));
+    // La tabella si costruisce solo all'apertura: con tutte le centraline sono migliaia di righe.
+    const LIMIT = 400;
+    const fill = d => {
+      if (d.dataset.filled) return;
+      d.dataset.filled = '1';
+      const rows = shown.slice(0, LIMIT).map(p =>
+        el('tr', {}, el('td', {}, el('code', { text: p.nome })), el('td', {}, el('code', { class: 'v', text: p.valore }), p.nominato ? null : el('small', { text: ' ' + t().noName }))));
+      d.append(el('table', { class: 'params disc-table' }, el('tbody', {}, rows)));
+      if (shown.length > LIMIT) d.append(el('p', { class: 'empty', text: t().discoverMore(shown.length - LIMIT) }));
+    };
+    const d = el('details', { class: 'disc', ontoggle: ev => ev.target.open && fill(ev.target) },
+      el('summary', {}, el('strong', { text: ecu }), ` ${tr(state.map.nomi?.[ecu])} `, el('span', { class: 'tab-count', text: shown.length })));
+    if (Object.keys(data).length === 1 || q) { d.open = true; fill(d); }
+    return d;
   }).filter(Boolean));
 }
 
@@ -218,6 +238,11 @@ function renderShare() {
   $('#shareEmpty').hidden = has;
   $('#shareForm').hidden = !has;
   if (!has) return;
+  const form = $('#shareForm');
+  if (state.fa) {
+    if (!form.telaio.value && state.fa.serie) form.telaio.value = state.fa.serie;
+    if (!form.anno.value && state.fa.produzione) form.anno.value = state.fa.produzione.slice(-4);
+  }
   const { removed } = buildFootprint(ecus(), {});
   $('#removed').textContent = removed.length ? t().removed(removed.length) : '';
   const title = encodeURIComponent('Impronta: ' + Object.keys(ecus()).join(', '));
@@ -229,6 +254,7 @@ $('#shareForm').addEventListener('submit', e => {
   e.preventDefault();
   const meta = Object.fromEntries(new FormData(e.target));
   if (meta.anno) meta.anno = Number(meta.anno) || undefined;
+  if (state.fa) meta.sa = state.fa.sa;
   const { footprint } = buildFootprint(ecus(), meta);
   footprint.generatore = 'fdl-scout';
   footprint.creata = new Date().toISOString().slice(0, 10);
@@ -268,7 +294,7 @@ document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click'
 }));
 
 function refresh() {
-  state.results = evaluateAll(state.db, ecus());
+  state.results = evaluateAll(state.db, ecus(), { sa: state.fa ? new Set(state.fa.sa) : null });
   renderUnits();
   renderOverview(summarize(state.results));
   renderFilters();

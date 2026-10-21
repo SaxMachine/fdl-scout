@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<faList>
+    <id name="">
+        <ns1:fa xmlns:ns1="http://bmw.com/2005/psdz.data.fa">
+            <ns1:header createdBy="" date="2026-01-01+01:00" time="10:00:00" vinLong="WMW00TEST0A123456"/>
+            <ns1:standardFA colourCode="0000" faVersion="3" fabricCode="XXXX" series="F054" timeCriteria="0322" typeKey="XJ11">
+                <ns1:eCodes><ns1:eCode>LEDE</ns1:eCode></ns1:eCodes>
+                <ns1:saCodes>
+                    <ns1:saCode>248</ns1:saCode>
+                    <ns1:saCode>302</ns1:saCode>
+                    <ns1:saCode>6AC</ns1:saCode>
+                </ns1:saCodes>
+                <ns1:hoCodes/>
+            </ns1:standardFA>
+        </ns1:fa>
+    </id>
+</faList>

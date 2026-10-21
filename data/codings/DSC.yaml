@@ -6,9 +6,9 @@
   titolo:
     it: 'Limitatore di velocità: gamma regolabile'
   parametri:
-  - nome: C_SLD_VMIN_KMH
+  - nome: C_SLD_vmin_kmh
     regolabile: true
-  - nome: C_SLD_VMAX_KMH
+  - nome: C_SLD_vmax_kmh
     regolabile: true
   rischio: medio
   consiglio: ok
@@ -25,5 +25,35 @@
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
-    valore_letto: (FWL non letto)
+    valore_letto: 30 / 250
+    esito: Da verificare
+- id: dsc.acc-velocita-massima-e-minima
+  centralina: DSC
+  titolo:
+    it: 'ACC: velocità massima e minima impostabili'
+  parametri:
+  - nome: C_Wunschgeschw_ACC_max_kmh
+    regolabile: true
+  - nome: C_Wunschgeschw_min_kmh
+    regolabile: true
+  valori_suggeriti:
+    it: Velocità in km/h dalla lista E-Sys.
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: Sulle F5x con ACC a telecamera questi limiti stanno nel DSC, non in una centralina SAS separata. Nella F54
+      di riferimento il massimo ACC è initwert (non impostato) e il minimo 30 km/h. La ripartenza automatica (C_Funktion_AccStopAndGo_aktiv_I)
+      risulta già attiva.
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: initwert / 30
     esito: Da verificare

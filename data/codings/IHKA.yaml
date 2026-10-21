@@ -77,8 +77,9 @@
   centralina: IHKA
   titolo:
     it: Cambio colore del display clima
-  parametri: []
-  stato_mappatura: da_mappare
+  parametri:
+  - nome: Display-Farbumschlag
+    target: AKTIV
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare

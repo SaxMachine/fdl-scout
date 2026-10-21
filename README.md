@@ -9,13 +9,13 @@
 - **Un database aperto e verificabile.** Ogni codifica è una voce YAML con parametri, valori, rischio, fonti e le auto su cui è stata osservata.
 - **Scoperta collettiva.** I parametri dei tuoi FWL che il database non conosce finiscono in "Da scoprire". Con un clic esporti un'impronta anonima da condividere: confrontando auto diverse emergono le codifiche nuove.
 
-Perimetro attuale: **MINI F5x** (F54, F55, F56, F57, F60) con head unit NBT EVO. Il database parte da 106 voci raccolte e verificate su una F54 Cooper S ALL4 del 2022 (i-level F056-26-03-519).
+Perimetro attuale: **MINI F5x** (F54, F55, F56, F57, F60) con head unit NBT EVO. Il database parte da 106 voci raccolte su una F54 Cooper S ALL4 del 2022 (i-level F056-26-03-519) e verificate sui suoi FWL reali: tutti i nomi dei parametri esistono davvero nelle centraline, e 16 centraline vengono riconosciute in automatico.
 
 ## Come si usa
 
-1. In E-Sys leggi l'FDL di ogni centralina che ti interessa ed esportalo come testo (FWL). Un file per centralina.
-2. Apri FDL Scout e trascina i file nella pagina.
-3. Controlla che ogni file sia stato riconosciuto con la centralina giusta. Se non lo è, sceglila dal menu sotto il file.
+1. In E-Sys leggi l'FDL di ogni centralina che ti interessa ed esportalo come testo (FWL). Esporta anche la FA (il file XML con i codici SA): non è obbligatoria, ma permette di scartare le codifiche che richiedono optional che non hai.
+2. Apri FDL Scout e trascina tutti i file nella pagina, FA compresa.
+3. Controlla che ogni file sia stato riconosciuto con la centralina giusta. I file di E-Sys si chiamano solo `CAFD_<numero>`: FDL Scout li riconosce dal CAFD o dai parametri tipici. Se sbaglia, correggi con "Cambia centralina".
 4. Spunta le codifiche che vuoi fare e apri **Lista per E-Sys**: è l'elenco parametro per parametro, valore attuale e nuovo, da copiare o scaricare.
 5. In E-Sys: backup FDL, modifica, scrittura. Una centralina alla volta.
 
@@ -26,6 +26,7 @@ Perimetro attuale: **MINI F5x** (F54, F55, F56, F57, F60) con head unit NBT EVO.
 | Attivabile | Tutti i parametri esistono nel tuo CAFD e almeno uno non è ancora al valore indicato |
 | Regolabile | I parametri esistono e il valore è a tua scelta (tempi, soglie, luminosità) |
 | Già attiva | Tutti i parametri sono già al valore indicato |
+| Manca l'optional | Hai caricato la FA e non c'è l'optional (SA) che la funzione richiede |
 | Non disponibile | La centralina è stata letta ma il tuo CAFD non ha questo parametro |
 | Centralina non letta | Manca l'FWL di quella centralina |
 | Da mappare | La funzione è nota ma i nomi dei parametri non sono ancora documentati |

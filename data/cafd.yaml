@@ -1,24 +1,36 @@
 # Riconoscimento delle centraline.
 #
-# Il parser prova, in ordine:
-#   1. il nome della centralina scritto nell'intestazione o nel nome del file (es. "HU_NBT2", "BDC_BODY");
+# Gli FWL esportati da E-Sys si chiamano CAFD_<id>_<versione>.fwl e non contengono il nome
+# della centralina. Il parser prova, in ordine:
+#   1. il nome della centralina nel nome del file o nell'intestazione (es. "HU_NBT2", "BDC_BODY");
 #   2. l'identificativo CAFD (8 cifre esadecimali) cercato in `cafd`;
 #   3. le `firme`: parametri che compaiono solo in quella centralina.
 # Se nessuno funziona, l'utente sceglie la centralina a mano nella pagina.
 #
-# Gli identificativi CAFD vengono da FWL reali (F54 2022, i-level F056-26-03-519).
-# Altre auto avranno CAFD diversi per la stessa centralina: aggiungili qui.
+# Una centralina può avere più CAFD (ACSM ne ha tre, FZD due).
+# Gli identificativi vengono da FWL reali (F54 03/2022, i-level F056-26-03-519).
+# Altre auto possono avere CAFD diversi per la stessa centralina: aggiungili qui.
 
 cafd:
-  00001EF6: HU_NBT2
-  000017BE: BDC_BODY
-  00005B2B: KOMBI
-  00001148: KAFAS
-  00002742: DME
-  000016EE: IHKA
-  00001D75: PMA
-  00001F61: ATM
-  00000F9B: ASD
+  "000000B5": SMFA        # memoria sedile guida
+  "00000D37": ZBE         # controller iDrive
+  "00000F9B": ASD
+  "00001148": KAFAS
+  "000011AB": ACSM        # codifica airbag e cinture
+  "000011AC": ACSM        # calibrazione algoritmo crash
+  "000011AD": ACSM        # parametri sensori
+  "00001412": FZD         # allarme (DWA) e protezione abitacolo
+  "00001413": FZD         # tetto panorama
+  "000016EE": IHKA
+  "000017BE": BDC_BODY
+  "00001D75": PMA         # retrocamera, sensori e parcheggio automatico
+  "00001EF6": HU_NBT2
+  "00001F61": ATM
+  "000024C3": FLE         # elettronica fari LED (da confermare il nome E-Sys)
+  "00002742": DME
+  "0000297A": DSC
+  "000031C9": EGS         # cambio automatico (da confermare il nome E-Sys)
+  "00005B2B": KOMBI
 
 alias:
   BDC: BDC_BODY
@@ -29,13 +41,26 @@ alias:
   IHKA2: IHKA
   TRSVC: PMA
   PDC: PMA
+  FLER: FLE
+  FLEL: FLE
 
 firme:
   HU_NBT2: [HMI_ID_VERSION, API_USB_VIDEO, CLIMATE_AUTORECIRCULATION]
   KOMBI: [BR_KENNUNG, HUD_FAHRSTUFE_ENABLE, BC_LEERZEILE]
   BDC_BODY: [TFL_MODUS, ASP_BEIKLAPPEN, WL_TIMEOUT, FesInitMode]
-  IHKA: [MEMORY_UMLUFT, RESTWAERME]
-  KAFAS: [DISPLAY_HEADWAY_DISTANCE]
+  IHKA: [MEMORY_UMLUFT, RESTWAERME, KLIMA_SG_ART]
+  KAFAS: [DISPLAY_HEADWAY_DISTANCE, FCW_ON_OFF, TLC_ON_OFF]
+  SMFA: [Kunden_Memory, SA_Konfig_SHZ, Verstell_Schalter_Typ]
+  ZBE: [Beschleunigerschwelle_1, Rastabstand, Default_app]
+  ASD: [Competition Paket, Power Class, Audio Level]
+  ACSM: [ZUENDKREIS_0, Gurtzustandsanzeige_Fahrer, FGS_SAT_Hersteller, ALGO_Checksumme]
+  FZD: [DWA verbaut, Innenraumschutz, ascCOD_Factory, ascCOD_PanicAllowed]
+  PMA: [PMA Availability, RV Brightness Default, Coded Vehicle Type]
+  ATM: [ECALL_SPEAKER_VOL_DEF, NGTP_KEYTABLE, TELEMATIC_DISABLE]
+  FLE: [LWR_ABSENK_OFFSET, AHL_ENABLE, LED_SUPPLY_MIN_ON_V]
+  DME: [MSA_Startervariante, IntvlFrcInitial1, fEPM_Basisbordnetz_Batterietyp]
+  DSC: [C_SLD_vmax_kmh, C_Funktion_HillDecentControl_aktiv_e, QdmAllradTyp]
+  EGS: [Sport T/M, LA_MAB, AGS_US]
 
 nomi:
   HU_NBT2: { it: "Head unit NBT EVO", en: "NBT EVO head unit" }
@@ -44,11 +69,14 @@ nomi:
   KAFAS: { it: "Telecamera assistenza alla guida", en: "Driver assistance camera" }
   DME: { it: "Centralina motore", en: "Engine control unit" }
   IHKA: { it: "Climatizzatore", en: "Climate control" }
-  PMA: { it: "Sensori di parcheggio e retrocamera", en: "Parking sensors and rear camera" }
+  PMA: { it: "Retrocamera, sensori e parcheggio automatico", en: "Rear camera, sensors and parking assistant" }
   ATM: { it: "Telematica", en: "Telematics" }
   ASD: { it: "Active Sound Design", en: "Active Sound Design" }
-  FZD: { it: "Centralina tetto (luci interne, allarme)", en: "Roof function centre" }
+  FZD: { it: "Centralina tetto (allarme, tetto panorama)", en: "Roof function centre (alarm, sunroof)" }
   SAS: { it: "Assistenza alla guida (ACC)", en: "Driver assistance (ACC)" }
   DSC: { it: "Controllo stabilità", en: "Stability control" }
   ACSM: { it: "Airbag e cinture", en: "Airbags and seat belts" }
-  SMFA: { it: "Memoria sedile guida", en: "Driver seat memory" }
+  SMFA: { it: "Sedile guida (memoria, riscaldamento)", en: "Driver seat module" }
+  ZBE: { it: "Controller iDrive", en: "iDrive controller" }
+  FLE: { it: "Elettronica fari LED", en: "LED headlight electronics" }
+  EGS: { it: "Cambio automatico", en: "Automatic transmission" }
