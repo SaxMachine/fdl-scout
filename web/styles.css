@@ -256,3 +256,12 @@ dialog pre { background: var(--paper); border: 1px solid var(--rule); border-rad
 .unit .small { min-height: 2rem; padding: 0 0.8rem; margin-top: 0.35rem; justify-self: start; font-size: 0.8rem; }
 .sa-list { list-style: none; padding: 0; margin: 0.3rem 0 0; display: grid; gap: 0.15rem; font-size: 0.8rem; }
 .sa-list code { color: var(--ink-2); }
+
+/* ---------- guida all'esportazione ---------- */
+.howto { grid-column: 2; font-size: var(--step--1); color: var(--ink-2); }
+.howto summary { cursor: pointer; color: var(--ink); font-weight: 600; }
+.howto ol { margin: 0.6rem 0 0; padding-left: 1.2rem; display: grid; gap: 0.3rem; }
+.howto-warn { margin: 0.6rem 0 0; color: var(--amber); }
+.howto p { margin: 0.4rem 0 0; }
+.hero.compact .howto { display: none; }
+@media (max-width: 760px) { .howto { grid-column: 1; } }

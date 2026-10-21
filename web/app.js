@@ -94,6 +94,7 @@ function renderStatic() {
   $('#fQ').placeholder = t().search;
   $('#dQ').placeholder = t().discoverFilter;
   $('#repoLink').href = REPO;
+  $('#howtoLink').href = `${REPO}/blob/main/docs/ESPORTARE-DA-ESYS.md`;
 }
 
 function renderUnits() {

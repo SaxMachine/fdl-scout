@@ -13,6 +13,8 @@ Perimetro attuale: **MINI F5x** (F54, F55, F56, F57, F60) con head unit NBT EVO.
 
 ## Come si usa
 
+Guida passo passo all'esportazione da E-Sys: [docs/ESPORTARE-DA-ESYS.md](docs/ESPORTARE-DA-ESYS.md).
+
 1. In E-Sys leggi l'FDL di ogni centralina che ti interessa ed esportalo come testo (FWL). Esporta anche la FA (il file XML con i codici SA): non è obbligatoria, ma permette di scartare le codifiche che richiedono optional che non hai.
 2. Apri FDL Scout e trascina tutti i file nella pagina, FA compresa.
 3. Controlla che ogni file sia stato riconosciuto con la centralina giusta. I file di E-Sys si chiamano solo `CAFD_<numero>`: FDL Scout li riconosce dal CAFD o dai parametri tipici. Se sbaglia, correggi con "Cambia centralina".
