@@ -21,7 +21,7 @@ Nessuno dei due viene modificato o scritto sull'auto: si tratta solo di letture.
 3. Apri **Expert Mode → Coding**. Le istruzioni sono state verificate con E-Sys 3.35.3 (la versione con Plus 3.8.1): con altre versioni i nomi dei comandi possono cambiare leggermente.
 4. Nel riquadro **Vehicle Order** premi **Read**, poi tasto destro sulla FA → **Activate FA**.
 
-**Per salvare la FA:** dopo **Read** usa **Save** nello stesso riquadro Vehicle Order: ottieni un file XML. Va bene anche se si chiama `.txt`, perché FDL Scout la riconosce dal contenuto.
+**Per salvare la FA:** nel riquadro Vehicle Order premi **Read**, poi **Save** e salvala come file `.txt` (per esempio `FA.txt`). Dentro è un XML: FDL Scout la riconosce dal contenuto, il nome non conta.
 
 ## 2. Leggere la codifica delle centraline
 
@@ -69,7 +69,7 @@ Alcuni FWL (ATM, KAFAS, KOMBI) contengono il VIN, anche in esadecimale, e altri 
 ## English (short)
 
 1. Connect via ENET, **Expert Mode → Coding**, **Read** the FA and **Activate** it.
-2. Save the FA as XML with **Save** in the same Vehicle Order panel.
+2. In the Vehicle Order panel press **Read**, then **Save** and store it as a `.txt` file (it is XML inside; FDL Scout recognises it by content).
 3. **Read (VCM)**, then right-click each CAFD → **Read Coding Data**: a yellow NCD line appears under it. Without this step the editor shows CAFD defaults, not your car's values.
 4. Right-click the yellow NCD → **Edit NCD**, right-click the `CAF [...]` root → **Expand**, then **File → Save as FWL…** keeping the proposed `CAFD_…fwl` name. Export every CAFD, some units have more than one.
 5. Use full PSdZData at least as new as the car's i-level. Never press **Code**: reading is enough. Share the anonymous footprint, not the raw FWL files (they contain the VIN).
