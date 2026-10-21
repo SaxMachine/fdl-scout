@@ -1142,3 +1142,59 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Da verificare
+- id: bdc_body.luci-posteriori-con-le-diurne
+  centralina: BDC_BODY
+  titolo:
+    it: Luci posteriori accese insieme alle luci diurne
+  parametri:
+  - nome: MAPPING_TAGFAHRL_1_H_L_OUTPUT
+    target: sl_l
+  - nome: MAPPING_TAGFAHRL_1_H_R_OUTPUT
+    target: sl_r
+  rischio: medio
+  consiglio: ok
+  affidabilita: confermata
+  telai: &id002
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Usa le luci di posizione posteriori come diurne: con la DRL attiva il retro dell''auto resta acceso. Confermata
+      da più utenti F5x sul forum tedesco. Le luci diurne devono essere attive nel menu iDrive. Verifica la conformità
+      alle norme del tuo paese.'
+  fonti:
+  - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: off / off
+    esito: Da verificare
+- id: bdc_body.fendinebbia-spenti-con-abbaglianti
+  centralina: BDC_BODY
+  titolo:
+    it: Fendinebbia spenti quando accendi gli abbaglianti
+  parametri:
+  - nome: NSW_AUS_BEI_FL
+    regolabile: true
+  valori_suggeriti:
+    it: aktiv = si spengono con gli abbaglianti; nicht_aktiv = restano accesi.
+  requisiti_sa:
+  - 5A1
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai: *id002
+  note:
+    it: Voce dell'elenco BimmerCode, parametro confermato sul forum tedesco.
+  fonti:
+  - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
+  - https://bimmercode.app/vehicles/f56
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: nicht_aktiv
+    esito: Da verificare

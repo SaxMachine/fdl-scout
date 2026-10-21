@@ -9,7 +9,7 @@
 - **Un database aperto e verificabile.** Ogni codifica è una voce YAML con parametri, valori, rischio, fonti e le auto su cui è stata osservata.
 - **Scoperta collettiva.** I parametri dei tuoi FWL che il database non conosce finiscono in "Da scoprire". Con un clic esporti un'impronta anonima da condividere: confrontando auto diverse emergono le codifiche nuove.
 
-Perimetro attuale: **MINI F5x** (F54, F55, F56, F57, F60) con head unit NBT EVO. Il database parte da 118 voci raccolte su una F54 Cooper S ALL4 del 2022 (i-level F056-26-03-519) e verificate sui suoi FWL reali: tutti i nomi dei parametri esistono davvero nelle centraline, e 16 centraline vengono riconosciute in automatico.
+Perimetro attuale: **MINI F5x** (F54, F55, F56, F57, F60) con head unit NBT EVO. Il database parte da 120 voci raccolte su una F54 Cooper S ALL4 del 2022 (i-level F056-26-03-519) e verificate sui suoi FWL reali: tutti i nomi dei parametri esistono davvero nelle centraline, e 16 centraline vengono riconosciute in automatico.
 
 ## Come si usa
 
