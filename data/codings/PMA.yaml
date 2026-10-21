@@ -4,7 +4,7 @@
 - id: pma.soglie-di-spegnimento-sensori-e-retrocamera
   centralina: PMA
   titolo:
-    it: Soglie di spegnimento sensori e retrocamera
+    it: 'Sensori di parcheggio: soglie di spegnimento e attivazione in folle'
   parametri: []
   stato_mappatura: da_mappare
   rischio: basso
@@ -17,9 +17,9 @@
   - F57
   - F60
   note:
-    it: 'BimmerCode le colloca nella centralina PMA/PDC (sensori di parcheggio). Il CAFD 00001D75 della F54 di riferimento
-      è la retrocamera (TRSVC) e non contiene queste soglie: serve l''FWL della centralina PMA, presente sulle auto
-      con parcheggio automatico (SA 5DP).'
+    it: 'BimmerCode elenca per la PMA/PDC delle F5x: attivazione dei sensori quando l''auto arretra in folle, soglie
+      di velocità e distanza di spegnimento per sensori e retrocamera. I nomi esatti dei parametri non sono pubblicati:
+      servono gli FWL della PMA. Il CAFD 00001D75 è la retrocamera (TRSVC), non questa centralina.'
   osservazioni:
   - telaio: F54
     anno: 2022
