@@ -28,6 +28,8 @@ jobs:
         run: node --test tests/*.test.js
       - name: Costruisci il sito
         run: python3 scripts/build.py
+      - name: Caratteri serviti dal sito (niente Google Fonts)
+        run: bash scripts/fetch-fonts.sh
       - uses: actions/upload-pages-artifact@v3
         if: github.event_name == 'push'
         with:

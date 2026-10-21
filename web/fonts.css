@@ -1,0 +1,22 @@
+/* Caratteri serviti dal sito stesso (scaricati da scripts/fetch-fonts.sh durante il build).
+   Licenza SIL Open Font License: vedi fonts/LICENSE-*.txt. Senza i file si usano i caratteri di sistema. */
+@font-face {
+  font-family: "Archivo";
+  src: url("fonts/archivo.woff2") format("woff2-variations"), url("fonts/archivo.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/jetbrains-mono-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/jetbrains-mono-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}

@@ -33,13 +33,13 @@ Sono moduli ES senza dipendenze, usati identici dal browser e dai test Node.
 - **Nessun upload.** È la garanzia più semplice da spiegare e da verificare: il codice è leggibile e la scheda Rete del browser lo conferma.
 - **Nessuna scrittura sull'auto.** Un errore del parser non può mai bloccare una centralina.
 - **YAML per il database.** Leggibile e modificabile da chiunque con una pull request, con revisione riga per riga. Il JSON per il browser viene generato.
+- **Nessuna richiesta esterna.** I caratteri vengono scaricati durante il build (scripts/fetch-fonts.sh) e serviti dal sito stesso; una Content-Security-Policy impedisce alla pagina di contattare altri domini.
 - **Python per il build.** PyYAML è disponibile di serie su quasi tutte le distribuzioni Linux; il progetto non ha dipendenze npm.
 
 ## Da fare
 
 - Validare il parser su FWL di altre versioni di E-Sys e altre auto.
 - Mappare SAS e PMA (sensori di parcheggio) appena disponibili i loro FWL.
-- Ospitare i font nel repository, così la pagina non contatta nemmeno Google Fonts.
 - Script che confronta più impronte e propone nuove voci (parametri che cambiano tra allestimenti).
 - Traduzione inglese di titoli e note.
 - Estendere il perimetro ad altri telai F e poi G.

@@ -137,8 +137,11 @@ function renderUnits() {
 function renderOverview(counts) {
   const total = state.results.length;
   const order = state.files.length ? STATI : ['da_mappare', 'centralina_non_letta'];
-  $('#meter').replaceChildren(...order.filter(s => counts[s]).map(s =>
-    el('span', { class: `seg s-${s}`, style: `flex-grow:${counts[s]}`, title: `${t().stati[s]}: ${counts[s]}` })));
+  $('#meter').replaceChildren(...order.filter(s => counts[s]).map(s => {
+    const seg = el('span', { class: `seg s-${s}`, title: `${t().stati[s]}: ${counts[s]}` });
+    seg.style.flexGrow = String(counts[s]); // CSSOM: permesso dalla Content-Security-Policy, l'attributo style no
+    return seg;
+  }));
   $('#legend').replaceChildren(...STATI.filter(s => counts[s]).map(s =>
     el('li', { class: `s-${s}` },
       el('button', { type: 'button', title: t().statiHelp[s], onclick: () => { $('#fState').value = s; renderRows(); } },
