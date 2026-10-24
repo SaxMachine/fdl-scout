@@ -101,6 +101,9 @@
     it: 'Su F54 documentato da 55 a 32: lo specchio si abbassa meno. Valore a gusto, ritocca finché vedi bene il
       marciapiede.'
     en: 'Documented on an F54 from 55 to 32: the mirror tilts down less. Adjust to taste until you can see the kerb.'
+  fonti:
+  - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
+  - https://minkara.carview.co.jp/userid/125014/car/2087329/5550627/note.aspx
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -190,6 +193,9 @@
       Non lega la DRL alla posizione 0 della levetta.
     en: With value 02 the ring switches off when you turn on the parking lights. Value 05 keeps it always on. It
       does not tie the DRL to position 0 of the light switch.
+  fonti:
+  - https://minkara.carview.co.jp/userid/1685164/blog/37025176
+  - https://bmw-mini-r57-60diy.blogspot.com/2017/01/f56-f57_21.html
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -243,6 +249,9 @@
   note:
     it: Tetto panorama (SA 402) incluso.
     en: Includes the panoramic roof (SA 402).
+  fonti: &id001
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -274,6 +283,7 @@
     en: 'The number of flashes can already be set in the iDrive menu. If you code it by hand (PIA_DEFAULT_TIPPBLINKEN
       or BLINKZYKLEN_ANZAHL_TIPP), the value is flashes minus one: two independent sources (NAM and Xcar) report
       that 4 gives 5 flashes.'
+  fonti: *id001
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -315,6 +325,8 @@
       in MAPPING_NEBELSCHW_L/R_OUTPUT. Verifica che resti conforme all'omologazione.
     en: Full procedure from mini-f56-forum.de. If nsw_l/nsw_r does not work, copy into the output the value found
       in MAPPING_NEBELSCHW_L/R_OUTPUT. Check that it stays compliant with type approval.
+  fonti: &id002
+  - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -343,6 +355,7 @@
   note:
     it: Fonte NAM. Variante di TCM_LOGIC_15_OFF_DOOR.
     en: 'Source: NAM. Variant of TCM_LOGIC_15_OFF_DOOR.'
+  fonti: *id001
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -372,6 +385,7 @@
   note:
     it: Fonte NAM. Gli specchi ripiegati si riaprono da soli superata questa velocità. Il valore è binario.
     en: 'Source: NAM. Folded mirrors unfold by themselves above this speed. The value is binary.'
+  fonti: *id001
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -399,6 +413,7 @@
   - F60
   note:
     it: ''
+  fonti: *id001
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -426,6 +441,7 @@
   - F60
   note:
     it: ''
+  fonti: *id001
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -456,6 +472,7 @@
       parte sempre spento.'
     en: 'Source: mini-f56-forum.de, table from an F54 03/2018 updated to ID6. An alternative to the memory (already
       active): it always starts switched off.'
+  fonti: *id002
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -482,6 +499,7 @@
   note:
     it: Stessa fonte. Lo Start/Stop non si attiva da solo in modalità Green.
     en: Same source. Start/Stop does not switch itself on in Green mode.
+  fonti: *id002
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -511,6 +529,7 @@
   note:
     it: 'Fonte mini-f56-forum.de. Un utente non ha visto effetti: attenzione a decimale/esadecimale.'
     en: 'Source: mini-f56-forum.de. One user saw no effect: watch out for decimal versus hexadecimal.'
+  fonti: *id002
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -543,6 +562,7 @@
     it: 'Fonte mini-f56-forum.de: il valore è esadecimale, chi l''ha inserito in decimale ha ottenuto l''effetto
       opposto.'
     en: 'Source: mini-f56-forum.de. The value is hexadecimal: entering it as decimal gave the opposite effect.'
+  fonti: *id002
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -572,6 +592,8 @@
   note:
     it: 'Elenco BimmerCode: 1, 2, 3 volte oppure spento.'
     en: 'BimmerCode list: 1, 2 or 3 times, or off.'
+  fonti: &id003
+  - https://bimmercode.app/vehicles/f56
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -601,6 +623,7 @@
   note:
     it: 'Elenco BimmerCode: 1, 2, 3 volte oppure spento.'
     en: 'BimmerCode list: 1, 2 or 3 times, or off.'
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -627,6 +650,7 @@
   note:
     it: Elenco BimmerCode. Evita che fari e luci si accendano di giorno all'apertura.
     en: BimmerCode list. Stops headlights and lights from coming on in daylight when you unlock.
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -656,6 +680,7 @@
   note:
     it: 'Elenco BimmerCode: da 5 a 60 secondi. Valore esadecimale.'
     en: 'BimmerCode list: 5 to 60 seconds. Hexadecimal value.'
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -737,6 +762,7 @@
       spegnimento.
     en: Requires the heated steering wheel (SA 248). From the factory the state is remembered only for 15 minutes
       after switching off.
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -768,6 +794,7 @@
   note:
     it: Stesso principio per i sedili anteriori (SA 494).
     en: Same principle for the front seats (SA 494).
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -799,6 +826,7 @@
   note:
     it: Elenco BimmerCode. Agisce sull'accensione automatica dei fari in AUTO.
     en: BimmerCode list. Affects automatic headlights in AUTO.
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -828,6 +856,7 @@
   note:
     it: Elenco BimmerCode.
     en: BimmerCode list.
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -853,6 +882,7 @@
   - F60
   note:
     it: ''
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -907,6 +937,7 @@
   note:
     it: Elenco BimmerCode (Gefahrenbremslicht). Abbassa la velocità da cui scattano in frenata d'emergenza.
     en: BimmerCode list (Gefahrenbremslicht). Lowers the speed above which they trigger under emergency braking.
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -936,6 +967,7 @@
   note:
     it: Elenco BimmerCode.
     en: BimmerCode list.
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -969,6 +1001,9 @@
     en: 'BimmerCode list and forums. Chooses the mode the car starts in. You can only choose among the modes present
       in the BDC (FesHasModeN); on the reference F54 these are MID, Sport and Green (FesHasMode3/4/7): pick one
       of them.'
+  fonti:
+  - https://bimmercode.app/vehicles/f56
+  - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1000,6 +1035,7 @@
   note:
     it: Fonte mini-f56-forum.de. Spostando la leva in S la vettura passa anche in modalità Sport.
     en: 'Source: mini-f56-forum.de. Moving the lever to S also switches the car to Sport mode.'
+  fonti: *id002
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1030,6 +1066,7 @@
       senza indicazione della modalità e ha dovuto toccare anche FDS_MENUE_* nel KOMBI.
     en: 'Source: mini-f56-forum.de. Changes how the stability control intervenes. One user then had no mode shown
       in the cluster and also had to change FDS_MENUE_* in the KOMBI.'
+  fonti: *id002
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1056,6 +1093,7 @@
   note:
     it: Citato su NAM. Toglie un blocco di sicurezza contro le partenze involontarie con la marcia inserita.
     en: Mentioned on NAM. Removes a safety interlock against unintended moves with a gear engaged.
+  fonti: *id001
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1082,6 +1120,7 @@
   note:
     it: Fonte mini-f56-forum.de. Toglie il colpo di clacson quando inserisci l'allarme.
     en: 'Source: mini-f56-forum.de. Removes the horn chirp when you arm the alarm.'
+  fonti: *id002
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1110,6 +1149,11 @@
       prima in auto se le maniglie già si accendono in retro.'
     en: 'BimmerCode list, NAM and the German forum. Some PSdZData have no name for the current value: first check
       in the car whether the handles already light up in reverse.'
+  fonti:
+  - https://bimmercode.app/vehicles/f56
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
+  - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1140,6 +1184,7 @@
     it: 'Fonte mini-f56-forum.de. Lo stesso sensore gestisce l''accensione automatica dei fari: rischi di perdere
       anche quella.'
     en: 'Source: mini-f56-forum.de. The same sensor drives the automatic headlights: you may lose those too.'
+  fonti: *id002
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1157,7 +1202,7 @@
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
-  telai: &id001
+  telai: &id004
   - F54
   - F55
   - F56
@@ -1189,7 +1234,7 @@
   rischio: basso
   consiglio: ok
   affidabilita: confermata
-  telai: *id001
+  telai: *id004
   note:
     it: 'Tenendo premuto apri o chiudi sul telecomando si aprono o chiudono finestrini e tetto. Nella F54 di riferimento
       E-Sys mostra ''aktiv'' con dato 00: se non funziona, controlla il valore nella lista.'
@@ -1217,7 +1262,7 @@
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
-  telai: *id001
+  telai: *id004
   note:
     it: 'Impostazione predefinita della richiusura dopo lo sblocco. Effetto da verificare: potrebbe essere solo
       il valore iniziale del menu iDrive.'
@@ -1274,7 +1319,7 @@
   rischio: medio
   consiglio: ok
   affidabilita: confermata
-  telai: &id002
+  telai: &id005
   - F54
   - F55
   - F56
@@ -1311,7 +1356,7 @@
   rischio: basso
   consiglio: ok
   affidabilita: confermata
-  telai: *id002
+  telai: *id005
   note:
     it: Voce dell'elenco BimmerCode, parametro confermato sul forum tedesco.
     en: Entry from the BimmerCode list, parameter confirmed on the German forum.

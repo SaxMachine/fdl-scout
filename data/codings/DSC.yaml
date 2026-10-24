@@ -23,6 +23,8 @@
   note:
     it: Fonte mini-f56-forum.de.
     en: 'Source: mini-f56-forum.de.'
+  fonti:
+  - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -58,6 +60,9 @@
     en: On F5x with camera-based ACC these limits are in the DSC, not in a separate SAS unit. On the reference F54
       the ACC maximum is initwert (not set) and the minimum 30 km/h. Automatic restart (C_Funktion_AccStopAndGo_aktiv_I)
       is already active.
+  fonti:
+  - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
+  - https://www.minif56.com/threads/active-cruise-control-541-activating-stop-and-go.87884/
   osservazioni:
   - telaio: F54
     anno: 2022

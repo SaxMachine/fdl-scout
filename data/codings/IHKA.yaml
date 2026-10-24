@@ -21,6 +21,8 @@
   note:
     it: Al riavvio il ricircolo resta come l'avevi lasciato.
     en: After a restart recirculation stays as you left it.
+  fonti: &id001
+  - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -72,6 +74,7 @@
   - F60
   note:
     it: ''
+  fonti: *id001
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -98,6 +101,8 @@
   note:
     it: Elenco BimmerCode. Il display del clima cambia colore (rosso/blu) quando alzi o abbassi la temperatura.
     en: BimmerCode list. The climate display changes colour (red/blue) when you raise or lower the temperature.
+  fonti:
+  - https://bimmercode.app/vehicles/f56
   osservazioni:
   - telaio: F54
     anno: 2022

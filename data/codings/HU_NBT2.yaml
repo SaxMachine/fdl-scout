@@ -132,6 +132,8 @@
   note:
     it: Nel BDC VAM_HORN_AT_SECURE è attivo. La voce permette di attivarla o spegnerla dal menu.
     en: VAM_HORN_AT_SECURE is active in the BDC. The entry lets you switch it on or off from the menu.
+  fonti: &id002
+  - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -217,6 +219,10 @@
       per profilo.
     en: Confirmed on F54 and F56 (same change, perm_off → standard). Lets you switch the DRL off from the lights
       menu, per profile.
+  fonti:
+  - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
+  - https://minkara.carview.co.jp/userid/125014/car/2087329/5550627/note.aspx
+  - https://bmw-mini-r57-60diy.blogspot.com/2017/01/f56-f57_21.html
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -245,6 +251,10 @@
   note:
     it: 'Confermato su un''altra F54: API_USB_VIDEO = both, più il codec XVID. Riproduzione a vettura ferma.'
     en: 'Confirmed on another F54: API_USB_VIDEO = both, plus the XVID codec. Playback only when stationary.'
+  fonti:
+  - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
+  - https://minkara.carview.co.jp/userid/125014/car/2087329/5550627/note.aspx
+  - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -302,6 +312,9 @@
     it: 'Su F54 documentato con FF. Toglie i blocchi di inserimento in marcia: il guidatore non deve usarlo mentre
       guida.'
     en: 'Documented on an F54 with FF. Removes the input locks while driving: the driver must not use it while driving.'
+  fonti:
+  - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
+  - https://minkara.carview.co.jp/userid/125014/car/2087329/5550627/note.aspx
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -359,6 +372,9 @@
       del motore in abitacolo.
     en: 'Source: NAM, tested on F55/F56. It is coded in the HU, not in the ASD unit. Turns off the synthetic engine
       sound in the cabin.'
+  fonti: &id001
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -387,6 +403,7 @@
       disattivazione totale.
     en: 'Source: NAM. Shows in iDrive the choice between the ASD_SOUND_1-4 sounds (already active). A gentler alternative
       to switching it off completely.'
+  fonti: *id001
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -415,6 +432,7 @@
       e temperatura, quindi è probabile che funzioni.
     en: 'Source: NAM. Requires direct pressure monitoring with sensors in the wheels. RDC_DRUCK_TEMP is already
       set to pressure and temperature, so it will probably work.'
+  fonti: *id001
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -443,6 +461,7 @@
   note:
     it: Fonte NAM. Mostra l'indicatore di direzione nell'Head-Up Display.
     en: 'Source: NAM. Shows the turn indicator in the head-up display.'
+  fonti: *id001
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -469,6 +488,7 @@
   note:
     it: Fonte NAM, insieme a KI_PIA_SPEED_LIMIT nel KOMBI (da attivare se non lo è già).
     en: 'Source: NAM, together with KI_PIA_SPEED_LIMIT in the KOMBI (enable it if it is not already).'
+  fonti: *id001
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -495,6 +515,7 @@
   note:
     it: Fonte NAM.
     en: 'Source: NAM.'
+  fonti: *id001
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -521,6 +542,7 @@
   note:
     it: Fonte NAM. Dipende dal supporto della lingua italiana.
     en: 'Source: NAM. Depends on support for your language.'
+  fonti: *id001
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -547,6 +569,10 @@
   note:
     it: Fonte NAM. Usa la suoneria del telefono invece di quella dell'auto.
     en: 'Source: NAM. Uses the phone''s ringtone instead of the car''s.'
+  fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
+  - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -573,6 +599,7 @@
   note:
     it: Fonte NAM.
     en: 'Source: NAM.'
+  fonti: *id001
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -599,6 +626,8 @@
   note:
     it: Fonte mini-f56-forum.de e minif56.com. Solo estetica (anello LED e schermate JCW).
     en: 'Source: mini-f56-forum.de and minif56.com. Cosmetic only (LED ring and JCW screens).'
+  fonti:
+  - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -662,6 +691,7 @@
   note:
     it: Fonte Bimmerfest. Permette di esportare dati (es. percorsi) su USB.
     en: 'Source: Bimmerfest. Lets you export data (e.g. routes) to USB.'
+  fonti: *id002
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -688,6 +718,8 @@
   note:
     it: Aggiunge la casella in iDrive per scegliere cosa mostrare nel computer di bordo del quadro. Abbinala a DIGITAL_TACHO_ENABLE.
     en: Adds the checkbox in iDrive to choose what the cluster's on-board computer shows. Pair it with DIGITAL_TACHO_ENABLE.
+  fonti: &id003
+  - https://bimmercode.app/vehicles/f56
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -720,6 +752,7 @@
       il KOMBI deve supportarle (BC_MOTORTEMP_ENABLE è già attivo).'
     en: 'Checkboxes in iDrive for range, engine temperature and average speed/consumption in the cluster. These
       are menu entries: the KOMBI must support them (BC_MOTORTEMP_ENABLE is already active).'
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -776,6 +809,7 @@
   note:
     it: Elenco BimmerCode. Mostra a schermo il livello del volume quando lo regoli.
     en: BimmerCode list. Shows the volume level on screen when you adjust it.
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -805,6 +839,10 @@
   note:
     it: Elenco BimmerCode. Su un'altra F54 documentato 02_RR. Solo gusto personale.
     en: BimmerCode list. Documented as 02_RR on another F54. Purely a matter of taste.
+  fonti:
+  - https://bimmercode.app/vehicles/f56
+  - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
+  - https://minkara.carview.co.jp/userid/125014/car/2087329/5550627/note.aspx
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -836,6 +874,7 @@
   note:
     it: 'Elenco BimmerCode: animazioni MINI, JCW e altre. Solo estetica.'
     en: 'BimmerCode list: MINI, JCW and other animations. Cosmetic only.'
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -864,6 +903,7 @@
   note:
     it: Mostra un riquadro a schermo quando cambi distribuzione aria o modalità AUTO.
     en: Shows a box on screen when you change air distribution or AUTO mode.
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -889,6 +929,7 @@
   - F60
   note:
     it: ''
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -914,6 +955,7 @@
   - F60
   note:
     it: ''
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -939,6 +981,7 @@
   - F60
   note:
     it: ''
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -965,6 +1008,7 @@
   note:
     it: Fonte Bimmerfest, mai confermata. Aggiunge la voce in iDrive; serve che il BDC supporti la funzione.
     en: 'Source: Bimmerfest, never confirmed. Adds the entry in iDrive; the BDC must support the function.'
+  fonti: *id002
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -992,6 +1036,10 @@
     it: 'Elenco BimmerCode e NAM. Mostra l''intero SMS anche guidando: leggerlo distrae, valutalo per il passeggero.'
     en: 'BimmerCode list and NAM. Shows the whole SMS while driving: reading it is distracting, consider it for
       the passenger.'
+  fonti:
+  - https://bimmercode.app/vehicles/f56
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1021,6 +1069,11 @@
   note:
     it: Elenco BimmerCode, NAM e forum tedesco. La radio non riparte più bassa di questo valore.
     en: BimmerCode list, NAM and the German forum. The radio no longer starts quieter than this value.
+  fonti:
+  - https://bimmercode.app/vehicles/f56
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
+  - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1055,6 +1108,10 @@
       sul disco della HU.
     en: 'Sources: NAM and Bimmerfest, in addition to API_USB_VIDEO and XVID. ENT_MC_VIDEO_SUPPORT lets you save
       videos to the HU''s disk.'
+  fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
+  - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1085,6 +1142,7 @@
   note:
     it: Fonte Bimmerfest. Riproduce musica e video da un dispositivo in rete Wi-Fi (DLNA).
     en: 'Source: Bimmerfest. Plays music and video from a device on the Wi-Fi network (DLNA).'
+  fonti: *id002
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1111,6 +1169,7 @@
   note:
     it: Fonte Bimmerfest.
     en: 'Source: Bimmerfest.'
+  fonti: *id002
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1139,6 +1198,7 @@
   note:
     it: Collegato alla voce BimmerCode che separa la luminosità delle luci ambiente da quella del quadro.
     en: Linked to the BimmerCode entry that separates ambient light brightness from cluster brightness.
+  fonti: *id003
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1166,6 +1226,7 @@
     it: 'Fonte Bimmerfest. Parte dello Speed Limit Assist: va insieme alle voci LDM_ISA di KOMBI, DSC e SAS.'
     en: 'Source: Bimmerfest. Part of Speed Limit Assist: goes together with the LDM_ISA entries in KOMBI, DSC and
       SAS.'
+  fonti: *id002
   osservazioni:
   - telaio: F54
     anno: 2022
