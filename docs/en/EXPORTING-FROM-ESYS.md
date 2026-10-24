@@ -33,6 +33,8 @@ Neither is changed or written to the car: these are read-only steps.
 
 You can select several units and read them together.
 
+Some units have no codable CAFD, or E-Sys does not let you read their coding: then there is nothing to export and you can skip them.
+
 ## 3. Save the FWL
 
 1. Right-click the **yellow** line (the NCD) → **Edit NCD**. The editor opens with the `.ncd` file name in the title bar.

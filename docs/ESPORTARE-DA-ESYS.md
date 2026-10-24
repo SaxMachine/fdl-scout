@@ -33,6 +33,8 @@ Nessuno dei due viene modificato o scritto sull'auto: si tratta solo di letture.
 
 Puoi selezionare più centraline e leggerle insieme.
 
+Alcune centraline non hanno un CAFD codificabile, oppure E-Sys non permette di leggerne la codifica: in quel caso non c'è niente da esportare e puoi saltarle.
+
 ## 3. Salvare l'FWL
 
 1. Tasto destro sulla riga **gialla** (l'NCD) → **Edit NCD**. Si apre l'editor, con il nome del file `.ncd` nella barra del titolo.

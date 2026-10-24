@@ -66,6 +66,15 @@
     <p class="catalogue-note" id="catalogueNote" data-t="catalogue"></p>
   </section>
 
+  <aside class="community" id="community" aria-labelledby="communityTitle">
+    <div class="community-text">
+      <h2 id="communityTitle"></h2>
+      <p data-t="commP"></p>
+    </div>
+    <dl class="community-stats" id="communityStats"></dl>
+    <button type="button" class="primary" id="goShare" data-t="commBtn"></button>
+  </aside>
+
   <nav class="tabs" role="tablist">
     <button role="tab" id="tab-codings" aria-controls="panel-codings" aria-selected="true" data-t="tabCodings"></button>
     <button role="tab" id="tab-discover" aria-controls="panel-discover" aria-selected="false"><span data-t="tabDiscover"></span> <span class="tab-count" id="discoverCount"></span></button>
@@ -91,7 +100,16 @@
   </section>
 
   <section role="tabpanel" id="panel-share" aria-labelledby="tab-share" hidden>
-    <p class="intro" data-t="shareIntro"></p>
+    <div class="share-why">
+      <h2 data-t="shareH"></h2>
+      <p class="intro" data-t="shareIntro"></p>
+      <ol class="ways">
+        <li><strong data-t="way1H"></strong> <span data-t="way1P"></span></li>
+        <li><strong data-t="way2H"></strong> <span data-t="way2P"></span></li>
+        <li><strong data-t="way3H"></strong> <span data-t="way3P"></span></li>
+      </ol>
+    </div>
+    <h3 class="share-step" data-t="fpH"></h3>
     <p class="empty" id="shareEmpty" data-t="shareEmpty"></p>
     <form class="share" id="shareForm" hidden>
       <label><span data-t="chassis"></span><input name="telaio" placeholder="F54"></label>
@@ -105,6 +123,8 @@
         <a class="ghost" id="issueLink" target="_blank" rel="noopener" data-t="openIssue"></a>
       </div>
     </form>
+    <p class="privacy" data-t="sharePrivacy"></p>
+    <p class="privacy" data-t="noGithub"></p>
   </section>
 </main>
 

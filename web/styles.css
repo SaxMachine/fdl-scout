@@ -200,6 +200,17 @@ main { max-width: 72rem; margin: 0 auto; padding: 0 1rem 6rem; }
 .params small { color: var(--amber); font-size: 0.72rem; }
 .v.none { color: var(--off); }
 
+/* ---------- invito a contribuire ---------- */
+.community { margin: 0 0 1.5rem; padding: 1rem 1.1rem; background: var(--sheet); border: 1px solid var(--rule); border-left: 4px solid var(--chili); border-radius: 0.6rem; display: grid; grid-template-columns: 1fr auto auto; gap: 0.75rem 1.5rem; align-items: center; }
+.community h2 { font-size: var(--step-0); margin: 0 0 0.2rem; }
+.community p { margin: 0; color: var(--ink-2); font-size: var(--step--1); max-width: 60ch; }
+.community-stats { display: flex; gap: 1.25rem; margin: 0; }
+.community-stats div { display: grid; text-align: center; }
+.community-stats dt { order: 2; font-size: 0.75rem; color: var(--ink-2); }
+.community-stats dd { order: 1; margin: 0; font-size: var(--step-1); font-weight: 700; font-variant-numeric: tabular-nums; }
+.community-stats .few dd { color: var(--chili); }
+@media (max-width: 52rem) { .community { grid-template-columns: 1fr; } .community-stats { justify-content: space-between; } }
+
 /* ---------- da scoprire / contribuisci ---------- */
 .intro { max-width: 62ch; color: var(--ink-2); margin: 0 0 1rem; }
 .empty { color: var(--ink-2); }
@@ -210,11 +221,20 @@ main { max-width: 72rem; margin: 0 auto; padding: 0 1rem 6rem; }
 
 .share { display: grid; grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); gap: 0.75rem; max-width: 52rem; }
 .share label { display: grid; gap: 0.2rem; font-size: var(--step--1); color: var(--ink-2); }
-.share input { background: var(--sheet); border: 1px solid var(--rule); border-radius: 0.45rem; padding: 0.45rem 0.6rem; color: var(--ink); }
+.share input { width: 100%; min-width: 0; box-sizing: border-box; background: var(--sheet); border: 1px solid var(--rule); border-radius: 0.45rem; padding: 0.45rem 0.6rem; color: var(--ink); }
 .share .wide, .share .removed, .share-actions { grid-column: 1 / -1; }
 .removed { margin: 0; font-size: var(--step--1); color: var(--amber); }
 .removed:empty { display: none; }
 .share-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.share-why h2 { font-size: var(--step-1); margin: 0 0 0.4rem; }
+.ways { margin: 0 0 1.5rem; padding-left: 1.25rem; display: grid; gap: 0.5rem; max-width: 62ch; }
+.ways strong { color: var(--ink); }
+.ways span { color: var(--ink-2); }
+.share-step { font-size: var(--step-0); margin: 0 0 0.6rem; }
+.privacy { max-width: 62ch; color: var(--ink-2); font-size: var(--step--1); margin: 1rem 0 0; }
+.privacy + .privacy { margin-top: 0.5rem; }
+.more .report { font-size: 0.8rem; margin: 0.6rem 0 0; }
+.more .report a { color: var(--chili); font-weight: 600; text-underline-offset: 2px; }
 
 /* ---------- pulsanti, dock, finestra ---------- */
 .primary, .ghost {

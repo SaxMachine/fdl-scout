@@ -11,6 +11,12 @@
 
 Footprints show which parameters exist on which cars and bring new coding to light.
 
+No GitHub account? Share the file in the group or forum where you found FDL Scout: someone will upload it for you.
+
+## Report a test
+
+Did you code something? Open its card in FDL Scout and press **Tried it?**: a pre-filled issue opens with the entry name. Add chassis, year, i-level, the value you set and whether it works. An entry confirmed on several cars moves from unverified to confirmed.
+
 ## Add or fix a coding entry
 
 1. Fork the repository and edit `data/codings/<UNIT>.yaml` following [docs/en/SCHEMA.md](docs/en/SCHEMA.md).

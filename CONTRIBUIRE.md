@@ -11,6 +11,12 @@
 
 Le impronte servono a capire quali parametri esistono su quali auto e a far emergere codifiche nuove.
 
+Non hai un account GitHub? Condividi il file nel gruppo o nel forum dove hai trovato FDL Scout: qualcuno lo caricherà per te.
+
+## Raccontare una prova
+
+Hai fatto una codifica? Apri la sua scheda in FDL Scout e premi **L'hai provata?**: si apre una segnalazione già compilata con il nome della voce. Indica telaio, anno, i-level, valore impostato e se funziona. Una voce confermata su più auto passa da "da verificare" a "confermata".
+
 ## Aggiungere o correggere una codifica
 
 1. Fai un fork e modifica `data/codings/<CENTRALINA>.yaml` seguendo [docs/SCHEMA.md](docs/SCHEMA.md).

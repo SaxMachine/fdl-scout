@@ -194,6 +194,14 @@ function sourcesView(fonti) {
   return el('p', { class: 'sources' }, el('b', { text: t().sources + ': ' }), ...links.flatMap((a, i) => i ? [', ', a] : [a]));
 }
 
+/** Link a una segnalazione GitHub già compilata per raccontare una prova. */
+function reportView(e) {
+  const title = encodeURIComponent(`${t().reportTitle}: ${tr(e.titolo)}`);
+  const body = encodeURIComponent(t().reportBody(e.id, tr(e.titolo)));
+  const text = e.affidabilita === 'da_verificare' ? t().reportLinkVerify : t().reportLink;
+  return el('p', { class: 'report' }, el('a', { href: `${REPO}/issues/new?labels=prova&title=${title}&body=${body}`, target: '_blank', rel: 'noopener noreferrer', text }));
+}
+
 function rowView(r) {
   const e = r.entry;
   const actionable = r.stato === 'attivabile' || r.stato === 'regolabile';
@@ -224,7 +232,8 @@ function rowView(r) {
     e.requisiti_sa?.length ? el('p', {}, el('b', { text: t().needsSa + ': ' }), e.requisiti_sa.join(', ')) : null,
     tr(e.note) ? el('p', { class: 'note', text: tr(e.note) }) : null,
     seen.length ? el('p', { class: 'seen', text: `${t().seenOn}: ${seen.join('; ')}` }) : null,
-    sourcesView(e.fonti));
+    sourcesView(e.fonti),
+    reportView(e));
 
   return el('li', { class: `row s-${r.stato}` + (e.consiglio === 'sconsigliata' ? ' advised-against' : '') },
     el('div', { class: 'row-main' },
@@ -264,6 +273,24 @@ function renderDiscover() {
     return d;
   }).filter(Boolean));
 }
+
+/** Riquadro che invita a contribuire: quante voci, quante confermate, su quante auto. */
+function renderCommunity() {
+  const cars = new Set(state.db.flatMap(e => (e.osservazioni || []).map(o => [o.telaio, o.anno, o.i_level].join('|'))));
+  const confirmed = state.db.filter(e => e.affidabilita === 'confermata').length;
+  $('#communityTitle').textContent = t().commH(cars.size);
+  const stat = (n, label, cls) => el('div', { class: cls }, el('dt', { text: label }), el('dd', { text: String(n) }));
+  $('#communityStats').replaceChildren(
+    stat(state.db.length, t().statEntries),
+    stat(confirmed, t().statConfirmed),
+    stat(cars.size, t().statCars(cars.size), cars.size < 5 ? 'few' : null));
+}
+
+function showTab(id) {
+  document.querySelectorAll('[role=tab]').forEach(x => x.setAttribute('aria-selected', String(x.id === id)));
+  document.querySelectorAll('[role=tabpanel]').forEach(p => (p.hidden = p.id !== $('#' + id).getAttribute('aria-controls')));
+}
+$('#goShare').addEventListener('click', () => { showTab('tab-share'); $('#tab-share').scrollIntoView({ behavior: 'smooth', block: 'start' }); });
 
 function renderShare() {
   const has = state.files.some(f => f.ecu);
@@ -315,10 +342,7 @@ $('#copyList').addEventListener('click', async e => {
 $('#downloadList').addEventListener('click', () => save(t().fileList, $('#listText').textContent));
 
 // ---------- schede, filtri, lingua ----------
-document.querySelectorAll('[role=tab]').forEach(tab => tab.addEventListener('click', () => {
-  document.querySelectorAll('[role=tab]').forEach(x => x.setAttribute('aria-selected', String(x === tab)));
-  document.querySelectorAll('[role=tabpanel]').forEach(p => (p.hidden = p.id !== tab.getAttribute('aria-controls')));
-}));
+document.querySelectorAll('[role=tab]').forEach(tab => tab.addEventListener('click', () => showTab(tab.id)));
 ['#fEcu', '#fState', '#fQ', '#fHide'].forEach(s => $(s).addEventListener('input', renderRows));
 $('#dQ').addEventListener('input', renderDiscover);
 document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => {
@@ -332,6 +356,7 @@ function refresh() {
   renderFilters();
   renderRows();
   renderDiscover();
+  renderCommunity();
   renderShare();
   renderDock();
 }
