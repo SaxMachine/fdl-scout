@@ -81,6 +81,7 @@ drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') 
 drop.addEventListener('drop', e => { e.preventDefault(); addFiles(e.dataTransfer.files); });
 input.addEventListener('change', () => { addFiles(input.files); input.value = ''; });
 $('#addMore').addEventListener('click', () => input.click());
+$('#shareLoad').addEventListener('click', () => input.click());
 $('#reset').addEventListener('click', () => { state.files = []; state.fa = null; state.selected.clear(); refresh(); });
 
 // ---------- rendering ----------
