@@ -5,6 +5,7 @@
   centralina: KOMBI
   titolo:
     it: Distanza percorsa nel computer di bordo
+    en: Distance travelled in the on-board computer
   parametri:
   - nome: BC_DISTANZ_ENABLE
     target: aktiv
@@ -21,6 +22,7 @@
   - F60
   note:
     it: Aggiunge la pagina di distanza al BC del quadro.
+    en: Adds the distance page to the cluster's on-board computer.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -31,6 +33,7 @@
   centralina: KOMBI
   titolo:
     it: Ora di arrivo nel computer di bordo
+    en: Arrival time in the on-board computer
   parametri:
   - nome: KI_PIA_ANKUNFT
     target: aktiv
@@ -45,6 +48,7 @@
   - F60
   note:
     it: 'BC_ANKUNFTSZEIT_ENABLE è già attivo: manca solo la voce selezionabile.'
+    en: 'BC_ANKUNFTSZEIT_ENABLE is already active: only the selectable entry is missing.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -55,6 +59,7 @@
   centralina: KOMBI
   titolo:
     it: Avviso superamento limite nel quadro
+    en: Speed limit warning in the cluster
   parametri:
   - nome: SLI_WARNUNG_ENABLE
     target: aktiv
@@ -69,6 +74,8 @@
   - F60
   note:
     it: L'HUD lo fa già (HUD_SLI_WARNUNG_ENABLE). Così il segnale lampeggia anche nel quadro quando l'HUD è spento.
+    en: The HUD already does it (HUD_SLI_WARNUNG_ENABLE). This makes the sign flash in the cluster too when the
+      HUD is off.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -79,6 +86,7 @@
   centralina: KOMBI
   titolo:
     it: Marcia inserita nell'HUD
+    en: Current gear in the HUD
   parametri:
   - nome: HUD_FAHRSTUFE_ENABLE
     target: aktiv
@@ -94,6 +102,8 @@
   note:
     it: 'Documentato su F55/F56. Le tre voci HUD_SPORTANZEIGE_* sono già attive sia in HU sia nel KOMBI: manca solo
       questa.'
+    en: 'Documented on F55/F56. The three HUD_SPORTANZEIGE_* entries are already active in both the HU and the KOMBI:
+      only this one is missing.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -104,6 +114,7 @@
   centralina: KOMBI
   titolo:
     it: Ora sincronizzata da GPS
+    en: Time synchronised from GPS
   parametri:
   - nome: GPS_UHR
     target: aktiv
@@ -128,6 +139,7 @@
   centralina: KOMBI
   titolo:
     it: Temperatura olio numerica
+    en: Numeric oil temperature
   parametri:
   - nome: OEL_TEMP_NUMERISCH
     target: aktiv
@@ -142,6 +154,7 @@
   - F60
   note:
     it: Il quadro IC_MID non ha sempre la grafica per mostrarla.
+    en: The IC_MID cluster does not always have the graphics to show it.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -152,6 +165,7 @@
   centralina: KOMBI
   titolo:
     it: Speed Limit Assist (ACC adotta il limite)
+    en: Speed Limit Assist (ACC adopts the limit)
   parametri:
   - nome: LDM_ISA_ENABLE
     target: aktiv
@@ -168,6 +182,7 @@
   - F60
   note:
     it: Richiede supporto in DSC e KAFAS oltre al KOMBI. Non procedere senza l'FWL del DSC.
+    en: Needs support in the DSC and KAFAS as well as the KOMBI. Do not go ahead without the DSC FWL.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -180,6 +195,7 @@
   centralina: KOMBI
   titolo:
     it: Limite e divieto di sorpasso nell'HUD
+    en: Speed limit and no-overtaking signs in the HUD
   parametri:
   - nome: HUD_SLI_ENABLE
     target: aktiv
@@ -206,6 +222,7 @@
   centralina: KOMBI
   titolo:
     it: Quadro più luminoso di giorno
+    en: Brighter cluster in daylight
   parametri:
   - nome: DIM_NACHT_EIN
     target: FF
@@ -220,6 +237,7 @@
   - F60
   note:
     it: Fonte NAM. Gli utenti riportano un quadro molto più leggibile alla luce del sole.
+    en: 'Source: NAM. Owners report a much more readable cluster in sunlight.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -230,11 +248,13 @@
   centralina: KOMBI
   titolo:
     it: Velocità digitale nel computer di bordo
+    en: Digital speed in the on-board computer
   parametri:
   - nome: DIGITAL_TACHO_ENABLE
     regolabile: true
   valori_suggeriti:
     it: valore digitale (lista E-Sys)
+    en: digital value (E-Sys list)
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -247,6 +267,8 @@
   note:
     it: 'Elenco BimmerCode F5x. Mostra i km/h in cifre nel quadro. Con alcuni PSdZData il valore attuale non ha
       nome: scegli la voce kmh dalla lista.'
+    en: 'BimmerCode F5x list. Shows km/h as digits in the cluster. With some PSdZData the current value has no name:
+      pick the kmh entry from the list.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -257,6 +279,7 @@
   centralina: KOMBI
   titolo:
     it: Riga vuota nel computer di bordo
+    en: Blank line in the on-board computer
   parametri:
   - nome: BC_LEERZEILE
     target: aktiv
@@ -271,6 +294,7 @@
   - F60
   note:
     it: Elenco BimmerCode. Permette di lasciare il computer di bordo senza dati, per un quadro più pulito.
+    en: BimmerCode list. Lets you leave the on-board computer without data, for a cleaner cluster.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -281,11 +305,13 @@
   centralina: KOMBI
   titolo:
     it: Azzeramento automatico delle medie
+    en: Automatic reset of averages
   parametri:
   - nome: BC_AUTORESET_ZEIT
     regolabile: true
   valori_suggeriti:
     it: dopo 4 h / 8 h / ogni viaggio / mai
+    en: after 4 h / 8 h / every trip / never
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -297,6 +323,7 @@
   - F60
   note:
     it: 'Elenco BimmerCode. Con alcuni PSdZData il valore attuale non ha nome: scegli dalla lista E-Sys.'
+    en: 'BimmerCode list. With some PSdZData the current value has no name: pick from the E-Sys list.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -307,11 +334,13 @@
   centralina: KOMBI
   titolo:
     it: Soglia della riserva carburante
+    en: Fuel reserve threshold
   parametri:
   - nome: TNK_SCHWELLE_RESERVE
     regolabile: true
   valori_suggeriti:
     it: valore più basso o più alto
+    en: lower or higher value
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -323,6 +352,7 @@
   - F60
   note:
     it: Elenco BimmerCode (Reservewarnung). Cambia quando compare la spia della riserva, non la capacità reale.
+    en: BimmerCode list (Reservewarnung). Changes when the reserve warning appears, not the real capacity.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -333,6 +363,7 @@
   centralina: KOMBI
   titolo:
     it: Fondo scala dell'indicatore di consumo
+    en: Full scale of the consumption gauge
   parametri:
   - nome: HMI_KVA_SKALA
     regolabile: true
@@ -340,6 +371,7 @@
     regolabile: true
   valori_suggeriti:
     it: Valori in l/100 km dalla lista E-Sys (oggi 20).
+    en: Values in l/100 km from the E-Sys list (currently 20).
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -351,6 +383,7 @@
   - F60
   note:
     it: Cambia il valore massimo della barra del consumo nel quadro.
+    en: Changes the maximum value of the consumption bar in the cluster.
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -363,6 +396,7 @@
   centralina: KOMBI
   titolo:
     it: Data nel computer di bordo
+    en: Date in the on-board computer
   parametri:
   - nome: BC_DATUM
     target: aktiv
@@ -372,6 +406,7 @@
   telai: *id001
   note:
     it: Aggiunge la data tra le voci del computer di bordo.
+    en: Adds the date to the on-board computer items.
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -384,6 +419,7 @@
   centralina: KOMBI
   titolo:
     it: Memoria dei segnali stradali nel quadro (TSM)
+    en: Road sign memory in the cluster (TSM)
   parametri:
   - nome: TSM_ENABLE
     target: aktiv
@@ -403,6 +439,8 @@
   note:
     it: Citati su Bimmerfest insieme al riconoscimento dei limiti di velocità (già attivo nella F54 di riferimento).
       TSM dovrebbe mostrare anche altri cartelli memorizzati; l'effetto su MINI non è confermato.
+    en: Mentioned on Bimmerfest together with speed limit recognition (already active on the reference F54). TSM
+      should also show other stored signs; the effect on MINI is not confirmed.
   fonti:
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   osservazioni:

@@ -5,6 +5,7 @@
   centralina: HU_NBT2
   titolo:
     it: Menu ricircolo automatico (AUC) nel clima
+    en: Automatic recirculation (AUC) menu in climate settings
   parametri:
   - nome: CLIMATE_AUTORECIRCULATION
     target: auc_vorhanden
@@ -20,6 +21,8 @@
   note:
     it: 'IHKA ha AUC=AKTIV e il BDC ha il sensore (AIC_AUC_SENSOR analogico): manca solo la voce nel menu della
       HU.'
+    en: 'IHKA has AUC=AKTIV and the BDC has the sensor (analogue AIC_AUC_SENSOR): only the menu entry in the HU
+      is missing.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -30,6 +33,7 @@
   centralina: HU_NBT2
   titolo:
     it: Voce menu chiusura automatica in marcia
+    en: Menu entry for automatic locking when driving off
   parametri:
   - nome: DOOR_LOCK_AFTER_DRIVING_AWAY
     target: aktiv
@@ -44,6 +48,8 @@
   - F60
   note:
     it: La logica è nel BDC (CLI_DEFAULT_LOCK_AT_SPEED già impostato). Così la gestisci dalle impostazioni del veicolo.
+    en: The logic is in the BDC (CLI_DEFAULT_LOCK_AT_SPEED already set). This lets you manage it from the vehicle
+      settings.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -54,6 +60,7 @@
   centralina: HU_NBT2
   titolo:
     it: Voce menu ribaltamento specchietti alla chiusura
+    en: Menu entry for folding mirrors when locking
   parametri:
   - nome: SETTINGS_AUTOMATIC_EXT_MIRROR_FOLDING
     target: aktiv
@@ -68,6 +75,7 @@
   - F60
   note:
     it: Nel BDC ASP_BEIKLAPPEN è già attivo. Sulla grafica MINI la voce non sempre compare.
+    en: ASP_BEIKLAPPEN is already active in the BDC. With the MINI graphics the entry does not always appear.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -80,6 +88,7 @@
   centralina: HU_NBT2
   titolo:
     it: Memoria sedile richiamata dalla chiave
+    en: Seat memory recalled by the key
   parametri:
   - nome: DOORLOCKING_SEATMEMORY
     target: aktiv
@@ -94,6 +103,7 @@
   - F60
   note:
     it: Richiede SA 459 e la centralina SMFA. Serve anche il parametro corrispondente in SMFA, ancora da mappare.
+    en: Requires SA 459 and the SMFA unit. The matching SMFA parameter, not yet mapped, is also needed.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -106,6 +116,7 @@
   centralina: HU_NBT2
   titolo:
     it: Voce menu conferma acustica di chiusura
+    en: Menu entry for the audible lock confirmation
   parametri:
   - nome: ACOUSTICAL_LOCK_CONFIRM
     target: aktiv
@@ -120,6 +131,7 @@
   - F60
   note:
     it: Nel BDC VAM_HORN_AT_SECURE è attivo. La voce permette di attivarla o spegnerla dal menu.
+    en: VAM_HORN_AT_SECURE is active in the BDC. The entry lets you switch it on or off from the menu.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -130,6 +142,7 @@
   centralina: HU_NBT2
   titolo:
     it: Riscaldamento sedili automatico
+    en: Automatic seat heating
   parametri:
   - nome: AKT_AUTO_SITZE_FRONT
     target: aktiv
@@ -144,6 +157,8 @@
   - F60
   note:
     it: Accende i sedili in base alla temperatura esterna. Su IHKA monozona MINI il supporto non è garantito.
+    en: Switches the seats on depending on the outside temperature. Support is not guaranteed with the MINI single-zone
+      IHKA.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -156,6 +171,7 @@
   centralina: HU_NBT2
   titolo:
     it: Distanza alla prossima svolta nell'HUD
+    en: Distance to the next turn in the HUD
   parametri:
   - nome: HUD_DISTANCE_INFO
     target: aktiv
@@ -172,6 +188,7 @@
   - F60
   note:
     it: L'HUD MINI (SA 6AD) è gestito dal KOMBI; la HU decide quali dati di navigazione inviargli.
+    en: The MINI HUD (SA 6AD) is driven by the KOMBI; the HU decides which navigation data to send it.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -182,6 +199,7 @@
   centralina: HU_NBT2
   titolo:
     it: Interruttore luci diurne nel menu iDrive
+    en: Daytime running lights switch in the iDrive menu
   parametri:
   - nome: DAYDRIVING_LIGHT
     target: standard
@@ -197,6 +215,8 @@
   note:
     it: Confermato su F54 e F56 (stesso passaggio perm_off → standard). Permette di spegnere la DRL dal menu luci,
       per profilo.
+    en: Confirmed on F54 and F56 (same change, perm_off → standard). Lets you switch the DRL off from the lights
+      menu, per profile.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -207,6 +227,7 @@
   centralina: HU_NBT2
   titolo:
     it: Video da chiavetta USB
+    en: Video from a USB stick
   parametri:
   - nome: API_USB_VIDEO
     target: both
@@ -223,6 +244,7 @@
   - F60
   note:
     it: 'Confermato su un''altra F54: API_USB_VIDEO = both, più il codec XVID. Riproduzione a vettura ferma.'
+    en: 'Confirmed on another F54: API_USB_VIDEO = both, plus the XVID codec. Playback only when stationary.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -233,6 +255,7 @@
   centralina: HU_NBT2
   titolo:
     it: Cambio ora legale automatico
+    en: Automatic daylight saving time
   parametri:
   - nome: CLOCK_CHANGE_AUTOMATIC
     target: aktiv
@@ -248,6 +271,8 @@
   note:
     it: 'SETTINGS_TIME_AUTOMATIC è già su online e il KOMBI ha GPS_UHR attivo: manca solo il passaggio automatico
       all''ora legale.'
+    en: 'SETTINGS_TIME_AUTOMATIC is already set to online and the KOMBI has GPS_UHR active: only the automatic switch
+      to daylight saving time is missing.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -258,6 +283,7 @@
   centralina: HU_NBT2
   titolo:
     it: Navigazione e menu in movimento
+    en: Navigation and menus while moving
   parametri:
   - nome: SPEEDLOCK_X_KMH_MIN
     target: FF
@@ -275,6 +301,7 @@
   note:
     it: 'Su F54 documentato con FF. Toglie i blocchi di inserimento in marcia: il guidatore non deve usarlo mentre
       guida.'
+    en: 'Documented on an F54 with FF. Removes the input locks while driving: the driver must not use it while driving.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -285,6 +312,7 @@
   centralina: HU_NBT2
   titolo:
     it: Menu livello olio elettronico
+    en: Electronic oil level menu
   parametri:
   - nome: OELSTANDSMENUE
     target: aktiv
@@ -302,6 +330,7 @@
   note:
     it: Mostra il livello olio nell'iDrive. Funziona solo se il B48 ha il sensore OENS; altrimenti il menu resta
       vuoto.
+    en: Shows the oil level in iDrive. It only works if the B48 has the OENS sensor; otherwise the menu stays empty.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -312,6 +341,7 @@
   centralina: HU_NBT2
   titolo:
     it: Disattivazione Active Sound Design
+    en: Disable Active Sound Design
   parametri:
   - nome: ASD_SOUND_OFF
     target: aktiv
@@ -327,6 +357,8 @@
   note:
     it: Fonte NAM, testata su F55/F56. Si codifica nella HU, non nella centralina ASD. Spegne il suono sintetico
       del motore in abitacolo.
+    en: 'Source: NAM, tested on F55/F56. It is coded in the HU, not in the ASD unit. Turns off the synthetic engine
+      sound in the cabin.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -337,6 +369,7 @@
   centralina: HU_NBT2
   titolo:
     it: Menu configurazione suono ASD
+    en: ASD sound configuration menu
   parametri:
   - nome: ASD_CONFIGURATION
     target: aktiv
@@ -352,6 +385,8 @@
   note:
     it: Fonte NAM. Mostra in iDrive la scelta tra i suoni ASD_SOUND_1-4 (già attivi). Alternativa più morbida alla
       disattivazione totale.
+    en: 'Source: NAM. Shows in iDrive the choice between the ASD_SOUND_1-4 sounds (already active). A gentler alternative
+      to switching it off completely.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -362,6 +397,7 @@
   centralina: HU_NBT2
   titolo:
     it: Pressione e temperatura gomme in Info veicolo
+    en: Tyre pressure and temperature in Vehicle info
   parametri:
   - nome: RDC_SAFETY
     target: aktiv
@@ -377,6 +413,8 @@
   note:
     it: Fonte NAM. Serve il controllo pressione diretto con sensori nelle ruote. RDC_DRUCK_TEMP è già su pressione
       e temperatura, quindi è probabile che funzioni.
+    en: 'Source: NAM. Requires direct pressure monitoring with sensors in the wheels. RDC_DRUCK_TEMP is already
+      set to pressure and temperature, so it will probably work.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -389,6 +427,7 @@
   centralina: HU_NBT2
   titolo:
     it: Frecce nell'HUD
+    en: Turn signals in the HUD
   parametri:
   - nome: HUD_TURNSIGNAL
     target: aktiv
@@ -403,6 +442,7 @@
   - F60
   note:
     it: Fonte NAM. Mostra l'indicatore di direzione nell'Head-Up Display.
+    en: 'Source: NAM. Shows the turn indicator in the head-up display.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -413,6 +453,7 @@
   centralina: HU_NBT2
   titolo:
     it: Info limite di velocità
+    en: Speed limit info
   parametri:
   - nome: SPEEDLIMIT_INFO
     target: aktiv
@@ -427,6 +468,7 @@
   - F60
   note:
     it: Fonte NAM, insieme a KI_PIA_SPEED_LIMIT nel KOMBI (da attivare se non lo è già).
+    en: 'Source: NAM, together with KI_PIA_SPEED_LIMIT in the KOMBI (enable it if it is not already).'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -437,6 +479,7 @@
   centralina: HU_NBT2
   titolo:
     it: Data e ora nel registro chiamate
+    en: Date and time in the call log
   parametri:
   - nome: TIMESTAMP_DISPLAY
     target: aktiv
@@ -451,6 +494,7 @@
   - F60
   note:
     it: Fonte NAM.
+    en: 'Source: NAM.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -461,6 +505,7 @@
   centralina: HU_NBT2
   titolo:
     it: Dettatura vocale per SMS ed e-mail
+    en: Voice dictation for SMS and email
   parametri:
   - nome: SPEECH_2_TEXT
     target: aktiv
@@ -475,6 +520,7 @@
   - F60
   note:
     it: Fonte NAM. Dipende dal supporto della lingua italiana.
+    en: 'Source: NAM. Depends on support for your language.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -485,6 +531,7 @@
   centralina: HU_NBT2
   titolo:
     it: Suoneria del telefono come principale
+    en: Phone ringtone as the main ringtone
   parametri:
   - nome: INBAND_RINGING
     target: aktiv
@@ -499,6 +546,7 @@
   - F60
   note:
     it: Fonte NAM. Usa la suoneria del telefono invece di quella dell'auto.
+    en: 'Source: NAM. Uses the phone''s ringtone instead of the car''s.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -509,6 +557,7 @@
   centralina: HU_NBT2
   titolo:
     it: Importazione percorsi nella navigazione
+    en: Route import in navigation
   parametri:
   - nome: NAVI_TRIP_IMPORT
     target: aktiv
@@ -523,6 +572,7 @@
   - F60
   note:
     it: Fonte NAM.
+    en: 'Source: NAM.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -533,6 +583,7 @@
   centralina: HU_NBT2
   titolo:
     it: Grafica John Cooper Works in iDrive
+    en: John Cooper Works graphics in iDrive
   parametri:
   - nome: JOHN_COOPER_WORKS_HMI
     target: aktiv
@@ -547,6 +598,7 @@
   - F60
   note:
     it: Fonte mini-f56-forum.de e minif56.com. Solo estetica (anello LED e schermate JCW).
+    en: 'Source: mini-f56-forum.de and minif56.com. Cosmetic only (LED ring and JCW screens).'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -557,6 +609,7 @@
   centralina: HU_NBT2
   titolo:
     it: 'Avviso uscita di corsia: voce nel menu iDrive'
+    en: 'Lane departure warning: entry in the iDrive menu'
   parametri:
   - nome: LANE_DEPARTURE_WARNING
     target: aktiv
@@ -575,6 +628,11 @@
       ST_TLC_*; BDC ComAdapterPdu_18A_Steuerung_Vibration_Lenkrad e SPURVERLASSENS_WARNUNG; KAFAS TLC_ON_OFF, SEND_MSG_327/18A;
       HU LANE_DEPARTURE_WARNING; KAFAS TLC_START_VERSION 01 e DT_LNDT_SEND. Un utente F54 l''ha attivata senza montare
       il motorino di vibrazione: la vibrazione è leggera. Richiede la telecamera KAFAS.'
+    en: 'Part of a procedure across four units. On the reference F54 the KOMBI, the BDC and most of the KAFAS are
+      already set up: this entry and the two KAFAS ones are missing. Full procedure on an F54 (minif56): KOMBI TLC_VERBAUT,
+      ST_TLC_*; BDC ComAdapterPdu_18A_Steuerung_Vibration_Lenkrad and SPURVERLASSENS_WARNUNG; KAFAS TLC_ON_OFF,
+      SEND_MSG_327/18A; HU LANE_DEPARTURE_WARNING; KAFAS TLC_START_VERSION 01 and DT_LNDT_SEND. One F54 owner enabled
+      it without fitting the vibration motor: the vibration is light. Requires the KAFAS camera.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -588,6 +646,7 @@
   centralina: HU_NBT2
   titolo:
     it: Scrittura su chiavetta USB
+    en: Writing to a USB stick
   parametri:
   - nome: API_USB_READ_WRITE
     target: aktiv
@@ -602,6 +661,7 @@
   - F60
   note:
     it: Fonte Bimmerfest. Permette di esportare dati (es. percorsi) su USB.
+    en: 'Source: Bimmerfest. Lets you export data (e.g. routes) to USB.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -612,6 +672,7 @@
   centralina: HU_NBT2
   titolo:
     it: Scelta della velocità digitale dal menu iDrive
+    en: Choose the digital speed display from the iDrive menu
   parametri:
   - nome: KI_DISP_CB_SPEED_DIGITAL
     target: aktiv
@@ -626,6 +687,7 @@
   - F60
   note:
     it: Aggiunge la casella in iDrive per scegliere cosa mostrare nel computer di bordo del quadro. Abbinala a DIGITAL_TACHO_ENABLE.
+    en: Adds the checkbox in iDrive to choose what the cluster's on-board computer shows. Pair it with DIGITAL_TACHO_ENABLE.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -636,6 +698,7 @@
   centralina: HU_NBT2
   titolo:
     it: Altre voci del computer di bordo selezionabili
+    en: More selectable on-board computer items
   parametri:
   - nome: KI_DISP_CB_BC_RANGE_ENABLE
     target: aktiv
@@ -655,6 +718,8 @@
   note:
     it: 'Caselle in iDrive per autonomia, temperatura motore e media di velocità/consumo nel quadro. Sono menu:
       il KOMBI deve supportarle (BC_MOTORTEMP_ENABLE è già attivo).'
+    en: 'Checkboxes in iDrive for range, engine temperature and average speed/consumption in the cluster. These
+      are menu entries: the KOMBI must support them (BC_MOTORTEMP_ENABLE is already active).'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -665,6 +730,7 @@
   centralina: HU_NBT2
   titolo:
     it: Volante riscaldato automatico
+    en: Automatic heated steering wheel
   parametri:
   - nome: AKT_AUTO_LENKRADHEIZUNG
     target: aktiv
@@ -680,6 +746,8 @@
   note:
     it: 'Voce di menu: accende il volante in base alla temperatura. Non presente nell''elenco BimmerCode MINI, quindi
       da provare.'
+    en: 'Menu entry: switches the wheel heating on depending on the temperature. Not in the BimmerCode MINI list,
+      so it needs testing.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -692,6 +760,7 @@
   centralina: HU_NBT2
   titolo:
     it: Popup del volume
+    en: Volume pop-up
   parametri:
   - nome: VOLUME_POPUP_DISPLAY
     target: aktiv
@@ -706,6 +775,7 @@
   - F60
   note:
     it: Elenco BimmerCode. Mostra a schermo il livello del volume quando lo regoli.
+    en: BimmerCode list. Shows the volume level on screen when you adjust it.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -716,11 +786,13 @@
   centralina: HU_NBT2
   titolo:
     it: Suono di avviso
+    en: Warning sound
   parametri:
   - nome: SOUND_SIGNAL_SET
     regolabile: true
   valori_suggeriti:
     it: mini / bmw_i / rr
+    en: mini / bmw_i / rr
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -732,6 +804,7 @@
   - F60
   note:
     it: Elenco BimmerCode. Su un'altra F54 documentato 02_RR. Solo gusto personale.
+    en: BimmerCode list. Documented as 02_RR on another F54. Purely a matter of taste.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -742,6 +815,7 @@
   centralina: HU_NBT2
   titolo:
     it: Animazione di avvio
+    en: Start-up animation
   parametri:
   - nome: STARTUP_EMBLEM
     regolabile: true
@@ -749,6 +823,7 @@
     regolabile: true
   valori_suggeriti:
     it: variante JCW, MINI, ecc.
+    en: JCW, MINI variant, etc.
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -760,6 +835,7 @@
   - F60
   note:
     it: 'Elenco BimmerCode: animazioni MINI, JCW e altre. Solo estetica.'
+    en: 'BimmerCode list: MINI, JCW and other animations. Cosmetic only.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -770,6 +846,7 @@
   centralina: HU_NBT2
   titolo:
     it: Popup del clima a ogni regolazione
+    en: Climate pop-up on every adjustment
   parametri:
   - nome: HVAC_POPUP_AIRDISTR
     target: aktiv
@@ -786,6 +863,7 @@
   - F60
   note:
     it: Mostra un riquadro a schermo quando cambi distribuzione aria o modalità AUTO.
+    en: Shows a box on screen when you change air distribution or AUTO mode.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -796,6 +874,7 @@
   centralina: HU_NBT2
   titolo:
     it: Storico tagliandi
+    en: Service history
   parametri:
   - nome: SERVICE_HISTORY
     target: aktiv
@@ -820,6 +899,7 @@
   centralina: HU_NBT2
   titolo:
     it: Inclinometro xView
+    en: xView inclinometer
   parametri:
   - nome: X_VIEW
     target: aktiv
@@ -844,6 +924,7 @@
   centralina: HU_NBT2
   titolo:
     it: Elenchi musicali nell'HUD
+    en: Music lists in the HUD
   parametri:
   - nome: HUD_ENTERTAINMENTLIST
     target: aktiv
@@ -868,6 +949,7 @@
   centralina: HU_NBT2
   titolo:
     it: Chiusura finestrini quando piove
+    en: Close the windows when it rains
   parametri:
   - nome: REGEN_SCHLIESSEN
     target: aktiv
@@ -882,6 +964,7 @@
   - F60
   note:
     it: Fonte Bimmerfest, mai confermata. Aggiunge la voce in iDrive; serve che il BDC supporti la funzione.
+    en: 'Source: Bimmerfest, never confirmed. Adds the entry in iDrive; the BDC must support the function.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -892,6 +975,7 @@
   centralina: HU_NBT2
   titolo:
     it: Testo completo dei messaggi in marcia
+    en: Full message text while driving
   parametri:
   - nome: PIM_DRIVING_TEXT_LENGTH
     target: whole_text
@@ -906,6 +990,8 @@
   - F60
   note:
     it: 'Elenco BimmerCode e NAM. Mostra l''intero SMS anche guidando: leggerlo distrae, valutalo per il passeggero.'
+    en: 'BimmerCode list and NAM. Shows the whole SMS while driving: reading it is distracting, consider it for
+      the passenger.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -916,11 +1002,13 @@
   centralina: HU_NBT2
   titolo:
     it: Volume massimo all'accensione
+    en: Maximum volume at start-up
   parametri:
   - nome: VOL_MAX_ON
     regolabile: true
   valori_suggeriti:
     it: 32 hex = 50%, 4B = 75%
+    en: 32 hex = 50%, 4B = 75%
   rischio: basso
   consiglio: ok
   affidabilita: confermata
@@ -932,6 +1020,7 @@
   - F60
   note:
     it: Elenco BimmerCode, NAM e forum tedesco. La radio non riparte più bassa di questo valore.
+    en: BimmerCode list, NAM and the German forum. The radio no longer starts quieter than this value.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -942,6 +1031,7 @@
   centralina: HU_NBT2
   titolo:
     it: Altri formati video da USB
+    en: More video formats from USB
   parametri:
   - nome: ENT_VIDEO
     target: aktiv
@@ -963,6 +1053,8 @@
   note:
     it: Fonti NAM e Bimmerfest, in aggiunta a API_USB_VIDEO e XVID. ENT_MC_VIDEO_SUPPORT permette di salvare i video
       sul disco della HU.
+    en: 'Sources: NAM and Bimmerfest, in addition to API_USB_VIDEO and XVID. ENT_MC_VIDEO_SUPPORT lets you save
+      videos to the HU''s disk.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -973,6 +1065,7 @@
   centralina: HU_NBT2
   titolo:
     it: Streaming multimediale via Wi-Fi
+    en: Media streaming over Wi-Fi
   parametri:
   - nome: ENT_MC_WLAN_STREAM_DMP
     target: aktiv
@@ -991,6 +1084,7 @@
   - F60
   note:
     it: Fonte Bimmerfest. Riproduce musica e video da un dispositivo in rete Wi-Fi (DLNA).
+    en: 'Source: Bimmerfest. Plays music and video from a device on the Wi-Fi network (DLNA).'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1001,6 +1095,7 @@
   centralina: HU_NBT2
   titolo:
     it: Barra di avanzamento al reset pressione gomme
+    en: Progress bar when resetting tyre pressure
   parametri:
   - nome: RDC_FORTSCHRITTSANZEIGE
     target: aktiv
@@ -1015,6 +1110,7 @@
   - F60
   note:
     it: Fonte Bimmerfest.
+    en: 'Source: Bimmerfest.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1027,6 +1123,7 @@
   centralina: HU_NBT2
   titolo:
     it: Regolazione luminosità luci ambiente in iDrive
+    en: Ambient light brightness setting in iDrive
   parametri:
   - nome: HELLIGKEIT_AMBILIGHT
     target: aktiv
@@ -1041,6 +1138,7 @@
   - F60
   note:
     it: Collegato alla voce BimmerCode che separa la luminosità delle luci ambiente da quella del quadro.
+    en: Linked to the BimmerCode entry that separates ambient light brightness from cluster brightness.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1051,6 +1149,7 @@
   centralina: HU_NBT2
   titolo:
     it: Limitatore automatico in base ai cartelli
+    en: Automatic limiter based on road signs
   parametri:
   - nome: AUTOLIMITER
     target: aktiv
@@ -1065,6 +1164,8 @@
   - F60
   note:
     it: 'Fonte Bimmerfest. Parte dello Speed Limit Assist: va insieme alle voci LDM_ISA di KOMBI, DSC e SAS.'
+    en: 'Source: Bimmerfest. Part of Speed Limit Assist: goes together with the LDM_ISA entries in KOMBI, DSC and
+      SAS.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1075,11 +1176,13 @@
   centralina: HU_NBT2
   titolo:
     it: Suoneria delle chiamate dell'auto
+    en: Car ringtone for calls
   parametri:
   - nome: RINGTONE
     regolabile: true
   valori_suggeriti:
     it: mini, bmw e altri valori dalla lista E-Sys.
+    en: mini, bmw and other values from the E-Sys list.
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -1091,6 +1194,7 @@
   - F60
   note:
     it: Cambia la suoneria usata dall'auto quando il telefono non trasmette la propria.
+    en: Changes the ringtone the car uses when the phone does not send its own.
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:

@@ -5,6 +5,7 @@
   centralina: ACSM
   titolo:
     it: Disattivazione avviso cinture
+    en: Disable the seat belt warning
   parametri: []
   stato_mappatura: da_mappare
   rischio: alto
@@ -17,7 +18,8 @@
   - F57
   - F60
   note:
-    it: Riguarda la sicurezza attiva. Non lo includo nelle proposte.
+    it: 'Riguarda la sicurezza attiva: sconsigliata.'
+    en: 'This is a safety function: not recommended.'
   osservazioni:
   - telaio: F54
     anno: 2022

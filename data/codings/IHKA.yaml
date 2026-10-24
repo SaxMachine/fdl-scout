@@ -5,6 +5,7 @@
   centralina: IHKA
   titolo:
     it: Memoria del ricircolo
+    en: Recirculation memory
   parametri:
   - nome: MEMORY_UMLUFT
     target: AKTIV
@@ -19,6 +20,7 @@
   - F60
   note:
     it: Al riavvio il ricircolo resta come l'avevi lasciato.
+    en: After a restart recirculation stays as you left it.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -29,6 +31,7 @@
   centralina: IHKA
   titolo:
     it: Calore residuo a motore spento
+    en: Residual heat with the engine off
   parametri:
   - nome: RESTWAERME
     regolabile: true
@@ -43,6 +46,7 @@
   - F60
   note:
     it: Manca la pompa acqua elettrica supplementare (ZUSATZWASSERPUMPE non montata).
+    en: Missing the auxiliary electric water pump (ZUSATZWASSERPUMPE not fitted).
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -53,6 +57,7 @@
   centralina: IHKA
   titolo:
     it: Memoria del clima spento
+    en: Climate off memory
   parametri:
   - nome: MEMORY_OFF
     target: AKTIV
@@ -77,6 +82,7 @@
   centralina: IHKA
   titolo:
     it: Cambio colore del display clima
+    en: Climate display colour change
   parametri:
   - nome: Display-Farbumschlag
     target: AKTIV
@@ -91,6 +97,7 @@
   - F60
   note:
     it: Elenco BimmerCode. Il display del clima cambia colore (rosso/blu) quando alzi o abbassi la temperatura.
+    en: BimmerCode list. The climate display changes colour (red/blue) when you raise or lower the temperature.
   osservazioni:
   - telaio: F54
     anno: 2022

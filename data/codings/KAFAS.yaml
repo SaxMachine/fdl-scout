@@ -5,11 +5,13 @@
   centralina: KAFAS
   titolo:
     it: Distanza dal veicolo che precede
+    en: Distance to the vehicle ahead
   parametri:
   - nome: DISPLAY_HEADWAY_DISTANCE
     regolabile: true
   valori_suggeriti:
     it: valore on (lista E-Sys)
+    en: on value (E-Sys list)
   rischio: medio
   consiglio: ok
   affidabilita: da_verificare
@@ -21,6 +23,7 @@
   - F60
   note:
     it: Mostra il tempo di distanza. L'ACC su F54 è a telecamera; l'effetto varia.
+    en: Shows the time gap. ACC on the F54 is camera-based; the effect varies.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -31,6 +34,7 @@
   centralina: KAFAS
   titolo:
     it: 'Avviso uscita di corsia: attivazione nella telecamera'
+    en: 'Lane departure warning: enable in the camera'
   parametri:
   - nome: TLC_START_VERSION
     target: '01'
@@ -51,6 +55,10 @@
       TLC_ON_OFF, SEND_MSG_327/18A; HU LANE_DEPARTURE_WARNING; KAFAS TLC_START_VERSION 01 e DT_LNDT_SEND. Un utente
       F54 l''ha attivata senza montare il motorino di vibrazione: la vibrazione è leggera. Richiede la telecamera
       KAFAS.'
+    en: 'TLC_START_VERSION has no 01 in the E-Sys list: it must be entered by hand. Full procedure on an F54 (minif56):
+      KOMBI TLC_VERBAUT, ST_TLC_*; BDC ComAdapterPdu_18A_Steuerung_Vibration_Lenkrad and SPURVERLASSENS_WARNUNG;
+      KAFAS TLC_ON_OFF, SEND_MSG_327/18A; HU LANE_DEPARTURE_WARNING; KAFAS TLC_START_VERSION 01 and DT_LNDT_SEND.
+      One F54 owner enabled it without fitting the vibration motor: the vibration is light. Requires the KAFAS camera.'
   fonti:
   - https://www.minif56.com/threads/lane-departure-warning-coding-on-f54-clubman.89617/
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/

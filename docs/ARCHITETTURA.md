@@ -1,5 +1,7 @@
 # Architettura
 
+*[English version](en/ARCHITECTURE.md)*
+
 FDL Scout è un sito statico. Non ha server applicativo, account o database online: GitHub Pages serve file fissi e tutto il lavoro avviene nel browser di chi lo usa.
 
 ```
@@ -18,7 +20,7 @@ Sono moduli ES senza dipendenze, usati identici dal browser e dai test Node.
 
 **`parser.js`**: trasforma il testo di un FWL in `{cafd, cafdVersion, ecuHint, vinFound, params}`. Il formato reale di E-Sys è una riga `CAF_ID:05 00 00 16 EE 113 118 002` seguita da righe `NOME: valore [byte esadecimali]`; nomi e valori possono contenere spazi. Ogni parametro conserva il valore leggibile e il dato esadecimale. `UnknowParam05 [05]` diventa un valore senza nome uguale a `05`. Il VIN viene riconosciuto anche quando è scritto in byte esadecimali (ATM, KAFAS, KOMBI). Resta un percorso di riserva per righe separate da tab o spazi. `identifyEcu` decide la centralina guardando, in ordine, il nome nel file o nell'intestazione, l'identificativo CAFD (`data/cafd.yaml`) e infine le "firme", cioè parametri che esistono solo in una centralina.
 
-**`matcher.js`**: per ogni voce del database assegna uno stato (attivabile, regolabile, già attiva, non disponibile, centralina non letta, da mappare). `unexplored` elenca i parametri degli FWL che nessuna voce usa, filtrando tabelle tecniche e dati di produzione. `esysChecklist` produce la lista di lavoro testuale.
+**`matcher.js`**: per ogni voce del database assegna uno stato (attivabile, regolabile, già attiva, manca l'optional, non disponibile, centralina non letta, da mappare). `unexplored` elenca i parametri degli FWL che nessuna voce usa, filtrando tabelle tecniche e dati di produzione. `esysChecklist` produce la lista di lavoro testuale.
 
 **`fa.js`**: legge la FA XML di E-Sys e ne estrae serie, codice tipo, data di produzione e codici SA/E/HO. Non legge mai il VIN dell'intestazione.
 
@@ -35,11 +37,11 @@ Sono moduli ES senza dipendenze, usati identici dal browser e dai test Node.
 - **YAML per il database.** Leggibile e modificabile da chiunque con una pull request, con revisione riga per riga. Il JSON per il browser viene generato.
 - **Nessuna richiesta esterna.** I caratteri vengono scaricati durante il build (scripts/fetch-fonts.sh) e serviti dal sito stesso; una Content-Security-Policy impedisce alla pagina di contattare altri domini.
 - **Python per il build.** PyYAML è disponibile di serie su quasi tutte le distribuzioni Linux; il progetto non ha dipendenze npm.
+- **Niente materiale BMW.** I CAFD dei PSdZData sono cifrati per gli strumenti BMW. FDL Scout non prova ad aprirli: legge solo l'FWL che E-Sys produce sul PC dell'utente.
 
 ## Da fare
 
 - Validare il parser su FWL di altre versioni di E-Sys e altre auto.
 - Mappare SAS e PMA (sensori di parcheggio) appena disponibili i loro FWL.
 - Script che confronta più impronte e propone nuove voci (parametri che cambiano tra allestimenti).
-- Traduzione inglese di titoli e note.
 - Estendere il perimetro ad altri telai F e poi G.

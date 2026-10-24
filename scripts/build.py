@@ -35,8 +35,9 @@ def load_db():
             ids.add(vid)
             if e.get("centralina") != ecu:
                 err(f'centralina "{e.get("centralina")}" diversa dal nome del file')
-            if not (e.get("titolo") or {}).get("it"):
-                err("manca titolo.it")
+            titolo = e.get("titolo") or {}
+            if not (titolo.get("it") or titolo.get("en")):
+                err("manca il titolo (titolo.it o titolo.en)")
             params = e.get("parametri")
             if not isinstance(params, list):
                 err("parametri deve essere una lista (anche vuota)")
@@ -71,8 +72,9 @@ def main():
         print(f"✗ {len(errors)} errori nel database:\n  " + "\n  ".join(errors), file=sys.stderr)
         sys.exit(1)
     en = sum(1 for e in db if e["titolo"].get("en"))
+    it = sum(1 for e in db if e["titolo"].get("it"))
     ecus = {e["centralina"] for e in db}
-    print(f"✓ {len(db)} voci valide · {en} con titolo inglese · {len(ecus)} centraline")
+    print(f"✓ {len(db)} voci valide · {it} con titolo italiano · {en} con titolo inglese · {len(ecus)} centraline")
     if "--check" in sys.argv:
         return
     ecu_map = yaml.safe_load((ROOT / "data" / "cafd.yaml").read_text(encoding="utf-8"))

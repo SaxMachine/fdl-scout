@@ -5,6 +5,7 @@
   centralina: BDC_BODY
   titolo:
     it: Memoria Start/Stop (ultimo stato)
+    en: Start/Stop memory (last state)
   parametri:
   - nome: TCM_MSA_MEMORY
     target: aktiv
@@ -19,6 +20,7 @@
   - F60
   note:
     it: Già attivo nel BDC. Nella DME risulta Wert_00, ma la funzione la gestisce il BDC.
+    en: Already active in the BDC. The DME shows Wert_00, but the function is handled by the BDC.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -29,6 +31,7 @@
   centralina: BDC_BODY
   titolo:
     it: Specchio passeggero inclinato in retromarcia
+    en: Passenger mirror tilts down in reverse
   parametri:
   - nome: ASP_BORDSTEINAUTOMATIK
     target: aktiv
@@ -43,6 +46,7 @@
   - F60
   note:
     it: Con memoria specchi (ASP_MEMORY_VERBAUT).
+    en: Requires mirror memory (ASP_MEMORY_VERBAUT).
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -53,6 +57,7 @@
   centralina: BDC_BODY
   titolo:
     it: Ribaltamento specchietti alla chiusura
+    en: Fold mirrors when locking
   parametri:
   - nome: ASP_BEIKLAPPEN
     target: aktiv
@@ -79,6 +84,7 @@
   centralina: BDC_BODY
   titolo:
     it: Angolo dello specchio passeggero in retromarcia
+    en: Passenger mirror angle in reverse
   parametri:
   - nome: ASP_BORDSTEINAUTOMATIK_DELTA
     target: '32'
@@ -94,6 +100,7 @@
   note:
     it: 'Su F54 documentato da 55 a 32: lo specchio si abbassa meno. Valore a gusto, ritocca finché vedi bene il
       marciapiede.'
+    en: 'Documented on an F54 from 55 to 32: the mirror tilts down less. Adjust to taste until you can see the kerb.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -104,6 +111,7 @@
   centralina: BDC_BODY
   titolo:
     it: Memoria della modalità di guida
+    en: Driving mode memory
   parametri:
   - nome: FesAllowMode4LastFunction
     target: aktiv
@@ -113,6 +121,7 @@
     regolabile: true
   valori_suggeriti:
     it: aktiv
+    en: aktiv
   rischio: medio
   consiglio: ok
   affidabilita: da_verificare
@@ -125,6 +134,8 @@
   note:
     it: 'Più utenti F5x la attivano. Abilita il ricordo solo per le modalità presenti nel tuo BDC (parametri FesHasModeN):
       sulla F54 di riferimento sono 3, 4 e 7, abilita il ricordo per quelle che vuoi mantenere al riavvio.'
+    en: 'Several F5x owners enable it. Enable memory only for the modes present in your BDC (FesHasModeN parameters):
+      on the reference F54 these are 3, 4 and 7. Enable it for the ones you want kept after a restart.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -135,6 +146,7 @@
   centralina: BDC_BODY
   titolo:
     it: iDrive e radio spenti all'apertura della porta
+    en: iDrive and radio off when the door opens
   parametri:
   - nome: TCM_LOGIC_15_OFF_DOOR
     target: aktiv
@@ -149,6 +161,7 @@
   - F60
   note:
     it: Citata su F55/F56. A motore spento, aprendo la porta del guidatore si spegne il quadro.
+    en: Reported on F55/F56. With the engine off, opening the driver's door switches the ignition off.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -159,6 +172,7 @@
   centralina: BDC_BODY
   titolo:
     it: Comportamento DRL con luci di posizione
+    en: DRL behaviour with parking lights
   parametri:
   - nome: TFL_MODUS
     target: tfl_s
@@ -174,6 +188,8 @@
   note:
     it: Con il valore 02 l'anello si spegne quando accendi le luci di posizione. Il valore 05 lo tiene sempre acceso.
       Non lega la DRL alla posizione 0 della levetta.
+    en: With value 02 the ring switches off when you turn on the parking lights. Value 05 keeps it always on. It
+      does not tie the DRL to position 0 of the light switch.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -184,6 +200,7 @@
   centralina: BDC_BODY
   titolo:
     it: Stop lampeggianti in frenata d'emergenza
+    en: Flashing brake lights under emergency braking
   parametri:
   - nome: ESS_AKTIVIERBARER_AUSGANG
     target: bremslicht_blinkend
@@ -208,6 +225,7 @@
   centralina: BDC_BODY
   titolo:
     it: Chiusura comfort del tetto con la chiave
+    en: Comfort closing of the sunroof with the key
   parametri:
   - nome: KOMFORTSCHLIESSUNG
     target: aktiv
@@ -224,6 +242,7 @@
   - F60
   note:
     it: Tetto panorama (SA 402) incluso.
+    en: Includes the panoramic roof (SA 402).
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -236,6 +255,7 @@
   centralina: BDC_BODY
   titolo:
     it: Lampeggio comfort
+    en: Comfort turn signal
   parametri:
   - nome: PIA_DEFAULT_TIPPBLINKEN
     regolabile: true
@@ -251,6 +271,9 @@
   note:
     it: 'Numero di lampeggi già regolabile dal menu iDrive. Se lo codifichi a mano (PIA_DEFAULT_TIPPBLINKEN o BLINKZYKLEN_ANZAHL_TIPP),
       il valore vale lampeggi meno uno: due fonti indipendenti (NAM e Xcar) riportano che 4 dà 5 lampeggi.'
+    en: 'The number of flashes can already be set in the iDrive menu. If you code it by hand (PIA_DEFAULT_TIPPBLINKEN
+      or BLINKZYKLEN_ANZAHL_TIPP), the value is flashes minus one: two independent sources (NAM and Xcar) report
+      that 4 gives 5 flashes.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -261,6 +284,7 @@
   centralina: BDC_BODY
   titolo:
     it: Fendinebbia come luci di svolta
+    en: Fog lights as cornering lights
   parametri:
   - nome: MAPPING_ABBIEGEL_L_OUTPUT
     regolabile: true
@@ -276,6 +300,7 @@
     target: KL_Ein
   valori_suggeriti:
     it: nsw_l, nsw_r (o valore hex dei fendinebbia) / aktiv / KL_Ein
+    en: nsw_l, nsw_r (or the fog light hex value) / aktiv / KL_Ein
   rischio: medio
   consiglio: ok
   affidabilita: da_verificare
@@ -288,6 +313,8 @@
   note:
     it: Procedura completa da mini-f56-forum.de. Se nsw_l/nsw_r non funziona, copia nell'uscita il valore che trovi
       in MAPPING_NEBELSCHW_L/R_OUTPUT. Verifica che resti conforme all'omologazione.
+    en: Full procedure from mini-f56-forum.de. If nsw_l/nsw_r does not work, copy into the output the value found
+      in MAPPING_NEBELSCHW_L/R_OUTPUT. Check that it stays compliant with type approval.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -300,6 +327,7 @@
   centralina: BDC_BODY
   titolo:
     it: Radio spenta in retromarcia con porta aperta
+    en: Radio off when reversing with the door open
   parametri:
   - nome: TCM_LOGIC_R_OFF_DOOR
     target: aktiv
@@ -314,6 +342,7 @@
   - F60
   note:
     it: Fonte NAM. Variante di TCM_LOGIC_15_OFF_DOOR.
+    en: 'Source: NAM. Variant of TCM_LOGIC_15_OFF_DOOR.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -324,11 +353,13 @@
   centralina: BDC_BODY
   titolo:
     it: Velocità di riapertura degli specchietti
+    en: Speed at which folded mirrors reopen
   parametri:
   - nome: ASP_GESCHWINDIGKEIT_AUTO_AUSKLAPPEN
     regolabile: true
   valori_suggeriti:
     it: es. 14 (hex)
+    en: e.g. 14 (hex)
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -340,6 +371,7 @@
   - F60
   note:
     it: Fonte NAM. Gli specchi ripiegati si riaprono da soli superata questa velocità. Il valore è binario.
+    en: 'Source: NAM. Folded mirrors unfold by themselves above this speed. The value is binary.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -352,6 +384,7 @@
   centralina: BDC_BODY
   titolo:
     it: Specchi ripiegati con chiusura comfort
+    en: Fold mirrors with comfort closing
   parametri:
   - nome: ASP_BEIKLAPPEN_BEI_KOMFORTSCHLIESSEN
     target: aktiv
@@ -378,6 +411,7 @@
   centralina: BDC_BODY
   titolo:
     it: Fendinebbia accesi con luci di posizione
+    en: Fog lights on with parking lights
   parametri:
   - nome: NSW_EIN_AUF_LDS_STL
     target: aktiv
@@ -404,6 +438,7 @@
   centralina: BDC_BODY
   titolo:
     it: Start/Stop spento a ogni avvio
+    en: Start/Stop off at every start
   parametri:
   - nome: TCM_MSA_DEFAULT_OFF
     target: aktiv
@@ -419,6 +454,8 @@
   note:
     it: 'Fonte mini-f56-forum.de, tabella di un F54 03/2018 portato a ID6. Alternativa alla memoria (già attiva):
       parte sempre spento.'
+    en: 'Source: mini-f56-forum.de, table from an F54 03/2018 updated to ID6. An alternative to the memory (already
+      active): it always starts switched off.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -429,6 +466,7 @@
   centralina: BDC_BODY
   titolo:
     it: Start/Stop spento in ECO PRO
+    en: Start/Stop off in ECO PRO
   parametri:
   - nome: TCM_MSA_ECO_MODE
     target: nicht_aktiv
@@ -443,6 +481,7 @@
   - F60
   note:
     it: Stessa fonte. Lo Start/Stop non si attiva da solo in modalità Green.
+    en: Same source. Start/Stop does not switch itself on in Green mode.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -453,11 +492,13 @@
   centralina: BDC_BODY
   titolo:
     it: Velocità massima per ripiegare gli specchi
+    en: Maximum speed for folding the mirrors
   parametri:
   - nome: ASP_MAX_GESCHWINDIGKEIT_BEIKLAPPEN
     regolabile: true
   valori_suggeriti:
     it: valore in hex
+    en: hex value
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -469,6 +510,7 @@
   - F60
   note:
     it: 'Fonte mini-f56-forum.de. Un utente non ha visto effetti: attenzione a decimale/esadecimale.'
+    en: 'Source: mini-f56-forum.de. One user saw no effect: watch out for decimal versus hexadecimal.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -481,11 +523,13 @@
   centralina: BDC_BODY
   titolo:
     it: Durata effetto ambient light all'apertura porta
+    en: Duration of the ambient light effect when the door opens
   parametri:
   - nome: AMBIENTE_RGB_LAUFLICHT_BEI_TUEROEFFNEN
     regolabile: true
   valori_suggeriti:
     it: valore in hex
+    en: hex value
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -498,6 +542,7 @@
   note:
     it: 'Fonte mini-f56-forum.de: il valore è esadecimale, chi l''ha inserito in decimale ha ottenuto l''effetto
       opposto.'
+    en: 'Source: mini-f56-forum.de. The value is hexadecimal: entering it as decimal gave the opposite effect.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -508,11 +553,13 @@
   centralina: BDC_BODY
   titolo:
     it: Lampeggi di conferma alla chiusura
+    en: Confirmation flashes when locking
   parametri:
   - nome: QUITTBLK_SICHERN_ANZAHL
     regolabile: true
   valori_suggeriti:
     it: 00–03
+    en: 00–03
   rischio: basso
   consiglio: ok
   affidabilita: confermata
@@ -524,6 +571,7 @@
   - F60
   note:
     it: 'Elenco BimmerCode: 1, 2, 3 volte oppure spento.'
+    en: 'BimmerCode list: 1, 2 or 3 times, or off.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -534,11 +582,13 @@
   centralina: BDC_BODY
   titolo:
     it: Lampeggi di conferma all'apertura
+    en: Confirmation flashes when unlocking
   parametri:
   - nome: QUITTBLK_ENTSCHAERFEN_ANZAHL
     regolabile: true
   valori_suggeriti:
     it: 00–03
+    en: 00–03
   rischio: basso
   consiglio: ok
   affidabilita: confermata
@@ -550,6 +600,7 @@
   - F60
   note:
     it: 'Elenco BimmerCode: 1, 2, 3 volte oppure spento.'
+    en: 'BimmerCode list: 1, 2 or 3 times, or off.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -560,6 +611,7 @@
   centralina: BDC_BODY
   titolo:
     it: Luce di benvenuto solo al buio
+    en: Welcome light only in the dark
   parametri:
   - nome: WL_ABHAENGIG_VON_DUNKELHEIT
     target: aktiv
@@ -574,6 +626,7 @@
   - F60
   note:
     it: Elenco BimmerCode. Evita che fari e luci si accendano di giorno all'apertura.
+    en: BimmerCode list. Stops headlights and lights from coming on in daylight when you unlock.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -584,11 +637,13 @@
   centralina: BDC_BODY
   titolo:
     it: Durata della luce di benvenuto
+    en: Welcome light duration
   parametri:
   - nome: WL_TIMEOUT
     regolabile: true
   valori_suggeriti:
     it: valore in hex
+    en: hex value
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -600,6 +655,7 @@
   - F60
   note:
     it: 'Elenco BimmerCode: da 5 a 60 secondi. Valore esadecimale.'
+    en: 'BimmerCode list: 5 to 60 seconds. Hexadecimal value.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -610,6 +666,7 @@
   centralina: BDC_BODY
   titolo:
     it: Luci incluse nel benvenuto
+    en: Lights included in the welcome light
   parametri:
   - nome: MAPPING_ABBLENDL_L_PART_OF
     regolabile: true
@@ -637,6 +694,10 @@
       F54 di riferimento luci di posizione, targa e luci design sono già nel benvenuto (WLH_FMH_RL), gli anabbaglianti
       solo nel follow-me-home (FMH_RL), fendinebbia e DRL anteriori no (off). Cambia una coppia sinistra/destra
       alla volta.
+    en: On this BDC the parameters are called MAPPING_<light>_PART_OF (not _PART_OF_WL as on other F5x). On the
+      reference F54 parking lights, number plate and design lights are already part of the welcome light (WLH_FMH_RL),
+      low beams only of follow-me-home (FMH_RL), fog lights and front DRL are not (off). Change one left/right pair
+      at a time.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -646,17 +707,22 @@
   valori_suggeriti:
     it: 'Il valore dice di quali funzioni fa parte la luce: WLH è la luce di benvenuto, FMH il follow-me-home. Per
       aggiungere una luce al benvenuto scegli dalla lista E-Sys la combinazione che include WLH (es. FMH_RL → WLH_FMH_RL).'
+    en: 'The value says which functions the light belongs to: WLH is the welcome light, FMH is follow-me-home. To
+      add a light to the welcome light, pick from the E-Sys list the combination that includes WLH (e.g. FMH_RL
+      → WLH_FMH_RL).'
   fonti:
   - https://bimmercode.app/vehicles/f56
 - id: bdc_body.memoria-del-volante-riscaldato
   centralina: BDC_BODY
   titolo:
     it: Memoria del volante riscaldato
+    en: Heated steering wheel memory
   parametri:
   - nome: NACHLAUFZEIT_LENKRADHEIZUNG
     regolabile: true
   valori_suggeriti:
     it: 24 h / illimitata
+    en: 24 h / unlimited
   rischio: basso
   consiglio: ok
   affidabilita: confermata
@@ -669,6 +735,8 @@
   note:
     it: Richiede il volante riscaldato (SA 248). Di fabbrica lo stato viene ricordato solo per 15 minuti dopo lo
       spegnimento.
+    en: Requires the heated steering wheel (SA 248). From the factory the state is remembered only for 15 minutes
+      after switching off.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -681,11 +749,13 @@
   centralina: BDC_BODY
   titolo:
     it: Memoria dei sedili riscaldati
+    en: Heated seats memory
   parametri:
   - nome: NACHLAUFZEIT_SITZHEIZUNG_FRONT
     regolabile: true
   valori_suggeriti:
     it: 24 h / illimitata
+    en: 24 h / unlimited
   rischio: basso
   consiglio: ok
   affidabilita: confermata
@@ -697,6 +767,7 @@
   - F60
   note:
     it: Stesso principio per i sedili anteriori (SA 494).
+    en: Same principle for the front seats (SA 494).
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -709,11 +780,13 @@
   centralina: BDC_BODY
   titolo:
     it: Sensibilità del sensore pioggia/luce
+    en: Rain/light sensor sensitivity
   parametri:
   - nome: RLS_DEF_FLC_SCHWELLWERT_SATZ
     regolabile: true
   valori_suggeriti:
     it: poco sensibile … molto sensibile
+    en: low sensitivity … high sensitivity
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -725,6 +798,7 @@
   - F60
   note:
     it: Elenco BimmerCode. Agisce sull'accensione automatica dei fari in AUTO.
+    en: BimmerCode list. Affects automatic headlights in AUTO.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -735,11 +809,13 @@
   centralina: BDC_BODY
   titolo:
     it: Passate del tergicristallo dopo il lavaggio
+    en: Wiper passes after washing
   parametri:
   - nome: WW_ANZAHL_NACHWISCHZ_FRONT
     regolabile: true
   valori_suggeriti:
     it: 1–5
+    en: 1–5
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -751,6 +827,7 @@
   - F60
   note:
     it: Elenco BimmerCode.
+    en: BimmerCode list.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -761,6 +838,7 @@
   centralina: BDC_BODY
   titolo:
     it: Tergicristallo rallenta da fermo
+    en: Wipers slow down when stationary
   parametri:
   - nome: WW_STANDRUECKSCHALTUNG
     target: aktiv
@@ -785,6 +863,7 @@
   centralina: BDC_BODY
   titolo:
     it: Tergicristallo completa il ciclo allo spegnimento
+    en: Wipers finish their cycle when switched off
   parametri:
   - nome: WW_ZYCLUS_VOLLEND_KLR_AUS
     target: aktiv
@@ -809,11 +888,13 @@
   centralina: BDC_BODY
   titolo:
     it: Velocità minima per le luci di stop lampeggianti
+    en: Minimum speed for flashing brake lights
   parametri:
   - nome: ESS_AKTIVIERUNG_GESCHW
     regolabile: true
   valori_suggeriti:
     it: es. 14 (hex, 20 km/h)
+    en: e.g. 14 (hex, 20 km/h)
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -825,6 +906,7 @@
   - F60
   note:
     it: Elenco BimmerCode (Gefahrenbremslicht). Abbassa la velocità da cui scattano in frenata d'emergenza.
+    en: BimmerCode list (Gefahrenbremslicht). Lowers the speed above which they trigger under emergency braking.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -835,11 +917,13 @@
   centralina: BDC_BODY
   titolo:
     it: Decelerazione che attiva le luci di stop lampeggianti
+    en: Deceleration that triggers flashing brake lights
   parametri:
   - nome: ESS_AKTIVIERUNG_REALE_VERZ
     regolabile: true
   valori_suggeriti:
     it: 5 / 7 / 8 m/s²
+    en: 5 / 7 / 8 m/s²
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -851,6 +935,7 @@
   - F60
   note:
     it: Elenco BimmerCode.
+    en: BimmerCode list.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -861,11 +946,13 @@
   centralina: BDC_BODY
   titolo:
     it: Modalità di guida all'avvio
+    en: Driving mode at start-up
   parametri:
   - nome: FesInitMode
     regolabile: true
   valori_suggeriti:
     it: Sport / Green
+    en: Sport / Green
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -879,6 +966,9 @@
     it: 'Elenco BimmerCode e forum. Sceglie con quale modalità parte l''auto. Si può scegliere solo tra le modalità
       presenti nel BDC (FesHasModeN); sulla F54 di riferimento sono MID, Sport e Green (FesHasMode3/4/7): scegli
       tra queste.'
+    en: 'BimmerCode list and forums. Chooses the mode the car starts in. You can only choose among the modes present
+      in the BDC (FesHasModeN); on the reference F54 these are MID, Sport and Green (FesHasMode3/4/7): pick one
+      of them.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -889,6 +979,7 @@
   centralina: BDC_BODY
   titolo:
     it: Leva del cambio in S attiva la modalità Sport
+    en: Gear lever in S selects Sport mode
   parametri:
   - nome: FesGwsKopplung
     target: aktiv
@@ -896,6 +987,7 @@
     regolabile: true
   valori_suggeriti:
     it: aktiv / Sport
+    en: aktiv / Sport
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -907,6 +999,7 @@
   - F60
   note:
     it: Fonte mini-f56-forum.de. Spostando la leva in S la vettura passa anche in modalità Sport.
+    en: 'Source: mini-f56-forum.de. Moving the lever to S also switches the car to Sport mode.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -917,6 +1010,7 @@
   centralina: BDC_BODY
   titolo:
     it: Modalità Sport+ (DSC meno invasivo)
+    en: Sport+ mode (less intrusive DSC)
   parametri:
   - nome: FesHasMode5
     target: aktiv
@@ -934,6 +1028,8 @@
   note:
     it: Fonte mini-f56-forum.de. Cambia l'intervento del controllo di stabilità. Un utente ha poi avuto il quadro
       senza indicazione della modalità e ha dovuto toccare anche FDS_MENUE_* nel KOMBI.
+    en: 'Source: mini-f56-forum.de. Changes how the stability control intervenes. One user then had no mode shown
+      in the cluster and also had to change FDS_MENUE_* in the KOMBI.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -944,6 +1040,7 @@
   centralina: BDC_BODY
   titolo:
     it: Avvio motore senza premere il freno
+    en: Start the engine without pressing the brake
   parametri:
   - nome: TCM_STARTLOCK_BRAKE
     target: nicht_aktiv
@@ -958,6 +1055,7 @@
   - F60
   note:
     it: Citato su NAM. Toglie un blocco di sicurezza contro le partenze involontarie con la marcia inserita.
+    en: Mentioned on NAM. Removes a safety interlock against unintended moves with a gear engaged.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -968,6 +1066,7 @@
   centralina: BDC_BODY
   titolo:
     it: Clacson alla chiusura con allarme
+    en: Horn when locking with the alarm
   parametri:
   - nome: VAM_HORN_AT_SECURE
     target: nicht_aktiv
@@ -982,6 +1081,7 @@
   - F60
   note:
     it: Fonte mini-f56-forum.de. Toglie il colpo di clacson quando inserisci l'allarme.
+    en: 'Source: mini-f56-forum.de. Removes the horn chirp when you arm the alarm.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -992,6 +1092,7 @@
   centralina: BDC_BODY
   titolo:
     it: Luci maniglie in retromarcia
+    en: Door handle lights in reverse
   parametri:
   - nome: OVT_BEI_RUECKFAHRLICHT
     target: aktiv
@@ -1007,6 +1108,8 @@
   note:
     it: 'Elenco BimmerCode, NAM e forum tedesco. Alcuni PSdZData non danno un nome al valore attuale: controlla
       prima in auto se le maniglie già si accendono in retro.'
+    en: 'BimmerCode list, NAM and the German forum. Some PSdZData have no name for the current value: first check
+      in the car whether the handles already light up in reverse.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1017,11 +1120,13 @@
   centralina: BDC_BODY
   titolo:
     it: Tergicristallo a intervalli invece del sensore pioggia
+    en: Interval wipers instead of the rain sensor
   parametri:
   - nome: WW_REGENSENSOR
     regolabile: true
   valori_suggeriti:
     it: nicht verbaut
+    en: nicht verbaut
   rischio: medio
   consiglio: sconsigliata
   affidabilita: da_verificare
@@ -1034,6 +1139,7 @@
   note:
     it: 'Fonte mini-f56-forum.de. Lo stesso sensore gestisce l''accensione automatica dei fari: rischi di perdere
       anche quella.'
+    en: 'Source: mini-f56-forum.de. The same sensor drives the automatic headlights: you may lose those too.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1044,6 +1150,7 @@
   centralina: BDC_BODY
   titolo:
     it: Clacson se chiudi la porta del guidatore senza la P inserita
+    en: Horn if you close the driver's door without P engaged
   parametri:
   - nome: VAM_HORN_AT_CLOSING_DRD_NOT_IN_P
     target: aktiv
@@ -1059,6 +1166,8 @@
   note:
     it: Avviso che l'auto non è in parcheggio quando scendi. Il nome del parametro è chiaro, l'effetto va confermato
       in auto.
+    en: Warns that the car is not in park when you get out. The parameter name is clear, but the effect needs confirming
+      in the car.
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -1071,6 +1180,7 @@
   centralina: BDC_BODY
   titolo:
     it: Apertura e chiusura comfort dei finestrini con il telecomando
+    en: Comfort opening and closing of the windows with the remote
   parametri:
   - nome: KOMFORTOEFFNUNG_FB
     target: aktiv
@@ -1083,6 +1193,8 @@
   note:
     it: 'Tenendo premuto apri o chiudi sul telecomando si aprono o chiudono finestrini e tetto. Nella F54 di riferimento
       E-Sys mostra ''aktiv'' con dato 00: se non funziona, controlla il valore nella lista.'
+    en: 'Holding open or close on the remote opens or closes the windows and the roof. On the reference F54 E-Sys
+      shows ''aktiv'' with data 00: if it does not work, check the value in the list.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -1095,11 +1207,13 @@
   centralina: BDC_BODY
   titolo:
     it: Richiusura automatica delle porte se non vengono aperte
+    en: Automatic relock if no door is opened
   parametri:
   - nome: CLI_DEFAULT_LOCK_AT_TIMEOUT
     regolabile: true
   valori_suggeriti:
     it: Valori dalla lista E-Sys (Nicht Aktiv o un tempo).
+    en: Values from the E-Sys list (Nicht Aktiv or a time).
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -1107,6 +1221,8 @@
   note:
     it: 'Impostazione predefinita della richiusura dopo lo sblocco. Effetto da verificare: potrebbe essere solo
       il valore iniziale del menu iDrive.'
+    en: 'Default setting for relocking after unlocking. Effect to be verified: it may only be the initial value
+      of the iDrive menu.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -1119,6 +1235,7 @@
   centralina: BDC_BODY
   titolo:
     it: Avviso uscita di corsia acceso a ogni avvio
+    en: Lane departure warning on at every start
   parametri:
   - nome: PIA_DEFAULT_SPURVERLASSENS_WARNUNG
     target: aktiv
@@ -1134,6 +1251,8 @@
   note:
     it: 'Valore iniziale del profilo: l''avviso parte già acceso. Ha senso solo dopo aver attivato l''avviso di
       uscita corsia (voci KAFAS e HU).'
+    en: 'Initial profile value: the warning starts switched on. Only useful after enabling the lane departure warning
+      (KAFAS and HU entries).'
   fonti:
   - https://www.minif56.com/threads/lane-departure-warning-coding-on-f54-clubman.89617/
   osservazioni:
@@ -1146,6 +1265,7 @@
   centralina: BDC_BODY
   titolo:
     it: Luci posteriori accese insieme alle luci diurne
+    en: Rear lights on together with the daytime running lights
   parametri:
   - nome: MAPPING_TAGFAHRL_1_H_L_OUTPUT
     target: sl_l
@@ -1164,6 +1284,9 @@
     it: 'Usa le luci di posizione posteriori come diurne: con la DRL attiva il retro dell''auto resta acceso. Confermata
       da più utenti F5x sul forum tedesco. Le luci diurne devono essere attive nel menu iDrive. Verifica la conformità
       alle norme del tuo paese.'
+    en: 'Uses the rear parking lights as daytime lights: with the DRL on, the rear of the car stays lit. Confirmed
+      by several F5x owners on the German forum. Daytime running lights must be enabled in the iDrive menu. Check
+      that it complies with the rules in your country.'
   fonti:
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   osservazioni:
@@ -1176,11 +1299,13 @@
   centralina: BDC_BODY
   titolo:
     it: Fendinebbia spenti quando accendi gli abbaglianti
+    en: Fog lights off when you switch on the high beams
   parametri:
   - nome: NSW_AUS_BEI_FL
     regolabile: true
   valori_suggeriti:
     it: aktiv = si spengono con gli abbaglianti; nicht_aktiv = restano accesi.
+    en: aktiv = they switch off with the high beams; nicht_aktiv = they stay on.
   requisiti_sa:
   - 5A1
   rischio: basso
@@ -1189,6 +1314,7 @@
   telai: *id002
   note:
     it: Voce dell'elenco BimmerCode, parametro confermato sul forum tedesco.
+    en: Entry from the BimmerCode list, parameter confirmed on the German forum.
   fonti:
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   - https://bimmercode.app/vehicles/f56

@@ -35,7 +35,7 @@ const state = {
   tab: 'codings',
 };
 const t = () => T[state.lang];
-const tr = obj => (obj && (obj[state.lang] || obj.it)) || '';
+const tr = obj => (obj && (obj[state.lang] || obj.it || obj.en)) || '';
 
 /** Centraline lette, nel formato atteso dal matcher. Più file della stessa centralina si uniscono. */
 function ecus() {
@@ -86,6 +86,7 @@ $('#reset').addEventListener('click', () => { state.files = []; state.fa = null;
 // ---------- rendering ----------
 function renderStatic() {
   document.documentElement.lang = state.lang;
+  document.title = t().docTitle;
   document.querySelectorAll('[data-t]').forEach(n => {
     const v = t()[n.dataset.t];
     if (typeof v === 'string') n.textContent = v;
@@ -94,7 +95,7 @@ function renderStatic() {
   $('#fQ').placeholder = t().search;
   $('#dQ').placeholder = t().discoverFilter;
   $('#repoLink').href = REPO;
-  $('#howtoLink').href = `${REPO}/blob/main/docs/ESPORTARE-DA-ESYS.md`;
+  $('#howtoLink').href = `${REPO}/blob/main/docs/${state.lang === 'it' ? 'ESPORTARE-DA-ESYS.md' : 'en/EXPORTING-FROM-ESYS.md'}`;
 }
 
 function renderUnits() {
@@ -181,7 +182,7 @@ function rowView(r) {
   const e = r.entry;
   const actionable = r.stato === 'attivabile' || r.stato === 'regolabile';
   const id = 'sel-' + e.id.replace(/\W/g, '-');
-  const titleLang = e.titolo[state.lang] ? null : el('span', { class: 'lang-fallback', text: 'IT', title: 'Not translated yet' });
+  const titleLang = e.titolo[state.lang] ? null : el('span', { class: 'lang-fallback', text: e.titolo.it ? 'IT' : 'EN', title: t().notTranslated });
   const switchEl = el('span', { class: `toggle s-${r.stato}`, role: 'img', 'aria-label': t().stati[r.stato] }, el('i'));
 
   const params = el('table', { class: 'params' },
@@ -259,8 +260,8 @@ function renderShare() {
   }
   const { removed } = buildFootprint(ecus(), {});
   $('#removed').textContent = removed.length ? t().removed(removed.length) : '';
-  const title = encodeURIComponent('Impronta: ' + Object.keys(ecus()).join(', '));
-  const body = encodeURIComponent('Allega qui il file .json scaricato da FDL Scout.\n\nTelaio:\nI-level:\nNote:');
+  const title = encodeURIComponent(`${t().issueTitle}: ${Object.keys(ecus()).join(', ')}`);
+  const body = encodeURIComponent(t().issueBody);
   $('#issueLink').href = `${REPO}/issues/new?labels=impronta&title=${title}&body=${body}`;
 }
 
@@ -272,7 +273,7 @@ $('#shareForm').addEventListener('submit', e => {
   const { footprint } = buildFootprint(ecus(), meta);
   footprint.generatore = 'fdl-scout';
   footprint.creata = new Date().toISOString().slice(0, 10);
-  save(`impronta-${(meta.telaio || 'mini').toLowerCase()}-${footprint.creata}.json`, JSON.stringify(footprint, null, 2), 'application/json');
+  save(`${t().fileFootprint}-${(meta.telaio || 'mini').toLowerCase()}-${footprint.creata}.json`, JSON.stringify(footprint, null, 2), 'application/json');
 });
 
 function renderDock() {
@@ -294,7 +295,7 @@ $('#openList').addEventListener('click', () => {
 $('#copyList').addEventListener('click', async e => {
   try { await navigator.clipboard.writeText($('#listText').textContent); e.target.textContent = t().copied; setTimeout(() => (e.target.textContent = t().copy), 1500); } catch { /* clipboard negato: resta il download */ }
 });
-$('#downloadList').addEventListener('click', () => save('lista-esys.txt', $('#listText').textContent));
+$('#downloadList').addEventListener('click', () => save(t().fileList, $('#listText').textContent));
 
 // ---------- schede, filtri, lingua ----------
 document.querySelectorAll('[role=tab]').forEach(tab => tab.addEventListener('click', () => {

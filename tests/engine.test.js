@@ -131,3 +131,13 @@ test("l'impronta toglie VIN e parametri identificativi", () => {
   assert.equal(footprint.note, undefined);
   assert.equal(footprint.centraline.HU_NBT2.params.API_USB_VIDEO, 'none');
 });
+
+test('esysChecklist usa il titolo nella lingua scelta, con ripiego sull\'altra', () => {
+  const db = [
+    { id: 'hu_nbt2.solo-en', centralina: 'HU_NBT2', titolo: { en: 'English only' }, parametri: [{ nome: 'API_USB_VIDEO', target: 'both' }] },
+  ];
+  const ecus = { HU_NBT2: { params: { API_USB_VIDEO: { value: 'none' } } } };
+  const rs = evaluateAll(db, ecus);
+  assert.match(esysChecklist(rs, new Set(['hu_nbt2.solo-en']), 'it'), /# English only/);
+  assert.match(esysChecklist(rs, new Set(['hu_nbt2.solo-en']), 'en'), /# E-Sys work list/);
+});

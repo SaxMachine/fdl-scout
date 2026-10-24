@@ -128,7 +128,7 @@ export function esysChecklist(results, selectedIds, lang = 'it') {
   for (const [ecu, rs] of Object.entries(byEcu)) {
     lines.push(`## ${ecu}`);
     for (const r of rs) {
-      lines.push(`# ${r.entry.titolo[lang] || r.entry.titolo.it}`);
+      lines.push(`# ${r.entry.titolo[lang] || r.entry.titolo.it || r.entry.titolo.en}`);
       for (const v of r.valori) {
         const to = v.target != null ? v.target : `<${L.choose}>`;
         if (v.ok) continue;

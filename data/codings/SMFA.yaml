@@ -5,6 +5,7 @@
   centralina: SMFA
   titolo:
     it: 'Entrata facilitata: il sedile arretra all''apertura della porta'
+    en: 'Easy entry: the seat moves back when the door opens'
   parametri:
   - nome: EA_Hilfe
     target: aktiv
@@ -22,6 +23,8 @@
   note:
     it: Il sedile del guidatore arretra quando apri la porta e torna in posizione all'avvio. Controlla che dietro
       il sedile non ci siano oggetti o bambini.
+    en: The driver's seat moves back when you open the door and returns to position when you start. Make sure there
+      are no objects or children behind the seat.
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -34,6 +37,7 @@
   centralina: SMFA
   titolo:
     it: Memoria del riscaldamento sedile (centralina sedile)
+    en: Seat heating memory (seat module)
   parametri:
   - nome: Nachlauf_Schalter
     regolabile: true
@@ -41,6 +45,7 @@
     regolabile: true
   valori_suggeriti:
     it: Wert_15 = 15 minuti; scegli un tempo più lungo dalla lista E-Sys.
+    en: Wert_15 = 15 minutes; pick a longer time from the E-Sys list.
   requisiti_sa:
   - '494'
   rischio: basso
@@ -50,6 +55,8 @@
   note:
     it: Sulle auto con sedile elettrico la memoria del riscaldamento può stare nella centralina del sedile oltre
       che nel BDC (NACHLAUFZEIT_SITZHEIZUNG_FRONT). Se cambiarla nel BDC non basta, prova qui.
+    en: On cars with an electric seat the heating memory may sit in the seat module as well as in the BDC (NACHLAUFZEIT_SITZHEIZUNG_FRONT).
+      If changing it in the BDC is not enough, try here.
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:

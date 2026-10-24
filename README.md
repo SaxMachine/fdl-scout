@@ -9,7 +9,7 @@
 - **Un database aperto e verificabile.** Ogni codifica è una voce YAML con parametri, valori, rischio, fonti e le auto su cui è stata osservata.
 - **Scoperta collettiva.** I parametri dei tuoi FWL che il database non conosce finiscono in "Da scoprire". Con un clic esporti un'impronta anonima da condividere: confrontando auto diverse emergono le codifiche nuove.
 
-Perimetro attuale: **MINI F5x** (F54, F55, F56, F57, F60) con head unit NBT EVO. Il database parte da 124 voci raccolte su una F54 Cooper S ALL4 del 2022 (i-level F056-26-03-519) e verificate sui suoi FWL reali: tutti i nomi dei parametri esistono davvero nelle centraline, e 16 centraline vengono riconosciute in automatico.
+Perimetro attuale: **MINI F5x** (F54, F55, F56, F57, F60) con head unit NBT EVO. Il database parte da 124 voci raccolte su una F54 Cooper S ALL4 del 2022 (i-level F056-26-03-519) e verificate sui suoi FWL reali: tutti i nomi dei parametri esistono davvero nelle centraline, e 16 centraline vengono riconosciute in automatico. Titoli, note e valori suggeriti sono in italiano e in inglese.
 
 ## Come si usa
 
@@ -70,13 +70,60 @@ FDL Scout non è affiliato a BMW AG o MINI. Il repository non contiene e non acc
 
 **What can you code on your MINI?** Drop the FWL files exported from E-Sys into your browser and FDL Scout tells you, unit by unit, which coding is already on, which you can enable, which takes a value of your choice, and which parameters nobody has documented yet.
 
-- **Runs entirely in the browser.** Files are never uploaded; parsing happens on your computer.
-- **Read only.** FDL Scout never writes to the car. It gives you a work list; you make the change in E-Sys with your own backup.
-- **Open, checkable database.** Each coding is a YAML entry with parameters, values, risk, sources and the cars it was observed on.
-- **Collective discovery.** Parameters the database does not know show up under "To discover". Export an anonymous footprint in one click to share it.
+- **Runs entirely in the browser.** Files are never uploaded anywhere: parsing happens on your computer. FWL files contain the VIN and the car's configuration, and they stay there.
+- **Read only.** FDL Scout never writes to the car. It prepares a work list; you make the change in E-Sys, with your own backup.
+- **An open, checkable database.** Each coding is a YAML entry with parameters, values, risk, sources and the cars it was observed on.
+- **Collective discovery.** Parameters in your FWL files that the database does not know end up under "To discover". Export an anonymous footprint in one click and share it: comparing different cars brings new coding to light.
 
-Current scope: **MINI F5x** (F54, F55, F56, F57, F60) with NBT EVO. The database starts from 106 entries gathered on a 2022 F54 Cooper S ALL4. Entry titles and notes are in Italian for now; English translations are a great first contribution (add `en:` next to `it:`).
+Current scope: **MINI F5x** (F54, F55, F56, F57, F60) with the NBT EVO head unit. The database starts from 124 entries gathered on a 2022 F54 Cooper S ALL4 (i-level F056-26-03-519) and checked against its real FWL files: every parameter name really exists in the units, and 16 units are recognised automatically. Titles, notes and suggested values are available in Italian and English.
 
-Build and run: `python3 scripts/build.py && node scripts/serve.mjs`, tests with `node --test tests/*.test.js`. See [CONTRIBUIRE.md](CONTRIBUIRE.md) (bilingual) to contribute.
+### How to use it
 
-Code: GPL-3.0-or-later. Database: CC BY-SA 4.0. Not affiliated with BMW AG or MINI. Code at your own risk and always back up the FDL first.
+Step-by-step export guide: [docs/en/EXPORTING-FROM-ESYS.md](docs/en/EXPORTING-FROM-ESYS.md).
+
+1. In E-Sys read the FDL of each unit you care about and save it as text (FWL). Export the FA too (the XML file with the SA codes): it is optional, but it rules out coding that needs options you do not have.
+2. Open FDL Scout and drop all the files on the page, FA included.
+3. Check that each file was matched to the right unit. E-Sys files are only called `CAFD_<number>`: FDL Scout recognises them by CAFD or by typical parameters. If it gets one wrong, fix it with "Change unit".
+4. Tick the coding you want and open the **E-Sys list**: parameter by parameter, current and new value, to copy or download.
+5. In E-Sys: FDL backup, edit, write. One unit at a time.
+
+### What the states mean
+
+| State | Meaning |
+|---|---|
+| Can be enabled | Every parameter exists in your CAFD and at least one is not at the documented value yet |
+| Adjustable | The parameters exist and the value is up to you (times, thresholds, brightness) |
+| Already on | Every parameter is already at the documented value |
+| Option missing | You loaded the FA and the option (SA) the feature needs is not there |
+| Not available | The unit was read but your CAFD does not have this parameter |
+| Unit not read | The FWL of that unit is missing |
+| Not mapped yet | The feature is known but the parameter names are not documented yet |
+
+"Can be enabled" means the parameter exists, not that the feature is guaranteed to work: some entries need hardware (SA) or other units. Always read the notes and the risk level.
+
+### Running locally
+
+You need Python 3 with PyYAML (on Red Hat/Fedora `dnf install python3-pyyaml`), and Node.js 20 or newer only for the tests and the local server. No npm dependencies.
+
+```sh
+python3 scripts/build.py        # validates the database and builds dist/
+node scripts/serve.mjs          # http://localhost:8080
+node --test tests/*.test.js     # engine tests
+```
+
+The `examples/` folder has four FWL files and an FA in E-Sys format to try the page. They are rebuilt from the values documented in the database, not real exports.
+
+### Contributing
+
+The project grows with the community's cars. The easiest way to help is to send a footprint (the **Contribute** tab on the page). To add or fix coding entries read [CONTRIBUTING.md](CONTRIBUTING.md). The entry schema is in [docs/en/SCHEMA.md](docs/en/SCHEMA.md), the internals in [docs/en/ARCHITECTURE.md](docs/en/ARCHITECTURE.md).
+
+### Warnings
+
+Coding a unit can brick it if something goes wrong. Use a power supply, always save the FDL before writing and change one thing at a time. Some coding (video while driving, lights) can make the car non-compliant with its type approval: the database flags it, but the responsibility stays with whoever codes. A dealer update recodes everything from the FA and wipes FDL changes.
+
+FDL Scout is not affiliated with BMW AG or MINI. The repository does not and will never contain PSdZData, CAFD, E-Sys, launchers or any other BMW material: only parameter names and values, and descriptions written by contributors.
+
+### Licences
+
+- Code: [GPL-3.0-or-later](LICENSE)
+- Database (`data/`): [CC BY-SA 4.0](data/LICENSE)

@@ -5,6 +5,7 @@
   centralina: FZD
   titolo:
     it: Volume e durata del segnale acustico dell'allarme
+    en: Volume and duration of the alarm chirp
   parametri:
   - nome: Buzzer level high
     regolabile: true
@@ -24,6 +25,8 @@
   note:
     it: Nella F54 di riferimento la conferma acustica è gestita dalla sirena dell'allarme nella FZD (CAFD 00001412).
       Il clacson alla chiusura è invece VAM_HORN_AT_SECURE nel BDC.
+    en: On the reference F54 the audible confirmation comes from the alarm siren in the FZD (CAFD 00001412). The
+      horn when locking is VAM_HORN_AT_SECURE in the BDC instead.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -32,12 +35,14 @@
     esito: Da verificare
   valori_suggeriti:
     it: Livelli level_1…level_3; durata in esadecimale. Prova un valore alla volta.
+    en: Levels level_1…level_3; duration in hexadecimal. Try one value at a time.
   requisiti_sa:
   - '302'
 - id: fzd.conferma-acustica-inserimento-allarme
   centralina: FZD
   titolo:
     it: Conferma acustica all'inserimento e al disinserimento dell'allarme
+    en: Audible confirmation when arming and disarming the alarm
   parametri:
   - nome: Akustische Quittierung Schaerfen
     target: aktiv
@@ -55,6 +60,8 @@
   note:
     it: La sirena emette un breve segnale quando chiudi (Schaerfen) e quando apri (Entschaerfen). Puoi attivare
       anche solo uno dei due.
+    en: The siren gives a short chirp when you lock (Schaerfen) and when you unlock (Entschaerfen). You can enable
+      just one of the two.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -67,6 +74,7 @@
   centralina: FZD
   titolo:
     it: 'Allarme: protezione abitacolo, sensore di inclinazione e presa OBD'
+    en: 'Alarm: interior protection, tilt sensor and OBD port'
   parametri:
   - nome: Innenraumschutz
     regolabile: true
@@ -87,6 +95,9 @@
     it: Disattivare la protezione abitacolo (Innenraumschutz) è utile se lasci animali in auto; il sensore di inclinazione
       (Neigungssensor) può dare falsi allarmi su traghetti o carroattrezzi. OBD-Alarm fa scattare l'allarme se si
       collega qualcosa alla presa OBD.
+    en: Disabling interior protection (Innenraumschutz) helps if you leave pets in the car; the tilt sensor (Neigungssensor)
+      can give false alarms on ferries or tow trucks. OBD-Alarm triggers the alarm if something is plugged into
+      the OBD port.
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -95,5 +106,6 @@
     esito: Da verificare
   valori_suggeriti:
     it: aktiv / nicht aktiv per ciascuno.
+    en: aktiv / nicht aktiv for each.
   requisiti_sa:
   - '302'

@@ -1,15 +1,17 @@
 # Schema delle voci
 
+*[English version](en/SCHEMA.md)*
+
 Le codifiche stanno in `data/codings/<CENTRALINA>.yaml`, un file per centralina, una lista di voci per file. `python3 scripts/build.py --check` controlla tutte le regole qui sotto e gira anche in CI su ogni pull request.
 
 ## Esempio
 
 ```yaml
-- id: kombi.marcia-inserita-nellhud
+- id: kombi.marcia-inserita-nell-hud
   centralina: KOMBI
   titolo:
     it: Marcia inserita nell'HUD
-    en: Selected gear in the HUD
+    en: Current gear in the HUD
   parametri:
   - nome: HUD_FAHRSTUFE_ENABLE
     target: aktiv
@@ -19,6 +21,7 @@ Le codifiche stanno in `data/codings/<CENTRALINA>.yaml`, un file per centralina,
   telai: [F54, F55, F56, F57, F60]
   note:
     it: Le tre voci HUD_SPORTANZEIGE_* devono essere già attive in HU e KOMBI.
+    en: The three HUD_SPORTANZEIGE_* entries must already be active in the HU and the KOMBI.
   fonti:
   - https://www.northamericanmotoring.com/forums/...
   osservazioni:
@@ -35,7 +38,7 @@ Le codifiche stanno in `data/codings/<CENTRALINA>.yaml`, un file per centralina,
 |---|---|---|
 | `id` | sì | `centralina.nome-voce`, minuscolo, unico. Non cambiarlo dopo la pubblicazione: le liste salvate lo usano. |
 | `centralina` | sì | Uguale al nome del file. I nomi seguono E-Sys (`HU_NBT2`, `BDC_BODY`, `KOMBI`…). |
-| `titolo.it` | sì | Cosa fa la funzione, dal punto di vista di chi guida. `titolo.en` facoltativo. |
+| `titolo.it` / `titolo.en` | almeno uno | Cosa fa la funzione, dal punto di vista di chi guida, in italiano e in inglese. Se ne scrivi uno solo, la pagina lo mostra in entrambe le lingue con l'indicazione che manca la traduzione. |
 | `parametri` | sì | Lista dei parametri FDL da toccare, anche vuota. |
 | `parametri[].nome` | sì | Nome esatto del parametro come compare nell'FWL, anche con spazi o trattini (`Akustische Quittierung Schaerfen`, `Display-Farbumschlag`). Il confronto ignora maiuscole e minuscole, ma è meglio copiarlo identico. |
 | `parametri[].target` | uno dei due | Valore da impostare (`aktiv`, `both`, `FF`…). |

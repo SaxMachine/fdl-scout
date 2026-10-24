@@ -1,5 +1,7 @@
 # Esportare FWL e FA da E-Sys
 
+*[English version](en/EXPORTING-FROM-ESYS.md)*
+
 FDL Scout legge due tipi di file esportati da E-Sys:
 
 - **FWL**: la lettura FDL di una centralina salvata come testo. Un file per CAFD, nome `CAFD_<numero>_<versione>.fwl`.
@@ -62,12 +64,3 @@ Per un quadro completo esporta tutte quelle che E-Sys elenca. Le più utili per 
 
 Alcuni FWL (ATM, KAFAS, KOMBI) contengono il VIN, anche in esadecimale, e altri il numero del concessionario e le date di codifica. FDL Scout li legge solo nel tuo browser e li toglie dall'impronta che puoi condividere. Non pubblicare gli FWL grezzi: condividi solo l'impronta.
 
----
-
-## English (short)
-
-1. Connect via ENET and open **Expert Mode → Coding**.
-2. In the Vehicle Order panel press **Read**, then **Save** and store the FA as a `.txt` file (it is XML inside; FDL Scout recognises it by content).
-3. **Read (ECU)** in the SVT panel, then right-click each CAFD → **Read Coding Data**: a yellow NCD line appears under it. Without this step the editor shows CAFD defaults, not your car's values.
-4. Right-click the yellow NCD → **Edit NCD**, right-click the `CAF [...]` root → **Expand**, then **File → Save as FWL…** keeping the proposed `CAFD_…fwl` name. Export every CAFD, some units have more than one.
-5. PSdZData lite is fine; ideally use a version as close as possible to the car's i-level. Never press **Code**: reading is enough. Share the anonymous footprint, not the raw FWL files (they contain the VIN).

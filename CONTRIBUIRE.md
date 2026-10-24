@@ -1,4 +1,6 @@
-# Contribuire / Contributing
+# Contribuire
+
+*[English version](CONTRIBUTING.md)*
 
 ## Inviare un'impronta (il modo più semplice)
 
@@ -21,6 +23,7 @@ Regole:
 - **Niente testi copiati dai forum.** Riassumi con parole tue e metti il link in `fonti`.
 - **Sicurezza prima di tutto.** Le codifiche che disattivano sistemi di sicurezza (avvisi cinture, blocco avviamento senza freno, controllo stabilità) vanno marcate `consiglio: sconsigliata` e `rischio: alto`. Le pull request che le presentano come consigliate non vengono accettate.
 - **Note generali.** Scrivi "richiede il volante riscaldato (SA 248)", non "io ho il volante riscaldato".
+- **Due lingue.** Scrivi `titolo`, `note` e `valori_suggeriti` in italiano (`it:`) e, se puoi, in inglese (`en:`). Se non te la senti, lascia solo `it:`: qualcun altro tradurrà.
 
 ## Codice
 
@@ -28,11 +31,3 @@ Il motore è in `src/`, la pagina in `web/`. Aggiungi un test in `tests/` per og
 
 Se hai FWL di versioni diverse di E-Sys, gli estratti (anonimizzati, senza VIN) in `tests/fixtures/` sono preziosi: il formato non è documentato e il parser è stato scritto partendo da poche varianti.
 
----
-
-## Contributing (English)
-
-- **Send a footprint:** load your FWL files, open **Contribute**, download the footprint, check it, and attach it to a GitHub issue labelled `impronta`.
-- **Add or fix a coding entry:** edit `data/codings/<UNIT>.yaml` following [docs/SCHEMA.md](docs/SCHEMA.md), run `python3 scripts/build.py --check`, open a PR saying which car you tested on and the result.
-- **Translate:** add `en:` next to `it:` in `titolo`, `note` and `valori_suggeriti`.
-- Never include BMW material (PSdZData, CAFD, NCD, E-Sys, launchers). Do not paste forum text; summarise and link. Safety-reducing coding must be marked `consiglio: sconsigliata`, `rischio: alto`.

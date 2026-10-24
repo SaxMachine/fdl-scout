@@ -5,6 +5,7 @@
   centralina: PMA
   titolo:
     it: 'Sensori di parcheggio: soglie di spegnimento e attivazione in folle'
+    en: 'Parking sensors: switch-off thresholds and activation in neutral'
   parametri: []
   stato_mappatura: da_mappare
   rischio: basso
@@ -20,6 +21,9 @@
     it: 'BimmerCode elenca per la PMA/PDC delle F5x: attivazione dei sensori quando l''auto arretra in folle, soglie
       di velocità e distanza di spegnimento per sensori e retrocamera. I nomi esatti dei parametri non sono pubblicati:
       servono gli FWL della PMA. Il CAFD 00001D75 è la retrocamera (TRSVC), non questa centralina.'
+    en: 'BimmerCode lists for the F5x PMA/PDC: sensors activating when the car rolls back in neutral, plus speed
+      and distance thresholds for switching off sensors and rear camera. The exact parameter names are not published:
+      PMA FWL files are needed. CAFD 00001D75 is the rear camera (TRSVC), not this unit.'
   osservazioni:
   - telaio: F54
     anno: 2022
