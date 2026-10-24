@@ -188,6 +188,10 @@ main { max-width: 72rem; margin: 0 auto; padding: 0 1rem 6rem; }
 .more p { margin: 0.5rem 0 0; font-size: var(--step--1); max-width: 70ch; }
 .more .note { color: var(--ink); }
 .more .seen { color: var(--ink-2); font-size: 0.8rem; }
+.more .sources { color: var(--ink-2); font-size: 0.8rem; overflow-wrap: anywhere; }
+.more .sources a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.more .sources a:hover { color: var(--ink); }
+.more .sources.none { font-style: italic; }
 
 .params { border-collapse: collapse; font-size: var(--step--1); width: 100%; max-width: 46rem; }
 .params th { text-align: left; font-weight: 600; color: var(--ink-2); font-size: 0.75rem; padding: 0.2rem 0.6rem 0.2rem 0; }

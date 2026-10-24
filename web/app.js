@@ -178,6 +178,22 @@ function valueCell(v) {
   return el('code', { class: 'v' }, v);
 }
 
+/** Link alle fonti di una voce, con il nome del sito come testo. */
+function sourcesView(fonti) {
+  const list = (fonti || []).filter(u => /^https:\/\//.test(u));
+  const host = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return u; } };
+  const total = {}, seen = {};
+  for (const u of list) total[host(u)] = (total[host(u)] || 0) + 1;
+  const links = list.map(u => {
+    const h = host(u);
+    seen[h] = (seen[h] || 0) + 1;
+    const label = total[h] > 1 ? `${h} (${seen[h]})` : h; // stesso sito più volte: numera i link
+    return el('a', { href: u, target: '_blank', rel: 'noopener noreferrer', title: u, text: label });
+  });
+  if (!links.length) return el('p', { class: 'sources none', text: t().noSources });
+  return el('p', { class: 'sources' }, el('b', { text: t().sources + ': ' }), ...links.flatMap((a, i) => i ? [', ', a] : [a]));
+}
+
 function rowView(r) {
   const e = r.entry;
   const actionable = r.stato === 'attivabile' || r.stato === 'regolabile';
@@ -207,7 +223,8 @@ function rowView(r) {
     e.valori_suggeriti ? el('p', {}, el('b', { text: t().suggested + ': ' }), tr(e.valori_suggeriti)) : null,
     e.requisiti_sa?.length ? el('p', {}, el('b', { text: t().needsSa + ': ' }), e.requisiti_sa.join(', ')) : null,
     tr(e.note) ? el('p', { class: 'note', text: tr(e.note) }) : null,
-    seen.length ? el('p', { class: 'seen', text: `${t().seenOn}: ${seen.join('; ')}` }) : null);
+    seen.length ? el('p', { class: 'seen', text: `${t().seenOn}: ${seen.join('; ')}` }) : null,
+    sourcesView(e.fonti));
 
   return el('li', { class: `row s-${r.stato}` + (e.consiglio === 'sconsigliata' ? ' advised-against' : '') },
     el('div', { class: 'row-main' },
