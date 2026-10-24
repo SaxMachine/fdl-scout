@@ -51,7 +51,7 @@ function ecus() {
 
 // ---------- caricamento ----------
 async function loadDb() {
-  const r = await fetch('db.json');
+  const r = await fetch('db.json', { cache: 'no-cache' }); // sempre l'ultima versione del database
   const data = await r.json();
   state.db = data.voci;
   state.map = data.centraline;
