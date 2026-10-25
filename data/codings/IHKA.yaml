@@ -116,3 +116,85 @@
     i_level: F056-26-03-519
     valore_letto: INAKTIV
     esito: Da verificare
+- id: ihka.aria-condizionata-spenta-in-auto
+  centralina: IHKA
+  titolo:
+    it: A/C non attivata dal tasto AUTO
+    en: A/C not switched on by AUTO
+  parametri:
+  - nome: AC_ON_WITH_AUTO
+    target: nicht_aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F21
+  - F22
+  - F23
+  - F30
+  - F31
+  - F32
+  - F33
+  - F34
+  - F35
+  - F36
+  - F45
+  - F54
+  - F55
+  - F56
+  - F57
+  - F80
+  - F82
+  - F83
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: AC_ON_WITH_AUTO=AKTIV
+    esito: Da verificare
+- id: ihka.ricircolo-non-automatico
+  centralina: IHKA
+  titolo:
+    it: Ricircolo non riattivato automaticamente
+    en: Recirculation not restarted automatically
+  parametri:
+  - nome: UMLUFT_AUTO_AUS
+    regolabile: true
+  valori_suggeriti:
+    it: nicht_aktiv / disable
+    en: nicht_aktiv / disable
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F01
+  - F07
+  - F10
+  - F15
+  - F16
+  - F20
+  - F25
+  - F26
+  - F30
+  - F54
+  - F56
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: UMLUFT_AUTO_AUS=AKTIV
+    esito: Da verificare

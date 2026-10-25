@@ -105,3 +105,65 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Da verificare
+- id: dsc.impostazioni-dsc-m-usa
+  centralina: DSC
+  titolo:
+    it: 'DSC: impostazioni MDM delle M USA'
+    en: 'DSC: US M Dynamic Mode settings'
+  parametri:
+  - nome: C_AMR_2_c
+    regolabile: true
+  - nome: C_AMR_3_c
+    regolabile: true
+  valori_suggeriti:
+    it: 00 nella fonte F80
+    en: 00 in the F80 source
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F80
+  note:
+    it: 'Impostazioni del controllo di stabilità per M3/M4 F80/F82 USA. Su altre auto: sconsigliata. Parametro presente
+      nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
+    en: 'Stability control settings for US M3/M4 F80/F82. On other cars: not recommended. Parameter present in the
+      reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: C_AMR_2_c=1, C_AMR_3_c=0
+    esito: Da verificare
+- id: dsc.dynamic-brake-control
+  centralina: DSC
+  titolo:
+    it: Dynamic Brake Control
+    en: Dynamic Brake Control
+  parametri:
+  - nome: C_Funktion_DynamicBrakeControl_aktiv_I
+    target: '01'
+  rischio: alto
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F45
+  - F54
+  - F55
+  - F56
+  - F57
+  note:
+    it: 'Fonte F55/F56/F57/F45: va attivata insieme al cambio (EGS). Riguarda la frenata: prova con prudenza. Parametro
+      presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
+    en: 'F55/F56/F57/F45 source: enable it together with the gearbox (EGS). Affects braking: test carefully. Parameter
+      present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: C_Funktion_DynamicBrakeControl_aktiv_I=02
+    esito: Da verificare

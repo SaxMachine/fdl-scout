@@ -1,0 +1,33 @@
+# Codifiche note per la centralina DME (BMW e MINI serie F: i telai di ogni voce sono in `telai`)
+# Schema: docs/SCHEMA.md
+
+- id: dme.carica-batteria-al-100
+  centralina: DME
+  titolo:
+    it: Batteria caricata al 100% (niente recupero in rilascio)
+    en: Battery charged to 100% (no regeneration)
+  parametri:
+  - nome: IGR
+    regolabile: true
+  valori_suggeriti:
+    it: 00 nella fonte
+    en: 00 in the source
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  note:
+    it: 'Disattiva la carica intelligente: la batteria resta piena ma si perde un po'' di efficienza. Codifica sulla
+      centralina motore. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
+      sheet su GitHub.'
+    en: 'Disables smart charging: the battery stays full but some efficiency is lost. Coded on the engine unit.
+      Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Transmission/Sport-Mode.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: IGR=Wert_01
+    esito: Da verificare

@@ -1,0 +1,39 @@
+# Codifiche note per la centralina FLE (BMW e MINI serie F: i telai di ogni voce sono in `telai`)
+# Schema: docs/SCHEMA.md
+
+- id: fle.abbaglianti-antiabbagliamento-fari
+  centralina: FLE
+  titolo:
+    it: 'Abbaglianti antiabbagliamento: tabelle dei fari'
+    en: 'Glare-free high beam: headlight tables'
+  parametri:
+  - nome: Blendfreies_Fernlicht_Idx
+    regolabile: true
+  valori_suggeriti:
+    it: Tabelle complete nelle fonti, specifiche per i fari di F80/F82 e F15
+    en: Full tables in the sources, specific to F80/F82 and F15 headlights
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F54
+  - F80
+  - F82
+  note:
+    it: Le fonti modificano più di 120 parametri dei moduli fari per F80/F82 e F15. Su fari diversi rischi malfunzionamenti
+      e luci non omologate. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
+      sheet su GitHub.
+    en: The sources change more than 120 headlight module parameters for F80/F82 and F15. On different headlights
+      you risk malfunctions and non-compliant lights. Parameter present in the reference F54 FWL files; the coding
+      is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/pmooiweer.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: Blendfreies_Fernlicht_Idx=00010200000002000000
+    esito: Da verificare

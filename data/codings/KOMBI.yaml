@@ -477,3 +477,647 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv / nicht_aktiv / nicht_aktiv
     esito: Da verificare
+- id: kombi.logo-all-avvio
+  centralina: KOMBI
+  titolo:
+    it: Logo all'avvio del quadro
+    en: Cluster start-up logo
+  parametri:
+  - nome: MPM_ENABLE
+    regolabile: true
+  - nome: MPM_LOGO
+    regolabile: true
+  - nome: BMW_LOGO
+    regolabile: true
+  valori_suggeriti:
+    it: Valori dalla lista E-Sys (mpm, bmw, ecc.)
+    en: Values from the E-Sys list (mpm, bmw, etc.)
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F01
+  - F02
+  - F03
+  - F04
+  - F06
+  - F07
+  - F10
+  - F11
+  - F12
+  - F13
+  - F15
+  - F16
+  - F18
+  - F20
+  - F21
+  - F22
+  - F23
+  - F25
+  - F26
+  - F30
+  - F31
+  - F32
+  - F33
+  - F34
+  - F35
+  - F36
+  - F45
+  - F48
+  - F54
+  - F55
+  - F56
+  - F57
+  - F80
+  - F82
+  - F83
+  - F85
+  - F86
+  note:
+    it: Sulle MINI il valore di fabbrica è mini. Parametro presente nei FWL della F54 di riferimento; la codifica
+      è documentata nei cheat sheet su GitHub.
+    en: On MINIs the factory value is mini. Parameter present in the reference F54 FWL files; the coding is documented
+      in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: MPM_ENABLE=nicht_aktiv, MPM_LOGO=kein_logo, BMW_LOGO=mini
+    esito: Da verificare
+- id: kombi.hud-media-e-telefono
+  centralina: KOMBI
+  titolo:
+    it: Media, telefono e comandi vocali nell'HUD
+    en: Media, phone and voice in the HUD
+  parametri:
+  - nome: HUD_ENTERTAINMENT_ENABLE
+    target: aktiv
+  - nome: HUD_STARTUP_ENABLE
+    target: aktiv
+  - nome: HUD_VZA_ENABLE
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F01
+  - F02
+  - F03
+  - F04
+  - F06
+  - F07
+  - F10
+  - F11
+  - F12
+  - F13
+  - F15
+  - F16
+  - F18
+  - F20
+  - F21
+  - F22
+  - F23
+  - F25
+  - F26
+  - F30
+  - F31
+  - F32
+  - F33
+  - F34
+  - F35
+  - F36
+  - F48
+  - F54
+  - F80
+  - F82
+  - F83
+  - F85
+  - F86
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/HUD.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: HUD_ENTERTAINMENT_ENABLE=aktiv, HUD_STARTUP_ENABLE=aktiv, HUD_VZA_ENABLE=aktiv
+    esito: Da verificare
+- id: kombi.frecce-nell-hud-quadro
+  centralina: KOMBI
+  titolo:
+    it: Frecce nell'HUD (parte KOMBI)
+    en: Turn signals in the HUD (KOMBI part)
+  parametri:
+  - nome: HUD_BLINKER_ENABLE
+    target: aktiv
+  - nome: HUD_PIA_BLINKER
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F01
+  - F02
+  - F03
+  - F04
+  - F06
+  - F07
+  - F10
+  - F11
+  - F12
+  - F13
+  - F15
+  - F16
+  - F18
+  - F20
+  - F21
+  - F22
+  - F23
+  - F25
+  - F26
+  - F30
+  - F31
+  - F32
+  - F33
+  - F34
+  - F35
+  - F36
+  - F48
+  - F54
+  - F80
+  - F82
+  - F83
+  - F85
+  - F86
+  note:
+    it: Va con HUD_TURNSIGNAL nella HU. Una fonte dice non con quadro digitale 6WB. Parametro presente nei FWL della
+      F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Goes with HUD_TURNSIGNAL in the HU. One source says not with the 6WB digital cluster. Parameter present
+      in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/Turn-Signals.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: HUD_BLINKER_ENABLE=aktiv, HUD_PIA_BLINKER=nicht_aktiv
+    esito: Da verificare
+- id: kombi.marcia-in-modalita-sport
+  centralina: KOMBI
+  titolo:
+    it: Marcia inserita in modalità Sport
+    en: Gear shown in Sport mode
+  parametri:
+  - nome: SPA_SPORT_ENABLE
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F01
+  - F07
+  - F10
+  - F15
+  - F16
+  - F20
+  - F21
+  - F22
+  - F23
+  - F25
+  - F30
+  - F31
+  - F32
+  - F33
+  - F34
+  - F35
+  - F36
+  - F45
+  - F54
+  - F55
+  - F56
+  - F57
+  - F80
+  - F82
+  - F83
+  note:
+    it: Mostra S1…S8 invece di DS. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
+      nei cheat sheet su GitHub.
+    en: Shows S1…S8 instead of DS. Parameter present in the reference F54 FWL files; the coding is documented in
+      GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: SPA_SPORT_ENABLE=aktiv
+    esito: Da verificare
+- id: kombi.spia-start-stop-spento
+  centralina: KOMBI
+  titolo:
+    it: Togliere la spia "Start/Stop spento"
+    en: Remove the "Start/Stop off" indicator
+  parametri:
+  - nome: MSA_VERFUEGBARANZEIGE_ENABLE
+    target: nicht_aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F21
+  - F22
+  - F23
+  - F30
+  - F31
+  - F32
+  - F33
+  - F34
+  - F35
+  - F36
+  - F45
+  - F54
+  - F55
+  - F56
+  - F57
+  - F80
+  - F82
+  - F83
+  note:
+    it: Fonte anche F55/F56/F57/F45. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
+      nei cheat sheet su GitHub.
+    en: Source includes F55/F56/F57/F45. Parameter present in the reference F54 FWL files; the coding is documented
+      in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Start-Stop.md
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Instrument-Cluster.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: MSA_VERFUEGBARANZEIGE_ENABLE=aktiv
+    esito: Da verificare
+- id: kombi.velocita-reale
+  centralina: KOMBI
+  titolo:
+    it: Velocità reale senza correzione
+    en: Real speed without correction
+  parametri:
+  - nome: BC_V_KORREKTUR
+    target: nicht_aktiv
+  rischio: medio
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F01
+  - F07
+  - F10
+  - F15
+  - F16
+  - F20
+  - F25
+  - F26
+  - F30
+  - F54
+  note:
+    it: 'Il tachimetro per legge non deve indicare meno della velocità reale: sconsigliata. Parametro presente nei
+      FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
+    en: 'By law the speedometer must not read below the real speed: not recommended. Parameter present in the reference
+      F54 FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Instrument-Cluster.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: BC_V_KORREKTUR=aktiv
+    esito: Da verificare
+- id: kombi.distanza-acc-nell-hud-quadro
+  centralina: KOMBI
+  titolo:
+    it: Distanza dell'ACC nell'HUD (parte KOMBI)
+    en: ACC distance in the HUD (KOMBI part)
+  parametri:
+  - nome: IBRAKE_ABSTAND_ENABLE
+    target: aktiv
+  - nome: IBRAKE_VERBAUT
+    target: aktiv
+  - nome: HUD_IBRAKE_ENABLE
+    target: aktiv
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Serve l'ACC. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet
+      su GitHub.
+    en: ACC required. Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat
+      sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/HUD.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: IBRAKE_ABSTAND_ENABLE=nicht_aktiv, IBRAKE_VERBAUT=aktiv, HUD_IBRAKE_ENABLE=aktiv
+    esito: Da verificare
+- id: kombi.visione-notturna-nel-quadro
+  centralina: KOMBI
+  titolo:
+    it: Visione notturna nel quadro
+    en: Night vision in the cluster
+  parametri:
+  - nome: FGS_NIVI_KI_ENABLE
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F10
+  - F15
+  - F20
+  - F30
+  - F54
+  note:
+    it: Serve la telecamera Night Vision. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
+      nei cheat sheet su GitHub.
+    en: Night Vision camera required. Parameter present in the reference F54 FWL files; the coding is documented
+      in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: FGS_NIVI_KI_ENABLE=aktiv
+    esito: Da verificare
+- id: kombi.temperatura-motore-nel-computer
+  centralina: KOMBI
+  titolo:
+    it: Temperatura motore nel computer di bordo
+    en: Engine temperature in the trip computer
+  parametri:
+  - nome: BC_MOTORTEMP_ENABLE
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: BC_MOTORTEMP_ENABLE=aktiv
+    esito: Da verificare
+- id: kombi.primo-avviso-autonomia
+  centralina: KOMBI
+  titolo:
+    it: Primo avviso di autonomia carburante
+    en: First fuel range warning
+  parametri:
+  - nome: CC_RW_WARNUNG_2
+    regolabile: true
+  valori_suggeriti:
+    it: 'Esadecimale in km: 46 = 70, 5A = 90'
+    en: 'Hex in km: 46 = 70, 5A = 90'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: CC_RW_WARNUNG_2=90_km
+    esito: Da verificare
+- id: kombi.secondo-avviso-autonomia
+  centralina: KOMBI
+  titolo:
+    it: Secondo avviso di autonomia carburante
+    en: Second fuel range warning
+  parametri:
+  - nome: CC_RW_WARNUNG
+    regolabile: true
+  valori_suggeriti:
+    it: 'Esadecimale in km: 1E = 30, 32 = 50'
+    en: 'Hex in km: 1E = 30, 32 = 50'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: CC_RW_WARNUNG=50_km
+    esito: Da verificare
+- id: kombi.limitatore-nel-quadro
+  centralina: KOMBI
+  titolo:
+    it: Limitatore di velocità nel quadro
+    en: Speed limiter in the cluster
+  parametri:
+  - nome: SLD_ENABLE
+    target: aktiv
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F80
+  - F82
+  note:
+    it: 'Prima parte del limitatore: vedi la voce del DSC. Parametro presente nei FWL della F54 di riferimento;
+      la codifica è documentata nei cheat sheet su GitHub.'
+    en: 'First part of the limiter: see the DSC entry. Parameter present in the reference F54 FWL files; the coding
+      is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Instrument-Cluster.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: SLD_ENABLE=aktiv
+    esito: Da verificare
+- id: kombi.punto-di-cambiata
+  centralina: KOMBI
+  titolo:
+    it: Indicatore del punto di cambiata
+    en: Shift point indicator
+  parametri:
+  - nome: SPA_KOMBISELECT_DISABLE
+    target: nicht_aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Va con SPA_CHECKBOX nella HU. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
+      nei cheat sheet su GitHub.
+    en: Goes with SPA_CHECKBOX in the HU. Parameter present in the reference F54 FWL files; the coding is documented
+      in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: SPA_KOMBISELECT_DISABLE=aktiv
+    esito: Da verificare
+- id: kombi.marcia-nel-quadro
+  centralina: KOMBI
+  titolo:
+    it: Marcia inserita nel quadro
+    en: Current gear in the cluster
+  parametri:
+  - nome: SPA_IST_GANG_ENABLE
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: SPA_IST_GANG_ENABLE=aktiv
+    esito: Da verificare
+- id: kombi.durata-avvio-hud
+  centralina: KOMBI
+  titolo:
+    it: Durata dell'avvio dell'HUD
+    en: HUD start-up duration
+  parametri:
+  - nome: HUD_STARTUP_TIME
+    regolabile: true
+  valori_suggeriti:
+    it: 0A = 10 s (4 s di fabbrica)
+    en: 0A = 10 s (4 s from the factory)
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: HUD_STARTUP_TIME=03
+    esito: Da verificare
+- id: kombi.posizione-hud
+  centralina: KOMBI
+  titolo:
+    it: Regolazione della posizione dell'HUD
+    en: HUD position adjustment
+  parametri:
+  - nome: HUD_POSITIONCHANGE_ENABLE
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: La fonte la indica "in prova". Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
+      nei cheat sheet su GitHub.
+    en: The source marks it "testing". Parameter present in the reference F54 FWL files; the coding is documented
+      in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: HUD_POSITIONCHANGE_ENABLE=nicht_aktiv
+    esito: Da verificare
+- id: kombi.segnale-acustico-retromarcia
+  centralina: KOMBI
+  titolo:
+    it: Segnale acustico all'inserimento della retro
+    en: Chime when reverse is engaged
+  parametri:
+  - nome: R_GANG_AKUSTIK_ENABLE
+    regolabile: true
+  valori_suggeriti:
+    it: nicht_aktiv per toglierlo
+    en: nicht_aktiv to remove it
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Instrument-Cluster.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: R_GANG_AKUSTIK_ENABLE=nicht_aktiv
+    esito: Da verificare

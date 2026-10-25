@@ -26,3 +26,130 @@
     i_level: F056-26-03-519
     valore_letto: —
     esito: Sconsigliato
+- id: acsm.durata-avviso-cinture
+  centralina: ACSM
+  titolo:
+    it: Durata del cicalino delle cinture
+    en: Seat belt chime duration
+  parametri:
+  - nome: GWF_SBR_WARNDAUER
+    regolabile: true
+  valori_suggeriti:
+    it: 05 nelle fonti (circa 5 s); 0A = 10 s
+    en: 05 in the sources (about 5 s); 0A = 10 s
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F01
+  - F02
+  - F03
+  - F04
+  - F06
+  - F07
+  - F10
+  - F11
+  - F12
+  - F13
+  - F15
+  - F16
+  - F18
+  - F20
+  - F21
+  - F22
+  - F23
+  - F25
+  - F26
+  - F30
+  - F31
+  - F32
+  - F33
+  - F34
+  - F35
+  - F36
+  - F45
+  - F48
+  - F54
+  - F55
+  - F56
+  - F57
+  - F80
+  - F82
+  - F83
+  - F85
+  - F86
+  note:
+    it: 'Accorcia l''avviso acustico delle cinture. Riguarda la sicurezza: sconsigliata. Parametro presente nei
+      FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
+    en: 'Shortens the seat belt chime. Safety-related: not recommended. Parameter present in the reference F54 FWL
+      files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: GWF_SBR_WARNDAUER=00
+    esito: Da verificare
+- id: acsm.avviso-cinture-guidatore
+  centralina: ACSM
+  titolo:
+    it: Togliere l'avviso cinture del guidatore
+    en: Remove the driver seat belt reminder
+  parametri:
+  - nome: SeatBeltReminder_Fahrer
+    target: '00'
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F45
+  - F54
+  - F55
+  - F56
+  - F57
+  note:
+    it: 'Documentato su F55/F56/F57/F45. Riguarda la sicurezza: sconsigliata. Parametro presente nei FWL della F54
+      di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
+    en: 'Documented on F55/F56/F57/F45. Safety-related: not recommended. Parameter present in the reference F54
+      FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: SeatBeltReminder_Fahrer=04
+    esito: Da verificare
+- id: acsm.avviso-cinture-passeggero
+  centralina: ACSM
+  titolo:
+    it: Togliere l'avviso cinture del passeggero
+    en: Remove the passenger seat belt reminder
+  parametri:
+  - nome: SeatBeltReminder_Beifahrer
+    target: '00'
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F45
+  - F54
+  - F55
+  - F56
+  - F57
+  note:
+    it: 'Documentato su F55/F56/F57/F45. Riguarda la sicurezza: sconsigliata. Parametro presente nei FWL della F54
+      di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
+    en: 'Documented on F55/F56/F57/F45. Safety-related: not recommended. Parameter present in the reference F54
+      FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: SeatBeltReminder_Beifahrer=04
+    esito: Da verificare

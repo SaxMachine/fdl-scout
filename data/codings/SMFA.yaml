@@ -66,3 +66,68 @@
     i_level: F056-26-03-519
     valore_letto: Wert_15 / Wert_15
     esito: Da verificare
+- id: smfa.funzione-gentleman
+  centralina: SMFA
+  titolo:
+    it: Funzione Gentleman (sedile passeggero dal posto guida)
+    en: Gentleman function (passenger seat from the driver side)
+  parametri:
+  - nome: Gentleman
+    regolabile: true
+  valori_suggeriti:
+    it: 01 nelle fonti
+    en: 01 in the sources
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F01
+  - F02
+  - F03
+  - F04
+  - F06
+  - F07
+  - F10
+  - F11
+  - F12
+  - F13
+  - F15
+  - F16
+  - F18
+  - F20
+  - F21
+  - F22
+  - F23
+  - F25
+  - F26
+  - F30
+  - F31
+  - F32
+  - F33
+  - F34
+  - F35
+  - F36
+  - F45
+  - F48
+  - F54
+  - F55
+  - F56
+  - F57
+  - F80
+  - F82
+  - F83
+  - F85
+  - F86
+  note:
+    it: Serve il sedile passeggero elettrico con memoria. Parametro presente nei FWL della F54 di riferimento; la
+      codifica è documentata nei cheat sheet su GitHub.
+    en: Requires an electric passenger seat with memory. Parameter present in the reference F54 FWL files; the coding
+      is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: Gentleman=nicht_aktiv
+    esito: Da verificare

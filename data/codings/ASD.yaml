@@ -1,0 +1,32 @@
+# Codifiche note per la centralina ASD (BMW e MINI serie F: i telai di ogni voce sono in `telai`)
+# Schema: docs/SCHEMA.md
+
+- id: asd.profilo-suono-motore
+  centralina: ASD
+  titolo:
+    it: Profilo del suono motore (ASD)
+    en: Engine sound profile (ASD)
+  parametri:
+  - nome: Engine
+    regolabile: true
+  valori_suggeriti:
+    it: Codice motore dalla lista E-Sys (in una fonte S63B44)
+    en: Engine code from the E-Sys list (S63B44 in one source)
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  note:
+    it: Cambia il suono sintetico riprodotto in abitacolo. Il valore deve esistere nella lista del tuo CAFD. Parametro
+      presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Changes the synthetic sound played in the cabin. The value must exist in your CAFD list. Parameter present
+      in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Sport-Features.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: Engine=B48A20
+    esito: Da verificare

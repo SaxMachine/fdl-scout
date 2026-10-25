@@ -1476,3 +1476,2050 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Da verificare
+- id: bdc_body.tasti-della-chiave
+  centralina: BDC_BODY
+  titolo:
+    it: Funzioni del terzo tasto della chiave e allarme panico
+    en: Key fob third button and panic alarm
+  parametri:
+  - nome: RC_PANIC_ALARM
+    regolabile: true
+  - nome: RC_DEFAULT_IDG_3RD_BUTTON_SHORT
+    regolabile: true
+  - nome: RC_DEFAULT_IDG_3RD_BUTTON_MID
+    regolabile: true
+  - nome: RC_DEFAULT_IDG_3RD_BUTTON_LONG
+    regolabile: true
+  - nome: RC_TIME_DELAY_BOOTLID
+    regolabile: true
+  - nome: RC_TIME_DELAY_PANIC
+    regolabile: true
+  valori_suggeriti:
+    it: 00 nessuna azione, 02 follow-me-home, 03 riscaldamento/raffrescamento ausiliario, 04 altre funzioni secondo
+      il CAFD; tempi in esadecimale
+    en: 00 no action, 02 follow-me-home, 03 auxiliary heating/cooling, 04 other functions depending on the CAFD;
+      times in hex
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F16
+  - F20
+  - F25
+  - F26
+  - F30
+  - F48
+  - F54
+  - F85
+  - F86
+  note:
+    it: Sceglie cosa fa il terzo tasto con pressione breve, media e lunga, e il ritardo di bagagliaio e allarme
+      panico. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su
+      GitHub.
+    en: Chooses what the third button does on short, medium and long press, and the delay for tailgate and panic
+      alarm. Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: RC_PANIC_ALARM=03, RC_DEFAULT_IDG_3RD_BUTTON_SHORT=Wert_00, RC_DEFAULT_IDG_3RD_BUTTON_MID=Wert_00,
+      RC_DEFAULT_IDG_3RD_BUTTON_LONG=Wert_02, RC_TIME_DELAY_BOOTLID=01, RC_TIME_DELAY_PANIC=00
+    esito: Da verificare
+- id: bdc_body.frecce-anteriori-led
+  centralina: BDC_BODY
+  titolo:
+    it: 'Frecce anteriori a LED: controllo lampadine'
+    en: 'LED front turn signals: bulb check'
+  parametri:
+  - nome: FRA_V_L_KALTUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: FRA_V_L_WARMUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: FRA_V_L_KURZSCHLUSS
+    target: aktiv
+  - nome: FRA_V_L_IS_LED
+    target: aktiv
+  - nome: FRA_V_R_KALTUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: FRA_V_R_WARMUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: FRA_V_R_KURZSCHLUSS
+    target: aktiv
+  - nome: FRA_V_R_IS_LED
+    target: aktiv
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F16
+  - F20
+  - F25
+  - F30
+  - F54
+  - F56
+  note:
+    it: 'Solo se hai montato frecce a LED: adegua il controllo guasti per evitare spie e lampeggio veloce. Parametro
+      presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
+    en: 'Only if you fitted LED turn signals: adapts the fault check to avoid warnings and hyper-flashing. Parameter
+      present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/Turn-Signals.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: FRA_V_L_KALTUEBERWACHUNG=nicht_aktiv, FRA_V_L_WARMUEBERWACHUNG=nicht_aktiv, FRA_V_L_KURZSCHLUSS=aktiv,
+      FRA_V_L_IS_LED=aktiv, FRA_V_R_KALTUEBERWACHUNG=nicht_aktiv, FRA_V_R_WARMUEBERWACHUNG=nicht_aktiv,
+    esito: Da verificare
+- id: bdc_body.ritardo-apertura-chiusura-comfort
+  centralina: BDC_BODY
+  titolo:
+    it: Ritardo di apertura e chiusura comfort
+    en: Comfort opening and closing delay
+  parametri:
+  - nome: KOMFORT_SCHLIESSEN
+    regolabile: true
+  - nome: KOMFORT_OEFFNEN
+    regolabile: true
+  - nome: KOMFORTOEFFNUNG
+    regolabile: true
+  - nome: KOMFORTSCHLIESSUNG_PA
+    regolabile: true
+  - nome: ASP_AUSKLAPPEN_NACH_KOMFORTSCHLIESSEN
+    regolabile: true
+  valori_suggeriti:
+    it: 00 = nessun ritardo; valori in esadecimale (0A = 1 s)
+    en: 00 = no delay; values in hex (0A = 1 s)
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F16
+  - F20
+  - F21
+  - F22
+  - F23
+  - F25
+  - F26
+  - F30
+  - F31
+  - F32
+  - F33
+  - F34
+  - F35
+  - F36
+  - F45
+  - F48
+  - F54
+  - F55
+  - F56
+  - F57
+  - F80
+  - F82
+  - F83
+  - F85
+  - F86
+  note:
+    it: Riduce l'attesa prima che finestrini, tetto e specchi si muovano tenendo premuto il telecomando. Parametro
+      presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Shortens the wait before windows, roof and mirrors move while holding the remote. Parameter present in the
+      reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: KOMFORT_SCHLIESSEN=UNKNOWN, KOMFORT_OEFFNEN=wert_01, KOMFORTOEFFNUNG=aktiv, KOMFORTSCHLIESSUNG_PA=aktiv,
+      ASP_AUSKLAPPEN_NACH_KOMFORTSCHLIESSEN=aktiv
+    esito: Da verificare
+- id: bdc_body.finestrini-con-porta-aperta
+  centralina: BDC_BODY
+  titolo:
+    it: Finestrini che si chiudono a porta aperta
+    en: Windows closing with the door open
+  parametri:
+  - nome: FH_TUERAUF_STOP_MAUT
+    target: nicht_aktiv
+  - nome: FH_TUERAUF_STOP_MAUT_REAR
+    target: nicht_aktiv
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F01
+  - F02
+  - F03
+  - F04
+  - F06
+  - F07
+  - F10
+  - F11
+  - F12
+  - F13
+  - F15
+  - F16
+  - F18
+  - F20
+  - F21
+  - F22
+  - F23
+  - F25
+  - F26
+  - F30
+  - F31
+  - F32
+  - F33
+  - F34
+  - F35
+  - F36
+  - F45
+  - F48
+  - F54
+  - F55
+  - F56
+  - F57
+  - F80
+  - F82
+  - F83
+  - F85
+  - F86
+  note:
+    it: 'Toglie il blocco che ferma i finestrini a porta aperta: rischio di schiacciamento. Sconsigliata. Parametro
+      presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
+    en: 'Removes the lock that stops the windows with the door open: risk of trapping. Not recommended. Parameter
+      present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: FH_TUERAUF_STOP_MAUT=aktiv, FH_TUERAUF_STOP_MAUT_REAR=aktiv
+    esito: Da verificare
+- id: bdc_body.lampeggianti-dopo-frenata-brusca
+  centralina: BDC_BODY
+  titolo:
+    it: Lampeggianti di emergenza dopo una frenata brusca
+    en: Hazard lights after hard braking
+  parametri:
+  - nome: WB_GB_ENABLE
+    target: aktiv
+  - nome: WB_GB_GEFAHRENWERT_MIN
+    target: 00, 32
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F01
+  - F02
+  - F03
+  - F04
+  - F06
+  - F07
+  - F10
+  - F11
+  - F12
+  - F13
+  - F15
+  - F16
+  - F18
+  - F20
+  - F21
+  - F22
+  - F23
+  - F25
+  - F26
+  - F30
+  - F31
+  - F32
+  - F33
+  - F34
+  - F35
+  - F36
+  - F45
+  - F48
+  - F54
+  - F55
+  - F56
+  - F57
+  - F80
+  - F82
+  - F83
+  - F85
+  - F86
+  note:
+    it: 'Accende le quattro frecce dopo una frenata forte. Le fonti la attivano o la disattivano: disattivarla riduce
+      la sicurezza. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet
+      su GitHub.'
+    en: 'Turns on the hazards after hard braking. Sources enable or disable it: disabling it reduces safety. Parameter
+      present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: WB_GB_ENABLE=aktiv, WB_GB_GEFAHRENWERT_MIN=wert_01
+    esito: Da verificare
+- id: bdc_body.fendinebbia-led
+  centralina: BDC_BODY
+  titolo:
+    it: 'Fendinebbia a LED: controllo lampadine'
+    en: 'LED fog lights: bulb check'
+  parametri:
+  - nome: NSW_L_KALTUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: NSW_L_WARMUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: NSW_L_KURZSCHLUSS
+    target: aktiv
+  - nome: NSW_L_IS_LED
+    target: aktiv
+  - nome: NSW_R_KALTUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: NSW_R_WARMUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: NSW_R_KURZSCHLUSS
+    target: aktiv
+  - nome: NSW_R_IS_LED
+    target: aktiv
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F16
+  - F20
+  - F25
+  - F30
+  - F54
+  - F56
+  note:
+    it: 'Solo con fendinebbia a LED montati dopo: evita la spia di lampadina guasta. Parametro presente nei FWL
+      della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
+    en: 'Only with retrofitted LED fog lights: avoids the bulb failure warning. Parameter present in the reference
+      F54 FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: NSW_L_KALTUEBERWACHUNG=nicht_aktiv, NSW_L_WARMUEBERWACHUNG=nicht_aktiv, NSW_L_KURZSCHLUSS=aktiv,
+      NSW_L_IS_LED=aktiv, NSW_R_KALTUEBERWACHUNG=nicht_aktiv, NSW_R_WARMUEBERWACHUNG=nicht_aktiv, NSW_R_KURZS
+    esito: Da verificare
+- id: bdc_body.frecce-posteriori-led
+  centralina: BDC_BODY
+  titolo:
+    it: 'Frecce posteriori a LED: controllo lampadine'
+    en: 'LED rear turn signals: bulb check'
+  parametri:
+  - nome: FRA_H_L_KALTUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: FRA_H_L_WARMUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: FRA_H_L_KURZSCHLUSS
+    target: aktiv
+  - nome: FRA_H_L_IS_LED
+    target: aktiv
+  - nome: FRA_H_R_KALTUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: FRA_H_R_WARMUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: FRA_H_R_KURZSCHLUSS
+    target: aktiv
+  - nome: FRA_H_R_IS_LED
+    target: aktiv
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F16
+  - F25
+  - F54
+  - F56
+  note:
+    it: 'Solo con frecce posteriori a LED montate dopo: evita spie e lampeggio veloce. Parametro presente nei FWL
+      della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
+    en: 'Only with retrofitted LED rear turn signals: avoids warnings and hyper-flashing. Parameter present in the
+      reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/Turn-Signals.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: FRA_H_L_KALTUEBERWACHUNG=aktiv, FRA_H_L_WARMUEBERWACHUNG=aktiv, FRA_H_L_KURZSCHLUSS=aktiv, FRA_H_L_IS_LED=nicht_aktiv,
+      FRA_H_R_KALTUEBERWACHUNG=aktiv, FRA_H_R_WARMUEBERWACHUNG=aktiv, FRA_H_R_KURZSCHLU
+    esito: Da verificare
+- id: bdc_body.brake-force-display-impostazioni
+  centralina: BDC_BODY
+  titolo:
+    it: 'Brake Force Display: intensità delle luci'
+    en: 'Brake Force Display: light settings'
+  parametri:
+  - nome: MAPPING_BRAKEFORCED_1_L_PRIORITY
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_1_L_PWM_1_BFD
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_1_L_PWM_4
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_1_L_DEPENDENCY_FUNC
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_1_R_PRIORITY
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_1_R_PWM_1_BFD
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_1_R_PWM_4
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_1_R_DEPENDENCY_FUNC
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_2_L_PRIORITY
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_2_L_PWM_1_BFD
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_2_L_PWM_2_ESS_1
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_2_L_PWM_3_ESS_2
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_2_L_PWM_4
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_2_R_PRIORITY
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_2_R_PWM_1_BFD
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_2_R_PWM_2_ESS_1
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_2_R_PWM_3_ESS_2
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_2_R_PWM_4
+    regolabile: true
+  valori_suggeriti:
+    it: Valori della fonte per F15 (in prova)
+    en: Values from the F15 source (testing)
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F54
+  note:
+    it: 'Tabelle luci del Brake Force Display documentate solo su F15 e "in prova". Tocca le luci di stop: rischio
+      di non conformità. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
+      sheet su GitHub.'
+    en: 'Brake Force Display light tables documented only on F15 and "testing". Touches the brake lights: compliance
+      risk. Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: MAPPING_BRAKEFORCED_1_L_PRIORITY=priority_1, MAPPING_BRAKEFORCED_1_L_PWM_1_BFD=100%, MAPPING_BRAKEFORCED_1_L_PWM_4=pwm_1,
+      MAPPING_BRAKEFORCED_1_L_DEPENDENCY_FUNC=function_1, MAPPING_BRAKEFORCED_1_R_PR
+    esito: Da verificare
+- id: bdc_body.lampeggi-freccia-comfort
+  centralina: BDC_BODY
+  titolo:
+    it: Numero di lampeggi della freccia comfort
+    en: Comfort turn signal flash count
+  parametri:
+  - nome: BLINKZYKLEN_ANZAHL_TIPP
+    regolabile: true
+  valori_suggeriti:
+    it: 04 = 5 lampeggi (il valore vale lampeggi meno uno)
+    en: 04 = 5 flashes (the value is flashes minus one)
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F01
+  - F02
+  - F03
+  - F04
+  - F06
+  - F07
+  - F10
+  - F11
+  - F12
+  - F13
+  - F15
+  - F16
+  - F18
+  - F20
+  - F21
+  - F22
+  - F23
+  - F25
+  - F26
+  - F30
+  - F31
+  - F32
+  - F33
+  - F34
+  - F35
+  - F36
+  - F45
+  - F48
+  - F54
+  - F55
+  - F56
+  - F57
+  - F80
+  - F82
+  - F83
+  - F85
+  - F86
+  note:
+    it: Alternativa a PIA_DEFAULT_TIPPBLINKEN su alcuni i-level. Una fonte indica che non vale per l'i-step 3.61.x.
+      Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Alternative to PIA_DEFAULT_TIPPBLINKEN on some i-levels. One source says it does not apply to i-step 3.61.x.
+      Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: BLINKZYKLEN_ANZAHL_TIPP=einmal
+    esito: Da verificare
+- id: bdc_body.avvio-senza-freno-park
+  centralina: BDC_BODY
+  titolo:
+    it: Avvio motore senza freno (in P)
+    en: Engine start without the brake (in P)
+  parametri:
+  - nome: TCM_STARTLOCK_PARK
+    target: '00'
+  - nome: TCM_STARTLOCK_DRIVINGREADINESS
+    target: nicht_aktiv
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F20
+  - F21
+  - F22
+  - F23
+  - F30
+  - F31
+  - F32
+  - F33
+  - F34
+  - F35
+  - F36
+  - F45
+  - F54
+  - F55
+  - F56
+  - F57
+  - F80
+  - F82
+  - F83
+  note:
+    it: Toglie un blocco di sicurezza all'avviamento. Sconsigliata. Parametro presente nei FWL della F54 di riferimento;
+      la codifica è documentata nei cheat sheet su GitHub.
+    en: Removes a safety interlock at start-up. Not recommended. Parameter present in the reference F54 FWL files;
+      the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: TCM_STARTLOCK_PARK=aktiv, TCM_STARTLOCK_DRIVINGREADINESS=aktiv
+    esito: Da verificare
+- id: bdc_body.retronebbia-entrambe-le-luci
+  centralina: BDC_BODY
+  titolo:
+    it: Retronebbia su entrambi i lati
+    en: Rear fog light on both sides
+  parametri:
+  - nome: MAPPING_NEBELSCHLUSSL_L_OUTPUT
+    regolabile: true
+  - nome: MAPPING_NEBELSCHLUSSL_L_FUNCTION
+    regolabile: true
+  - nome: MAPPING_NEBELSCHLUSSL_R_OUTPUT
+    regolabile: true
+  - nome: MAPPING_NEBELSCHLUSSL_R_FUNCTION
+    regolabile: true
+  valori_suggeriti:
+    it: Uscite e funzione dalla lista E-Sys
+    en: Outputs and function from the E-Sys list
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  - F80
+  - F82
+  note:
+    it: Fa accendere il retronebbia da entrambi i lati. Sulle BMW va abbinato a REM o FEM. Verifica le norme del
+      tuo paese. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet
+      su GitHub.
+    en: Makes the rear fog light work on both sides. On BMWs it goes with REM or FEM. Check your local rules. Parameter
+      present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/Fog-Lights.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: MAPPING_NEBELSCHLUSSL_L_OUTPUT=nsl_l, MAPPING_NEBELSCHLUSSL_L_FUNCTION=nebelschlusslicht, MAPPING_NEBELSCHLUSSL_R_OUTPUT=nsl_r,
+      MAPPING_NEBELSCHLUSSL_R_FUNCTION=nebelschlusslicht
+    esito: Da verificare
+- id: bdc_body.luci-adattive-afs-e-abbaglianti
+  centralina: BDC_BODY
+  titolo:
+    it: Luci adattive (AFS) e abbaglianti antiabbagliamento
+    en: Adaptive lights (AFS) and glare-free high beam
+  parametri:
+  - nome: LUT_FLC_FORWARDLIGHTING_Y
+    regolabile: true
+  - nome: C_AFS_ENA
+    regolabile: true
+  - nome: ComAdapterPdu_095_Objektdaten_Stufenloser_Fernlicht_Assistent
+    regolabile: true
+  - nome: C_HBA_ENA
+    regolabile: true
+  valori_suggeriti:
+    it: Valori F015/F020 dalla lista E-Sys
+    en: F015/F020 values from the E-Sys list
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F16
+  - F25
+  - F26
+  - F48
+  - F54
+  - F80
+  - F82
+  - F85
+  - F86
+  note:
+    it: Richiede fari con AFS o abbaglianti antiabbagliamento (F15, F80/F82). Senza quell'hardware i fari possono
+      funzionare male. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
+      sheet su GitHub.
+    en: Needs headlights with AFS or glare-free high beam (F15, F80/F82). Without that hardware the headlights may
+      misbehave. Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/pmooiweer.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: LUT_FLC_FORWARDLIGHTING_Y=I001Codierwert ohne AFS, C_AFS_ENA=F015disable, ComAdapterPdu_095_Objektdaten_Stufenloser_Fernlicht_Assistent=inaktiv,
+      C_HBA_ENA=F015disable
+    esito: Da verificare
+- id: bdc_body.abbaglianti-automatici-autostrada
+  centralina: BDC_BODY
+  titolo:
+    it: 'Abbaglianti automatici: modalità autostrada'
+    en: 'High-beam assistant: motorway mode'
+  parametri:
+  - nome: C_HBA_HGWY_V_LO
+    regolabile: true
+  - nome: C_HBA_HGWY_V_HI
+    regolabile: true
+  - nome: C_HBA_HGWY_V_MIN
+    regolabile: true
+  - nome: C_HBA_HGWY_T_MIN
+    regolabile: true
+  valori_suggeriti:
+    it: 'Velocità in esadecimale: 8C = 140 km/h, 5A = 90 km/h'
+    en: 'Speeds in hex: 8C = 140 km/h, 5A = 90 km/h'
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Velocità di ingresso e uscita dalla modalità autostrada degli abbaglianti automatici. Parametro presente
+      nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Speeds to enter and leave the high-beam assistant motorway mode. Parameter present in the reference F54
+      FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/High-Beam-Assistant.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: C_HBA_HGWY_V_LO=defaultwert, C_HBA_HGWY_V_HI=defaultwert, C_HBA_HGWY_V_MIN=defaultwert, C_HBA_HGWY_T_MIN=defaultwert
+    esito: Da verificare
+- id: bdc_body.palette-al-volante
+  centralina: BDC_BODY
+  titolo:
+    it: Palette del cambio al volante
+    en: Steering wheel paddles
+  parametri:
+  - nome: PADDLES_VERBAUT
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F21
+  - F22
+  - F23
+  - F30
+  - F31
+  - F32
+  - F33
+  - F34
+  - F35
+  - F36
+  - F45
+  - F54
+  - F55
+  - F56
+  - F57
+  - F80
+  - F82
+  - F83
+  note:
+    it: Abilita le palette se montate. Una fonte F55/F56 la riporta. Parametro presente nei FWL della F54 di riferimento;
+      la codifica è documentata nei cheat sheet su GitHub.
+    en: Enables the paddles if fitted. One F55/F56 source reports it. Parameter present in the reference F54 FWL
+      files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Transmission/Paddle-Shifters.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: PADDLES_VERBAUT=aktiv
+    esito: Da verificare
+- id: bdc_body.avvio-senza-frizione
+  centralina: BDC_BODY
+  titolo:
+    it: Avvio motore senza premere la frizione
+    en: Engine start without pressing the clutch
+  parametri:
+  - nome: TCM_STARTLOCK_CLUTCH
+    target: '00'
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F21
+  - F22
+  - F23
+  - F30
+  - F31
+  - F32
+  - F33
+  - F34
+  - F35
+  - F36
+  - F45
+  - F54
+  - F55
+  - F56
+  - F57
+  - F80
+  - F82
+  - F83
+  note:
+    it: 'Cambio manuale: toglie il blocco che evita partenze con la marcia inserita. Sconsigliata. Parametro presente
+      nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
+    en: 'Manual gearbox: removes the interlock against starting in gear. Not recommended. Parameter present in the
+      reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: TCM_STARTLOCK_CLUTCH=nicht_aktiv
+    esito: Da verificare
+- id: bdc_body.frequenza-stop-lampeggianti
+  centralina: BDC_BODY
+  titolo:
+    it: Frequenza delle luci di stop lampeggianti
+    en: Flashing brake light frequency
+  parametri:
+  - nome: ESS_BLINKFREQ_1
+    regolabile: true
+  - nome: ESS_BLINKFREQ_2
+    regolabile: true
+  valori_suggeriti:
+    it: 05 nelle fonti (3 Hz di fabbrica)
+    en: 05 in the sources (3 Hz from the factory)
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  - F80
+  - F82
+  note:
+    it: Solo luci LED. Aumenta la frequenza di lampeggio in frenata d'emergenza. Parametro presente nei FWL della
+      F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: LED lights only. Raises the flashing rate under emergency braking. Parameter present in the reference F54
+      FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: ESS_BLINKFREQ_1=3_Hz, ESS_BLINKFREQ_2=3_Hz
+    esito: Da verificare
+- id: bdc_body.luci-laterali-sidemarker
+  centralina: BDC_BODY
+  titolo:
+    it: Luci di ingombro laterali (sidemarker)
+    en: Side marker lights
+  parametri:
+  - nome: MAPPING_SIDEMARKER_L_OUTPUT
+    regolabile: true
+  - nome: MAPPING_SIDEMARKER_R_OUTPUT
+    regolabile: true
+  - nome: MAPPING_SIDEMARKER_L_FUNCTION
+    regolabile: true
+  - nome: MAPPING_SIDEMARKER_R_FUNCTION
+    regolabile: true
+  valori_suggeriti:
+    it: fra_v_l / fra_v_r per accenderle, off per spegnerle
+    en: fra_v_l / fra_v_r to turn them on, off to turn them off
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Impostazione da auto USA. Verifica le norme del tuo paese. Parametro presente nei FWL della F54 di riferimento;
+      la codifica è documentata nei cheat sheet su GitHub.
+    en: US car setting. Check your local rules. Parameter present in the reference F54 FWL files; the coding is
+      documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/Turn-Signals.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: MAPPING_SIDEMARKER_L_OUTPUT=off, MAPPING_SIDEMARKER_R_OUTPUT=off, MAPPING_SIDEMARKER_L_FUNCTION=standlicht,
+      MAPPING_SIDEMARKER_R_FUNCTION=standlicht
+    esito: Da verificare
+- id: bdc_body.abbaglianti-automatici-velocita
+  centralina: BDC_BODY
+  titolo:
+    it: 'Abbaglianti automatici: velocità di attivazione'
+    en: 'High-beam assistant: activation speed'
+  parametri:
+  - nome: C_HBA_ENA_V_LO
+    regolabile: true
+  - nome: C_HBA_ENA_V_HI
+    regolabile: true
+  valori_suggeriti:
+    it: 'Esadecimale in km/h: 32 = 50, 2D = 45'
+    en: 'Hex in km/h: 32 = 50, 2D = 45'
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Velocità sopra cui si attivano e sotto cui si disattivano. Parametro presente nei FWL della F54 di riferimento;
+      la codifica è documentata nei cheat sheet su GitHub.
+    en: Speed above which they turn on and below which they turn off. Parameter present in the reference F54 FWL
+      files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/High-Beam-Assistant.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: C_HBA_ENA_V_LO=F015Codierwert, C_HBA_ENA_V_HI=defaultwert
+    esito: Da verificare
+- id: bdc_body.quarto-tasto-chiave-breve
+  centralina: BDC_BODY
+  titolo:
+    it: 'Quarto tasto della chiave: pressione breve'
+    en: 'Key fob fourth button: short press'
+  parametri:
+  - nome: RC_DEFAULT_IDG_4TH_BUTTON_SHORT
+    regolabile: true
+  valori_suggeriti:
+    it: 00 nessuna azione, 02 follow-me-home, 03 riscaldamento/raffrescamento ausiliario
+    en: 00 no action, 02 follow-me-home, 03 auxiliary heating/cooling
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F54
+  note:
+    it: Documentato su F15. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
+      sheet su GitHub.
+    en: Documented on F15. Parameter present in the reference F54 FWL files; the coding is documented in GitHub
+      cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: RC_DEFAULT_IDG_4TH_BUTTON_SHORT=Wert_00
+    esito: Da verificare
+- id: bdc_body.quarto-tasto-chiave-media
+  centralina: BDC_BODY
+  titolo:
+    it: 'Quarto tasto della chiave: pressione media'
+    en: 'Key fob fourth button: medium press'
+  parametri:
+  - nome: RC_DEFAULT_IDG_4TH_BUTTON_MID
+    regolabile: true
+  valori_suggeriti:
+    it: 00 nessuna azione, 02 follow-me-home, 03 riscaldamento/raffrescamento ausiliario
+    en: 00 no action, 02 follow-me-home, 03 auxiliary heating/cooling
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F54
+  note:
+    it: Documentato su F15. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
+      sheet su GitHub.
+    en: Documented on F15. Parameter present in the reference F54 FWL files; the coding is documented in GitHub
+      cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: RC_DEFAULT_IDG_4TH_BUTTON_MID=Wert_00
+    esito: Da verificare
+- id: bdc_body.quarto-tasto-chiave-lunga
+  centralina: BDC_BODY
+  titolo:
+    it: 'Quarto tasto della chiave: pressione lunga'
+    en: 'Key fob fourth button: long press'
+  parametri:
+  - nome: RC_DEFAULT_IDG_4TH_BUTTON_LONG
+    regolabile: true
+  valori_suggeriti:
+    it: 00 nessuna azione, 02 follow-me-home, 03 riscaldamento/raffrescamento ausiliario
+    en: 00 no action, 02 follow-me-home, 03 auxiliary heating/cooling
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F54
+  note:
+    it: Documentato su F15. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
+      sheet su GitHub.
+    en: Documented on F15. Parameter present in the reference F54 FWL files; the coding is documented in GitHub
+      cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: RC_DEFAULT_IDG_4TH_BUTTON_LONG=Wert_00
+    esito: Da verificare
+- id: bdc_body.lavafari
+  centralina: BDC_BODY
+  titolo:
+    it: Lavafari attivo o disattivato
+    en: Headlight washers on or off
+  parametri:
+  - nome: WW_SCHEINWERFERREINIGUNG
+    regolabile: true
+  valori_suggeriti:
+    it: aktiv / nicht_aktiv
+    en: aktiv / nicht_aktiv
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: 'Con fari LED o allo xeno il lavafari può essere obbligatorio: verifica le norme. Parametro presente nei
+      FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
+    en: 'With LED or xenon headlights washers may be mandatory: check the rules. Parameter present in the reference
+      F54 FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/packetpilot.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: WW_SCHEINWERFERREINIGUNG=09
+    esito: Da verificare
+- id: bdc_body.lavafari-ogni-quanti-lavaggi
+  centralina: BDC_BODY
+  titolo:
+    it: 'Lavafari: ogni quanti lavaggi del parabrezza'
+    en: 'Headlight washers: every how many windscreen washes'
+  parametri:
+  - nome: WW_ANZAHL_WASCHBET_ZUR_SRA
+    regolabile: true
+  valori_suggeriti:
+    it: 'Esadecimale: 02, 05, 0A (10 di fabbrica)'
+    en: 'Hex: 02, 05, 0A (10 from the factory)'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/packetpilot.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Headlamp-Washers.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: WW_ANZAHL_WASCHBET_ZUR_SRA=10_Betaetigungen
+    esito: Da verificare
+- id: bdc_body.lavafari-numero-spruzzi
+  centralina: BDC_BODY
+  titolo:
+    it: 'Lavafari: numero di spruzzi'
+    en: 'Headlight washers: number of sprays'
+  parametri:
+  - nome: WW_ANZAHL_SPRITZIMPULSE_SRA
+    regolabile: true
+  valori_suggeriti:
+    it: 02 o 03
+    en: 02 or 03
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/packetpilot.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Headlamp-Washers.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: WW_ANZAHL_SPRITZIMPULSE_SRA=0A
+    esito: Da verificare
+- id: bdc_body.brake-force-display-lampeggio
+  centralina: BDC_BODY
+  titolo:
+    it: 'Brake Force Display: lampeggio delle luci'
+    en: 'Brake Force Display: flashing lights'
+  parametri:
+  - nome: MAPPING_BRAKEFORCED_1_L_OUTPUT
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_1_R_OUTPUT
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_2_L_OUTPUT
+    regolabile: true
+  - nome: MAPPING_BRAKEFORCED_2_R_OUTPUT
+    regolabile: true
+  valori_suggeriti:
+    it: Uscite dalla fonte F15
+    en: Outputs from the F15 source
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F54
+  note:
+    it: 'Documentato solo su F15. Tocca le luci di stop: rischio di non conformità. Parametro presente nei FWL della
+      F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
+    en: 'Documented only on F15. Touches the brake lights: compliance risk. Parameter present in the reference F54
+      FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: MAPPING_BRAKEFORCED_1_L_OUTPUT=bl_l, MAPPING_BRAKEFORCED_1_R_OUTPUT=bl_r, MAPPING_BRAKEFORCED_2_L_OUTPUT=sl_l,
+      MAPPING_BRAKEFORCED_2_R_OUTPUT=sl_r
+    esito: Da verificare
+- id: bdc_body.seconda-coppia-luci-posteriori-con-diurne
+  centralina: BDC_BODY
+  titolo:
+    it: Seconda coppia di luci posteriori con le diurne
+    en: Second pair of rear lights with the DRL
+  parametri:
+  - nome: MAPPING_TAGFAHRL_2_H_L_OUTPUT
+    target: sl_2_l
+  - nome: MAPPING_TAGFAHRL_2_H_R_OUTPUT
+    target: sl_2_r
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F16
+  - F25
+  - F54
+  - F56
+  note:
+    it: Terzo passaggio della procedura "luci posteriori con le diurne" (F15/F16/F25 e F56). Verifica le norme del
+      tuo paese. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet
+      su GitHub.
+    en: Third step of the "rear lights with DRL" procedure (F15/F16/F25 and F56). Check your local rules. Parameter
+      present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: MAPPING_TAGFAHRL_2_H_L_OUTPUT=off, MAPPING_TAGFAHRL_2_H_R_OUTPUT=off
+    esito: Da verificare
+- id: bdc_body.lavafari-tempo-di-attesa
+  centralina: BDC_BODY
+  titolo:
+    it: 'Lavafari: attesa tra due lavaggi'
+    en: 'Headlight washers: wait between washes'
+  parametri:
+  - nome: WW_SRA_SPERRZEIT
+    regolabile: true
+  valori_suggeriti:
+    it: 'Minuti in esadecimale: 03, 05, 0A'
+    en: 'Minutes in hex: 03, 05, 0A'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Headlamp-Washers.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: WW_SRA_SPERRZEIT=02
+    esito: Da verificare
+- id: bdc_body.tergilunotto-passate-dopo-lavaggio
+  centralina: BDC_BODY
+  titolo:
+    it: 'Tergilunotto: passate dopo il lavaggio'
+    en: 'Rear wiper: wipes after washing'
+  parametri:
+  - nome: WW_ANZAHL_NACHWISCHZ_HECK
+    regolabile: true
+  valori_suggeriti:
+    it: 01, 02 o 03
+    en: 01, 02 or 03
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: WW_ANZAHL_NACHWISCHZ_HECK=nicht_aktiv
+    esito: Da verificare
+- id: bdc_body.retronebbia-presente
+  centralina: BDC_BODY
+  titolo:
+    it: Retronebbia montato
+    en: Rear fog light fitted
+  parametri:
+  - nome: NSL_VERBAUT
+    regolabile: true
+  valori_suggeriti:
+    it: verbaut / nicht verbaut
+    en: verbaut / nicht verbaut
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  - F80
+  - F82
+  note:
+    it: Secondo passaggio per il retronebbia su entrambi i lati. Parametro presente nei FWL della F54 di riferimento;
+      la codifica è documentata nei cheat sheet su GitHub.
+    en: Second step for the rear fog light on both sides. Parameter present in the reference F54 FWL files; the
+      coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/Fog-Lights.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: NSL_VERBAUT=verbaut
+    esito: Da verificare
+- id: bdc_body.disattivazione-stop-lampeggianti
+  centralina: BDC_BODY
+  titolo:
+    it: 'Stop lampeggianti: soglia di disattivazione'
+    en: 'Flashing brake lights: switch-off threshold'
+  parametri:
+  - nome: ESS_DEAKTIVIERUNG_REALE_VERZ
+    regolabile: true
+  valori_suggeriti:
+    it: 04 nelle fonti
+    en: 04 in the sources
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F16
+  - F20
+  - F25
+  - F30
+  - F54
+  - F56
+  note:
+    it: Decelerazione sotto cui le luci di stop smettono di lampeggiare. Parametro presente nei FWL della F54 di
+      riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Deceleration below which the brake lights stop flashing. Parameter present in the reference F54 FWL files;
+      the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: ESS_DEAKTIVIERUNG_REALE_VERZ=wert_01
+    esito: Da verificare
+- id: bdc_body.fendinebbia-in-retromarcia
+  centralina: BDC_BODY
+  titolo:
+    it: Fendinebbia accesi in retromarcia
+    en: Fog lights on in reverse
+  parametri:
+  - nome: C_CLC_REV_ALWAYS_ON
+    regolabile: true
+  - nome: C_CLC_REV_CURV_BOTH_ON
+    regolabile: true
+  valori_suggeriti:
+    it: 01 nella fonte
+    en: 01 in the source
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Usa i fendinebbia come luci di svolta anche in retro. Verifica le norme. Parametro presente nei FWL della
+      F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Uses the fog lights as cornering lights in reverse too. Check the rules. Parameter present in the reference
+      F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: C_CLC_REV_ALWAYS_ON=F015Codierwert, C_CLC_REV_CURV_BOTH_ON=F015Codierwert
+    esito: Da verificare
+- id: bdc_body.fendinebbia-nel-benvenuto
+  centralina: BDC_BODY
+  titolo:
+    it: Fendinebbia nella luce di benvenuto
+    en: Fog lights in the welcome light
+  parametri:
+  - nome: MAPPING_NEBELSCHW_L_OUTPUT
+    regolabile: true
+  - nome: MAPPING_NEBELSCHW_R_OUTPUT
+    regolabile: true
+  valori_suggeriti:
+    it: 0B / 0C nella fonte F55/F56
+    en: 0B / 0C in the F55/F56 source
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F45
+  - F54
+  - F55
+  - F56
+  - F57
+  note:
+    it: Fonte F55/F56/F57/F45. Va con MAPPING_NEBELSCHW_*_PART_OF nella voce sulle luci del benvenuto. Parametro
+      presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: F55/F56/F57/F45 source. Goes with MAPPING_NEBELSCHW_*_PART_OF in the welcome lights entry. Parameter present
+      in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: MAPPING_NEBELSCHW_L_OUTPUT=nsw_l, MAPPING_NEBELSCHW_R_OUTPUT=nsw_r
+    esito: Da verificare
+- id: bdc_body.luci-stop-led
+  centralina: BDC_BODY
+  titolo:
+    it: 'Luci di stop a LED: controllo lampadine'
+    en: 'LED brake lights: bulb check'
+  parametri:
+  - nome: BL_L_IS_LED
+    target: aktiv
+  - nome: BL_R_IS_LED
+    target: aktiv
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Solo con luci di stop LED montate dopo. Parametro presente nei FWL della F54 di riferimento; la codifica
+      è documentata nei cheat sheet su GitHub.
+    en: Only with retrofitted LED brake lights. Parameter present in the reference F54 FWL files; the coding is
+      documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: BL_L_IS_LED=aktiv, BL_R_IS_LED=aktiv
+    esito: Da verificare
+- id: bdc_body.retronebbia-led
+  centralina: BDC_BODY
+  titolo:
+    it: 'Retronebbia a LED: controllo lampadine'
+    en: 'LED rear fog lights: bulb check'
+  parametri:
+  - nome: NSL_L_IS_LED
+    target: aktiv
+  - nome: NSL_R_IS_LED
+    target: aktiv
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Solo con retronebbia LED montati dopo. Parametro presente nei FWL della F54 di riferimento; la codifica
+      è documentata nei cheat sheet su GitHub.
+    en: Only with retrofitted LED rear fog lights. Parameter present in the reference F54 FWL files; the coding
+      is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: NSL_L_IS_LED=aktiv, NSL_R_IS_LED=aktiv
+    esito: Da verificare
+- id: bdc_body.luci-retromarcia-led
+  centralina: BDC_BODY
+  titolo:
+    it: 'Luci di retromarcia a LED: controllo lampadine'
+    en: 'LED reversing lights: bulb check'
+  parametri:
+  - nome: RFS_L_IS_LED
+    target: aktiv
+  - nome: RFS_R_IS_LED
+    target: aktiv
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Solo con luci di retro LED montate dopo. Parametro presente nei FWL della F54 di riferimento; la codifica
+      è documentata nei cheat sheet su GitHub.
+    en: Only with retrofitted LED reversing lights. Parameter present in the reference F54 FWL files; the coding
+      is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: RFS_L_IS_LED=aktiv, RFS_R_IS_LED=aktiv
+    esito: Da verificare
+- id: bdc_body.specchio-interno-lunotto-scuro
+  centralina: BDC_BODY
+  titolo:
+    it: 'Specchio antiabbagliante: lunotto scuro o chiaro'
+    en: 'Auto-dimming mirror: dark or light rear window'
+  parametri:
+  - nome: ISP_HECKSCHEIBE
+    regolabile: true
+  valori_suggeriti:
+    it: 00 chiaro, 01 scuro
+    en: 00 light, 01 dark
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F54
+  note:
+    it: Adegua la sensibilità dello specchio al tipo di lunotto (vetri oscurati). Parametro presente nei FWL della
+      F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Adapts the mirror sensitivity to the rear window type (tinted glass). Parameter present in the reference
+      F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: ISP_HECKSCHEIBE=Dunkel
+    esito: Da verificare
+- id: bdc_body.tergilunotto-in-retromarcia
+  centralina: BDC_BODY
+  titolo:
+    it: Tergilunotto automatico in retromarcia
+    en: Automatic rear wiper in reverse
+  parametri:
+  - nome: WW_HECKWISCHER_EIN_RUECKWGANG
+    regolabile: true
+  valori_suggeriti:
+    it: aktiv / nicht_aktiv
+    en: aktiv / nicht_aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: WW_HECKWISCHER_EIN_RUECKWGANG=aktiv
+    esito: Da verificare
+- id: bdc_body.abbaglianti-automatici-dalla-levetta
+  centralina: BDC_BODY
+  titolo:
+    it: Abbaglianti automatici attivabili dalla levetta luci
+    en: High-beam assistant from the light switch
+  parametri:
+  - nome: FLA_AKTIVIERUNG
+    regolabile: true
+  valori_suggeriti:
+    it: LDS_in_A_oder_2 per attivarli anche dalla posizione 2
+    en: LDS_in_A_oder_2 to enable them from position 2 too
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: FLA_AKTIVIERUNG=LDS_in_A
+    esito: Da verificare
+- id: bdc_body.luce-ambiente-all-apertura
+  centralina: BDC_BODY
+  titolo:
+    it: Luce ambiente all'apertura
+    en: Ambient light when unlocking
+  parametri:
+  - nome: WELCOME_AMBIENTE
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: WELCOME_AMBIENTE=64
+    esito: Da verificare
+- id: bdc_body.lampeggio-apertura-portellone
+  centralina: BDC_BODY
+  titolo:
+    it: Lampeggio all'apertura del portellone
+    en: Flash when opening the tailgate
+  parametri:
+  - nome: HECKKLAPPE_REVERSIEREN_BLINKEN
+    regolabile: true
+  valori_suggeriti:
+    it: 00 = lampeggio singolo (di fabbrica doppio)
+    en: 00 = single flash (double from the factory)
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: HECKKLAPPE_REVERSIEREN_BLINKEN=doppelt
+    esito: Da verificare
+- id: bdc_body.follow-me-home-dalla-chiave
+  centralina: BDC_BODY
+  titolo:
+    it: Follow-me-home dalla chiave
+    en: Follow-me-home from the key
+  parametri:
+  - nome: FOLLOWMEHOME_VIA_FFB
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Va con KEY_CONF_COMFORT_HOMELIGHT nella HU. Parametro presente nei FWL della F54 di riferimento; la codifica
+      è documentata nei cheat sheet su GitHub.
+    en: Goes with KEY_CONF_COMFORT_HOMELIGHT in the HU. Parameter present in the reference F54 FWL files; the coding
+      is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: FOLLOWMEHOME_VIA_FFB=nicht_aktiv
+    esito: Da verificare
+- id: bdc_body.durata-follow-me-home
+  centralina: BDC_BODY
+  titolo:
+    it: Durata del follow-me-home
+    en: Follow-me-home duration
+  parametri:
+  - nome: PIA_DEFAULT_FMH
+    regolabile: true
+  valori_suggeriti:
+    it: 'Secondi in esadecimale: 1E = 30 s'
+    en: 'Seconds in hex: 1E = 30 s'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: PIA_DEFAULT_FMH=01
+    esito: Da verificare
+- id: bdc_body.velocita-chiusura-automatica
+  centralina: BDC_BODY
+  titolo:
+    it: Velocità della chiusura automatica in marcia
+    en: Automatic locking speed
+  parametri:
+  - nome: VAM_SPEED_LIMIT_PIA_AUTO_LOCK
+    regolabile: true
+  valori_suggeriti:
+    it: 01 nella fonte F55/F56 (circa 16 km/h)
+    en: 01 in the F55/F56 source (about 16 km/h)
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F45
+  - F54
+  - F55
+  - F56
+  - F57
+  note:
+    it: Fonte F55/F56/F57/F45. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei
+      cheat sheet su GitHub.
+    en: F55/F56/F57/F45 source. Parameter present in the reference F54 FWL files; the coding is documented in GitHub
+      cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: VAM_SPEED_LIMIT_PIA_AUTO_LOCK=00
+    esito: Da verificare
+- id: bdc_body.luce-benvenuto-ripetuta
+  centralina: BDC_BODY
+  titolo:
+    it: Luce di benvenuto anche più volte di seguito
+    en: Welcome light on repeated unlocking
+  parametri:
+  - nome: WL_WIEDERHOLSPERRE_AKTIV
+    regolabile: true
+  valori_suggeriti:
+    it: 01 nella fonte
+    en: 01 in the source
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F16
+  - F25
+  - F26
+  - F48
+  - F54
+  - F85
+  - F86
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: WL_WIEDERHOLSPERRE_AKTIV=aktiv
+    esito: Da verificare
+- id: bdc_body.follow-me-home-ripetuto
+  centralina: BDC_BODY
+  titolo:
+    it: Follow-me-home anche più volte di seguito
+    en: Follow-me-home on repeated activation
+  parametri:
+  - nome: FMH_WIEDERHOLSPERRE_AKTIV
+    regolabile: true
+  valori_suggeriti:
+    it: 01 nella fonte
+    en: 01 in the source
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F16
+  - F25
+  - F26
+  - F48
+  - F54
+  - F85
+  - F86
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: FMH_WIEDERHOLSPERRE_AKTIV=aktiv
+    esito: Da verificare
+- id: bdc_body.luci-di-parcheggio
+  centralina: BDC_BODY
+  titolo:
+    it: Luci di parcheggio laterali
+    en: Parking lights
+  parametri:
+  - nome: PARKLICHT_MOEGLICH
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F80
+  - F82
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: PARKLICHT_MOEGLICH=aktiv
+    esito: Da verificare
+- id: bdc_body.specchio-passeggero-posizione-orizzontale
+  centralina: BDC_BODY
+  titolo:
+    it: 'Specchio passeggero in retro: posizione orizzontale'
+    en: 'Passenger mirror in reverse: horizontal position'
+  parametri:
+  - nome: ASP_HORIZONTALE_MIN_POS
+    regolabile: true
+  valori_suggeriti:
+    it: 1E nella fonte
+    en: 1E in the source
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Da usare se ASP_BORDSTEINAUTOMATIK_DELTA non basta. Parametro presente nei FWL della F54 di riferimento;
+      la codifica è documentata nei cheat sheet su GitHub.
+    en: Use it if ASP_BORDSTEINAUTOMATIK_DELTA is not enough. Parameter present in the reference F54 FWL files;
+      the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: ASP_HORIZONTALE_MIN_POS=75
+    esito: Da verificare
+- id: bdc_body.lavafari-durata-spruzzo
+  centralina: BDC_BODY
+  titolo:
+    it: 'Lavafari: durata dello spruzzo'
+    en: 'Headlight washers: spray duration'
+  parametri:
+  - nome: WW_DAUER_SPRITZIMPULSE_SRA
+    regolabile: true
+  valori_suggeriti:
+    it: 'Esadecimale × 100 ms: 0A = 1 s'
+    en: 'Hex × 100 ms: 0A = 1 s'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Headlamp-Washers.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: WW_DAUER_SPRITZIMPULSE_SRA=00
+    esito: Da verificare
+- id: bdc_body.lavafari-velocita-massima
+  centralina: BDC_BODY
+  titolo:
+    it: 'Lavafari: velocità massima di attivazione'
+    en: 'Headlight washers: maximum speed'
+  parametri:
+  - nome: WW_SRA_GESCHWINDIGKEITS_DEAKTIVIERUNG
+    regolabile: true
+  valori_suggeriti:
+    it: 'Esadecimale in km/h: 82 = 130'
+    en: 'Hex in km/h: 82 = 130'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Headlamp-Washers.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: WW_SRA_GESCHWINDIGKEITS_DEAKTIVIERUNG=0A
+    esito: Da verificare
+- id: bdc_body.lavafari-pausa-tra-spruzzi
+  centralina: BDC_BODY
+  titolo:
+    it: 'Lavafari: pausa tra gli spruzzi'
+    en: 'Headlight washers: pause between sprays'
+  parametri:
+  - nome: WW_PAUSE_SPRITZIMPULSE_SRA
+    regolabile: true
+  valori_suggeriti:
+    it: Esadecimale × 100 ms
+    en: Hex × 100 ms
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Headlamp-Washers.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: WW_PAUSE_SPRITZIMPULSE_SRA=00
+    esito: Da verificare
+- id: bdc_body.ritardo-finestrini-posteriori
+  centralina: BDC_BODY
+  titolo:
+    it: Ritardo tra finestrini anteriori e posteriori
+    en: Delay between front and rear windows
+  parametri:
+  - nome: KOMFORT_OEFF_HINTEN
+    regolabile: true
+  valori_suggeriti:
+    it: 05 nella fonte
+    en: 05 in the source
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Windows-Doors.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: KOMFORT_OEFF_HINTEN=wert_01
+    esito: Da verificare
+- id: bdc_body.ritardo-finestrini-anteriori
+  centralina: BDC_BODY
+  titolo:
+    it: Ritardo tra i finestrini anteriori in chiusura
+    en: Delay between front windows when closing
+  parametri:
+  - nome: KOMFORT_SCHL_VORNE
+    regolabile: true
+  valori_suggeriti:
+    it: 05 nella fonte
+    en: 05 in the source
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Windows-Doors.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: KOMFORT_SCHL_VORNE=wert_01
+    esito: Da verificare
+- id: bdc_body.ritardo-tetto-apertura-comfort
+  centralina: BDC_BODY
+  titolo:
+    it: Ritardo tra finestrini e tetto
+    en: Delay between windows and sunroof
+  parametri:
+  - nome: KOMFORT_OEFF_SHD
+    regolabile: true
+  valori_suggeriti:
+    it: 23 nella fonte
+    en: 23 in the source
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Windows-Doors.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: KOMFORT_OEFF_SHD=wert_01
+    esito: Da verificare
+- id: bdc_body.variante-devioguida
+  centralina: BDC_BODY
+  titolo:
+    it: Variante del devioguida per le frecce morbide
+    en: Steering column switch variant for soft turn signals
+  parametri:
+  - nome: LIN_VARIANTE_SZL
+    regolabile: true
+  valori_suggeriti:
+    it: szl_aic_4Band_fla nella fonte
+    en: szl_aic_4Band_fla in the source
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  note:
+    it: 'Deve corrispondere all''hardware montato: un valore sbagliato può disattivare comandi del devioguida. Parametro
+      presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
+    en: 'Must match the fitted hardware: a wrong value can disable stalk functions. Parameter present in the reference
+      F54 FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/Turn-Signals.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: LIN_VARIANTE_SZL=szl_HW_aic_4Band_fla
+    esito: Da verificare
+- id: bdc_body.temperature-sedili-riscaldati
+  centralina: BDC_BODY
+  titolo:
+    it: Temperature dei sedili riscaldati
+    en: Heated seat temperatures
+  parametri:
+  - nome: TEMP_LEHNE_STUFE_1_FRONT
+    regolabile: true
+  - nome: TEMP_LEHNE_STUFE_2_FRONT
+    regolabile: true
+  - nome: TEMP_LEHNE_STUFE_3_FRONT
+    regolabile: true
+  - nome: TEMP_SITZ_STUFE_1_FRONT
+    regolabile: true
+  - nome: TEMP_SITZ_STUFE_2_FRONT
+    regolabile: true
+  - nome: TEMP_SITZ_STUFE_3_FRONT
+    regolabile: true
+  - nome: TEMP_LEHNE_STUFE_1_FOND
+    regolabile: true
+  - nome: TEMP_LEHNE_STUFE_2_FOND
+    regolabile: true
+  - nome: TEMP_LEHNE_STUFE_3_FOND
+    regolabile: true
+  - nome: TEMP_SITZ_STUFE_1_FOND
+    regolabile: true
+  - nome: TEMP_SITZ_STUFE_2_FOND
+    regolabile: true
+  - nome: TEMP_SITZ_STUFE_3_FOND
+    regolabile: true
+  valori_suggeriti:
+    it: 'Valori esadecimali per livello 1, 2, 3 (fonte: 96, A2, AE per lo schienale; 94, A0, AC per la seduta)'
+    en: 'Hex values for levels 1, 2, 3 (source: 96, A2, AE backrest; 94, A0, AC cushion)'
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  note:
+    it: 'Temperature per ogni livello di seduta e schienale, anteriori e posteriori. Non esagerare: rischio di scottature.
+      Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
+    en: 'Temperatures for each level of cushion and backrest, front and rear. Do not overdo it: risk of burns. Parameter
+      present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Comfort-Features.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: TEMP_LEHNE_STUFE_1_FRONT=00, TEMP_LEHNE_STUFE_2_FRONT=96, TEMP_LEHNE_STUFE_3_FRONT=9E, TEMP_SITZ_STUFE_1_FRONT=AE,
+      TEMP_SITZ_STUFE_2_FRONT=35_grad, TEMP_SITZ_STUFE_3_FRONT=9E, TEMP_LEHNE_STUFE_1_FOND=
+    esito: Da verificare

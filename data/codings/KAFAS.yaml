@@ -71,3 +71,446 @@
     i_level: F056-26-03-519
     valore_letto: default_off / messages_deactivated
     esito: Confermata su un'altra F54 (minif56)
+- id: kafas.abbaglianti-automatici-soglie-velocita
+  centralina: KAFAS
+  titolo:
+    it: 'Abbaglianti automatici: soglie di velocità'
+    en: 'High-beam assistant: speed thresholds'
+  parametri:
+  - nome: FLA_ON_OFF
+    regolabile: true
+  - nome: SPEED_SWITCHING_HIGH_BEAMS_ON
+    regolabile: true
+  - nome: SPEED_SWITCHING_HIGH_BEAMS_OFF
+    regolabile: true
+  valori_suggeriti:
+    it: 'Esadecimale in km/h: 28 = 40 (on), 1E = 30 (off); oppure il valore di un mercato dalla lista'
+    en: 'Hex in km/h: 28 = 40 (on), 1E = 30 (off); or a market value from the list'
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F01
+  - F02
+  - F03
+  - F04
+  - F06
+  - F07
+  - F10
+  - F11
+  - F12
+  - F13
+  - F15
+  - F16
+  - F18
+  - F20
+  - F21
+  - F22
+  - F23
+  - F25
+  - F26
+  - F30
+  - F31
+  - F32
+  - F33
+  - F34
+  - F35
+  - F36
+  - F45
+  - F48
+  - F54
+  - F55
+  - F56
+  - F57
+  - F80
+  - F82
+  - F83
+  - F85
+  - F86
+  note:
+    it: Sulla F54 di riferimento sono impostate le soglie USA. FLA_ON_OFF accende la funzione. Parametro presente
+      nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: On the reference F54 the US thresholds are set. FLA_ON_OFF switches the function on. Parameter present in
+      the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: FLA_ON_OFF=FLA_on, SPEED_SWITCHING_HIGH_BEAMS_ON=US, SPEED_SWITCHING_HIGH_BEAMS_OFF=all_others
+    esito: Da verificare
+- id: kafas.abbaglianti-automatici-ritardi
+  centralina: KAFAS
+  titolo:
+    it: 'Abbaglianti automatici: tempi di reazione'
+    en: 'High-beam assistant: reaction delays'
+  parametri:
+  - nome: DELAY_AFTER_ONCOMING
+    regolabile: true
+  - nome: ONCOMING_HIGH_SPEED_DELAY
+    regolabile: true
+  - nome: DELAY_AFTER_PRECEDING
+    regolabile: true
+  - nome: DELAY_AFTER_SLOW_OVERTAKING
+    regolabile: true
+  valori_suggeriti:
+    it: Valori esadecimali nella fonte
+    en: Hex values in the source
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: DELAY_AFTER_ONCOMING=default, ONCOMING_HIGH_SPEED_DELAY=default, DELAY_AFTER_PRECEDING=default,
+      DELAY_AFTER_SLOW_OVERTAKING=default
+    esito: Da verificare
+- id: kafas.distanza-acc-nell-hud
+  centralina: KAFAS
+  titolo:
+    it: Distanza dell'ACC nell'HUD
+    en: ACC distance in the HUD
+  parametri:
+  - nome: SEND_STATUS_IBRAKE
+    regolabile: true
+  - nome: SEND_PARAM_IBRAKE
+    regolabile: true
+  valori_suggeriti:
+    it: 01 nelle fonti
+    en: 01 in the sources
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F10
+  - F15
+  - F20
+  - F30
+  - F54
+  note:
+    it: Va con le voci nel KOMBI e nella HU. Serve l'ACC. Parametro presente nei FWL della F54 di riferimento; la
+      codifica è documentata nei cheat sheet su GitHub.
+    en: Goes with the KOMBI and HU entries. ACC required. Parameter present in the reference F54 FWL files; the
+      coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: SEND_STATUS_IBRAKE=IBRAKE_STAT_on_ENCAP_F45_F46_F48, SEND_PARAM_IBRAKE=ENCAP_F45_F46_F48
+    esito: Da verificare
+- id: kafas.avviso-corsia-velocita
+  centralina: KAFAS
+  titolo:
+    it: 'Avviso uscita di corsia: velocità minima'
+    en: 'Lane departure warning: minimum speed'
+  parametri:
+  - nome: THRV_AVAI_TLC_HIGH
+    regolabile: true
+  - nome: THRV_AVAI_TLC_LOW
+    regolabile: true
+  valori_suggeriti:
+    it: 'Esadecimale in km/h: 37 = 55, 3C = 60'
+    en: 'Hex in km/h: 37 = 55, 3C = 60'
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Driver-Assistance/LDW.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: THRV_AVAI_TLC_HIGH=rest_of_the_world, THRV_AVAI_TLC_LOW=rest_of_the_world
+    esito: Da verificare
+- id: kafas.avviso-bordo-strada
+  centralina: KAFAS
+  titolo:
+    it: Avviso corsia anche sul bordo strada senza strisce
+    en: Lane warning on unmarked road edges
+  parametri:
+  - nome: ROAD_EDGE_WARNING_ENABLED
+    target: detection_for_grass_edge_and_curb_stone
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  - F80
+  - F82
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Driver-Assistance/LDW.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: ROAD_EDGE_WARNING_ENABLED=detection_for_grass_edge_and_curb_stone
+    esito: Da verificare
+- id: kafas.sensibilita-abbaglianti-automatici
+  centralina: KAFAS
+  titolo:
+    it: Sensibilità degli abbaglianti automatici nel menu
+    en: High-beam assistant sensitivity in the menu
+  parametri:
+  - nome: ALLOW_SENS_CHANGE
+    regolabile: true
+  valori_suggeriti:
+    it: 01 per attivarla
+    en: 01 to enable it
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Una fonte riporta che non funziona. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
+      nei cheat sheet su GitHub.
+    en: One source reports it does not work. Parameter present in the reference F54 FWL files; the coding is documented
+      in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: ALLOW_SENS_CHANGE=no_sensitivity_change
+    esito: Da verificare
+- id: kafas.abbaglianti-automatici-citta
+  centralina: KAFAS
+  titolo:
+    it: 'Abbaglianti automatici: soglia in città'
+    en: 'High-beam assistant: city threshold'
+  parametri:
+  - nome: HIGH_SPEED_SWITCHING_HIGH_BEAMS
+    regolabile: true
+  valori_suggeriti:
+    it: 'Esadecimale in km/h: 4B = 75, 55 = 85'
+    en: 'Hex in km/h: 4B = 75, 55 = 85'
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F54
+  note:
+    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
+    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: HIGH_SPEED_SWITCHING_HIGH_BEAMS=all_others
+    esito: Da verificare
+- id: kafas.limiti-solo-da-telecamera
+  centralina: KAFAS
+  titolo:
+    it: Limiti di velocità solo dalla telecamera
+    en: Speed limits from the camera only
+  parametri:
+  - nome: COD_CAM_ONLY
+    regolabile: true
+  valori_suggeriti:
+    it: camera_only / fusion_mode
+    en: camera_only / fusion_mode
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F15
+  - F16
+  - F25
+  - F26
+  - F48
+  - F54
+  - F85
+  - F86
+  note:
+    it: fusion_mode usa anche i dati di navigazione. Parametro presente nei FWL della F54 di riferimento; la codifica
+      è documentata nei cheat sheet su GitHub.
+    en: fusion_mode also uses navigation data. Parameter present in the reference F54 FWL files; the coding is documented
+      in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Driver-Assistance/Traffic-Sign.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: COD_CAM_ONLY=fusion_mode
+    esito: Da verificare
+- id: kafas.divieto-sorpasso-hud-telecamera
+  centralina: KAFAS
+  titolo:
+    it: Divieto di sorpasso nell'HUD (telecamera)
+    en: No-overtaking in the HUD (camera)
+  parametri:
+  - nome: NPI_ON_OFF
+    regolabile: true
+  valori_suggeriti:
+    it: 01 nella fonte
+    en: 01 in the source
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F10
+  - F15
+  - F54
+  note:
+    it: Va con HUD_NPI_ENABLE nel KOMBI. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
+      nei cheat sheet su GitHub.
+    en: Goes with HUD_NPI_ENABLE in the KOMBI. Parameter present in the reference F54 FWL files; the coding is documented
+      in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: NPI_ON_OFF=F056
+    esito: Da verificare
+- id: kafas.abbaglianti-antiabbagliamento-telecamera
+  centralina: KAFAS
+  titolo:
+    it: Abbaglianti antiabbagliamento nella telecamera
+    en: Glare-free high beam in the camera
+  parametri:
+  - nome: GLAREFREE_HIGHBEAM_ENABLED
+    regolabile: true
+  valori_suggeriti:
+    it: glarfreeHB_on_F001 nella fonte
+    en: glarfreeHB_on_F001 in the source
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F80
+  - F82
+  note:
+    it: Richiede fari con abbaglianti antiabbagliamento. Parametro presente nei FWL della F54 di riferimento; la
+      codifica è documentata nei cheat sheet su GitHub.
+    en: Requires glare-free high beam headlights. Parameter present in the reference F54 FWL files; the coding is
+      documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/pmooiweer.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: GLAREFREE_HIGHBEAM_ENABLED=F020_F025_F045_F056_RR01_M013_off
+    esito: Da verificare
+- id: kafas.avviso-collisione-soglie
+  centralina: KAFAS
+  titolo:
+    it: 'Avviso di collisione: soglie e tempi'
+    en: 'Collision warning: thresholds and timing'
+  parametri:
+  - nome: SPEED_THRV_FCW_ACUTE_DYNAMIC
+    regolabile: true
+  - nome: SPEED_THRV_FCW_ADVANCE_DYNAMIC
+    regolabile: true
+  - nome: MIN_TIME_ADVANCE_WARN
+    regolabile: true
+  - nome: MIN_TIME_ACUTE_WARN
+    regolabile: true
+  - nome: MAX_DIST_ACUTE
+    regolabile: true
+  - nome: TTC_THRV_ADV_EARLY
+    regolabile: true
+  - nome: TTC_THRV_ACUTE_EARLY
+    regolabile: true
+  - nome: TTC_THRV_SHIFT_BRAKE_ACUTE_EARLY
+    regolabile: true
+  - nome: TTC_THRV_SHIFT_BRAKE_ACUTE_LATE
+    regolabile: true
+  valori_suggeriti:
+    it: Valori esadecimali nella fonte
+    en: Hex values in the source
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F54
+  note:
+    it: 'Cambia quando scatta l''avviso di collisione. Riguarda la sicurezza: sconsigliata. Parametro presente nei
+      FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
+    en: 'Changes when the collision warning triggers. Safety-related: not recommended. Parameter present in the
+      reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+  fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Driver-Assistance/FCW.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: SPEED_THRV_FCW_ACUTE_DYNAMIC=default, SPEED_THRV_FCW_ADVANCE_DYNAMIC=default, MIN_TIME_ADVANCE_WARN=default,
+      MIN_TIME_ACUTE_WARN=default, MAX_DIST_ACUTE=default, TTC_THRV_ADV_EARLY=ENCAP_F45_F46_F48_F
+    esito: Da verificare
+- id: kafas.regione-telecamera
+  centralina: KAFAS
+  titolo:
+    it: Regione della telecamera e dei cartelli
+    en: Camera and sign region
+  parametri:
+  - nome: COUNTRY_VARIATION
+    regolabile: true
+  - nome: TSM_COUNTRY_VARIATION
+    regolabile: true
+  - nome: COUNTRY_CODING_DISPLAY
+    regolabile: true
+  valori_suggeriti:
+    it: ECE per l'Europa
+    en: ECE for Europe
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  note:
+    it: Deve corrispondere al paese in cui usi l'auto. Parametro presente nei FWL della F54 di riferimento; la codifica
+      è documentata nei cheat sheet su GitHub.
+    en: Must match the country where you use the car. Parameter present in the reference F54 FWL files; the coding
+      is documented in GitHub cheat sheets.
+  fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Driver-Assistance/Traffic-Sign.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: COUNTRY_VARIATION=ECE, TSM_COUNTRY_VARIATION=ECE, COUNTRY_CODING_DISPLAY=country_specific
+    esito: Da verificare
