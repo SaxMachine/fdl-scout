@@ -21,8 +21,11 @@
   note:
     it: Al riavvio il ricircolo resta come l'avevi lasciato.
     en: After a restart recirculation stays as you left it.
-  fonti: &id001
+  fonti:
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -74,7 +77,11 @@
   - F60
   note:
     it: ''
-  fonti: *id001
+  fonti:
+  - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
   - telaio: F54
     anno: 2022

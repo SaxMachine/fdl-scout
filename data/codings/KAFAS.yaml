@@ -24,6 +24,9 @@
   note:
     it: Mostra il tempo di distanza. L'ACC su F54 è a telecamera; l'effetto varia.
     en: Shows the time gap. ACC on the F54 is camera-based; the effect varies.
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
   - telaio: F54
     anno: 2022

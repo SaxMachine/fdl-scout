@@ -10,7 +10,7 @@
 # Una centralina può avere più CAFD (ACSM ne ha tre, FZD due).
 # Gli identificativi vengono da FWL reali (MINI F54 03/2022, i-level F056-26-03-519).
 # Altre auto, BMW comprese, hanno CAFD diversi per la stessa centralina: aggiungili qui
-# solo quando li leggi da un FWL reale. NBT (senza EVO) e HU_NBT2 (NBT EVO) sono
+# solo quando li leggi da un FWL reale o da una fonte che li documenta. NBT (senza EVO) e HU_NBT2 (NBT EVO) sono
 # head unit diverse: non unirle con un alias.
 
 cafd:
@@ -33,6 +33,46 @@ cafd:
   "0000297A": DSC
   "000031C9": EGS         # cambio automatico, in E-Sys "EGS5"
   "00005B2B": KOMBI
+  # Da qui in giù: CAFD documentati nei cheat sheet di E-Sys Launcher raccolti in
+  # https://github.com/packetpilot/bmw-f (attributi cafd id, name e series). Il nome è
+  # quello di E-Sys; tra parentesi i telai indicati dalla fonte.
+  "0000141F": KOMBI       # (F55, F56, F57, F45)
+  "00001AB7": PMA         # PMA_PDC (F55, F56, F57, F45)
+  "00000794": FEM_BODY    # (F20, F30)
+  "000007A1": REM         # modulo elettronico posteriore (F30)
+  "00000760": KOMBI       # L7_BASIS (F20-F36)
+  "000009C8": KOMBI       # L7_MID (F15, F20, F30)
+  "00000069": KOMBI       # (F01, F10)
+  "00001060": KOMBI       # FPK / 6WB (F01, F10)
+  "00000DED": HU_NBT      # NBT senza EVO (F01, F10)
+  "000000F9": HU_CIC      # (F01, F10)
+  "0000012F": FRM         # modulo luci e specchi (F01, F10)
+  "0000106D": FRM         # (F01, F10)
+  "0000000F": CAS         # Car Access System (F01, F10)
+  "00000092": IHKA        # (F01, F10)
+  "00000A3F": IHKA        # (F10, F20, F30)
+  "000006DE": IHKA        # (F15, F25, F48)
+  "000047D6": IHKA        # (F15, F25, F48)
+  "0000009C": ACSM        # (F01, F10)
+  "00000909": ACSM        # (F01, F10)
+  "00000911": ACSM        # (F20-F36)
+  "00000223": TRSVC       # (F01, F10, F30, F80)
+  "0000023F": EGS         # (F01, F10)
+  "00000552": FZD         # (F01, F10)
+  "00000A07": FZD         # (F20, F30)
+  "00000122": KAFAS
+  "000019CC": DSC         # (F20-F36)
+  "00001A33": DSC         # (F30, F80)
+  "000000D8": DSC         # (F01)
+  "00000C18": DSC         # (F01, F10)
+  "0000146B": PMA         # PMA_PDC (F15)
+  "0000067B": ICM         # (F01, F10)
+  "00000052": ICM         # (F01)
+  "000013D8": ICM         # (F15)
+  "000010BA": LHM         # modulo luci (F15, F20, F30)
+  "000016BF": LHM         # (F15, F20, F30)
+  "00001082": TMS         # driver fari (F10, F20, F30)
+  "00001083": TMS         # (F10, F20, F30)
 
 alias:
   BDC: BDC_BODY
@@ -85,4 +125,10 @@ nomi:
   SMFA: { it: "Sedile guida (memoria, riscaldamento)", en: "Driver seat module" }
   ZBE: { it: "Controller iDrive", en: "iDrive controller" }
   FLE: { it: "Fari LED (FLEL/FLER)", en: "LED headlights (FLEL/FLER)" }
+  FEM_BODY: { it: "Front Electronic Module (carrozzeria)", en: "Front Electronic Module (body)" }
+  REM: { it: "Modulo elettronico posteriore", en: "Rear Electronic Module" }
+  FRM: { it: "Modulo luci e specchi (Footwell)", en: "Footwell module (lights, mirrors)" }
+  CAS: { it: "Accesso e avviamento (CAS)", en: "Car Access System" }
+  HU_NBT: { it: "Head unit NBT", en: "NBT head unit" }
+  HU_CIC: { it: "Head unit CIC", en: "CIC head unit" }
   EGS: { it: "Cambio automatico", en: "Automatic transmission" }

@@ -106,6 +106,7 @@
       only this one is missing.'
   fonti:
   - https://minkara.carview.co.jp/userid/3574209/car/3489593/7495761/note.aspx
+  - https://github.com/butterflywaltz/BMW_Coding/blob/main/FDL%20Codes/KOMBI_FDL_Final.txt
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -131,6 +132,8 @@
   - F60
   note:
     it: ''
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -185,7 +188,7 @@
   note:
     it: Richiede supporto in DSC e KAFAS oltre al KOMBI. Non procedere senza l'FWL del DSC.
     en: Needs support in the DSC and KAFAS as well as the KOMBI. Do not go ahead without the DSC FWL.
-  fonti: &id001
+  fonti:
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   osservazioni:
   - telaio: F54
@@ -216,7 +219,9 @@
   - F60
   note:
     it: ''
-  fonti: *id001
+  fonti:
+  - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -246,6 +251,8 @@
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Instrument-Cluster.md
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -277,8 +284,9 @@
       nome: scegli la voce kmh dalla lista.'
     en: 'BimmerCode F5x list. Shows km/h as digits in the cluster. With some PSdZData the current value has no name:
       pick the kmh entry from the list.'
-  fonti: &id002
+  fonti:
   - https://bimmercode.app/vehicles/f56
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -305,7 +313,8 @@
   note:
     it: Elenco BimmerCode. Permette di lasciare il computer di bordo senza dati, per un quadro più pulito.
     en: BimmerCode list. Lets you leave the on-board computer without data, for a cleaner cluster.
-  fonti: *id002
+  fonti:
+  - https://bimmercode.app/vehicles/f56
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -335,7 +344,11 @@
   note:
     it: 'Elenco BimmerCode. Con alcuni PSdZData il valore attuale non ha nome: scegli dalla lista E-Sys.'
     en: 'BimmerCode list. With some PSdZData the current value has no name: pick from the E-Sys list.'
-  fonti: *id002
+  fonti:
+  - https://bimmercode.app/vehicles/f56
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Instrument-Cluster.md
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -365,7 +378,9 @@
   note:
     it: Elenco BimmerCode (Reservewarnung). Cambia quando compare la spia della riserva, non la capacità reale.
     en: BimmerCode list (Reservewarnung). Changes when the reserve warning appears, not the real capacity.
-  fonti: *id002
+  fonti:
+  - https://bimmercode.app/vehicles/f56
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -388,7 +403,7 @@
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
-  telai: &id003
+  telai: &id001
   - F54
   - F55
   - F56
@@ -416,7 +431,7 @@
   rischio: basso
   consiglio: ok
   affidabilita: confermata
-  telai: *id003
+  telai: *id001
   note:
     it: Aggiunge la data tra le voci del computer di bordo.
     en: Adds the date to the on-board computer items.
