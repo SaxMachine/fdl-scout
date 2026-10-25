@@ -2,6 +2,10 @@
 
 **Quali codifiche puoi fare alla tua BMW o MINI?** Trascini nel browser gli FWL esportati da E-Sys e FDL Scout ti dice, centralina per centralina, quali codifiche sono già attive, quali puoi attivare, quali hanno un valore a scelta e quali parametri nessuno ha ancora documentato.
 
+### 👉 [Apri FDL Scout](https://saxmachine.github.io/fdl-scout/)
+
+Non devi installare niente: apri il link, trascina i tuoi file e basta. Funziona da qualsiasi browser e i file restano sul tuo computer.
+
 *[English below](#english)*
 
 - **Tutto nel browser.** I file non vengono caricati da nessuna parte: il parsing avviene sul tuo computer. Gli FWL contengono VIN e configurazione dell'auto, e lì restano.
@@ -13,10 +17,12 @@ Perimetro: **BMW e MINI serie F**. E-Sys e il formato FWL sono gli stessi per tu
 
 ## Come si usa
 
+Apri **[https://saxmachine.github.io/fdl-scout/](https://saxmachine.github.io/fdl-scout/)**.
+
 Guida passo passo all'esportazione da E-Sys: [docs/ESPORTARE-DA-ESYS.md](docs/ESPORTARE-DA-ESYS.md).
 
 1. In E-Sys leggi l'FDL di ogni centralina che ti interessa ed esportalo come testo (FWL). Esporta anche la FA (il file XML con i codici SA): non è obbligatoria, ma permette di scartare le codifiche che richiedono optional che non hai.
-2. Apri FDL Scout e trascina tutti i file nella pagina, FA compresa.
+2. Apri [FDL Scout](https://saxmachine.github.io/fdl-scout/) e trascina tutti i file nella pagina, FA compresa.
 3. Controlla che ogni file sia stato riconosciuto con la centralina giusta. I file di E-Sys si chiamano solo `CAFD_<numero>`: FDL Scout li riconosce dal CAFD o dai parametri tipici. Se sbaglia, correggi con "Cambia centralina".
 4. Spunta le codifiche che vuoi fare e apri **Lista per E-Sys**: è l'elenco parametro per parametro, valore attuale e nuovo, da copiare o scaricare.
 5. In E-Sys: backup FDL, modifica, scrittura. Una centralina alla volta.
@@ -36,6 +42,8 @@ Guida passo passo all'esportazione da E-Sys: [docs/ESPORTARE-DA-ESYS.md](docs/ES
 "Attivabile" vuol dire che il parametro esiste, non che la funzione funzionerà di sicuro: alcune voci richiedono hardware (SA) o altre centraline. Leggi sempre le note e il livello di rischio.
 
 ## Eseguire in locale
+
+Solo per chi vuole modificare il codice o il database. Per usare FDL Scout basta il [sito](https://saxmachine.github.io/fdl-scout/).
 
 Serve Python 3 con PyYAML (su Red Hat/Fedora `dnf install python3-pyyaml`) e Node.js 20 o più recente solo per test e server di prova. Nessuna dipendenza npm.
 
@@ -70,6 +78,10 @@ FDL Scout non è affiliato a BMW AG o MINI. Il repository non contiene e non acc
 
 **What can you code on your BMW or MINI?** Drop the FWL files exported from E-Sys into your browser and FDL Scout tells you, unit by unit, which coding is already on, which you can enable, which takes a value of your choice, and which parameters nobody has documented yet.
 
+### 👉 [Open FDL Scout](https://saxmachine.github.io/fdl-scout/)
+
+Nothing to install: open the link, drop your files and that's it. It works in any browser and your files stay on your computer.
+
 - **Runs entirely in the browser.** Files are never uploaded anywhere: parsing happens on your computer. FWL files contain the VIN and the car's configuration, and they stay there.
 - **Read only.** FDL Scout never writes to the car. It prepares a work list; you make the change in E-Sys, with your own backup.
 - **An open, checkable database.** Each coding is a YAML entry with parameters, values, risk, sources and the cars it was observed on.
@@ -79,10 +91,12 @@ Scope: **BMW and MINI F-series**. E-Sys and the FWL format are the same for all 
 
 ### How to use it
 
+Open **[https://saxmachine.github.io/fdl-scout/](https://saxmachine.github.io/fdl-scout/)**.
+
 Step-by-step export guide: [docs/en/EXPORTING-FROM-ESYS.md](docs/en/EXPORTING-FROM-ESYS.md).
 
 1. In E-Sys read the FDL of each unit you care about and save it as text (FWL). Export the FA too (the XML file with the SA codes): it is optional, but it rules out coding that needs options you do not have.
-2. Open FDL Scout and drop all the files on the page, FA included.
+2. Open [FDL Scout](https://saxmachine.github.io/fdl-scout/) and drop all the files on the page, FA included.
 3. Check that each file was matched to the right unit. E-Sys files are only called `CAFD_<number>`: FDL Scout recognises them by CAFD or by typical parameters. If it gets one wrong, fix it with "Change unit".
 4. Tick the coding you want and open the **E-Sys list**: parameter by parameter, current and new value, to copy or download.
 5. In E-Sys: FDL backup, edit, write. One unit at a time.
@@ -102,6 +116,8 @@ Step-by-step export guide: [docs/en/EXPORTING-FROM-ESYS.md](docs/en/EXPORTING-FR
 "Can be enabled" means the parameter exists, not that the feature is guaranteed to work: some entries need hardware (SA) or other units. Always read the notes and the risk level.
 
 ### Running locally
+
+Only if you want to change the code or the database. To use FDL Scout, the [website](https://saxmachine.github.io/fdl-scout/) is all you need.
 
 You need Python 3 with PyYAML (on Red Hat/Fedora `dnf install python3-pyyaml`), and Node.js 20 or newer only for the tests and the local server. No npm dependencies.
 
