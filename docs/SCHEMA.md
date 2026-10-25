@@ -48,7 +48,7 @@ Le codifiche stanno in `data/codings/<CENTRALINA>.yaml`, un file per centralina,
 | `rischio` | sì | `basso` (estetica, menu), `medio` (comportamento dell'auto), `alto` (sicurezza, omologazione, rischio di blocco). |
 | `consiglio` | sì | `ok` oppure `sconsigliata` per ciò che riduce la sicurezza o è contrario al Codice della strada. |
 | `affidabilita` | sì | `confermata` se almeno un'auto l'ha provata con esito, altrimenti `da_verificare`. |
-| `telai` | no | Telai a cui si applica. |
+| `telai` | no | Telai su cui la voce è documentata (es. `F54`, `F30`). Se l'utente carica una FA di un telaio diverso, la pagina lo avvisa. Aggiungi un telaio solo con una fonte o un FWL che lo dimostri: stessa funzione non vuol dire stesso parametro. |
 | `requisiti_sa` | no | Codici SA necessari, es. `['248']` per il volante riscaldato. Se l'utente carica la FA e il codice manca, la voce risulta "Manca l'optional". Metti solo codici verificati. |
 | `note` | no | `it`/`en`: dipendenze, avvertenze, effetti collaterali. Scrivi in modo generale, non riferito alla tua auto. |
 | `fonti` | no | Link alle discussioni o guide da cui viene la voce. Riassumi con parole tue, non copiare i testi. |
@@ -62,4 +62,4 @@ Alcuni PSdZData non hanno il nome di certi valori: l'FWL mostra `UnknowParam05 [
 
 ## Codici SA (`data/sa.yaml`)
 
-Dizionario dei codici optional mostrati nella pagina quando l'utente carica la FA. Contiene solo codici con un significato verificato su una fonte pubblica e coerente su una MINI F5x: alcuni codici hanno significati diversi tra BMW e MINI, e un nome sbagliato è peggio di nessun nome. Formato: `"248": { it: "Volante riscaldato", en: "Heated steering wheel" }`.
+Dizionario dei codici optional mostrati nella pagina quando l'utente carica la FA. Contiene solo codici con un significato verificato su una fonte pubblica. Alcuni codici hanno significati diversi tra BMW e MINI, e un nome sbagliato è peggio di nessun nome: se un codice è stato verificato solo su certi telai, indicali in `telai` e la pagina lo nominerà solo per quelle auto. Formato: `"248": { it: "Volante riscaldato", en: "Heated steering wheel" }`, oppure con `telai: [F54, F55, F56, F57, F60]`.

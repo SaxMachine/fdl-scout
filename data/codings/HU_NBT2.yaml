@@ -1,4 +1,4 @@
-# Codifiche note per la centralina HU_NBT2 (MINI F5x)
+# Codifiche note per la centralina HU_NBT2 (BMW e MINI serie F: i telai di ogni voce sono in `telai`)
 # Schema: docs/SCHEMA.md
 
 - id: hu_nbt2.menu-ricircolo-automatico-auc-nel-clima

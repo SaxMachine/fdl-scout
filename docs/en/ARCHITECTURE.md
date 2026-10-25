@@ -44,4 +44,4 @@ ES modules with no dependencies, used unchanged by the browser and by the Node t
 - Validate the parser on FWL files from other E-Sys versions and other cars.
 - Map SAS and PMA (parking sensors) as soon as their FWL files are available.
 - A script that compares several footprints and proposes new entries (parameters that change between trims).
-- Extend the scope to other F chassis, then G.
+- Fill the database for BMW F-series with community footprints, then extend to the G-series.

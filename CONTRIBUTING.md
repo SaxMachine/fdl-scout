@@ -4,6 +4,8 @@
 
 ## Send a footprint (the easiest way)
 
+This works for any BMW or MINI F-series car. BMW footprints are the most useful, because today the database comes from a MINI.
+
 1. Load your FWL files into FDL Scout.
 2. Open the **Contribute** tab, fill in chassis, year and i-level, and download the footprint.
 3. Open the file and check there is nothing in it you do not want to share.

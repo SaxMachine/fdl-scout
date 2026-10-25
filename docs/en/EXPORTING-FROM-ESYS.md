@@ -19,7 +19,7 @@ Neither is changed or written to the car: these are read-only steps.
 ## 1. Connect and read the FA
 
 1. Ignition on, engine off, ENET cable plugged in.
-2. In E-Sys: **Connect**, pick the chassis (for MINI F5x the target is the F056 series) and connect to the gateway (VIN).
+2. In E-Sys: **Connect**, pick the target for your car's series and connect to the gateway (VIN). For MINI F5x it is F056; for BMWs pick the series E-Sys lists for your chassis.
 3. Open **Expert Mode → Coding**.
 4. In the **Vehicle Order** panel press **Read**, then **Save** and store the FA as a `.txt` file (for example `FA.txt`). It is XML inside: FDL Scout recognises it by its content, the name does not matter.
 
@@ -61,6 +61,8 @@ For a complete picture export every unit E-Sys lists. The most useful for coding
 | PMA | parking sensors and park assistant (if fitted) |
 | SMFA | electric seat with memory |
 | ACSM, FLEL/FLER, TRSVC, ATM, ASD, EGS, DME, ZBE | the rest, useful for discovering new parameters |
+
+These names come from a MINI F5x. On BMWs some units have different names: for example FEM_BODY instead of BDC_BODY on F20/F30, or HU_NBT or HU_CIC instead of HU_NBT2. Export everything E-Sys lists anyway: if FDL Scout does not recognise a unit, type the name you see in E-Sys.
 
 ## Privacy
 

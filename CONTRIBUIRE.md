@@ -4,6 +4,8 @@
 
 ## Inviare un'impronta (il modo più semplice)
 
+Vale per qualsiasi BMW o MINI della serie F. Le impronte delle BMW sono le più utili, perché oggi il database nasce da una MINI.
+
 1. Carica i tuoi FWL in FDL Scout.
 2. Apri la scheda **Contribuisci**, compila telaio, anno e i-level e scarica l'impronta.
 3. Apri il file e controlla che non ci sia niente che non vuoi condividere.

@@ -2,8 +2,9 @@
 #
 # Solo codici la cui descrizione è stata controllata su un elenco pubblico dei codici opzione
 # BMW/MINI (https://5series.net/forums/diy-do-yourself-14/all-bmw-option-codes-list-109022/)
-# e che ha senso su una MINI F5x. Alcuni codici hanno significati diversi tra BMW e MINI:
-# nel dubbio un codice resta fuori. Aggiungine solo con una fonte.
+# e controllata su una MINI F5x. Alcuni codici hanno significati diversi tra BMW e MINI:
+# quelli verificati solo su MINI hanno `telai`, e la pagina li nomina solo se la FA è di
+# uno di quei telai. Nel dubbio un codice resta fuori. Aggiungine solo con una fonte.
 
 "248": { it: "Volante riscaldato", en: "Heated steering wheel" }
 "249": { it: "Volante multifunzione", en: "Multifunction steering wheel" }
@@ -22,6 +23,6 @@
 "5A1": { it: "Fendinebbia LED", en: "LED fog lights" }
 "5DP": { it: "Parcheggio automatico", en: "Park assistant" }
 "654": { it: "Radio DAB", en: "DAB tuner" }
-"6UM": { it: "Navigazione MINI", en: "MINI navigation" }
-"6WB": { it: "Strumentazione digitale", en: "Digital instrument display" }
+"6UM": { it: "Navigazione MINI", en: "MINI navigation", telai: [F54, F55, F56, F57, F60] }
+"6WB": { it: "Strumentazione digitale", en: "Digital instrument display", telai: [F54, F55, F56, F57, F60] }
 "845": { it: "Avviso acustico cinture", en: "Acoustic seat belt warning" }

@@ -106,7 +106,7 @@ main { max-width: 72rem; margin: 0 auto; padding: 0 1rem 6rem; }
 .unit strong { font-family: var(--f-code); font-weight: 500; }
 .unit-desc { font-size: var(--step--1); }
 .unit-meta { font-size: 0.8rem; color: var(--ink-2); }
-.unit select { margin-top: 0.3rem; padding: 0.2rem 0.3rem; border: 1px solid var(--rule); border-radius: 0.35rem; background: var(--paper); font-size: 0.8rem; }
+.unit select, .unit .ecu-input { margin-top: 0.3rem; padding: 0.25rem 0.4rem; border: 1px solid var(--rule); border-radius: 0.35rem; background: var(--paper); color: var(--ink); font-size: 0.8rem; font-family: var(--f-code); width: 100%; box-sizing: border-box; }
 .unit-vin { font-size: 0.75rem; color: var(--amber); }
 
 /* ---------- panoramica ---------- */
@@ -161,6 +161,9 @@ main { max-width: 72rem; margin: 0 auto; padding: 0 1rem 6rem; }
 .risk.r-alto::before { background: var(--chili); }
 .tag { border: 1px solid var(--rule); border-radius: 0.3rem; padding: 0 0.35rem; }
 .tag.bad { border-color: var(--chili); color: var(--chili); }
+.chassis-note { margin: 0 0 0.75rem; padding: 0.7rem 0.9rem; border: 1px solid var(--amber); background: var(--amber-wash); border-radius: 0.5rem; font-size: var(--step--1); max-width: 70ch; }
+.chassis-note[hidden] { display: none; }
+.tag.warn { border-color: var(--amber); color: var(--amber); }
 
 /* La levetta: posizione e colore dicono lo stato. */
 .toggle {

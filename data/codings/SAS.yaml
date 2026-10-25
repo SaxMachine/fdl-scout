@@ -1,4 +1,4 @@
-# Codifiche note per la centralina SAS (MINI F5x)
+# Codifiche note per la centralina SAS (BMW e MINI serie F: i telai di ogni voce sono in `telai`)
 # Schema: docs/SCHEMA.md
 
 - id: sas.acc-stop-and-go
@@ -93,7 +93,14 @@
   rischio: alto
   consiglio: ok
   affidabilita: da_verificare
-  telai: *id001
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  - F45
+  - F48
   note:
     it: 'Documentato su BMW F45/F48 con radar. Su una F56 l''iDrive ha risposto che la funzione non è attivabile:
       probabilmente richiede hardware che le MINI non hanno.'

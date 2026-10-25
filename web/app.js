@@ -106,8 +106,9 @@ function renderUnits() {
   $('#catalogueNote').hidden = has;
   if (!has) return;
   $('#loadedTitle').textContent = t().loaded(Object.keys(ecus()).length);
-  const known = [...new Set([...Object.keys(state.map.nomi || {}), ...state.db.map(e => e.centralina)])].sort();
-  const named = state.fa ? state.fa.sa.filter(c => state.sa[c]) : [];
+  const known = [...new Set([...Object.keys(state.map.nomi || {}), ...(state.map.altre || []), ...state.db.map(e => e.centralina), ...state.files.map(f => f.ecu).filter(Boolean)])].sort();
+  // Un codice verificato solo su certi telai (es. MINI) si nomina solo se la FA è di quei telai.
+  const named = state.fa ? state.fa.sa.filter(c => state.sa[c] && (!state.sa[c].telai || state.sa[c].telai.includes(state.fa.serie))) : [];
   const faCard = state.fa
     ? el('li', { class: 'unit fa' },
         el('strong', { text: 'FA' }),
@@ -120,13 +121,16 @@ function renderUnits() {
         el('span', { class: 'unit-desc', text: t().faMissing }),
         el('span', { class: 'unit-meta', text: t().faWhy }),
         el('button', { type: 'button', class: 'ghost small', onclick: () => input.click() }, t().faAdd));
+  $('#ecuNames').replaceChildren(...known.map(k => el('option', { value: k })));
   const files = [...state.files].sort((a, b) => (a.ecu || '~').localeCompare(b.ecu || '~') || a.name.localeCompare(b.name));
   $('#units').replaceChildren(faCard, ...files.map(f => {
     const n = Object.keys(f.parsed.params).length;
-    const picker = el('select', {
-      'aria-label': t().chooseEcu,
-      onchange: e => { f.ecu = e.target.value || null; f.how = f.ecu ? 'manuale' : null; refresh(); },
-    }, el('option', { value: '', text: t().chooseEcu }), known.map(k => el('option', { value: k, text: k, selected: k === f.ecu })));
+    // Campo libero con suggerimenti: le BMW serie F hanno centraline che il database non conosce ancora.
+    const picker = el('input', {
+      type: 'text', list: 'ecuNames', value: f.ecu || '', placeholder: t().chooseEcu, 'aria-label': t().chooseEcu,
+      autocomplete: 'off', spellcheck: 'false', class: 'ecu-input',
+      onchange: e => { const v = e.target.value.trim().toUpperCase().replace(/\s+/g, '_'); f.ecu = v || null; f.how = f.ecu ? 'manuale' : null; refresh(); },
+    });
     return el('li', { class: 'unit' + (f.ecu ? '' : ' unknown') },
       f.ecu ? el('strong', { text: f.ecu }) : picker,
       el('span', { class: 'unit-desc', text: f.ecu ? tr(state.map.nomi?.[f.ecu]) : f.name }),
@@ -160,6 +164,12 @@ function renderFilters() {
   ecuSel.value = keepE; stSel.value = keepS;
 }
 
+/** True se la FA indica un telaio e la voce è documentata solo su telai diversi. */
+const otherChassis = e => !!(state.fa?.serie && e.telai?.length && !e.telai.includes(state.fa.serie));
+
+// Se nessuna voce copre il telaio della FA basta l'avviso in cima, senza ripeterlo su ogni riga.
+const chassisCovered = () => state.db.some(e => e.telai?.includes(state.fa?.serie));
+
 const RANK = { attivabile: 0, regolabile: 1, attiva: 2, manca_optional: 3, non_disponibile: 4, centralina_non_letta: 5, da_mappare: 6 };
 
 function renderRows() {
@@ -169,7 +179,12 @@ function renderRows() {
     .filter(r => !fs || r.stato === fs)
     .filter(r => !hide || r.entry.consiglio !== 'sconsigliata')
     .filter(r => !q || [tr(r.entry.titolo), r.entry.centralina, ...r.entry.parametri.map(p => p.nome)].join(' ').toLowerCase().includes(q))
-    .sort((a, b) => RANK[a.stato] - RANK[b.stato] || a.entry.centralina.localeCompare(b.entry.centralina));
+    .sort((a, b) => RANK[a.stato] - RANK[b.stato] || otherChassis(a.entry) - otherChassis(b.entry) || a.entry.centralina.localeCompare(b.entry.centralina));
+  // Con la FA di un telaio che il database non copre ancora, un avviso unico in cima.
+  const serie = state.fa?.serie;
+  const covered = serie && state.db.filter(e => e.telai?.includes(serie)).length;
+  $('#chassisNote').hidden = !serie || covered > 0;
+  if (serie && !covered) $('#chassisNote').textContent = t().chassisNone(serie);
   $('#empty').hidden = rows.length > 0;
   $('#rows').replaceChildren(...rows.map(rowView));
 }
@@ -223,6 +238,7 @@ function rowView(r) {
     e.consiglio === 'sconsigliata' ? el('span', { class: 'tag bad', text: t().advisedAgainst }) : null,
     e.affidabilita === 'da_verificare' ? el('span', { class: 'tag', text: t().unverified }) : null,
     r.sa_mancanti ? el('span', { class: 'tag bad', text: t().missingSa(r.sa_mancanti.join(', ')) }) : null,
+    otherChassis(e) && chassisCovered() ? el('span', { class: 'tag warn', text: t().otherChassis(e.telai.join(', '), state.fa.serie) }) : null,
   ];
   const seen = (e.osservazioni || []).map(o => `${o.telaio} ${o.anno || ''} ${o.i_level || ''}`.trim());
 
@@ -318,7 +334,7 @@ $('#shareForm').addEventListener('submit', e => {
   const { footprint } = buildFootprint(ecus(), meta);
   footprint.generatore = 'fdl-scout';
   footprint.creata = new Date().toISOString().slice(0, 10);
-  save(`${t().fileFootprint}-${(meta.telaio || 'mini').toLowerCase()}-${footprint.creata}.json`, JSON.stringify(footprint, null, 2), 'application/json');
+  save(`${t().fileFootprint}-${(meta.telaio || t().fileCar).toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${footprint.creata}.json`, JSON.stringify(footprint, null, 2), 'application/json');
 });
 
 function renderDock() {

@@ -8,8 +8,10 @@
 # Se nessuno funziona, l'utente sceglie la centralina a mano nella pagina.
 #
 # Una centralina può avere più CAFD (ACSM ne ha tre, FZD due).
-# Gli identificativi vengono da FWL reali (F54 03/2022, i-level F056-26-03-519).
-# Altre auto possono avere CAFD diversi per la stessa centralina: aggiungili qui.
+# Gli identificativi vengono da FWL reali (MINI F54 03/2022, i-level F056-26-03-519).
+# Altre auto, BMW comprese, hanno CAFD diversi per la stessa centralina: aggiungili qui
+# solo quando li leggi da un FWL reale. NBT (senza EVO) e HU_NBT2 (NBT EVO) sono
+# head unit diverse: non unirle con un alias.
 
 cafd:
   "000000B5": SMFA        # memoria sedile guida
@@ -34,8 +36,6 @@ cafd:
 
 alias:
   BDC: BDC_BODY
-  HU_NBT: HU_NBT2
-  NBT: HU_NBT2
   NBTEVO: HU_NBT2
   HU_NBTEVO: HU_NBT2
   IHKA2: IHKA
@@ -44,6 +44,10 @@ alias:
   FLER: FLE
   FLEL: FLE
   EGS5: EGS
+
+# Altri nomi di centralina proposti quando si sceglie a mano (BMW serie F senza voci
+# nel database). Si può sempre scrivere il nome esatto che mostra E-Sys.
+altre: [FEM_BODY, HU_NBT, HU_CIC]
 
 firme:
   HU_NBT2: [HMI_ID_VERSION, API_USB_VIDEO, CLIMATE_AUTORECIRCULATION]

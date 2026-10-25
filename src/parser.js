@@ -150,7 +150,7 @@ export function parseFwl(text, filename = '') {
   return { cafd, cafdVersion, ecuHint: ecuFromFilename(filename) || ecuFromHeader(lines.slice(0, 40)), vinFound, params, unknown, skipped };
 }
 
-const ECU_NAMES = 'HU_NBT2|HU_NBTEVO|HU_NBT|NBTEVO|BDC_BODY|BDC|KOMBI|KAFAS|DME|IHKA|PMA|TRSVC|ATM|ASD|FZD|SAS|DSC|ACSM|SMFA|EGS5|EGS|EPS|FLEL|FLER|FLE|ZBE';
+const ECU_NAMES = 'HU_NBT2|HU_NBTEVO|HU_NBT|HU_CIC|NBTEVO|BDC_BODY|BDC|FEM_BODY|KOMBI|KAFAS|DME|IHKA|PMA|TRSVC|ATM|ASD|FZD|SAS|DSC|ACSM|SMFA|EGS5|EGS|EPS|FLEL|FLER|FLE|ZBE';
 // Nel nome del file "_" e "-" sono separatori: "BDC_BODY-CAFD_000017BE.fwl", "x_KOMBI_y.fwl".
 const ECU_IN_FILENAME = new RegExp(`(?<![A-Za-z0-9])(${ECU_NAMES})(?![A-Za-z0-9])`);
 // Nelle righe di intestazione il nome deve stare da solo, per non confonderlo

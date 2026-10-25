@@ -1,4 +1,4 @@
-# Codifiche note per la centralina FZD (MINI F5x)
+# Codifiche note per la centralina FZD (BMW e MINI serie F: i telai di ogni voce sono in `telai`)
 # Schema: docs/SCHEMA.md
 
 - id: fzd.volume-e-durata-del-segnale-di-chiusura

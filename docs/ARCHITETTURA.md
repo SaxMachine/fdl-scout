@@ -44,4 +44,4 @@ Sono moduli ES senza dipendenze, usati identici dal browser e dai test Node.
 - Validare il parser su FWL di altre versioni di E-Sys e altre auto.
 - Mappare SAS e PMA (sensori di parcheggio) appena disponibili i loro FWL.
 - Script che confronta più impronte e propone nuove voci (parametri che cambiano tra allestimenti).
-- Estendere il perimetro ad altri telai F e poi G.
+- Riempire il database per le BMW serie F con le impronte della comunità, poi estendere alla serie G.

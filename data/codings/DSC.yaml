@@ -1,4 +1,4 @@
-# Codifiche note per la centralina DSC (MINI F5x)
+# Codifiche note per la centralina DSC (BMW e MINI serie F: i telai di ogni voce sono in `telai`)
 # Schema: docs/SCHEMA.md
 
 - id: dsc.limitatore-di-velocita-gamma-regolabile

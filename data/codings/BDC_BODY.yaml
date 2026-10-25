@@ -1,4 +1,4 @@
-# Codifiche note per la centralina BDC_BODY (MINI F5x)
+# Codifiche note per la centralina BDC_BODY (BMW e MINI serie F: i telai di ogni voce sono in `telai`)
 # Schema: docs/SCHEMA.md
 
 - id: bdc_body.memoria-start-stop-ultimo-stato

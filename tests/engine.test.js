@@ -141,3 +141,9 @@ test('esysChecklist usa il titolo nella lingua scelta, con ripiego sull\'altra',
   assert.match(esysChecklist(rs, new Set(['hu_nbt2.solo-en']), 'it'), /# English only/);
   assert.match(esysChecklist(rs, new Set(['hu_nbt2.solo-en']), 'en'), /# E-Sys work list/);
 });
+
+test('le centraline BMW si riconoscono dal nome e NBT non diventa NBT EVO', () => {
+  const map = { cafd: {}, alias: { BDC: 'BDC_BODY' }, firme: {} };
+  assert.equal(identifyEcu(parseFwl('CAF_ID:05 00 00 99 99 001 001 001\nA: b [00]', 'FEM_BODY_backup.fwl'), map).ecu, 'FEM_BODY');
+  assert.equal(identifyEcu(parseFwl('CAF_ID:05 00 00 99 98 001 001 001\nA: b [00]', 'HU_NBT.fwl'), map).ecu, 'HU_NBT');
+});

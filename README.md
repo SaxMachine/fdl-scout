@@ -1,6 +1,6 @@
 # FDL Scout
 
-**Quali codifiche puoi fare alla tua MINI?** Trascini nel browser gli FWL esportati da E-Sys e FDL Scout ti dice, centralina per centralina, quali codifiche sono già attive, quali puoi attivare, quali hanno un valore a scelta e quali parametri nessuno ha ancora documentato.
+**Quali codifiche puoi fare alla tua BMW o MINI?** Trascini nel browser gli FWL esportati da E-Sys e FDL Scout ti dice, centralina per centralina, quali codifiche sono già attive, quali puoi attivare, quali hanno un valore a scelta e quali parametri nessuno ha ancora documentato.
 
 *[English below](#english)*
 
@@ -9,7 +9,7 @@
 - **Un database aperto e verificabile.** Ogni codifica è una voce YAML con parametri, valori, rischio, fonti e le auto su cui è stata osservata.
 - **Scoperta collettiva.** I parametri dei tuoi FWL che il database non conosce finiscono in "Da scoprire". Con un clic esporti un'impronta anonima da condividere: confrontando auto diverse emergono le codifiche nuove.
 
-Perimetro attuale: **MINI F5x** (F54, F55, F56, F57, F60) con head unit NBT EVO. Il database parte da 124 voci raccolte su una F54 Cooper S ALL4 del 2022 (i-level F056-26-03-519) e verificate sui suoi FWL reali: tutti i nomi dei parametri esistono davvero nelle centraline, e 16 centraline vengono riconosciute in automatico. Titoli, note e valori suggeriti sono in italiano e in inglese.
+Perimetro: **BMW e MINI serie F**. E-Sys e il formato FWL sono gli stessi per tutte, quindi la pagina legge i file di qualsiasi auto della serie F. Il database però parte da una sola auto: 124 voci raccolte su una MINI F54 Cooper S ALL4 del 2022 (i-level F056-26-03-519) e verificate sui suoi FWL reali, con 16 centraline riconosciute in automatico. Oggi copre quindi soprattutto le MINI F5x (F54, F55, F56, F57, F60) con NBT EVO. Le BMW sulla stessa piattaforma (Serie 2 Active/Gran Tourer F45/F46, X1 F48, X2 F39) hanno centraline molto simili; le altre serie F (F20/F30, F10, F15…) usano in parte centraline diverse, come il FEM al posto del BDC. Ogni voce indica in `telai` su quali modelli è documentata, e la pagina avvisa quando la tua FA è di un telaio diverso. Per le BMW il database crescerà con le impronte della comunità. Titoli, note e valori suggeriti sono in italiano e in inglese.
 
 ## Come si usa
 
@@ -68,14 +68,14 @@ FDL Scout non è affiliato a BMW AG o MINI. Il repository non contiene e non acc
 
 ## English
 
-**What can you code on your MINI?** Drop the FWL files exported from E-Sys into your browser and FDL Scout tells you, unit by unit, which coding is already on, which you can enable, which takes a value of your choice, and which parameters nobody has documented yet.
+**What can you code on your BMW or MINI?** Drop the FWL files exported from E-Sys into your browser and FDL Scout tells you, unit by unit, which coding is already on, which you can enable, which takes a value of your choice, and which parameters nobody has documented yet.
 
 - **Runs entirely in the browser.** Files are never uploaded anywhere: parsing happens on your computer. FWL files contain the VIN and the car's configuration, and they stay there.
 - **Read only.** FDL Scout never writes to the car. It prepares a work list; you make the change in E-Sys, with your own backup.
 - **An open, checkable database.** Each coding is a YAML entry with parameters, values, risk, sources and the cars it was observed on.
 - **Collective discovery.** Parameters in your FWL files that the database does not know end up under "To discover". Export an anonymous footprint in one click and share it: comparing different cars brings new coding to light.
 
-Current scope: **MINI F5x** (F54, F55, F56, F57, F60) with the NBT EVO head unit. The database starts from 124 entries gathered on a 2022 F54 Cooper S ALL4 (i-level F056-26-03-519) and checked against its real FWL files: every parameter name really exists in the units, and 16 units are recognised automatically. Titles, notes and suggested values are available in Italian and English.
+Scope: **BMW and MINI F-series**. E-Sys and the FWL format are the same for all of them, so the page reads files from any F-series car. The database, however, starts from a single car: 124 entries gathered on a 2022 MINI F54 Cooper S ALL4 (i-level F056-26-03-519) and checked against its real FWL files, with 16 units recognised automatically. So today it mostly covers MINI F5x (F54, F55, F56, F57, F60) with NBT EVO. BMWs on the same platform (2 Series Active/Gran Tourer F45/F46, X1 F48, X2 F39) have very similar units; other F-series (F20/F30, F10, F15…) partly use different units, such as the FEM instead of the BDC. Each entry lists in `telai` the models it is documented on, and the page warns you when your FA is from a different chassis. For BMWs the database will grow with community footprints. Titles, notes and suggested values are available in Italian and English.
 
 ### How to use it
 

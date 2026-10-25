@@ -19,7 +19,7 @@ Nessuno dei due viene modificato o scritto sull'auto: si tratta solo di letture.
 ## 1. Collegarsi e leggere la FA
 
 1. Quadro acceso, motore spento, cavo ENET collegato.
-2. In E-Sys: **Connect**, scegli il telaio (per le MINI F5x è il target della serie F056) e connettiti al gateway (VIN).
+2. In E-Sys: **Connect**, scegli il target della serie della tua auto e connettiti al gateway (VIN). Per le MINI F5x è F056; per le BMW scegli la serie che E-Sys indica per il tuo telaio.
 3. Apri **Expert Mode → Coding**.
 4. Nel riquadro **Vehicle Order** premi **Read**, poi **Save** e salva la FA come file `.txt` (per esempio `FA.txt`). Dentro è un XML: FDL Scout la riconosce dal contenuto, il nome non conta.
 
@@ -61,6 +61,8 @@ Per un quadro completo esporta tutte quelle che E-Sys elenca. Le più utili per 
 | PMA | sensori e parcheggio automatico (se presente) |
 | SMFA | sedile elettrico con memoria |
 | ACSM, FLEL/FLER, TRSVC, ATM, ASD, EGS, DME, ZBE | il resto, utile per la scoperta di parametri nuovi |
+
+I nomi sono quelli di una MINI F5x. Sulle BMW alcune centraline si chiamano diversamente: per esempio FEM_BODY al posto di BDC_BODY sulle F20/F30, oppure HU_NBT o HU_CIC al posto di HU_NBT2. Esporta comunque tutto quello che E-Sys elenca: se FDL Scout non riconosce una centralina, scrivi il nome che vedi in E-Sys.
 
 ## Privacy
 
