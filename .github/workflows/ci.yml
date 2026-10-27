@@ -26,6 +26,8 @@ jobs:
         run: python3 scripts/build.py --check
       - name: Test del motore
         run: node --test tests/*.test.js
+      - name: Controllo sintassi JavaScript
+        run: for f in web/*.js src/*.js scripts/*.mjs; do node --check "$f"; done
       - name: Costruisci il sito
         run: python3 scripts/build.py
       - name: Caratteri serviti dal sito (niente Google Fonts)
