@@ -22,6 +22,7 @@
     it: Al riavvio il ricircolo resta come l'avevi lasciato.
     en: After a restart recirculation stays as you left it.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-6.html
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -79,6 +80,7 @@
   note:
     it: ''
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-6.html
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -153,6 +155,7 @@
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-6.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml

@@ -22,6 +22,7 @@
     it: Già attivo nel BDC. Nella DME risulta Wert_00, ma la funzione la gestisce il BDC.
     en: Already active in the BDC. The DME shows Wert_00, but the function is handled by the BDC.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-12.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Start-Stop.md
@@ -53,6 +54,8 @@
   note:
     it: Con memoria specchi (ASP_MEMORY_VERBAUT).
     en: Requires mirror memory (ASP_MEMORY_VERBAUT).
+  fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-6.html
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -79,6 +82,7 @@
   note:
     it: ''
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-2.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
   - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/11
   - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
@@ -112,6 +116,7 @@
       marciapiede.'
     en: 'Documented on an F54 from 55 to 32: the mirror tilts down less. Adjust to taste until you can see the kerb.'
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-6.html
   - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
   - https://minkara.carview.co.jp/userid/125014/car/2087329/5550627/note.aspx
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
@@ -243,6 +248,7 @@
   note:
     it: ''
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-5.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
@@ -1364,6 +1370,7 @@
     en: 'Holding open or close on the remote opens or closes the windows and the roof. On the reference F54 E-Sys
       shows ''aktiv'' with data 00: if it does not work, check the value in the list.'
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-2.html
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
@@ -1462,6 +1469,7 @@
       by several F5x owners on the German forum. Daytime running lights must be enabled in the iDrive menu. Check
       that it complies with the rules in your country.'
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-25.html
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/5
@@ -1492,6 +1500,7 @@
     it: Voce dell'elenco BimmerCode, parametro confermato sul forum tedesco.
     en: Entry from the BimmerCode list, parameter confirmed on the German forum.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -1661,6 +1670,7 @@
     en: Shortens the wait before windows, roof and mirrors move while holding the remote. Parameter present in the
       reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-2.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
@@ -1731,6 +1741,7 @@
     en: 'Removes the lock that stops the windows with the door open: risk of trapping. Not recommended. Parameter
       present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -1893,6 +1904,7 @@
     en: 'Only with retrofitted LED rear turn signals: avoids warnings and hyper-flashing. Parameter present in the
       reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-37.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/Turn-Signals.md
   osservazioni:
@@ -2026,6 +2038,7 @@
     en: Alternative to PIA_DEFAULT_TIPPBLINKEN on some i-levels. One source says it does not apply to i-step 3.61.x.
       Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -2299,6 +2312,7 @@
     en: 'Manual gearbox: removes the interlock against starting in gear. Not recommended. Parameter present in the
       reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-19.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
@@ -2374,6 +2388,7 @@
     en: US car setting. Check your local rules. Parameter present in the reference F54 FWL files; the coding is
       documented in GitHub cheat sheets.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-42.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/Turn-Signals.md
   - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
@@ -2760,6 +2775,7 @@
     en: Second step for the rear fog light on both sides. Parameter present in the reference F54 FWL files; the
       coding is documented in GitHub cheat sheets.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-8.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/Fog-Lights.md
@@ -2882,6 +2898,14 @@
     target: aktiv
   - nome: BL_R_IS_LED
     target: aktiv
+  - nome: BL_L_KALTUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: BL_R_KALTUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: BL_L_WARMUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: BL_R_WARMUEBERWACHUNG
+    target: nicht_aktiv
   rischio: medio
   consiglio: ok
   affidabilita: da_verificare
@@ -2889,18 +2913,23 @@
   - F20
   - F30
   - F54
+  - F55
+  - F56
+  - F60
   note:
     it: Solo con luci di stop LED montate dopo. Parametro presente nei FWL della F54 di riferimento; la codifica
       è documentata nei cheat sheet su GitHub.
     en: Only with retrofitted LED brake lights. Parameter present in the reference F54 FWL files; the coding is
       documented in GitHub cheat sheets.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-11.html
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-37.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   osservazioni:
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
-    valore_letto: BL_L_IS_LED=aktiv, BL_R_IS_LED=aktiv
+    valore_letto: BL_L_IS_LED=aktiv, BL_R_IS_LED=aktiv, BL_L_KALTUEBERWACHUNG=nicht_aktiv, BL_R_KALTUEBERWACHUNG=nicht_aktiv, BL_L_WARMUEBERWACHUNG=aktiv, BL_R_WARMUEBERWACHUNG=aktiv
     esito: Da verificare
 - id: bdc_body.retronebbia-led
   centralina: BDC_BODY
@@ -2942,6 +2971,14 @@
     target: aktiv
   - nome: RFS_R_IS_LED
     target: aktiv
+  - nome: RFS_L_KALTUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: RFS_R_KALTUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: RFS_L_WARMUEBERWACHUNG
+    target: nicht_aktiv
+  - nome: RFS_R_WARMUEBERWACHUNG
+    target: nicht_aktiv
   rischio: medio
   consiglio: ok
   affidabilita: da_verificare
@@ -2949,18 +2986,22 @@
   - F20
   - F30
   - F54
+  - F55
+  - F56
+  - F60
   note:
     it: Solo con luci di retro LED montate dopo. Parametro presente nei FWL della F54 di riferimento; la codifica
       è documentata nei cheat sheet su GitHub.
     en: Only with retrofitted LED reversing lights. Parameter present in the reference F54 FWL files; the coding
       is documented in GitHub cheat sheets.
   fonti:
+  - https://www.northamericanmotoring.com/forums/2nd-gen-countryman-f60-talk-2016-2024/317869-e-sys-coding-on-f60-3.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   osservazioni:
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
-    valore_letto: RFS_L_IS_LED=aktiv, RFS_R_IS_LED=aktiv
+    valore_letto: RFS_L_IS_LED=aktiv, RFS_R_IS_LED=aktiv, RFS_L_KALTUEBERWACHUNG=nicht_aktiv, RFS_R_KALTUEBERWACHUNG=nicht_aktiv, RFS_L_WARMUEBERWACHUNG=nicht_aktiv, RFS_R_WARMUEBERWACHUNG=nicht_aktiv
     esito: Da verificare
 - id: bdc_body.specchio-interno-lunotto-scuro
   centralina: BDC_BODY
@@ -3564,4 +3605,162 @@
     i_level: F056-26-03-519
     valore_letto: TEMP_LEHNE_STUFE_1_FRONT=00, TEMP_LEHNE_STUFE_2_FRONT=96, TEMP_LEHNE_STUFE_3_FRONT=9E, TEMP_SITZ_STUFE_1_FRONT=AE,
       TEMP_SITZ_STUFE_2_FRONT=35_grad, TEMP_SITZ_STUFE_3_FRONT=9E, TEMP_LEHNE_STUFE_1_FOND=
+    esito: Da verificare
+- id: bdc_body.terzo-stop-led
+  centralina: BDC_BODY
+  titolo:
+    it: 'Luci di stop supplementari (BFD) a LED: controllo lampadine'
+    en: 'Additional brake lights (BFD) with LEDs: bulb check'
+  parametri:
+  - nome: BFD_L_IS_LED
+    target: 'aktiv'
+  - nome: BFD_R_IS_LED
+    target: 'aktiv'
+  - nome: BFD_L_KALTUEBERWACHUNG
+    target: 'nicht_aktiv'
+  - nome: BFD_R_KALTUEBERWACHUNG
+    target: 'nicht_aktiv'
+  - nome: BFD_L_WARMUEBERWACHUNG
+    target: 'nicht_aktiv'
+  - nome: BFD_R_WARMUEBERWACHUNG
+    target: 'nicht_aktiv'
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Solo con lampadine LED montate dopo: dichiara la luce come LED e spegne il controllo a freddo e a caldo, così non compare l''avviso di lampadina guasta. Gruppo 3061 della BDC_BODY.'
+    en: 'Only with retrofitted LED bulbs: declares the light as LED and turns off the cold and warm checks, so no bulb failure warning appears. Group 3061 of BDC_BODY.'
+  fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-37.html
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: BFD_L_IS_LED=aktiv, BFD_R_IS_LED=aktiv, BFD_L_KALTUEBERWACHUNG=nicht_aktiv, BFD_R_KALTUEBERWACHUNG=nicht_aktiv, BFD_L_WARMUEBERWACHUNG=aktiv, BFD_R_WARMUEBERWACHUNG=aktiv
+    esito: Da verificare
+- id: bdc_body.tasto-baule-bloccato-auto-chiusa
+  centralina: BDC_BODY
+  titolo:
+    it: 'Tasto del bagagliaio sul telecomando disattivato ad auto chiusa'
+    en: 'Key fob boot button disabled while locked'
+  parametri:
+  - nome: VAM_DISABLE_OPEN_LID_AT_NOT_UNLOCKED
+    target: 'aktiv'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Con l''auto chiusa il tasto del portellone sul telecomando non fa nulla: prima si apre l''auto. Evita aperture accidentali in tasca.'
+    en: 'With the car locked the fob tailgate button does nothing: unlock the car first. Avoids accidental opening in a pocket.'
+  fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-28.html
+  - https://www.northamericanmotoring.com/forums/2nd-gen-countryman-f60-talk-2016-2024/317869-e-sys-coding-on-f60.html
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: VAM_DISABLE_OPEN_LID_AT_NOT_UNLOCKED=nicht_aktiv
+    esito: Da verificare
+- id: bdc_body.sblocco-allo-spegnimento
+  centralina: BDC_BODY
+  titolo:
+    it: 'Porte sbloccate allo spegnimento dopo la chiusura automatica'
+    en: 'Doors unlocked at switch-off after auto lock'
+  parametri:
+  - nome: VAM_UNLOCK_KL15OFF_AFTER_PIA_AUTO_LOCK
+    target: 'aktiv'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Se la chiusura automatica in marcia è attiva, spegnendo il motore le porte si sbloccano tutte. Su una F48 la variante con nome CLM_ ha dato problemi; sulle MINI il nome è VAM_.'
+    en: 'If auto lock while driving is on, all doors unlock when the engine is switched off. On an F48 the CLM_ variant caused problems; on MINIs the name is VAM_.'
+  fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
+  - https://www.northamericanmotoring.com/forums/2nd-gen-countryman-f60-talk-2016-2024/317869-e-sys-coding-on-f60.html
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: VAM_UNLOCK_KL15OFF_AFTER_PIA_AUTO_LOCK=aktiv
+    esito: Da verificare
+- id: bdc_body.luce-di-svolta-con-freccia
+  centralina: BDC_BODY
+  titolo:
+    it: 'Luce di svolta con la freccia: velocità massima'
+    en: 'Cornering light with turn signal: maximum speed'
+  parametri:
+  - nome: C_CLC_BLINK_V0
+    regolabile: true
+  - nome: C_CLC_BLINK_V1
+    regolabile: true
+  valori_suggeriti:
+    it: 'Valori di velocità in km/h, in esadecimale.'
+    en: 'Speed values in km/h, in hexadecimal.'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Di fabbrica la luce di svolta si accende con la freccia fino a circa 40 km/h; questi due valori ne regolano le soglie. Sulla F54 il valore letto è il preset di paese (F056ROW).'
+    en: 'From the factory the cornering light comes on with the turn signal up to about 40 km/h; these two values set the thresholds. On the F54 the value read is the country preset (F056ROW).'
+  fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-8.html
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: C_CLC_BLINK_V0=F056ROW, C_CLC_BLINK_V1=F056ROW
+    esito: Da verificare
+- id: bdc_body.anabbaglianti-posizione-zero
+  centralina: BDC_BODY
+  titolo:
+    it: 'Anabbaglianti spenti in posizione 0 e automatico solo in A'
+    en: 'Low beams off in position 0, automatic only in A'
+  parametri:
+  - nome: FLC_AKTIV
+    target: 'freigeschaltet_in_Stellung_A'
+  rischio: medio
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Cambia il comportamento della manopola luci come sulle auto USA: in posizione 0 restano solo le diurne, anche di notte. In Europa le luci devono accendersi da sole al buio: sconsigliata.'
+    en: 'Changes the light switch behaviour as on US cars: in position 0 only the DRLs stay on, even at night. In Europe lights must come on by themselves in the dark: not recommended.'
+  fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-40.html
+  - https://www.northamericanmotoring.com/forums/2nd-gen-countryman-f60-talk-2016-2024/317869-e-sys-coding-on-f60-5.html
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: FLC_AKTIV=nicht_aktiv
     esito: Da verificare

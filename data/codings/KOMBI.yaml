@@ -105,6 +105,7 @@
     en: 'Documented on F55/F56. The three HUD_SPORTANZEIGE_* entries are already active in both the HU and the KOMBI:
       only this one is missing.'
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-40.html
   - https://minkara.carview.co.jp/userid/3574209/car/3489593/7495761/note.aspx
   - https://github.com/butterflywaltz/BMW_Coding/blob/main/FDL%20Codes/KOMBI_FDL_Final.txt
   - https://www.minif56.com/threads/the-other-coding-options-tracker-f55-f56-f54.40969/
@@ -134,6 +135,7 @@
   note:
     it: ''
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-12.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/11
   - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
@@ -474,6 +476,7 @@
     en: Mentioned on Bimmerfest together with speed limit recognition (already active on the reference F54). TSM
       should also show other stored signs; the effect on MINI is not confirmed.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-28.html
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   osservazioni:
   - telaio: F54
@@ -1157,6 +1160,7 @@
     it: 'Va codificata insieme alla voce sulla HU (stessi tre parametri in HU_NBT2): servono tutte e due perché il contagiri compaia nell''HUD. Richiede l''HUD.'
     en: 'Code it together with the HU entry (same three parameters in HU_NBT2): both are needed for the rev counter to show in the HUD. Requires the HUD.'
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-24.html
   - https://www.minif56.com/threads/the-other-coding-options-tracker-f55-f56-f54.40969/
   - https://minkara.carview.co.jp/userid/3574209/car/3489593/7495761/note.aspx
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -1165,4 +1169,38 @@
     anno: 2022
     i_level: F056-26-03-519
     valore_letto: HUD_SPORTANZEIGE_ENABLE=aktiv, HUD_SPORTANZEIGE_FES_ENABLE=aktiv, HUD_SPORTANZEIGE_MS_GASSE_ENABLE=aktiv
+    esito: Da verificare
+- id: kombi.limiti-velocita-nel-quadro
+  centralina: KOMBI
+  titolo:
+    it: 'Limiti di velocità e divieto di sorpasso nel quadro (SLI)'
+    en: 'Speed limits and no-passing info in the cluster (SLI)'
+  parametri:
+  - nome: SPEED_LIMIT
+    target: 'aktiv'
+  - nome: RCOG_TRSG_APPL
+    target: 'aktiv'
+  - nome: RCOG_TRSG_TIMEOUT
+    target: 'aktiv'
+  - nome: ANZEIGE_NPI
+    target: 'aktiv'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Parte KOMBI dell''attivazione SLI documentata su una F56: servono anche la KAFAS (SLI_ON_OFF e NPI_ON_OFF) e sulla HU SPEEDLIMIT_INFO o, con EntryNav2, SLI_NAVI_DISPLAY. Richiede la telecamera frontale.'
+    en: 'KOMBI part of the SLI activation documented on an F56: the KAFAS (SLI_ON_OFF and NPI_ON_OFF) is also needed, and on the HU SPEEDLIMIT_INFO or, with EntryNav2, SLI_NAVI_DISPLAY. Requires the front camera.'
+  fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-40.html
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: SPEED_LIMIT=aktiv, RCOG_TRSG_APPL=aktiv, RCOG_TRSG_TIMEOUT=aktiv, ANZEIGE_NPI=aktiv
     esito: Da verificare

@@ -22,6 +22,7 @@
     it: 'Non è l''avviso alla partenza (quello è SeatBeltReminder_Fahrer): è il cicalino che suona quando la cintura si slaccia con l''auto già in marcia. Così lo descrivono le fonti per tutte le ACSM serie F; il cheat sheet coreano parla invece di spia. Documentato sullo stesso CAFD della F54 (ACSM 000011AB, F55/F56/F57/F45) come Prewarning_* o SBR_PreWarning_*; nel FWL della F54 il nome è SBR-Prewarning_*. Riguarda la sicurezza: sconsigliata.'
     en: 'Not the warning at departure (that is SeatBeltReminder_Fahrer): it is the chime that sounds when the belt is unbuckled while the car is already moving. That is how sources describe it for every F-series ACSM; the Korean cheat sheet calls it a warning light instead. Documented on the same CAFD as the F54 (ACSM 000011AB, F55/F56/F57/F45) as Prewarning_* or SBR_PreWarning_*; in the F54 FWL the name is SBR-Prewarning_*. Safety-related: not recommended.'
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Safety-Features.md
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -54,6 +55,7 @@
     it: 'Non è l''avviso alla partenza (quello è SeatBeltReminder_Beifahrer): è il cicalino che suona quando la cintura si slaccia con l''auto già in marcia. Così lo descrivono le fonti per tutte le ACSM serie F; il cheat sheet coreano parla invece di spia. Documentato sullo stesso CAFD della F54 (ACSM 000011AB, F55/F56/F57/F45) come Prewarning_* o SBR_PreWarning_*; nel FWL della F54 il nome è SBR-Prewarning_*. Riguarda la sicurezza: sconsigliata.'
     en: 'Not the warning at departure (that is SeatBeltReminder_Beifahrer): it is the chime that sounds when the belt is unbuckled while the car is already moving. That is how sources describe it for every F-series ACSM; the Korean cheat sheet calls it a warning light instead. Documented on the same CAFD as the F54 (ACSM 000011AB, F55/F56/F57/F45) as Prewarning_* or SBR_PreWarning_*; in the F54 FWL the name is SBR-Prewarning_*. Safety-related: not recommended.'
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Safety-Features.md
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -181,6 +183,7 @@
     en: 'Shortens the seat belt chime. Safety-related: not recommended. Parameter present in the reference F54 FWL
       files; the coding is documented in GitHub cheat sheets.'
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-6.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml

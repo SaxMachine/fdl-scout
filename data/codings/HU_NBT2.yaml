@@ -137,6 +137,7 @@
     it: Nel BDC VAM_HORN_AT_SECURE è attivo. La voce permette di attivarla o spegnerla dal menu.
     en: VAM_HORN_AT_SECURE is active in the BDC. The entry lets you switch it on or off from the menu.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-12.html
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -269,6 +270,7 @@
     it: 'Confermato su un''altra F54: API_USB_VIDEO = both, più il codec XVID. Riproduzione a vettura ferma.'
     en: 'Confirmed on another F54: API_USB_VIDEO = both, plus the XVID codec. Playback only when stationary.'
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-7.html
   - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
   - https://minkara.carview.co.jp/userid/125014/car/2087329/5550627/note.aspx
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
@@ -305,6 +307,7 @@
     en: 'SETTINGS_TIME_AUTOMATIC is already set to online and the KOMBI has GPS_UHR active: only the automatic switch
       to daylight saving time is missing.'
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-22.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:
@@ -337,6 +340,7 @@
       guida.'
     en: 'Documented on an F54 with FF. Removes the input locks while driving: the driver must not use it while driving.'
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
   - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
   - https://minkara.carview.co.jp/userid/125014/car/2087329/5550627/note.aspx
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
@@ -915,6 +919,7 @@
     it: Elenco BimmerCode. Su un'altra F54 documentato 02_RR. Solo gusto personale.
     en: BimmerCode list. Documented as 02_RR on another F54. Purely a matter of taste.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-40.html
   - https://bimmercode.app/vehicles/f56
   - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
   - https://minkara.carview.co.jp/userid/125014/car/2087329/5550627/note.aspx
@@ -953,6 +958,7 @@
     it: 'Elenco BimmerCode: animazioni MINI, JCW e altre. Solo estetica.'
     en: 'BimmerCode list: MINI, JCW and other animations. Cosmetic only.'
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-14.html
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -1478,6 +1484,8 @@
       driver must not use them while driving. Parameter present in the reference F54 FWL files; the coding is documented
       in GitHub cheat sheets.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-10.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
@@ -1548,6 +1556,7 @@
     en: Shows power and torque in iDrive. For M colours see the dedicated entry. Parameter present in the reference
       F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-12.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -1685,6 +1694,8 @@
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-22.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -2138,6 +2149,7 @@
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-22.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   osservazioni:
@@ -2396,6 +2408,7 @@
     en: Rev counter and gear in the HUD in sport mode. Goes with the same entries in the KOMBI. Parameter present
       in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-24.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/butterflywaltz/BMW_Coding/blob/main/FDL%20Codes/HU_FDL_Final.txt
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -2657,6 +2670,7 @@
     en: One source says ID4 only. Parameter present in the reference F54 FWL files; the coding is documented in
       GitHub cheat sheets.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-7.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
@@ -2917,6 +2931,7 @@
     en: Part of the ASD sound configuration menu. Parameter present in the reference F54 FWL files; the coding is
       documented in GitHub cheat sheets.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-9.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Sport-Features.md
   osservazioni:
@@ -3527,6 +3542,7 @@
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-24.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
   - telaio: F54

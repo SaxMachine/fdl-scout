@@ -397,6 +397,7 @@
     en: Goes with HUD_NPI_ENABLE in the KOMBI. Parameter present in the reference F54 FWL files; the coding is documented
       in GitHub cheat sheets.
   fonti:
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-40.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
   - telaio: F54
