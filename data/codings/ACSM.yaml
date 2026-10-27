@@ -4,8 +4,8 @@
 - id: acsm.preavviso-cinture-guidatore
   centralina: ACSM
   titolo:
-    it: Togliere il preavviso acustico cinture del guidatore
-    en: Remove the driver seat belt pre-warning chime
+    it: Togliere il cicalino quando si slaccia la cintura in marcia (guidatore)
+    en: Remove the chime when the seat belt is unbuckled while driving (driver)
   parametri:
   - nome: SBR-Prewarning_Fahrer
     target: nicht_aktiv
@@ -19,9 +19,10 @@
   - F56
   - F57
   note:
-    it: 'Documentato sullo stesso CAFD della F54 (ACSM 000011AB, F55/F56/F57/F45) come Prewarning_* o SBR_PreWarning_*; nel FWL della F54 il nome è SBR-Prewarning_*. Riguarda la sicurezza: sconsigliata. Vedi anche le voci sull''avviso cinture (SeatBeltReminder_*).'
-    en: 'Documented on the same CAFD as the F54 (ACSM 000011AB, F55/F56/F57/F45) as Prewarning_* or SBR_PreWarning_*; in the F54 FWL the name is SBR-Prewarning_*. Safety-related: not recommended. See also the seat belt reminder entries (SeatBeltReminder_*).'
+    it: 'Non è l''avviso alla partenza (quello è SeatBeltReminder_Fahrer): è il cicalino che suona quando la cintura si slaccia con l''auto già in marcia. Così lo descrivono le fonti per tutte le ACSM serie F; il cheat sheet coreano parla invece di spia. Documentato sullo stesso CAFD della F54 (ACSM 000011AB, F55/F56/F57/F45) come Prewarning_* o SBR_PreWarning_*; nel FWL della F54 il nome è SBR-Prewarning_*. Riguarda la sicurezza: sconsigliata.'
+    en: 'Not the warning at departure (that is SeatBeltReminder_Fahrer): it is the chime that sounds when the belt is unbuckled while the car is already moving. That is how sources describe it for every F-series ACSM; the Korean cheat sheet calls it a warning light instead. Documented on the same CAFD as the F54 (ACSM 000011AB, F55/F56/F57/F45) as Prewarning_* or SBR_PreWarning_*; in the F54 FWL the name is SBR-Prewarning_*. Safety-related: not recommended.'
   fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Safety-Features.md
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -34,8 +35,8 @@
 - id: acsm.preavviso-cinture-passeggero
   centralina: ACSM
   titolo:
-    it: Togliere il preavviso acustico cinture del passeggero
-    en: Remove the passenger seat belt pre-warning chime
+    it: Togliere il cicalino quando si slaccia la cintura in marcia (passeggero)
+    en: Remove the chime when the seat belt is unbuckled while driving (passenger)
   parametri:
   - nome: SBR-Prewarning_Beifahrer
     target: nicht_aktiv
@@ -49,9 +50,10 @@
   - F56
   - F57
   note:
-    it: 'Documentato sullo stesso CAFD della F54 (ACSM 000011AB, F55/F56/F57/F45) come Prewarning_* o SBR_PreWarning_*; nel FWL della F54 il nome è SBR-Prewarning_*. Riguarda la sicurezza: sconsigliata. Vedi anche le voci sull''avviso cinture (SeatBeltReminder_*).'
-    en: 'Documented on the same CAFD as the F54 (ACSM 000011AB, F55/F56/F57/F45) as Prewarning_* or SBR_PreWarning_*; in the F54 FWL the name is SBR-Prewarning_*. Safety-related: not recommended. See also the seat belt reminder entries (SeatBeltReminder_*).'
+    it: 'Non è l''avviso alla partenza (quello è SeatBeltReminder_Beifahrer): è il cicalino che suona quando la cintura si slaccia con l''auto già in marcia. Così lo descrivono le fonti per tutte le ACSM serie F; il cheat sheet coreano parla invece di spia. Documentato sullo stesso CAFD della F54 (ACSM 000011AB, F55/F56/F57/F45) come Prewarning_* o SBR_PreWarning_*; nel FWL della F54 il nome è SBR-Prewarning_*. Riguarda la sicurezza: sconsigliata.'
+    en: 'Not the warning at departure (that is SeatBeltReminder_Beifahrer): it is the chime that sounds when the belt is unbuckled while the car is already moving. That is how sources describe it for every F-series ACSM; the Korean cheat sheet calls it a warning light instead. Documented on the same CAFD as the F54 (ACSM 000011AB, F55/F56/F57/F45) as Prewarning_* or SBR_PreWarning_*; in the F54 FWL the name is SBR-Prewarning_*. Safety-related: not recommended.'
   fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Safety-Features.md
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -204,18 +206,18 @@
   - F56
   - F57
   note:
-    it: 'Documentato su F55/F56/F57/F45. Riguarda la sicurezza: sconsigliata. Parametro presente nei FWL della F54
-      di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'Documented on F55/F56/F57/F45. Safety-related: not recommended. Parameter present in the reference F54
-      FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'È l''avviso alla partenza (spia e cicalino quando l''auto si muove con la cintura slacciata). Sull''ACSM i valori sono 00 = SBR_nicht_verbaut (assente), 03 = SBR_mit_SBE (con sensore di occupazione del sedile), 04 = SBR_ohne_SBE (senza sensore). La F54 di riferimento legge 04 e l''avviso funziona su guidatore e passeggero. Portarlo a 00 è documentato sullo stesso CAFD della F54 (000011AB, F55/F56/F57/F45). Riguarda la sicurezza: sconsigliata.'
+    en: 'This is the warning at departure (light and chime when the car moves with the belt unbuckled). On the ACSM the values are 00 = SBR_nicht_verbaut (not fitted), 03 = SBR_mit_SBE (with seat occupancy sensor), 04 = SBR_ohne_SBE (without sensor). The reference F54 reads 04 and the warning works for driver and passenger. Setting it to 00 is documented on the same CAFD as the F54 (000011AB, F55/F56/F57/F45). Safety-related: not recommended.'
   fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/tutuianu_daniel.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Safety-Features.md
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
     valore_letto: SeatBeltReminder_Fahrer=04
-    esito: Da verificare
+    esito: Avviso presente alla partenza (04 = SBR_ohne_SBE)
 - id: acsm.avviso-cinture-passeggero
   centralina: ACSM
   titolo:
@@ -234,15 +236,15 @@
   - F56
   - F57
   note:
-    it: 'Documentato su F55/F56/F57/F45. Riguarda la sicurezza: sconsigliata. Parametro presente nei FWL della F54
-      di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'Documented on F55/F56/F57/F45. Safety-related: not recommended. Parameter present in the reference F54
-      FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'È l''avviso alla partenza (spia e cicalino quando l''auto si muove con la cintura slacciata). Sull''ACSM i valori sono 00 = SBR_nicht_verbaut (assente), 03 = SBR_mit_SBE (con sensore di occupazione del sedile), 04 = SBR_ohne_SBE (senza sensore). La F54 di riferimento legge 04 e l''avviso funziona su guidatore e passeggero. Portarlo a 00 è documentato sullo stesso CAFD della F54 (000011AB, F55/F56/F57/F45). Riguarda la sicurezza: sconsigliata.'
+    en: 'This is the warning at departure (light and chime when the car moves with the belt unbuckled). On the ACSM the values are 00 = SBR_nicht_verbaut (not fitted), 03 = SBR_mit_SBE (with seat occupancy sensor), 04 = SBR_ohne_SBE (without sensor). The reference F54 reads 04 and the warning works for driver and passenger. Setting it to 00 is documented on the same CAFD as the F54 (000011AB, F55/F56/F57/F45). Safety-related: not recommended.'
   fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/tutuianu_daniel.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Safety-Features.md
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
     valore_letto: SeatBeltReminder_Beifahrer=04
-    esito: Da verificare
+    esito: Avviso presente alla partenza (04 = SBR_ohne_SBE)
