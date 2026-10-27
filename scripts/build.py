@@ -6,7 +6,7 @@
 
 Unica dipendenza: PyYAML (su Red Hat/Fedora: python3-pyyaml; altrove: pip install pyyaml).
 """
-import json, re, shutil, sys
+import hashlib, json, re, shutil, sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -87,7 +87,24 @@ def main():
     sa = {str(k).upper(): v for k, v in (yaml.safe_load((ROOT / "data" / "sa.yaml").read_text(encoding="utf-8")) or {}).items()}
     payload = {"generato": datetime.now(timezone.utc).isoformat(timespec="seconds"), "voci": db, "centraline": ecu_map, "sa": sa}
     (dist / "db.json").write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+    bust_cache(dist)
     print("✓ sito costruito in dist/")
+
+
+def bust_cache(dist):
+    """Aggiunge ?v=<impronta> a script, stili e import: dopo ogni pubblicazione il browser scarica i file nuovi."""
+    files = sorted(f for f in dist.rglob("*") if f.suffix in (".js", ".css", ".html"))
+    h = hashlib.sha256()
+    for f in files:
+        h.update(f.read_bytes())
+    v = h.hexdigest()[:10]
+    for f in files:
+        text = f.read_text(encoding="utf-8")
+        if f.suffix == ".js":
+            text = re.sub(r"(from\s+'\.{1,2}/[^']+\.js)'", rf"\1?v={v}'", text)
+        elif f.suffix == ".html":
+            text = re.sub(r'((?:src|href)="(?!https?:|#|docs/)[^"?]+\.(?:js|css))"', rf'\1?v={v}"', text)
+        f.write_text(text, encoding="utf-8")
 
 
 if __name__ == "__main__":
