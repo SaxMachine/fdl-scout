@@ -52,3 +52,54 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Windows-Doors.md
+- id: fem_body.ritardo-apertura-baule-tasto
+  centralina: FEM_BODY
+  titolo:
+    it: 'Ritardo di apertura del baule col tasto'
+    en: 'Boot opening delay with the button'
+  parametri:
+  - nome: CLM_TIME_DELAY_BOOTLID
+    regolabile: true
+  valori_suggeriti:
+    it: 'Esadecimale; una fonte indica wert_01 = 0,1 s (di fabbrica 0,3 s), un''altra 00 = nessun ritardo.'
+    en: 'Hexadecimal; one source gives wert_01 = 0.1 s (factory 0.3 s), another 00 = no delay.'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F80
+  - F82
+  note:
+    it: 'Ritardo tra la pressione del tasto (o del telecomando) e lo sblocco del baule, senza Smart Opener.'
+    en: 'Delay between pressing the button (or fob) and the boot unlocking, without Smart Opener.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+- id: fem_body.tempo-richiusura-automatica
+  centralina: FEM_BODY
+  titolo:
+    it: 'Tempo prima della richiusura automatica'
+    en: 'Time before automatic relocking'
+  parametri:
+  - nome: CLM_TIME_PIA_LOCK_AT_TIMEOUT
+    regolabile: true
+  valori_suggeriti:
+    it: 'Esadecimale in unità di 10 s: 03 = 30 s, 0C = 120 s (di fabbrica secondo le fonti BMW).'
+    en: 'Hexadecimal in 10 s units: 03 = 30 s, 0C = 120 s (factory per BMW sources).'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F80
+  - F82
+  note:
+    it: 'Se apri l''auto e non apri nessuna porta, dopo questo tempo si richiude da sola; serve la richiusura automatica attiva (CLI_DEFAULT_LOCK_AT_TIMEOUT).'
+    en: 'If you unlock the car and open no door, it relocks after this time; automatic relocking must be on (CLI_DEFAULT_LOCK_AT_TIMEOUT).'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Windows-Doors.md
