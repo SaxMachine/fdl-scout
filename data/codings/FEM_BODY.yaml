@@ -1,0 +1,54 @@
+# Codifiche note per la centralina FEM_BODY (BMW serie F con FEM: F20, F30, F80…; i telai di ogni voce sono in `telai`)
+# Schema: docs/SCHEMA.md
+
+- id: fem_body.ritardo-apertura-baule-piede
+  centralina: FEM_BODY
+  titolo:
+    it: 'Ritardo di apertura del baule col piede (Comfort Access)'
+    en: 'Kick-to-open boot delay (Comfort Access)'
+  parametri:
+  - nome: CLM_TIMEOUT_HK_SMO
+    regolabile: true
+  valori_suggeriti:
+    it: 'Esadecimale a passi di 0,1 s: 01 = 0,1 s, 02 = 0,3 s secondo una fonte (di fabbrica circa 0,7 s), 00 = nessun ritardo.'
+    en: 'Hexadecimal, 0.1 s steps: 01 = 0.1 s, 02 = 0.3 s per one source (factory about 0.7 s), 00 = no delay.'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F80
+  - F82
+  note:
+    it: 'Solo con Comfort Access e apertura col piede (Smart Opener). Sulle MINI con BDC il parametro corrispondente sembra VAM_TIMEOUT_HK_SMO.'
+    en: 'Only with Comfort Access and kick-to-open (Smart Opener). On MINIs with a BDC the matching parameter appears to be VAM_TIMEOUT_HK_SMO.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Windows-Doors.md
+- id: fem_body.lampeggio-apertura-baule-piede
+  centralina: FEM_BODY
+  titolo:
+    it: 'Niente lampeggio delle luci aprendo il baule col piede'
+    en: 'No light flashing when opening the boot with a kick'
+  parametri:
+  - nome: CLM_SMO_INDICATOR
+    target: nicht_aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F20
+  - F30
+  - F80
+  - F82
+  note:
+    it: 'Di fabbrica le luci posteriori lampeggiano quando il baule si apre col piede. Non trovato nella BDC della MINI F54.'
+    en: 'From the factory the rear lights flash when the boot opens with a kick. Not found in the MINI F54 BDC.'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Windows-Doors.md

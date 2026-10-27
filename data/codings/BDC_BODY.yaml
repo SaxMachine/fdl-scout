@@ -3764,3 +3764,35 @@
     i_level: F056-26-03-519
     valore_letto: FLC_AKTIV=nicht_aktiv
     esito: Da verificare
+- id: bdc_body.ritardo-apertura-portellone-piede
+  centralina: BDC_BODY
+  titolo:
+    it: 'Ritardo di apertura del portellone col piede (Comfort Access)'
+    en: 'Kick-to-open tailgate delay (Comfort Access)'
+  parametri:
+  - nome: VAM_TIMEOUT_HK_SMO
+    regolabile: true
+  valori_suggeriti:
+    it: 'Esadecimale a passi di 0,1 s. Sulla F54 di riferimento vale 0C (1,2 s); le fonti BMW usano 01–03 (0,1–0,3 s).'
+    en: 'Hexadecimal, 0.1 s steps. The reference F54 reads 0C (1.2 s); BMW sources use 01–03 (0.1–0.3 s).'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F60
+  note:
+    it: 'È il ritardo tra il movimento del piede sotto il paraurti (Smart Opener) e lo sblocco del portellone. Sulle BMW con FEM il parametro si chiama CLM_TIMEOUT_HK_SMO ed è documentato in quattro cheat sheet; un post su F54/F60 lo cita nella BDC con quel nome. Nella BDC della F54 di riferimento esiste invece VAM_TIMEOUT_HK_SMO: stesso nome con il prefisso VAM_ al posto di CLM_, come succede per VAM_/CLM_UNLOCK_KL15OFF_AFTER_PIA_AUTO_LOCK. La corrispondenza è dedotta dal nome: da verificare.'
+    en: 'It is the delay between the kick under the bumper (Smart Opener) and the tailgate unlocking. On BMWs with a FEM the parameter is called CLM_TIMEOUT_HK_SMO and is documented in four cheat sheets; a post about F54/F60 names it in the BDC. The reference F54 BDC has VAM_TIMEOUT_HK_SMO instead: the same name with the VAM_ prefix instead of CLM_, as happens with VAM_/CLM_UNLOCK_KL15OFF_AFTER_PIA_AUTO_LOCK. The match is inferred from the name: to be verified.'
+  fonti:
+  - https://www.northamericanmotoring.com/forums/2nd-gen-countryman-f60-talk-2016-2024/317869-e-sys-coding-on-f60.html
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Windows-Doors.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: VAM_TIMEOUT_HK_SMO=0C
+    esito: Da verificare
