@@ -1,31 +1,124 @@
 # Codifiche note per la centralina ACSM (BMW e MINI serie F: i telai di ogni voce sono in `telai`)
 # Schema: docs/SCHEMA.md
 
-- id: acsm.disattivazione-avviso-cinture
+- id: acsm.preavviso-cinture-guidatore
   centralina: ACSM
   titolo:
-    it: Disattivazione avviso cinture
-    en: Disable the seat belt warning
-  parametri: []
-  stato_mappatura: da_mappare
+    it: Togliere il preavviso acustico cinture del guidatore
+    en: Remove the driver seat belt pre-warning chime
+  parametri:
+  - nome: SBR-Prewarning_Fahrer
+    target: nicht_aktiv
   rischio: alto
   consiglio: sconsigliata
   affidabilita: da_verificare
   telai:
+  - F45
   - F54
   - F55
   - F56
   - F57
-  - F60
   note:
-    it: 'Riguarda la sicurezza attiva: sconsigliata.'
-    en: 'This is a safety function: not recommended.'
+    it: 'Documentato sullo stesso CAFD della F54 (ACSM 000011AB, F55/F56/F57/F45) come Prewarning_* o SBR_PreWarning_*; nel FWL della F54 il nome è SBR-Prewarning_*. Riguarda la sicurezza: sconsigliata. Vedi anche le voci sull''avviso cinture (SeatBeltReminder_*).'
+    en: 'Documented on the same CAFD as the F54 (ACSM 000011AB, F55/F56/F57/F45) as Prewarning_* or SBR_PreWarning_*; in the F54 FWL the name is SBR-Prewarning_*. Safety-related: not recommended. See also the seat belt reminder entries (SeatBeltReminder_*).'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
-    valore_letto: —
-    esito: Sconsigliato
+    valore_letto: SBR-Prewarning_Fahrer=nicht_aktiv
+    esito: Da verificare
+- id: acsm.preavviso-cinture-passeggero
+  centralina: ACSM
+  titolo:
+    it: Togliere il preavviso acustico cinture del passeggero
+    en: Remove the passenger seat belt pre-warning chime
+  parametri:
+  - nome: SBR-Prewarning_Beifahrer
+    target: nicht_aktiv
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F45
+  - F54
+  - F55
+  - F56
+  - F57
+  note:
+    it: 'Documentato sullo stesso CAFD della F54 (ACSM 000011AB, F55/F56/F57/F45) come Prewarning_* o SBR_PreWarning_*; nel FWL della F54 il nome è SBR-Prewarning_*. Riguarda la sicurezza: sconsigliata. Vedi anche le voci sull''avviso cinture (SeatBeltReminder_*).'
+    en: 'Documented on the same CAFD as the F54 (ACSM 000011AB, F55/F56/F57/F45) as Prewarning_* or SBR_PreWarning_*; in the F54 FWL the name is SBR-Prewarning_*. Safety-related: not recommended. See also the seat belt reminder entries (SeatBeltReminder_*).'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: SBR-Prewarning_Beifahrer=aktiv
+    esito: Da verificare
+- id: acsm.spia-cinture-guidatore
+  centralina: ACSM
+  titolo:
+    it: Spegnere la spia cinture del guidatore nel quadro
+    en: Turn off the driver seat belt light in the cluster
+  parametri:
+  - nome: Gurtzustandsanzeige_Fahrer
+    target: nicht_aktiv
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F45
+  - F54
+  - F55
+  - F56
+  - F57
+  note:
+    it: 'Spegne la spia delle cinture nel quadro. Documentato sull''ACSM di G11/G30 con questo nome esatto e su F10/F20/F30 come Gurtzustandsanzeige_*_GWF_GZA_*; non ancora sul CAFD MINI. Riguarda la sicurezza: sconsigliata. Vedi anche le voci sull''avviso cinture (SeatBeltReminder_*).'
+    en: 'Turns off the seat belt light in the cluster. Documented on the G11/G30 ACSM with this exact name and on F10/F20/F30 as Gurtzustandsanzeige_*_GWF_GZA_*; not yet on the MINI CAFD. Safety-related: not recommended. See also the seat belt reminder entries (SeatBeltReminder_*).'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: Gurtzustandsanzeige_Fahrer=aktiv
+    esito: Da verificare
+- id: acsm.spia-cinture-passeggero
+  centralina: ACSM
+  titolo:
+    it: Spegnere la spia cinture del passeggero nel quadro
+    en: Turn off the passenger seat belt light in the cluster
+  parametri:
+  - nome: Gurtzustandsanzeige_Beifahrer
+    target: nicht_aktiv
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F45
+  - F54
+  - F55
+  - F56
+  - F57
+  note:
+    it: 'Spegne la spia delle cinture nel quadro. Documentato sull''ACSM di G11/G30 con questo nome esatto e su F10/F20/F30 come Gurtzustandsanzeige_*_GWF_GZA_*; non ancora sul CAFD MINI. Riguarda la sicurezza: sconsigliata. Vedi anche le voci sull''avviso cinture (SeatBeltReminder_*).'
+    en: 'Turns off the seat belt light in the cluster. Documented on the G11/G30 ACSM with this exact name and on F10/F20/F30 as Gurtzustandsanzeige_*_GWF_GZA_*; not yet on the MINI CAFD. Safety-related: not recommended. See also the seat belt reminder entries (SeatBeltReminder_*).'
+  fonti:
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: Gurtzustandsanzeige_Beifahrer=aktiv
+    esito: Da verificare
 - id: acsm.durata-avviso-cinture
   centralina: ACSM
   titolo:

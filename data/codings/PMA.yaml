@@ -1,34 +1,77 @@
 # Codifiche note per la centralina PMA (BMW e MINI serie F: i telai di ogni voce sono in `telai`)
 # Schema: docs/SCHEMA.md
 
-- id: pma.soglie-di-spegnimento-sensori-e-retrocamera
+- id: pma.retrocamera-in-retromarcia-folle
   centralina: PMA
   titolo:
-    it: 'Sensori di parcheggio: soglie di spegnimento e attivazione in folle'
-    en: 'Parking sensors: switch-off thresholds and activation in neutral'
-  parametri: []
-  stato_mappatura: da_mappare
+    it: Retrocamera e sensori quando l'auto arretra senza la retro inserita
+    en: Rear camera and sensors when the car rolls back without reverse engaged
+  parametri:
+  - nome: aktivierung_rueckwaertsrollen
+    target: '01'
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
   telai:
   - F54
-  - F55
-  - F56
-  - F57
-  - F60
   note:
-    it: 'BimmerCode elenca per la PMA/PDC delle F5x: attivazione dei sensori quando l''auto arretra in folle, soglie
-      di velocità e distanza di spegnimento per sensori e retrocamera. I nomi esatti dei parametri non sono pubblicati:
-      servono gli FWL della PMA. Il CAFD 00001D75 è la retrocamera (TRSVC), non questa centralina.'
-    en: 'BimmerCode lists for the F5x PMA/PDC: sensors activating when the car rolls back in neutral, plus speed
-      and distance thresholds for switching off sensors and rear camera. The exact parameter names are not published:
-      PMA FWL files are needed. CAFD 00001D75 is the rear camera (TRSVC), not this unit.'
+    it: 'Documentata per la PMA delle serie F come AKT_RUECKWAERTSROLLEN → aktiv. Sul CAFD della F54 (0000146B) il
+      parametro si chiama aktivierung_rueckwaertsrollen e vale 00: il nome è diverso, la centralina e la funzione
+      sono le stesse. Il valore 01 per "attivo" va confermato in E-Sys.'
+    en: 'Documented for the F-series PMA as AKT_RUECKWAERTSROLLEN → aktiv. On the F54 CAFD (0000146B) the parameter
+      is named aktivierung_rueckwaertsrollen and reads 00: different name, same unit and function. The value 01
+      for "active" still needs confirming in E-Sys.'
+  fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/Video-in-Motion.md
   osservazioni:
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
-    valore_letto: —
+    valore_letto: aktivierung_rueckwaertsrollen=00
     esito: Da verificare
+- id: pma.soglie-spegnimento-retrocamera
+  centralina: PMA
+  titolo:
+    it: 'Retrocamera e vista dall''alto: velocità e distanza di spegnimento'
+    en: 'Rear and top view camera: switch-off speed and distance'
+  parametri:
+  - nome: v_schwelle_1_kmh
+    regolabile: true
+  - nome: v_schwelle_2_kmh
+    regolabile: true
+  - nome: d_schwelle_1_kmh
+    regolabile: true
+  - nome: d_schwelle_2_kmh
+    regolabile: true
+  valori_suggeriti:
+    it: 'In esadecimale: velocità in km/h, distanza in metri. Le fonti usano FF (nessun limite). Valori di fabbrica
+      F54: v_schwelle_1 23 (35 km/h), v_schwelle_2 0D, d_schwelle_1 32 (50 m), d_schwelle_2 0A (10 m).'
+    en: 'Hexadecimal: speed in km/h, distance in metres. The sources use FF (no limit). F54 factory values:
+      v_schwelle_1 23 (35 km/h), v_schwelle_2 0D, d_schwelle_1 32 (50 m), d_schwelle_2 0A (10 m).'
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F45
+  - F54
+  - F55
+  - F56
+  - F57
+  note:
+    it: 'Documentata sulla PMA_PDC (CAFD 00001AB7) di F55/F56/F57/F45 come V_SCHWELLE_1/2 e D_SCHWELLE_1/2 = FF. Sul
+      CAFD della F54 i nomi hanno il suffisso _kmh; i valori di fabbrica coincidono con quelli documentati per lo
+      stesso parametro su G11/G30. Con FF l''immagine resta accesa a qualsiasi velocità: meglio un limite moderato,
+      perché distrae alla guida.'
+    en: 'Documented on the F55/F56/F57/F45 PMA_PDC (CAFD 00001AB7) as V_SCHWELLE_1/2 and D_SCHWELLE_1/2 = FF. On the
+      F54 CAFD the names carry a _kmh suffix; factory values match those documented for the same parameter on
+      G11/G30. With FF the image stays on at any speed: a moderate limit is better, as it distracts while driving.'
   fonti:
-  - https://bimmercode.app/vehicles/f56
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/Video-in-Motion.md
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/stanleyy.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: v_schwelle_1_kmh=23, v_schwelle_2_kmh=0D, d_schwelle_1_kmh=32, d_schwelle_2_kmh=0A
+    esito: Da verificare
