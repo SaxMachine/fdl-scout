@@ -14,12 +14,10 @@
   rischio: medio
   consiglio: ok
   affidabilita: da_verificare
-  telai: &id001
+  telai:
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: 'Va insieme a C_Funktion_AccStopAndGo_aktiv_I nel DSC (attivo nella F54 di riferimento). Su minif56 un utente
       F57 con cambio DKG riporta che dopo la codifica non è cambiato nulla: esito incerto sulle MINI con ACC a telecamera.'
@@ -45,7 +43,10 @@
   rischio: medio
   consiglio: ok
   affidabilita: da_verificare
-  telai: *id001
+  telai:
+  - F54
+  - F55
+  - F56
   note:
     it: Facoltativa, dopo lo Stop & Go. Valore 'automatisches Losfahren' dalla lista E-Sys.
     en: Optional, after Stop & Go. Value 'automatisches Losfahren' from the E-Sys list.
@@ -57,7 +58,7 @@
     it: 'ACC: velocità massima impostabile'
     en: 'ACC: maximum set speed'
   parametri:
-  - nome: LDM_WUNSCHGESCHW_ACC_max_kmh
+  - nome: LDM_Wunschgeschw_ACC_max_kmh
     regolabile: true
   valori_suggeriti:
     it: Velocità in km/h dalla lista E-Sys, es. 180.
@@ -67,7 +68,10 @@
   rischio: medio
   consiglio: ok
   affidabilita: da_verificare
-  telai: *id001
+  telai:
+  - F54
+  - F55
+  - F56
   note:
     it: 'Su Bimmerfest portata da 140 a 180 km/h. Sulle F5x il valore potrebbe stare anche nel DSC (C_Wunschgeschw_ACC_max_kmh):
       verifica quale dei due usa la tua auto.'
@@ -97,8 +101,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   - F45
   - F48
   note:

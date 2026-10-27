@@ -79,11 +79,7 @@
   consiglio: sconsigliata
   affidabilita: da_verificare
   telai:
-  - F45
   - F54
-  - F55
-  - F56
-  - F57
   note:
     it: 'Spegne la spia delle cinture nel quadro. Documentato sull''ACSM di G11/G30 con questo nome esatto e su F10/F20/F30 come Gurtzustandsanzeige_*_GWF_GZA_*; non ancora sul CAFD MINI. Riguarda la sicurezza: sconsigliata. Vedi anche le voci sull''avviso cinture (SeatBeltReminder_*).'
     en: 'Turns off the seat belt light in the cluster. Documented on the G11/G30 ACSM with this exact name and on F10/F20/F30 as Gurtzustandsanzeige_*_GWF_GZA_*; not yet on the MINI CAFD. Safety-related: not recommended. See also the seat belt reminder entries (SeatBeltReminder_*).'
@@ -108,11 +104,7 @@
   consiglio: sconsigliata
   affidabilita: da_verificare
   telai:
-  - F45
   - F54
-  - F55
-  - F56
-  - F57
   note:
     it: 'Spegne la spia delle cinture nel quadro. Documentato sull''ACSM di G11/G30 con questo nome esatto e su F10/F20/F30 come Gurtzustandsanzeige_*_GWF_GZA_*; non ancora sul CAFD MINI. Riguarda la sicurezza: sconsigliata. Vedi anche le voci sull''avviso cinture (SeatBeltReminder_*).'
     en: 'Turns off the seat belt light in the cluster. Documented on the G11/G30 ACSM with this exact name and on F10/F20/F30 as Gurtzustandsanzeige_*_GWF_GZA_*; not yet on the MINI CAFD. Safety-related: not recommended. See also the seat belt reminder entries (SeatBeltReminder_*).'
@@ -211,8 +203,8 @@
   - F56
   - F57
   note:
-    it: 'È l''avviso alla partenza (spia e cicalino quando l''auto si muove con la cintura slacciata). Sull''ACSM i valori sono 00 = SBR_nicht_verbaut (assente), 03 = SBR_mit_SBE (con sensore di occupazione del sedile), 04 = SBR_ohne_SBE (senza sensore). La F54 di riferimento legge 04 e l''avviso funziona su guidatore e passeggero. Portarlo a 00 è documentato sullo stesso CAFD della F54 (000011AB, F55/F56/F57/F45). Riguarda la sicurezza: sconsigliata.'
-    en: 'This is the warning at departure (light and chime when the car moves with the belt unbuckled). On the ACSM the values are 00 = SBR_nicht_verbaut (not fitted), 03 = SBR_mit_SBE (with seat occupancy sensor), 04 = SBR_ohne_SBE (without sensor). The reference F54 reads 04 and the warning works for driver and passenger. Setting it to 00 is documented on the same CAFD as the F54 (000011AB, F55/F56/F57/F45). Safety-related: not recommended.'
+    it: 'È l''avviso alla partenza (spia e cicalino quando l''auto si muove con la cintura slacciata). Su una ACSM più recente (ACSM_5 di G11/G30, CAFD 00001B29) i valori documentati sono 00 = SBR_nicht_verbaut (assente), 03 = SBR_mit_SBE (con sensore di occupazione del sedile), 04 = SBR_ohne_SBE (senza sensore); sulla F54 il 04 è coerente, ma la tabella va confermata in E-Sys. Alcune fonti chiamano il parametro SeatBeltReminder_SBR_*. La F54 di riferimento legge 04 e l''avviso funziona su guidatore e passeggero. Portarlo a 00 è documentato sullo stesso CAFD della F54 (000011AB, F55/F56/F57/F45). Riguarda la sicurezza: sconsigliata.'
+    en: 'This is the warning at departure (light and chime when the car moves with the belt unbuckled). On a newer ACSM (ACSM_5 of G11/G30, CAFD 00001B29) the documented values are 00 = SBR_nicht_verbaut (not fitted), 03 = SBR_mit_SBE (with seat occupancy sensor), 04 = SBR_ohne_SBE (without sensor); on the F54 the 04 is consistent, but the table must be confirmed in E-Sys. Some sources call the parameter SeatBeltReminder_SBR_*. The reference F54 reads 04 and the warning works for driver and passenger. Setting it to 00 is documented on the same CAFD as the F54 (000011AB, F55/F56/F57/F45). Safety-related: not recommended.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/tutuianu_daniel.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Safety-Features.md
@@ -241,8 +233,8 @@
   - F56
   - F57
   note:
-    it: 'È l''avviso alla partenza (spia e cicalino quando l''auto si muove con la cintura slacciata). Sull''ACSM i valori sono 00 = SBR_nicht_verbaut (assente), 03 = SBR_mit_SBE (con sensore di occupazione del sedile), 04 = SBR_ohne_SBE (senza sensore). La F54 di riferimento legge 04 e l''avviso funziona su guidatore e passeggero. Portarlo a 00 è documentato sullo stesso CAFD della F54 (000011AB, F55/F56/F57/F45). Riguarda la sicurezza: sconsigliata.'
-    en: 'This is the warning at departure (light and chime when the car moves with the belt unbuckled). On the ACSM the values are 00 = SBR_nicht_verbaut (not fitted), 03 = SBR_mit_SBE (with seat occupancy sensor), 04 = SBR_ohne_SBE (without sensor). The reference F54 reads 04 and the warning works for driver and passenger. Setting it to 00 is documented on the same CAFD as the F54 (000011AB, F55/F56/F57/F45). Safety-related: not recommended.'
+    it: 'È l''avviso alla partenza (spia e cicalino quando l''auto si muove con la cintura slacciata). Su una ACSM più recente (ACSM_5 di G11/G30, CAFD 00001B29) i valori documentati sono 00 = SBR_nicht_verbaut (assente), 03 = SBR_mit_SBE (con sensore di occupazione del sedile), 04 = SBR_ohne_SBE (senza sensore); sulla F54 il 04 è coerente, ma la tabella va confermata in E-Sys. Alcune fonti chiamano il parametro SeatBeltReminder_SBR_*. La F54 di riferimento legge 04 e l''avviso funziona su guidatore e passeggero. Portarlo a 00 è documentato sullo stesso CAFD della F54 (000011AB, F55/F56/F57/F45). Riguarda la sicurezza: sconsigliata.'
+    en: 'This is the warning at departure (light and chime when the car moves with the belt unbuckled). On a newer ACSM (ACSM_5 of G11/G30, CAFD 00001B29) the documented values are 00 = SBR_nicht_verbaut (not fitted), 03 = SBR_mit_SBE (with seat occupancy sensor), 04 = SBR_ohne_SBE (without sensor); on the F54 the 04 is consistent, but the table must be confirmed in E-Sys. Some sources call the parameter SeatBeltReminder_SBR_*. The reference F54 reads 04 and the warning works for driver and passenger. Setting it to 00 is documented on the same CAFD as the F54 (000011AB, F55/F56/F57/F45). Safety-related: not recommended.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/tutuianu_daniel.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Safety-Features.md

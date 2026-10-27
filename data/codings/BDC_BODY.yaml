@@ -22,6 +22,7 @@
     it: Già attivo nel BDC. Nella DME risulta Wert_00, ma la funzione la gestisce il BDC.
     en: Already active in the BDC. The DME shows Wert_00, but the function is handled by the BDC.
   fonti:
+  - https://minkara.carview.co.jp/userid/1338285/car/2786797/5658504/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-12.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -49,8 +50,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Con memoria specchi (ASP_MEMORY_VERBAUT).
     en: Requires mirror memory (ASP_MEMORY_VERBAUT).
@@ -77,8 +76,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: ''
   fonti:
@@ -110,12 +107,12 @@
   - F55
   - F56
   - F57
-  - F60
   note:
     it: 'Su F54 documentato da 55 a 32: lo specchio si abbassa meno. Valore a gusto, ritocca finché vedi bene il
       marciapiede.'
     en: 'Documented on an F54 from 55 to 32: the mirror tilts down less. Adjust to taste until you can see the kerb.'
   fonti:
+  - https://minkara.carview.co.jp/userid/1338285/car/2786797/5953565/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-6.html
   - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
   - https://minkara.carview.co.jp/userid/125014/car/2087329/5550627/note.aspx
@@ -179,13 +176,9 @@
   affidabilita: da_verificare
   telai:
   - F54
-  - F55
-  - F56
-  - F57
-  - F60
   note:
-    it: Citata su F55/F56. A motore spento, aprendo la porta del guidatore si spegne il quadro.
-    en: Reported on F55/F56. With the engine off, opening the driver's door switches the ignition off.
+    it: 'Citata su F55/F56. A motore spento, aprendo la porta del guidatore si spegne il quadro. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
+    en: 'Reported on F55/F56. With the engine off, opening the driver''s door switches the ignition off. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -215,6 +208,8 @@
     en: With value 02 the ring switches off when you turn on the parking lights. Value 05 keeps it always on. It
       does not tie the DRL to position 0 of the light switch.
   fonti:
+  - https://minkara.carview.co.jp/userid/1338285/car/2786797/5658504/note.aspx
+  - https://minkara.carview.co.jp/userid/125014/car/2087329/3641570/note.aspx
   - https://minkara.carview.co.jp/userid/1685164/blog/37025176
   - https://bmw-mini-r57-60diy.blogspot.com/2017/01/f56-f57_21.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
@@ -243,8 +238,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: ''
   fonti:
@@ -267,8 +260,6 @@
   parametri:
   - nome: KOMFORTSCHLIESSUNG
     target: aktiv
-  - nome: KOMFORT_SCHL_SHD
-    target: aktiv
   rischio: basso
   consiglio: ok
   affidabilita: confermata
@@ -282,8 +273,6 @@
     it: Tetto panorama (SA 402) incluso.
     en: Includes the panoramic roof (SA 402).
   fonti:
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Windows-Doors.md
@@ -311,7 +300,6 @@
   - F55
   - F56
   - F57
-  - F60
   note:
     it: 'Numero di lampeggi già regolabile dal menu iDrive. Se lo codifichi a mano (PIA_DEFAULT_TIPPBLINKEN o BLINKZYKLEN_ANZAHL_TIPP),
       il valore vale lampeggi meno uno: due fonti indipendenti (NAM e Xcar) riportano che 4 dà 5 lampeggi.'
@@ -341,16 +329,14 @@
   - nome: MAPPING_ABBIEGEL_R_OUTPUT
     regolabile: true
   - nome: C_CLC_ENA
-    target: aktiv
-  - nome: C_BLC_ENA
-    target: aktiv
+    target: '01'
   - nome: KL_ENABLE_LI
     target: KL_Ein
   - nome: KL_ENABLE_RE
     target: KL_Ein
   valori_suggeriti:
-    it: nsw_l, nsw_r (o valore hex dei fendinebbia) / aktiv / KL_Ein
-    en: nsw_l, nsw_r (or the fog light hex value) / aktiv / KL_Ein
+    it: 'Uscite: nsw_l/nsw_r o il valore di MAPPING_NEBELSCHW_L/R_OUTPUT (su una F54 l''autore ha usato i valori 03/04); C_CLC_ENA = F015_enable (01); KL_ENABLE_LI/RE = KL_Ein'
+    en: 'Outputs: nsw_l/nsw_r or the MAPPING_NEBELSCHW_L/R_OUTPUT value (on an F54 the author used 03/04); C_CLC_ENA = F015_enable (01); KL_ENABLE_LI/RE = KL_Ein'
   rischio: medio
   consiglio: ok
   affidabilita: da_verificare
@@ -361,11 +347,12 @@
   - F57
   - F60
   note:
-    it: Procedura completa da mini-f56-forum.de. Se nsw_l/nsw_r non funziona, copia nell'uscita il valore che trovi
-      in MAPPING_NEBELSCHW_L/R_OUTPUT. Verifica che resti conforme all'omologazione.
-    en: Full procedure from mini-f56-forum.de. If nsw_l/nsw_r does not work, copy into the output the value found
-      in MAPPING_NEBELSCHW_L/R_OUTPUT. Check that it stays compliant with type approval.
+    it: 'Procedura completa da mini-f56-forum.de. Se nsw_l/nsw_r non funziona, copia nell''uscita il valore che trovi in MAPPING_NEBELSCHW_L/R_OUTPUT. Non toccare C_BLC_ENA se non hai i fari adattivi (AHL): su una F54 ha bloccato la regolazione manuale dei fari e acceso un errore. Verifica che resti conforme all''omologazione.'
+    en: 'Full procedure from mini-f56-forum.de. If nsw_l/nsw_r does not work, copy into the output the value found in MAPPING_NEBELSCHW_L/R_OUTPUT. Do not touch C_BLC_ENA without adaptive headlights (AHL): on an F54 it disabled the manual headlight leveling and raised a fault. Check that it stays compliant with type approval.'
   fonti:
+  - https://minkara.carview.co.jp/userid/1338285/car/2786797/5668592/note.aspx
+  - https://minkara.carview.co.jp/userid/1338285/car/2786797/5658504/note.aspx
+  - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/?pageNo=222
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/Adaptive-Lighting.md
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -374,7 +361,7 @@
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
-    valore_letto: off / disable / KL_Aus
+    valore_letto: MAPPING_ABBIEGEL_L_OUTPUT=off, MAPPING_ABBIEGEL_R_OUTPUT=off, C_CLC_ENA=F015disable, KL_ENABLE_LI=KL_Aus, KL_ENABLE_RE=KL_Aus
     esito: Da verificare
   requisiti_sa:
   - 5A1
@@ -393,14 +380,11 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Fonte NAM. Variante di TCM_LOGIC_15_OFF_DOOR.
     en: 'Source: NAM. Variant of TCM_LOGIC_15_OFF_DOOR.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -430,14 +414,11 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Fonte NAM. Gli specchi ripiegati si riaprono da soli superata questa velocità. Il valore è binario.
     en: 'Source: NAM. Folded mirrors unfold by themselves above this speed. The value is binary.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
@@ -471,7 +452,6 @@
     it: ''
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Mirrors.md
@@ -571,7 +551,6 @@
   - F55
   - F56
   - F57
-  - F60
   note:
     it: Stessa fonte. Lo Start/Stop non si attiva da solo in modalità Green.
     en: Same source. Start/Stop does not switch itself on in Green mode.
@@ -639,8 +618,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: 'Fonte mini-f56-forum.de: il valore è esadecimale, chi l''ha inserito in decimale ha ottenuto l''effetto
       opposto.'
@@ -729,7 +706,7 @@
     target: aktiv
   rischio: basso
   consiglio: ok
-  affidabilita: confermata
+  affidabilita: da_verificare
   telai:
   - F54
   - F55
@@ -737,8 +714,8 @@
   - F57
   - F60
   note:
-    it: Elenco BimmerCode. Evita che fari e luci si accendano di giorno all'apertura.
-    en: BimmerCode list. Stops headlights and lights from coming on in daylight when you unlock.
+    it: 'Elenco BimmerCode. Evita che fari e luci si accendano di giorno all''apertura. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
+    en: 'BimmerCode list. Stops headlights and lights from coming on in daylight when you unlock. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
   fonti: &id001
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -880,7 +857,7 @@
     en: 24 h / unlimited
   rischio: basso
   consiglio: ok
-  affidabilita: confermata
+  affidabilita: da_verificare
   telai:
   - F54
   - F55
@@ -888,8 +865,8 @@
   - F57
   - F60
   note:
-    it: Stesso principio per i sedili anteriori (SA 494).
-    en: Same principle for the front seats (SA 494).
+    it: 'Stesso principio per i sedili anteriori (SA 494). Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
+    en: 'Same principle for the front seats (SA 494). No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
   fonti: *id001
   osservazioni:
   - telaio: F54
@@ -977,7 +954,7 @@
     target: aktiv
   rischio: basso
   consiglio: ok
-  affidabilita: confermata
+  affidabilita: da_verificare
   telai:
   - F54
   - F55
@@ -986,6 +963,9 @@
   - F60
   note:
     it: ''
+  note:
+    it: 'Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
+    en: 'No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
   fonti: *id001
   osservazioni:
   - telaio: F54
@@ -1144,8 +1124,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Fonte mini-f56-forum.de. Spostando la leva in S la vettura passa anche in modalità Sport.
     en: 'Source: mini-f56-forum.de. Moving the lever to S also switches the car to Sport mode.'
@@ -1154,7 +1132,7 @@
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
-    valore_letto: nicht_aktiv / Modus_nicht_wechseln
+    valore_letto: FesGwsKopplung=GWS_Kopplung_nicht_aktiv, FesGwsSportMode=Modus_nicht_wechseln
     esito: Da verificare
 - id: bdc_body.modalita-sport-dsc-meno-invasivo
   centralina: BDC_BODY
@@ -1173,8 +1151,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Fonte mini-f56-forum.de. Cambia l'intervento del controllo di stabilità. Un utente ha poi avuto il quadro
       senza indicazione della modalità e ha dovuto toccare anche FDS_MENUE_* nel KOMBI.
@@ -1203,13 +1179,11 @@
   - F55
   - F56
   - F57
-  - F60
   note:
     it: Citato su NAM. Toglie un blocco di sicurezza contro le partenze involontarie con la marcia inserita.
     en: Mentioned on NAM. Removes a safety interlock against unintended moves with a gear engaged.
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
@@ -1236,7 +1210,6 @@
   - F55
   - F56
   - F57
-  - F60
   note:
     it: Fonte mini-f56-forum.de. Toglie il colpo di clacson quando inserisci l'allarme.
     en: 'Source: mini-f56-forum.de. Removes the horn chirp when you arm the alarm.'
@@ -1276,7 +1249,6 @@
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -1307,8 +1279,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: 'Fonte mini-f56-forum.de. Lo stesso sensore gestisce l''accensione automatica dei fari: rischi di perdere
       anche quella.'
@@ -1331,17 +1301,15 @@
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
-  telai: &id003
+  telai:
   - F54
   - F55
   - F56
   - F57
   - F60
   note:
-    it: Avviso che l'auto non è in parcheggio quando scendi. Il nome del parametro è chiaro, l'effetto va confermato
-      in auto.
-    en: Warns that the car is not in park when you get out. The parameter name is clear, but the effect needs confirming
-      in the car.
+    it: 'Avviso che l''auto non è in parcheggio quando scendi. Il nome del parametro è chiaro, l''effetto va confermato in auto. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
+    en: 'Warns that the car is not in park when you get out. The parameter name is clear, but the effect needs confirming in the car. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -1363,7 +1331,12 @@
   rischio: basso
   consiglio: ok
   affidabilita: confermata
-  telai: *id003
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
   note:
     it: 'Tenendo premuto apri o chiudi sul telecomando si aprono o chiudono finestrini e tetto. Nella F54 di riferimento
       E-Sys mostra ''aktiv'' con dato 00: se non funziona, controlla il valore nella lista.'
@@ -1397,12 +1370,15 @@
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
-  telai: *id003
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
   note:
-    it: 'Impostazione predefinita della richiusura dopo lo sblocco. Effetto da verificare: potrebbe essere solo
-      il valore iniziale del menu iDrive.'
-    en: 'Default setting for relocking after unlocking. Effect to be verified: it may only be the initial value
-      of the iDrive menu.'
+    it: 'Impostazione predefinita della richiusura dopo lo sblocco. Effetto da verificare: potrebbe essere solo il valore iniziale del menu iDrive. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
+    en: 'Default setting for relocking after unlocking. Effect to be verified: it may only be the initial value of the iDrive menu. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -1455,12 +1431,10 @@
   rischio: medio
   consiglio: ok
   affidabilita: confermata
-  telai: &id004
+  telai:
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: 'Usa le luci di posizione posteriori come diurne: con la DRL attiva il retro dell''auto resta acceso. Confermata
       da più utenti F5x sul forum tedesco. Le luci diurne devono essere attive nel menu iDrive. Verifica la conformità
@@ -1495,7 +1469,12 @@
   rischio: basso
   consiglio: ok
   affidabilita: confermata
-  telai: *id004
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
   note:
     it: Voce dell'elenco BimmerCode, parametro confermato sul forum tedesco.
     en: Entry from the BimmerCode list, parameter confirmed on the German forum.
@@ -2915,7 +2894,6 @@
   - F54
   - F55
   - F56
-  - F60
   note:
     it: Solo con luci di stop LED montate dopo. Parametro presente nei FWL della F54 di riferimento; la codifica
       è documentata nei cheat sheet su GitHub.
@@ -2986,7 +2964,6 @@
   - F20
   - F30
   - F54
-  - F55
   - F56
   - F60
   note:
@@ -3108,8 +3085,8 @@
   - F30
   - F54
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Le fonti (F20/F30) lo portano ad aktiv. Sulla F54 di riferimento il valore attuale è 64 e non ha un nome, quindi in E-Sys controlla se tra le opzioni c''è davvero aktiv prima di cambiarlo.'
+    en: 'Sources (F20/F30) set it to aktiv. On the reference F54 the current value is 64 with no name, so check in E-Sys that aktiv really is one of the options before changing it.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -3603,8 +3580,7 @@
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
-    valore_letto: TEMP_LEHNE_STUFE_1_FRONT=00, TEMP_LEHNE_STUFE_2_FRONT=96, TEMP_LEHNE_STUFE_3_FRONT=9E, TEMP_SITZ_STUFE_1_FRONT=AE,
-      TEMP_SITZ_STUFE_2_FRONT=35_grad, TEMP_SITZ_STUFE_3_FRONT=9E, TEMP_LEHNE_STUFE_1_FOND=
+    valore_letto: 'TEMP_LEHNE_STUFE_1_FRONT=00, TEMP_LEHNE_STUFE_2_FRONT=96, TEMP_LEHNE_STUFE_3_FRONT=9E, TEMP_SITZ_STUFE_1_FRONT=AE, TEMP_SITZ_STUFE_2_FRONT=35_grad, TEMP_SITZ_STUFE_3_FRONT=9E, TEMP_LEHNE_STUFE_1_FOND=00000000, TEMP_LEHNE_STUFE_2_FOND=90, TEMP_LEHNE_STUFE_3_FOND=9A, TEMP_SITZ_STUFE_1_FOND=AA, TEMP_SITZ_STUFE_2_FOND=35_grad, TEMP_SITZ_STUFE_3_FOND=96'
     esito: Da verificare
 - id: bdc_body.terzo-stop-led
   centralina: BDC_BODY
@@ -3631,8 +3607,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: 'Solo con lampadine LED montate dopo: dichiara la luce come LED e spegne il controllo a freddo e a caldo, così non compare l''avviso di lampadina guasta. Gruppo 3061 della BDC_BODY.'
     en: 'Only with retrofitted LED bulbs: declares the light as LED and turns off the cold and warm checks, so no bulb failure warning appears. Group 3061 of BDC_BODY.'
@@ -3659,7 +3633,6 @@
   - F54
   - F55
   - F56
-  - F57
   - F60
   note:
     it: 'Con l''auto chiusa il tasto del portellone sul telecomando non fa nulla: prima si apre l''auto. Evita aperture accidentali in tasca.'
@@ -3688,7 +3661,6 @@
   - F54
   - F55
   - F56
-  - F57
   - F60
   note:
     it: 'Se la chiusura automatica in marcia è attiva, spegnendo il motore le porte si sbloccano tutte. Su una F48 la variante con nome CLM_ ha dato problemi; sulle MINI il nome è VAM_.'
@@ -3722,8 +3694,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: 'Di fabbrica la luce di svolta si accende con la freccia fino a circa 40 km/h; questi due valori ne regolano le soglie. Sulla F54 il valore letto è il preset di paese (F056ROW).'
     en: 'From the factory the cornering light comes on with the turn signal up to about 40 km/h; these two values set the thresholds. On the F54 the value read is the country preset (F056ROW).'
@@ -3750,7 +3720,6 @@
   - F54
   - F55
   - F56
-  - F57
   - F60
   note:
     it: 'Cambia il comportamento della manopola luci come sulle auto USA: in posizione 0 restano solo le diurne, anche di notte. In Europa le luci devono accendersi da sole al buio: sconsigliata.'
@@ -3812,10 +3781,6 @@
   affidabilita: da_verificare
   telai:
   - F54
-  - F55
-  - F56
-  - F57
-  - F60
   note:
     it: 'Ritardo tra la pressione del tasto (o del telecomando) e lo sblocco del baule, senza Smart Opener. Sulle BMW con FEM il parametro si chiama CLM_TIME_DELAY_BOOTLID; nella BDC della F54 di riferimento esiste VAM_TIME_DELAY_BOOTLID, con il prefisso VAM_ al posto di CLM_ come per altri parametri delle chiusure. La corrispondenza è dedotta dal nome: da verificare.'
     en: 'Delay between pressing the button (or fob) and the boot unlocking, without Smart Opener. On BMWs with a FEM the parameter is called CLM_TIME_DELAY_BOOTLID; the reference F54 BDC has VAM_TIME_DELAY_BOOTLID, with the VAM_ prefix instead of CLM_ as for other locking parameters. The match is inferred from the name: to be verified.'

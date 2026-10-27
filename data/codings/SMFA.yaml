@@ -14,7 +14,7 @@
   rischio: medio
   consiglio: ok
   affidabilita: da_verificare
-  telai: &id001
+  telai:
   - F54
   - F55
   - F56
@@ -52,12 +52,15 @@
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
-  telai: *id001
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
   note:
-    it: Sulle auto con sedile elettrico la memoria del riscaldamento può stare nella centralina del sedile oltre
-      che nel BDC (NACHLAUFZEIT_SITZHEIZUNG_FRONT). Se cambiarla nel BDC non basta, prova qui.
-    en: On cars with an electric seat the heating memory may sit in the seat module as well as in the BDC (NACHLAUFZEIT_SITZHEIZUNG_FRONT).
-      If changing it in the BDC is not enough, try here.
+    it: 'Sulle auto con sedile elettrico la memoria del riscaldamento può stare nella centralina del sedile oltre che nel BDC (NACHLAUFZEIT_SITZHEIZUNG_FRONT). Se cambiarla nel BDC non basta, prova qui. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
+    en: 'On cars with an electric seat the heating memory may sit in the seat module as well as in the BDC (NACHLAUFZEIT_SITZHEIZUNG_FRONT). If changing it in the BDC is not enough, try here. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:

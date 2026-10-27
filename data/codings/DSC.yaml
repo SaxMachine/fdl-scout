@@ -18,8 +18,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Fonte mini-f56-forum.de.
     en: 'Source: mini-f56-forum.de.'
@@ -51,24 +49,17 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
-    it: Sulle F5x con ACC a telecamera questi limiti stanno nel DSC, non in una centralina SAS separata. Nella F54
-      di riferimento il massimo ACC è initwert (non impostato) e il minimo 30 km/h. La ripartenza automatica (C_Funktion_AccStopAndGo_aktiv_I)
-      risulta già attiva.
-    en: On F5x with camera-based ACC these limits are in the DSC, not in a separate SAS unit. On the reference F54
-      the ACC maximum is initwert (not set) and the minimum 30 km/h. Automatic restart (C_Funktion_AccStopAndGo_aktiv_I)
-      is already active.
+    it: 'Sulla F54 di riferimento questi limiti esistono sia nel DSC (C_Wunschgeschw_*: massimo ACC initwert, minimo 30 km/h) sia nella SAS (LDM_Wunschgeschw_*: massimo 140, minimo 30; vedi la voce SAS). Non è documentato quale dei due valga sulla F54: le fonti BMW li danno nel DSC, il forum tedesco nell''ICM di una F55 senza SAS. Nel DSC risulta attiva anche C_Funktion_AccStopAndGo_aktiv_I.'
+    en: 'On the reference F54 these limits exist both in the DSC (C_Wunschgeschw_*: ACC maximum initwert, minimum 30 km/h) and in the SAS (LDM_Wunschgeschw_*: maximum 140, minimum 30; see the SAS entry). Which one applies on the F54 is not documented: BMW sources put them in the DSC, the German forum in the ICM of an F55 without SAS. C_Funktion_AccStopAndGo_aktiv_I is also active in the DSC.'
   fonti:
-  - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
-  - https://www.minif56.com/threads/active-cruise-control-541-activating-stop-and-go.87884/
+  - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/?pageNo=286
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
-    valore_letto: initwert / 30
+    valore_letto: C_Wunschgeschw_ACC_max_kmh=initwert, C_Wunschgeschw_min_kmh=30
     esito: Da verificare
   requisiti_sa:
   - '541'
@@ -87,8 +78,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: 'Il quadro ha già SLD_ENABLE aktiv e il DSC ha C_SpeedLimitDevice_I aktiv, ma la funzione C_SLD_Funktion
       è spenta. Su Bimmerfest la combinazione KOMBI SLD_ENABLE + DSC C_SLD_Funktion attiva il limitatore con il

@@ -11,18 +11,12 @@
     target: auc_vorhanden
   rischio: basso
   consiglio: ok
-  affidabilita: confermata
+  affidabilita: da_verificare
   telai:
   - F54
-  - F55
-  - F56
-  - F57
-  - F60
   note:
-    it: 'IHKA ha AUC=AKTIV e il BDC ha il sensore (AIC_AUC_SENSOR analogico): manca solo la voce nel menu della
-      HU.'
-    en: 'IHKA has AUC=AKTIV and the BDC has the sensor (analogue AIC_AUC_SENSOR): only the menu entry in the HU
-      is missing.'
+    it: 'IHKA ha AUC=AKTIV e il BDC ha il sensore (AIC_AUC_SENSOR analogico): manca solo la voce nel menu della HU. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
+    en: 'IHKA has AUC=AKTIV and the BDC has the sensor (analogue AIC_AUC_SENSOR): only the menu entry in the HU is missing. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -42,10 +36,6 @@
   affidabilita: confermata
   telai:
   - F54
-  - F55
-  - F56
-  - F57
-  - F60
   note:
     it: La logica è nel BDC (CLI_DEFAULT_LOCK_AT_SPEED già impostato). Così la gestisci dalle impostazioni del veicolo.
     en: The logic is in the BDC (CLI_DEFAULT_LOCK_AT_SPEED already set). This lets you manage it from the vehicle
@@ -71,10 +61,6 @@
   affidabilita: da_verificare
   telai:
   - F54
-  - F55
-  - F56
-  - F57
-  - F60
   note:
     it: Nel BDC ASP_BEIKLAPPEN è già attivo. Sulla grafica MINI la voce non sempre compare.
     en: ASP_BEIKLAPPEN is already active in the BDC. With the MINI graphics the entry does not always appear.
@@ -101,13 +87,9 @@
   affidabilita: da_verificare
   telai:
   - F54
-  - F55
-  - F56
-  - F57
-  - F60
   note:
-    it: Richiede SA 459 e la centralina SMFA. Serve anche il parametro corrispondente in SMFA, ancora da mappare.
-    en: Requires SA 459 and the SMFA unit. The matching SMFA parameter, not yet mapped, is also needed.
+    it: 'Richiede SA 459 e la centralina SMFA. Serve anche il parametro corrispondente in SMFA, ancora da mappare. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
+    en: 'Requires SA 459 and the SMFA unit. The matching SMFA parameter, not yet mapped, is also needed. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -131,8 +113,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Nel BDC VAM_HORN_AT_SECURE è attivo. La voce permette di attivarla o spegnerla dal menu.
     en: VAM_HORN_AT_SECURE is active in the BDC. The entry lets you switch it on or off from the menu.
@@ -162,14 +142,9 @@
   affidabilita: da_verificare
   telai:
   - F54
-  - F55
-  - F56
-  - F57
-  - F60
   note:
-    it: Accende i sedili in base alla temperatura esterna. Su IHKA monozona MINI il supporto non è garantito.
-    en: Switches the seats on depending on the outside temperature. Support is not guaranteed with the MINI single-zone
-      IHKA.
+    it: 'Accende i sedili in base alla temperatura esterna. Su IHKA monozona MINI il supporto non è garantito. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
+    en: 'Switches the seats on depending on the outside temperature. Support is not guaranteed with the MINI single-zone IHKA. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -193,10 +168,7 @@
   affidabilita: da_verificare
   telai:
   - F54
-  - F55
   - F56
-  - F57
-  - F60
   note:
     it: L'HUD MINI (SA 6AD) è gestito dal KOMBI; la HU decide quali dati di navigazione inviargli.
     en: The MINI HUD (SA 6AD) is driven by the KOMBI; the HU decides which navigation data to send it.
@@ -226,7 +198,6 @@
   - F55
   - F56
   - F57
-  - F60
   note:
     it: Confermato su F54 e F56 (stesso passaggio perm_off → standard). Permette di spegnere la DRL dal menu luci,
       per profilo.
@@ -265,7 +236,6 @@
   - F55
   - F56
   - F57
-  - F60
   note:
     it: 'Confermato su un''altra F54: API_USB_VIDEO = both, più il codec XVID. Riproduzione a vettura ferma.'
     en: 'Confirmed on another F54: API_USB_VIDEO = both, plus the XVID codec. Playback only when stationary.'
@@ -300,13 +270,13 @@
   - F55
   - F56
   - F57
-  - F60
   note:
     it: 'SETTINGS_TIME_AUTOMATIC è già su online e il KOMBI ha GPS_UHR attivo: manca solo il passaggio automatico
       all''ora legale.'
     en: 'SETTINGS_TIME_AUTOMATIC is already set to online and the KOMBI has GPS_UHR active: only the automatic switch
       to daylight saving time is missing.'
   fonti:
+  - https://minkara.carview.co.jp/userid/1338285/car/2786797/5658504/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-22.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
@@ -334,7 +304,6 @@
   - F55
   - F56
   - F57
-  - F60
   note:
     it: 'Su F54 documentato con FF. Toglie i blocchi di inserimento in marcia: il guidatore non deve usarlo mentre
       guida.'
@@ -369,14 +338,9 @@
   affidabilita: da_verificare
   telai:
   - F54
-  - F55
-  - F56
-  - F57
-  - F60
   note:
-    it: Mostra il livello olio nell'iDrive. Funziona solo se il B48 ha il sensore OENS; altrimenti il menu resta
-      vuoto.
-    en: Shows the oil level in iDrive. It only works if the B48 has the OENS sensor; otherwise the menu stays empty.
+    it: 'Mostra il livello olio nell''iDrive. Funziona solo se il B48 ha il sensore OENS; altrimenti il menu resta vuoto. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
+    en: 'Shows the oil level in iDrive. It only works if the B48 has the OENS sensor; otherwise the menu stays empty. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -398,14 +362,13 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Fonte NAM, testata su F55/F56. Si codifica nella HU, non nella centralina ASD. Spegne il suono sintetico
       del motore in abitacolo.
     en: 'Source: NAM, tested on F55/F56. It is coded in the HU, not in the ASD unit. Turns off the synthetic engine
       sound in the cabin.'
   fonti:
+  - https://minkara.carview.co.jp/userid/125014/car/2087329/3641570/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -439,8 +402,8 @@
     en: 'Source: NAM. Shows in iDrive the choice between the ASD_SOUND_1-4 sounds (already active). A gentler alternative
       to switching it off completely.'
   fonti:
+  - https://minkara.carview.co.jp/userid/125014/car/2087329/3641570/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Sport-Features.md
   osservazioni:
@@ -464,8 +427,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Fonte NAM. Serve il controllo pressione diretto con sensori nelle ruote. RDC_DRUCK_TEMP è già su pressione
       e temperatura, quindi è probabile che funzioni.
@@ -508,7 +469,6 @@
     en: 'Source: NAM. Shows the turn indicator in the head-up display.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/Turn-Signals.md
@@ -535,14 +495,11 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Fonte NAM, insieme a KI_PIA_SPEED_LIMIT nel KOMBI (da attivare se non lo è già).
     en: 'Source: NAM, together with KI_PIA_SPEED_LIMIT in the KOMBI (enable it if it is not already).'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -565,13 +522,11 @@
   - F55
   - F56
   - F57
-  - F60
   note:
     it: Fonte NAM.
     en: 'Source: NAM.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
@@ -597,13 +552,11 @@
   - F55
   - F56
   - F57
-  - F60
   note:
     it: Fonte NAM. Dipende dal supporto della lingua italiana.
     en: 'Source: NAM. Depends on support for your language.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
@@ -628,14 +581,11 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Fonte NAM. Usa la suoneria del telefono invece di quella dell'auto.
     en: 'Source: NAM. Uses the phone''s ringtone instead of the car''s.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -670,7 +620,6 @@
     en: 'Source: NAM.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/iDrive-Features.md
   - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
@@ -695,12 +644,11 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Fonte mini-f56-forum.de e minif56.com. Solo estetica (anello LED e schermate JCW).
     en: 'Source: mini-f56-forum.de and minif56.com. Cosmetic only (LED ring and JCW screens).'
   fonti:
+  - https://minkara.carview.co.jp/userid/1338285/car/2786797/5673906/note.aspx
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   osservazioni:
   - telaio: F54
@@ -723,8 +671,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: 'Parte di una procedura su quattro centraline. Nella F54 di riferimento KOMBI, BDC e gran parte della KAFAS
       sono già pronti: mancano questa voce e le due della KAFAS. Procedura completa su F54 (minif56): KOMBI TLC_VERBAUT,
@@ -760,8 +706,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Fonte Bimmerfest. Permette di esportare dati (es. percorsi) su USB.
     en: 'Source: Bimmerfest. Lets you export data (e.g. routes) to USB.'
@@ -791,8 +735,8 @@
   - F57
   - F60
   note:
-    it: Aggiunge la casella in iDrive per scegliere cosa mostrare nel computer di bordo del quadro. Abbinala a DIGITAL_TACHO_ENABLE.
-    en: Adds the checkbox in iDrive to choose what the cluster's on-board computer shows. Pair it with DIGITAL_TACHO_ENABLE.
+    it: 'Aggiunge la casella in iDrive per scegliere cosa mostrare nel computer di bordo del quadro. Abbinala a DIGITAL_TACHO_ENABLE. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
+    en: 'Adds the checkbox in iDrive to choose what the cluster''s on-board computer shows. Pair it with DIGITAL_TACHO_ENABLE. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
   fonti: &id001
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -823,10 +767,8 @@
   - F57
   - F60
   note:
-    it: 'Caselle in iDrive per autonomia, temperatura motore e media di velocità/consumo nel quadro. Sono menu:
-      il KOMBI deve supportarle (BC_MOTORTEMP_ENABLE è già attivo).'
-    en: 'Checkboxes in iDrive for range, engine temperature and average speed/consumption in the cluster. These
-      are menu entries: the KOMBI must support them (BC_MOTORTEMP_ENABLE is already active).'
+    it: 'Caselle in iDrive per autonomia, temperatura motore e media di velocità/consumo nel quadro. Sono menu: il KOMBI deve supportarle (BC_MOTORTEMP_ENABLE è già attivo). Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
+    en: 'Checkboxes in iDrive for range, engine temperature and average speed/consumption in the cluster. These are menu entries: the KOMBI must support them (BC_MOTORTEMP_ENABLE is already active). No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
   fonti: *id001
   osservazioni:
   - telaio: F54
@@ -847,15 +789,9 @@
   affidabilita: da_verificare
   telai:
   - F54
-  - F55
-  - F56
-  - F57
-  - F60
   note:
-    it: 'Voce di menu: accende il volante in base alla temperatura. Non presente nell''elenco BimmerCode MINI, quindi
-      da provare.'
-    en: 'Menu entry: switches the wheel heating on depending on the temperature. Not in the BimmerCode MINI list,
-      so it needs testing.'
+    it: 'Voce di menu: accende il volante in base alla temperatura. Non presente nell''elenco BimmerCode MINI, quindi da provare. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
+    en: 'Menu entry: switches the wheel heating on depending on the temperature. Not in the BimmerCode MINI list, so it needs testing. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -919,9 +855,9 @@
     it: Elenco BimmerCode. Su un'altra F54 documentato 02_RR. Solo gusto personale.
     en: BimmerCode list. Documented as 02_RR on another F54. Purely a matter of taste.
   fonti:
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-40.html
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-13.html
+  - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/?pageNo=225
   - https://bimmercode.app/vehicles/f56
-  - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
   - https://minkara.carview.co.jp/userid/125014/car/2087329/5550627/note.aspx
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -992,8 +928,8 @@
   - F57
   - F60
   note:
-    it: Mostra un riquadro a schermo quando cambi distribuzione aria o modalità AUTO.
-    en: Shows a box on screen when you change air distribution or AUTO mode.
+    it: 'Mostra un riquadro a schermo quando cambi distribuzione aria o modalità AUTO. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
+    en: 'Shows a box on screen when you change air distribution or AUTO mode. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
   fonti: *id001
   osservazioni:
   - telaio: F54
@@ -1105,7 +1041,6 @@
   - F55
   - F56
   - F57
-  - F60
   note:
     it: Fonte Bimmerfest, mai confermata. Aggiunge la voce in iDrive; serve che il BDC supporti la funzione.
     en: 'Source: Bimmerfest, never confirmed. Adds the entry in iDrive; the BDC must support the function.'
@@ -1142,7 +1077,6 @@
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/siegester.xml
@@ -1179,7 +1113,6 @@
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -1211,8 +1144,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Fonti NAM e Bimmerfest, in aggiunta a API_USB_VIDEO e XVID. ENT_MC_VIDEO_SUPPORT permette di salvare i video
       sul disco della HU.
@@ -1220,7 +1151,6 @@
       videos to the HU''s disk.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -1252,7 +1182,6 @@
   - F55
   - F56
   - F57
-  - F60
   note:
     it: Fonte Bimmerfest. Riproduce musica e video da un dispositivo in rete Wi-Fi (DLNA).
     en: 'Source: Bimmerfest. Plays music and video from a device on the Wi-Fi network (DLNA).'
@@ -1282,8 +1211,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Fonte Bimmerfest.
     en: 'Source: Bimmerfest.'
@@ -1314,8 +1241,8 @@
   - F57
   - F60
   note:
-    it: Collegato alla voce BimmerCode che separa la luminosità delle luci ambiente da quella del quadro.
-    en: Linked to the BimmerCode entry that separates ambient light brightness from cluster brightness.
+    it: 'Collegato alla voce BimmerCode che separa la luminosità delle luci ambiente da quella del quadro. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
+    en: 'Linked to the BimmerCode entry that separates ambient light brightness from cluster brightness. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
   fonti: *id001
   osservazioni:
   - telaio: F54
@@ -1338,8 +1265,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: 'Fonte Bimmerfest. Parte dello Speed Limit Assist: va insieme alle voci LDM_ISA di KOMBI, DSC e SAS.'
     en: 'Source: Bimmerfest. Part of Speed Limit Assist: goes together with the LDM_ISA entries in KOMBI, DSC and
@@ -1556,6 +1481,7 @@
     en: Shows power and torque in iDrive. For M colours see the dedicated entry. Parameter present in the reference
       F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
+  - https://minkara.carview.co.jp/userid/1338285/car/2786797/5673906/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-12.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -2149,6 +2075,7 @@
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
+  - https://minkara.carview.co.jp/userid/1338285/car/2786797/5658504/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-22.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml

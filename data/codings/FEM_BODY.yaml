@@ -70,7 +70,6 @@
   - F20
   - F30
   - F80
-  - F82
   note:
     it: 'Ritardo tra la pressione del tasto (o del telecomando) e lo sblocco del baule, senza Smart Opener.'
     en: 'Delay between pressing the button (or fob) and the boot unlocking, without Smart Opener.'

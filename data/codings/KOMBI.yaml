@@ -18,11 +18,11 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Aggiunge la pagina di distanza al BC del quadro.
     en: Adds the distance page to the cluster's on-board computer.
+  fonti:
+  - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/?pageNo=322
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -44,11 +44,11 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: 'BC_ANKUNFTSZEIT_ENABLE è già attivo: manca solo la voce selezionabile.'
     en: 'BC_ANKUNFTSZEIT_ENABLE is already active: only the selectable entry is missing.'
+  fonti:
+  - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/?pageNo=322
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -65,17 +65,12 @@
     target: aktiv
   rischio: basso
   consiglio: ok
-  affidabilita: confermata
+  affidabilita: da_verificare
   telai:
   - F54
-  - F55
-  - F56
-  - F57
-  - F60
   note:
-    it: L'HUD lo fa già (HUD_SLI_WARNUNG_ENABLE). Così il segnale lampeggia anche nel quadro quando l'HUD è spento.
-    en: The HUD already does it (HUD_SLI_WARNUNG_ENABLE). This makes the sign flash in the cluster too when the
-      HUD is off.
+    it: 'L''HUD lo fa già (HUD_SLI_WARNUNG_ENABLE). Così il segnale lampeggia anche nel quadro quando l''HUD è spento. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
+    en: 'The HUD already does it (HUD_SLI_WARNUNG_ENABLE). This makes the sign flash in the cluster too when the HUD is off. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -131,10 +126,10 @@
   - F55
   - F56
   - F57
-  - F60
   note:
     it: ''
   fonti:
+  - https://minkara.carview.co.jp/userid/1338285/car/2786797/5658504/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-12.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/11
@@ -159,13 +154,9 @@
   affidabilita: da_verificare
   telai:
   - F54
-  - F55
-  - F56
-  - F57
-  - F60
   note:
-    it: Il quadro IC_MID non ha sempre la grafica per mostrarla.
-    en: The IC_MID cluster does not always have the graphics to show it.
+    it: 'Il quadro IC_MID non ha sempre la grafica per mostrarla. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
+    en: 'The IC_MID cluster does not always have the graphics to show it. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -189,8 +180,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Richiede supporto in DSC e KAFAS oltre al KOMBI. Non procedere senza l'FWL del DSC.
     en: Needs support in the DSC and KAFAS as well as the KOMBI. Do not go ahead without the DSC FWL.
@@ -221,8 +210,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: ''
   fonti:
@@ -256,7 +243,6 @@
     en: 'Source: NAM. Owners report a much more readable cluster in sunlight.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Instrument-Cluster.md
   osservazioni:
@@ -320,6 +306,7 @@
     it: Elenco BimmerCode. Permette di lasciare il computer di bordo senza dati, per un quadro più pulito.
     en: BimmerCode list. Lets you leave the on-board computer without data, for a cleaner cluster.
   fonti:
+  - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/?pageNo=322
   - https://bimmercode.app/vehicles/f56
   osservazioni:
   - telaio: F54
@@ -409,15 +396,15 @@
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
-  telai: &id001
+  telai:
   - F54
   - F55
   - F56
   - F57
   - F60
   note:
-    it: Cambia il valore massimo della barra del consumo nel quadro.
-    en: Changes the maximum value of the consumption bar in the cluster.
+    it: 'Cambia il valore massimo della barra del consumo nel quadro. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
+    en: 'Changes the maximum value of the consumption bar in the cluster. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -436,11 +423,16 @@
     target: aktiv
   rischio: basso
   consiglio: ok
-  affidabilita: confermata
-  telai: *id001
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
   note:
-    it: Aggiunge la data tra le voci del computer di bordo.
-    en: Adds the date to the on-board computer items.
+    it: 'Aggiunge la data tra le voci del computer di bordo. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
+    en: 'Adds the date to the on-board computer items. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -468,15 +460,13 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Citati su Bimmerfest insieme al riconoscimento dei limiti di velocità (già attivo nella F54 di riferimento).
       TSM dovrebbe mostrare anche altri cartelli memorizzati; l'effetto su MINI non è confermato.
     en: Mentioned on Bimmerfest together with speed limit recognition (already active on the reference F54). TSM
       should also show other stored signs; the effect on MINI is not confirmed.
   fonti:
-  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-28.html
+  - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-40.html
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   osservazioni:
   - telaio: F54
@@ -1155,7 +1145,6 @@
   - F54
   - F55
   - F56
-  - F57
   note:
     it: 'Va codificata insieme alla voce sulla HU (stessi tre parametri in HU_NBT2): servono tutte e due perché il contagiri compaia nell''HUD. Richiede l''HUD.'
     en: 'Code it together with the HU entry (same three parameters in HU_NBT2): both are needed for the rev counter to show in the HUD. Requires the HUD.'
@@ -1191,8 +1180,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: 'Parte KOMBI dell''attivazione SLI documentata su una F56: servono anche la KAFAS (SLI_ON_OFF e NPI_ON_OFF) e sulla HU SPEEDLIMIT_INFO o, con EntryNav2, SLI_NAVI_DISPLAY. Richiede la telecamera frontale.'
     en: 'KOMBI part of the SLI activation documented on an F56: the KAFAS (SLI_ON_OFF and NPI_ON_OFF) is also needed, and on the HU SPEEDLIMIT_INFO or, with EntryNav2, SLI_NAVI_DISPLAY. Requires the front camera.'

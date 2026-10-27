@@ -16,8 +16,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: Al riavvio il ricircolo resta come l'avevi lasciato.
     en: After a restart recirculation stays as you left it.
@@ -44,16 +42,12 @@
     regolabile: true
   rischio: basso
   consiglio: ok
-  affidabilita: confermata
+  affidabilita: da_verificare
   telai:
   - F54
-  - F55
-  - F56
-  - F57
-  - F60
   note:
-    it: Manca la pompa acqua elettrica supplementare (ZUSATZWASSERPUMPE non montata).
-    en: Missing the auxiliary electric water pump (ZUSATZWASSERPUMPE not fitted).
+    it: 'Manca la pompa acqua elettrica supplementare (ZUSATZWASSERPUMPE non montata). Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
+    en: 'Missing the auxiliary electric water pump (ZUSATZWASSERPUMPE not fitted). No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -75,8 +69,6 @@
   - F54
   - F55
   - F56
-  - F57
-  - F60
   note:
     it: ''
   fonti:
@@ -110,8 +102,8 @@
   - F57
   - F60
   note:
-    it: Elenco BimmerCode. Il display del clima cambia colore (rosso/blu) quando alzi o abbassi la temperatura.
-    en: BimmerCode list. The climate display changes colour (red/blue) when you raise or lower the temperature.
+    it: 'Elenco BimmerCode. Il display del clima cambia colore (rosso/blu) quando alzi o abbassi la temperatura. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
+    en: 'BimmerCode list. The climate display changes colour (red/blue) when you raise or lower the temperature. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:
