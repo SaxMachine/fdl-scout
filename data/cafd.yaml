@@ -36,6 +36,9 @@ cafd:
   "00001F86": SAS         # ACC (parametri LDM_*), da FWL reale
   "0000146B": PMA         # in E-Sys PMA2, da FWL reale (anche F15 nelle fonti)
   "00002ACA": LMV         # ripartitore di coppia ALL4 (frizione HOK), da FWL reale
+  "0000123C": EPS         # servosterzo, da FWL reale
+  # Sulla MINI F54 di riferimento GWS2 (leva del cambio) e BDC_GW (gateway) non hanno
+  # codifica leggibile in E-Sys: non c'è un FWL da esportare.
   # Da qui in giù: CAFD documentati nei cheat sheet di E-Sys Launcher raccolti in
   # https://github.com/packetpilot/bmw-f (attributi cafd id, name e series). Il nome è
   # quello di E-Sys; tra parentesi i telai indicati dalla fonte.
@@ -146,3 +149,4 @@ nomi:
   HU_CIC: { it: "Head unit CIC", en: "CIC head unit" }
   EGS: { it: "Cambio automatico", en: "Automatic transmission" }
   LMV: { it: "Ripartitore di coppia ALL4", en: "ALL4 torque distributor" }
+  EPS: { it: "Servosterzo elettrico", en: "Electric power steering" }
