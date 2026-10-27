@@ -65,6 +65,9 @@
     en: The siren gives a short chirp when you lock (Schaerfen) and when you unlock (Entschaerfen). You can enable
       just one of the two.
   fonti: *id001
+  fonti:
+  - https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=92
+  - https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=93
   osservazioni:
   - telaio: F54
     anno: 2022

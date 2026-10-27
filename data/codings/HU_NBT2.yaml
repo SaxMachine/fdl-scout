@@ -50,6 +50,8 @@
     it: La logica è nel BDC (CLI_DEFAULT_LOCK_AT_SPEED già impostato). Così la gestisci dalle impostazioni del veicolo.
     en: The logic is in the BDC (CLI_DEFAULT_LOCK_AT_SPEED already set). This lets you manage it from the vehicle
       settings.
+  fonti:
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -139,6 +141,7 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -235,6 +238,8 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://minkara.carview.co.jp/userid/208084/car/3468327/7478892/note.aspx
+  - https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=125
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -270,6 +275,7 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -336,6 +342,8 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
+  - https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=15
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -465,6 +473,7 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -499,6 +508,8 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/Turn-Signals.md
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
+  - https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=111
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -559,6 +570,7 @@
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -590,6 +602,7 @@
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -623,6 +636,8 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/11
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -654,6 +669,7 @@
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/iDrive-Features.md
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -941,6 +957,9 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/11
+  - https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=83
+  - https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=91
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1121,6 +1140,7 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/siegester.xml
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1199,6 +1219,7 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1233,6 +1254,7 @@
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1459,6 +1481,7 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1528,6 +1551,7 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=140
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1664,6 +1688,9 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/11
+  - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -2372,6 +2399,8 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/butterflywaltz/BMW_Coding/blob/main/FDL%20Codes/HU_FDL_Final.txt
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://minkara.carview.co.jp/userid/3574209/car/3489593/7495761/note.aspx
+  - https://www.minif56.com/threads/the-other-coding-options-tracker-f55-f56-f54.40969/
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -2563,6 +2592,7 @@
       in GitHub cheat sheets.
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -2628,6 +2658,7 @@
       GitHub cheat sheets.
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -2998,6 +3029,8 @@
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/Radio-Settings.md
+  - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/11
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -3114,6 +3147,7 @@
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/iDrive-Features.md
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -3763,6 +3797,7 @@
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://www.minif56.com/threads/the-other-coding-options-tracker-f55-f56-f54.40969/
   osservazioni:
   - telaio: F54
     anno: 2022

@@ -107,6 +107,7 @@
   fonti:
   - https://minkara.carview.co.jp/userid/3574209/car/3489593/7495761/note.aspx
   - https://github.com/butterflywaltz/BMW_Coding/blob/main/FDL%20Codes/KOMBI_FDL_Final.txt
+  - https://www.minif56.com/threads/the-other-coding-options-tracker-f55-f56-f54.40969/
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -134,6 +135,9 @@
     it: ''
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/11
+  - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -542,6 +546,10 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/11
+  - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
+  - https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=23
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -666,6 +674,8 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/Turn-Signals.md
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
+  - https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=111
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -801,6 +811,7 @@
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Instrument-Cluster.md
+  - https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=108
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1060,6 +1071,7 @@
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -1120,4 +1132,37 @@
     anno: 2022
     i_level: F056-26-03-519
     valore_letto: R_GANG_AKUSTIK_ENABLE=nicht_aktiv
+    esito: Da verificare
+- id: kombi.indicatore-sportivo-hud
+  centralina: KOMBI
+  titolo:
+    it: Indicatore sportivo nell'HUD (parte KOMBI)
+    en: Sport display in the HUD (KOMBI part)
+  parametri:
+  - nome: HUD_SPORTANZEIGE_ENABLE
+    target: aktiv
+  - nome: HUD_SPORTANZEIGE_FES_ENABLE
+    target: aktiv
+  - nome: HUD_SPORTANZEIGE_MS_GASSE_ENABLE
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - F55
+  - F56
+  - F57
+  note:
+    it: 'Va codificata insieme alla voce sulla HU (stessi tre parametri in HU_NBT2): servono tutte e due perché il contagiri compaia nell''HUD. Richiede l''HUD.'
+    en: 'Code it together with the HU entry (same three parameters in HU_NBT2): both are needed for the rev counter to show in the HUD. Requires the HUD.'
+  fonti:
+  - https://www.minif56.com/threads/the-other-coding-options-tracker-f55-f56-f54.40969/
+  - https://minkara.carview.co.jp/userid/3574209/car/3489593/7495761/note.aspx
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: HUD_SPORTANZEIGE_ENABLE=aktiv, HUD_SPORTANZEIGE_FES_ENABLE=aktiv, HUD_SPORTANZEIGE_MS_GASSE_ENABLE=aktiv
     esito: Da verificare

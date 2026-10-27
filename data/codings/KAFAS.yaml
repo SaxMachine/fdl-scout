@@ -514,3 +514,99 @@
     i_level: F056-26-03-519
     valore_letto: COUNTRY_VARIATION=ECE, TSM_COUNTRY_VARIATION=ECE, COUNTRY_CODING_DISPLAY=country_specific
     esito: Da verificare
+- id: kafas.avviso-collisione-spento
+  centralina: KAFAS
+  titolo:
+    it: Spegnere l'avviso di collisione frontale
+    en: Turn off the forward collision warning
+  parametri:
+  - nome: FCW_ON_OFF
+    target: '00'
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F39
+  - F45
+  - F46
+  - F48
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Con FCW_off l''avviso resta spento e il tasto non lo riattiva più. Provato su una X1 F48 (KAFAS2, gruppo 3060/3150). Sulla F54 il valore di fabbrica ha lo stesso nome della F48 (FCW_on_ENCAP_F45_F46_F48), quindi la centralina è la stessa famiglia. Riguarda la sicurezza attiva: sconsigliata.'
+    en: 'With FCW_off the warning stays off and the button cannot turn it back on. Tested on an X1 F48 (KAFAS2, group 3060/3150). On the F54 the factory value has the same name as on the F48 (FCW_on_ENCAP_F45_F46_F48), so the unit is the same family. Active safety: not recommended.'
+  fonti:
+  - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/5
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: FCW_ON_OFF=FCW_on_ENCAP_F45_F46_F48
+    esito: Da verificare
+- id: kafas.pre-crash-spento
+  centralina: KAFAS
+  titolo:
+    it: Spegnere la frenata pre-crash
+    en: Turn off pre-crash braking
+  parametri:
+  - nome: PRE_CRASH_ON_OFF
+    target: '00'
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F39
+  - F45
+  - F46
+  - F48
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'È la funzione che può frenare l''auto da sola prima di un urto. Provato su una X1 F48 (KAFAS2, gruppo 3060/3150). Sulla F54 il valore di fabbrica ha lo stesso nome della F48 (pre_crash_on_ENCAP_F45_F46_F48), quindi la centralina è la stessa famiglia. Riguarda la sicurezza attiva: sconsigliata.'
+    en: 'This is the function that can brake the car by itself before a crash. Tested on an X1 F48 (KAFAS2, group 3060/3150). On the F54 the factory value has the same name as on the F48 (pre_crash_on_ENCAP_F45_F46_F48), so the unit is the same family. Active safety: not recommended.'
+  fonti:
+  - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/5
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: PRE_CRASH_ON_OFF=pre_crash_on_ENCAP_F45_F46_F48
+    esito: Da verificare
+- id: kafas.avviso-pedoni-spento
+  centralina: KAFAS
+  titolo:
+    it: Spegnere l'avviso pedoni
+    en: Turn off the pedestrian warning
+  parametri:
+  - nome: PPP_MANUAL_ACTIVATION_ON_OFF
+    target: '00'
+  rischio: alto
+  consiglio: sconsigliata
+  affidabilita: da_verificare
+  telai:
+  - F39
+  - F45
+  - F46
+  - F48
+  - F54
+  - F55
+  - F56
+  - F57
+  - F60
+  note:
+    it: 'Disattiva la protezione pedoni della telecamera. Provato su una X1 F48 (KAFAS2, gruppo 3060/3150). Il parametro esiste con lo stesso nome nella KAFAS della F54, che per FCW e pre-crash usa gli stessi valori ENCAP F45/F46/F48. Riguarda la sicurezza attiva: sconsigliata.'
+    en: 'Disables the camera pedestrian protection. Tested on an X1 F48 (KAFAS2, group 3060/3150). The parameter exists with the same name in the F54 KAFAS, which uses the same ENCAP F45/F46/F48 values for FCW and pre-crash. Active safety: not recommended.'
+  fonti:
+  - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/5
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: PPP_MANUAL_ACTIVATION_ON_OFF=default
+    esito: Da verificare
