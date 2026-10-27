@@ -147,3 +147,11 @@ test('le centraline BMW si riconoscono dal nome e NBT non diventa NBT EVO', () =
   assert.equal(identifyEcu(parseFwl('CAF_ID:05 00 00 99 99 001 001 001\nA: b [00]', 'FEM_BODY_backup.fwl'), map).ecu, 'FEM_BODY');
   assert.equal(identifyEcu(parseFwl('CAF_ID:05 00 00 99 98 001 001 001\nA: b [00]', 'HU_NBT.fwl'), map).ecu, 'HU_NBT');
 });
+
+test('i nomi di E-Sys di una MINI F54 portano alla stessa centralina', () => {
+  const map = { cafd: {}, alias: { HU_ENTRYNAV2: 'HU_NBT2', ICAM2: 'TRSVC', PMA2: 'PMA' }, firme: {} };
+  const p = n => parseFwl('CAF_ID:05 00 00 99 97 001 001 001\nA: b [00]', n);
+  assert.equal(identifyEcu(p('HU_ENTRYNAV2.fwl'), map).ecu, 'HU_NBT2');
+  assert.equal(identifyEcu(p('ICAM2.fwl'), map).ecu, 'TRSVC');
+  assert.equal(identifyEcu(p('PMA2.fwl'), map).ecu, 'PMA');
+});

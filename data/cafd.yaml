@@ -33,6 +33,9 @@ cafd:
   "0000297A": DSC
   "000031C9": EGS         # cambio automatico, in E-Sys "EGS5"
   "00005B2B": KOMBI
+  "00001F86": SAS         # ACC (parametri LDM_*), da FWL reale
+  "0000146B": PMA         # in E-Sys PMA2, da FWL reale (anche F15 nelle fonti)
+  "00002ACA": LMV         # ripartitore di coppia ALL4 (frizione HOK), da FWL reale
   # Da qui in giù: CAFD documentati nei cheat sheet di E-Sys Launcher raccolti in
   # https://github.com/packetpilot/bmw-f (attributi cafd id, name e series). Il nome è
   # quello di E-Sys; tra parentesi i telai indicati dalla fonte.
@@ -65,7 +68,6 @@ cafd:
   "00001A33": DSC         # (F30, F80)
   "000000D8": DSC         # (F01)
   "00000C18": DSC         # (F01, F10)
-  "0000146B": PMA         # PMA_PDC (F15)
   "0000067B": ICM         # (F01, F10)
   "00000052": ICM         # (F01)
   "000013D8": ICM         # (F15)
@@ -84,6 +86,17 @@ alias:
   FLER: FLE
   FLEL: FLE
   EGS5: EGS
+  # Nomi che E-Sys mostra su una MINI F54 del 2022 per gli stessi CAFD.
+  HU_ENTRYNAV2: HU_NBT2
+  ICAM2: TRSVC
+  SM2: SMFA
+  ACSM2: ACSM
+  DSC2: DSC
+  KAFAS2: KAFAS
+  IHKA3: IHKA
+  ZBE3: ZBE
+  DME_BAC3: DME
+  PMA2: PMA
 
 # Altri nomi di centralina proposti quando si sceglie a mano (BMW serie F senza voci
 # nel database). Si può sempre scrivere il nome esatto che mostra E-Sys.
@@ -132,3 +145,4 @@ nomi:
   HU_NBT: { it: "Head unit NBT", en: "NBT head unit" }
   HU_CIC: { it: "Head unit CIC", en: "CIC head unit" }
   EGS: { it: "Cambio automatico", en: "Automatic transmission" }
+  LMV: { it: "Ripartitore di coppia ALL4", en: "ALL4 torque distributor" }

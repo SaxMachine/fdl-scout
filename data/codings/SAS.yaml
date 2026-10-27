@@ -83,7 +83,7 @@
   parametri:
   - nome: LDM_STA_Einschraenkung
     regolabile: true
-  - nome: LDM_Stauassisten_vorhanden
+  - nome: LDM_Stauassistent_vorhanden
     regolabile: true
   valori_suggeriti:
     it: keine Einschraenkung / true

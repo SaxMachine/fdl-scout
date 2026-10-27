@@ -129,7 +129,7 @@ function renderUnits() {
     const picker = el('input', {
       type: 'text', list: 'ecuNames', value: f.ecu || '', placeholder: t().chooseEcu, 'aria-label': t().chooseEcu,
       autocomplete: 'off', spellcheck: 'false', class: 'ecu-input',
-      onchange: e => { const v = e.target.value.trim().toUpperCase().replace(/\s+/g, '_'); f.ecu = v || null; f.how = f.ecu ? 'manuale' : null; refresh(); },
+      onchange: e => { const v = e.target.value.trim().toUpperCase().replace(/\s+/g, '_'); f.ecu = (state.map.alias || {})[v] || v || null; // nome di E-Sys -> nome del database f.how = f.ecu ? 'manuale' : null; refresh(); },
     });
     return el('li', { class: 'unit' + (f.ecu ? '' : ' unknown') },
       f.ecu ? el('strong', { text: f.ecu }) : picker,
