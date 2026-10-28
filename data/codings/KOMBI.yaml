@@ -212,8 +212,6 @@
   - F56
   note:
     it: ''
-  insieme_a:
-  - kafas.divieto-sorpasso-hud-telecamera
   fonti:
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -603,9 +601,6 @@
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
-  insieme_a:
-  - hu_nbt2.elenchi-musicali-nell-hud
-  - hu_nbt2.telefono-e-media-nell-hud
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -668,8 +663,6 @@
       F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Goes with HUD_TURNSIGNAL in the HU. One source says not with the 6WB digital cluster. Parameter present
       in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
-  insieme_a:
-  - hu_nbt2.frecce-nell-hud
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -842,10 +835,6 @@
       su GitHub.
     en: ACC required. Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat
       sheets.
-  insieme_a:
-  - hu_nbt2.distanza-alla-prossima-svolta-nell-hud
-  - kafas.distanza-acc-nell-hud
-  - kafas.distanza-dal-veicolo-che-precede
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/HUD.md
@@ -989,8 +978,6 @@
       la codifica è documentata nei cheat sheet su GitHub.'
     en: 'First part of the limiter: see the DSC entry. Parameter present in the reference F54 FWL files; the coding
       is documented in GitHub cheat sheets.'
-  insieme_a:
-  - dsc.limitatore-di-velocita
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Instrument-Cluster.md
@@ -1020,8 +1007,6 @@
       nei cheat sheet su GitHub.
     en: Goes with SPA_CHECKBOX in the HU. Parameter present in the reference F54 FWL files; the coding is documented
       in GitHub cheat sheets.
-  insieme_a:
-  - hu_nbt2.casella-punto-di-cambiata
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -1163,8 +1148,6 @@
   note:
     it: 'Va codificata insieme alla voce sulla HU (stessi tre parametri in HU_NBT2): servono tutte e due perché il contagiri compaia nell''HUD. Richiede l''HUD.'
     en: 'Code it together with the HU entry (same three parameters in HU_NBT2): both are needed for the rev counter to show in the HUD. Requires the HUD.'
-  insieme_a:
-  - hu_nbt2.indicatore-sportivo-hud
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-24.html
   - https://www.minif56.com/threads/the-other-coding-options-tracker-f55-f56-f54.40969/
@@ -1200,9 +1183,6 @@
   note:
     it: 'Parte KOMBI dell''attivazione SLI documentata su una F56: servono anche la KAFAS (SLI_ON_OFF e NPI_ON_OFF) e sulla HU SPEEDLIMIT_INFO o, con EntryNav2, SLI_NAVI_DISPLAY. Richiede la telecamera frontale.'
     en: 'KOMBI part of the SLI activation documented on an F56: the KAFAS (SLI_ON_OFF and NPI_ON_OFF) is also needed, and on the HU SPEEDLIMIT_INFO or, with EntryNav2, SLI_NAVI_DISPLAY. Requires the front camera.'
-  insieme_a:
-  - hu_nbt2.info-limite-di-velocita
-  - kafas.divieto-sorpasso-hud-telecamera
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-40.html
   osservazioni:

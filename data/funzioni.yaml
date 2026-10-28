@@ -1,0 +1,67 @@
+# Funzioni che si attivano cambiando parametri in più voci, spesso in centraline diverse.
+# Ogni funzione elenca le sue parti (id delle voci in data/codings). La pagina le mostra
+# come una scheda unica e la lista per E-Sys le tiene insieme. Schema: docs/SCHEMA.md
+
+- id: hud-indicatore-sportivo
+  titolo: { it: "Indicatore sportivo (contagiri) nell'HUD", en: "Sport display (rev counter) in the HUD" }
+  parti: [hu_nbt2.indicatore-sportivo-hud, kombi.indicatore-sportivo-hud]
+- id: hud-distanza-acc
+  titolo: { it: "Distanza dell'ACC nell'HUD", en: "ACC distance in the HUD" }
+  parti: [hu_nbt2.distanza-alla-prossima-svolta-nell-hud, kombi.distanza-acc-nell-hud-quadro, kafas.distanza-acc-nell-hud, kafas.distanza-dal-veicolo-che-precede]
+- id: hud-frecce
+  titolo: { it: "Frecce nell'HUD", en: "Turn signals in the HUD" }
+  parti: [hu_nbt2.frecce-nell-hud, kombi.frecce-nell-hud-quadro]
+- id: hud-divieto-sorpasso
+  titolo: { it: "Divieto di sorpasso nell'HUD", en: "No-passing info in the HUD" }
+  parti: [kafas.divieto-sorpasso-hud-telecamera, kombi.limite-e-divieto-di-sorpasso-nell-hud]
+- id: sli-quadro
+  titolo: { it: "Limiti di velocità e divieto di sorpasso nel quadro (SLI)", en: "Speed limits and no-passing info in the cluster (SLI)" }
+  parti: [kombi.limiti-velocita-nel-quadro, hu_nbt2.info-limite-di-velocita, kafas.divieto-sorpasso-hud-telecamera]
+- id: punto-di-cambiata
+  titolo: { it: "Indicatore del punto di cambiata", en: "Shift point indicator" }
+  parti: [hu_nbt2.casella-punto-di-cambiata, kombi.punto-di-cambiata]
+- id: hud-media-telefono
+  titolo: { it: "Media, telefono e comandi vocali nell'HUD", en: "Media, phone and voice in the HUD" }
+  parti: [kombi.hud-media-e-telefono, hu_nbt2.elenchi-musicali-nell-hud, hu_nbt2.telefono-e-media-nell-hud]
+- id: limitatore-lim
+  titolo: { it: "Limitatore di velocità (LIM)", en: "Speed limiter (LIM)" }
+  parti: [dsc.limitatore-di-velocita, kombi.limitatore-nel-quadro]
+- id: memoria-start-stop
+  titolo: { it: "Memoria dello Start/Stop", en: "Start/Stop memory" }
+  parti: [bdc_body.memoria-start-stop-ultimo-stato, dme.memoria-start-stop]
+- id: video-in-marcia
+  titolo: { it: "Video e menu in marcia", en: "Video and menus while driving" }
+  parti: [hu_nbt2.blocchi-in-marcia, hu_nbt2.navigazione-e-menu-in-movimento, hu_nbt2.menu-sblocco-media]
+- id: menu-asd
+  titolo: { it: "Menu dell'Active Sound Design in iDrive", en: "Active Sound Design menu in iDrive" }
+  parti: [hu_nbt2.menu-configurazione-suono-asd, hu_nbt2.suono-asd-4]
+- id: ora-automatica
+  titolo: { it: "Ora automatica (GPS e ora legale)", en: "Automatic time (GPS and daylight saving)" }
+  parti: [hu_nbt2.ora-dalla-navigazione, hu_nbt2.cambio-ora-legale-automatico]
+- id: avvio-senza-freno
+  titolo: { it: "Avvio del motore senza premere il freno", en: "Engine start without pressing the brake" }
+  parti: [bdc_body.avvio-motore-senza-premere-il-freno, bdc_body.avvio-senza-freno-park]
+- id: comfort-finestrini-specchi
+  titolo: { it: "Apertura e chiusura comfort di finestrini, tetto e specchi", en: "Comfort opening and closing of windows, roof and mirrors" }
+  parti: [bdc_body.chiusura-comfort-del-tetto-con-la-chiave, bdc_body.apertura-e-chiusura-comfort-dal-telecomando, bdc_body.apertura-comfort-comfort-access-e-specchi, bdc_body.specchi-ripiegati-con-chiusura-comfort]
+- id: video-usb
+  titolo: { it: "Video da chiavetta USB e altri formati", en: "Video from USB and more formats" }
+  parti: [hu_nbt2.altri-formati-video-da-usb, hu_nbt2.video-da-chiavetta-usb]
+- id: stop-lampeggianti
+  titolo: { it: "Luci di stop lampeggianti in frenata d'emergenza", en: "Flashing brake lights under emergency braking" }
+  parti: [bdc_body.stop-lampeggianti-in-frenata-d-emergenza, bdc_body.velocita-minima-per-le-luci-di-stop-lampeggianti, bdc_body.decelerazione-che-attiva-le-luci-di-stop-lampeggianti, bdc_body.disattivazione-stop-lampeggianti]
+- id: testi-in-marcia
+  titolo: { it: "Testo completo di messaggi e notizie in marcia", en: "Full text of messages and news while driving" }
+  parti: [hu_nbt2.testo-completo-dei-messaggi-in-marcia, hu_nbt2.blocchi-in-marcia]
+- id: gomme-pressione-temperatura
+  titolo: { it: "Pressione e temperatura delle gomme in iDrive", en: "Tyre pressure and temperature in iDrive" }
+  parti: [hu_nbt2.pressione-e-temperatura-gomme, hu_nbt2.pressione-e-temperatura-gomme-in-info-veicolo]
+- id: xview
+  titolo: { it: "xView: inclinometro e bussola", en: "xView: inclinometer and compass" }
+  parti: [hu_nbt2.bussola-e-xview, hu_nbt2.inclinometro-xview]
+- id: importazione-navigazione
+  titolo: { it: "Importazione di percorsi e destinazioni via USB", en: "Route and destination import via USB" }
+  parti: [hu_nbt2.importazione-destinazioni, hu_nbt2.importazione-percorsi-nella-navigazione]
+- id: display-sportivi
+  titolo: { it: "Display sportivi e modalità Sport personalizzabile", en: "Sport displays and customisable Sport mode" }
+  parti: [hu_nbt2.display-sportivi, hu_nbt2.colori-m-display-sportivi, dsc.sport-personalizzabile]

@@ -65,8 +65,18 @@ def load_db():
             if e.get("affidabilita") not in AFFIDABILITA:
                 err(f"affidabilita deve essere uno di {sorted(AFFIDABILITA)}")
             db.append(e)
-    # insieme_a: gli id devono esistere e il legame vale nei due sensi
+    # Funzioni su più voci (data/funzioni.yaml): ogni parte è "insieme_a" alle altre.
     ids = {e["id"] for e in db}
+    byid = {e["id"]: e for e in db}
+    for f in load_functions(errors):
+        for part in f["parti"]:
+            if part not in ids:
+                errors.append(f'funzione {f["id"]}: la parte {part} non esiste')
+        for part in f["parti"]:
+            if part in byid:
+                lst = byid[part].setdefault("insieme_a", [])
+                lst += [o for o in f["parti"] if o != part and o not in lst]
+    # insieme_a: gli id devono esistere e il legame vale nei due sensi
     for e in db:
         for o in e.get("insieme_a", []):
             if o not in ids:
@@ -79,6 +89,28 @@ def load_db():
             if o in byid and e["id"] not in byid[o].setdefault("insieme_a", []):
                 byid[o]["insieme_a"].append(e["id"])
     return db, errors
+
+
+def load_functions(errors=None):
+    """Legge data/funzioni.yaml e lo valida (id unici, titolo, almeno due parti)."""
+    errors = [] if errors is None else errors
+    path = ROOT / "data" / "funzioni.yaml"
+    if not path.exists():
+        return []
+    out, seen = [], set()
+    for f in yaml.safe_load(path.read_text(encoding="utf-8")) or []:
+        fid = f.get("id")
+        if not fid or not re.fullmatch(r"[a-z0-9-]+", str(fid)) or fid in seen:
+            errors.append(f"funzioni.yaml: id mancante, non valido o doppio: {fid}")
+            continue
+        seen.add(fid)
+        if not (f.get("titolo") or {}).get("it") and not (f.get("titolo") or {}).get("en"):
+            errors.append(f"funzione {fid}: manca il titolo")
+        if not isinstance(f.get("parti"), list) or len(f["parti"]) < 2:
+            errors.append(f"funzione {fid}: servono almeno due parti")
+            continue
+        out.append(f)
+    return out
 
 
 def main():
@@ -100,7 +132,7 @@ def main():
     shutil.copytree(ROOT / "web", dist)
     shutil.copytree(ROOT / "src", dist / "src")
     sa = {str(k).upper(): v for k, v in (yaml.safe_load((ROOT / "data" / "sa.yaml").read_text(encoding="utf-8")) or {}).items()}
-    payload = {"generato": datetime.now(timezone.utc).isoformat(timespec="seconds"), "voci": db, "centraline": ecu_map, "sa": sa}
+    payload = {"generato": datetime.now(timezone.utc).isoformat(timespec="seconds"), "voci": db, "funzioni": load_functions(), "centraline": ecu_map, "sa": sa}
     (dist / "db.json").write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
     bust_cache(dist)
     print("✓ sito costruito in dist/")

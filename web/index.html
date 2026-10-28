@@ -79,6 +79,7 @@
   <nav class="tabs" role="tablist">
     <button role="tab" id="tab-codings" aria-controls="panel-codings" aria-selected="true" data-t="tabCodings"></button>
     <button role="tab" id="tab-discover" aria-controls="panel-discover" aria-selected="false"><span data-t="tabDiscover"></span> <span class="tab-count" id="discoverCount"></span></button>
+    <button role="tab" id="tab-compare" aria-controls="panel-compare" aria-selected="false" data-t="tabCompare"></button>
     <button role="tab" id="tab-share" aria-controls="panel-share" aria-selected="false" data-t="tabShare"></button>
   </nav>
 
@@ -99,6 +100,26 @@
     <p class="empty" id="discoverEmpty" data-t="discoverEmpty"></p>
     <input type="search" id="dQ" hidden>
     <div id="discover"></div>
+  </section>
+
+  <section role="tabpanel" id="panel-compare" aria-labelledby="tab-compare" hidden>
+    <h2 data-t="cmpH"></h2>
+    <p class="intro" data-t="cmpIntro"></p>
+    <ol class="ways">
+      <li><span data-t="cmpStep1"></span></li>
+      <li><span data-t="cmpStep2"></span></li>
+      <li><span data-t="cmpStep3"></span></li>
+    </ol>
+    <div class="cmp-pick">
+      <label class="cmp-side"><strong data-t="cmpBefore"></strong><input type="file" id="cmpBefore" multiple accept=".fwl,.txt,.FWL,.TXT"><small id="cmpBeforeNames"></small></label>
+      <label class="cmp-side"><strong data-t="cmpAfter"></strong><input type="file" id="cmpAfter" multiple accept=".fwl,.txt,.FWL,.TXT"><small id="cmpAfterNames"></small></label>
+    </div>
+    <div id="cmpOut"></div>
+    <div class="share-actions" id="cmpActions" hidden>
+      <a class="primary" id="cmpIssue" target="_blank" rel="noopener" data-t="cmpIssue"></a>
+      <button type="button" class="ghost" id="cmpCopy" data-t="cmpCopy"></button>
+    </div>
+    <p class="privacy" data-t="cmpPrivacy"></p>
   </section>
 
   <section role="tabpanel" id="panel-share" aria-labelledby="tab-share" hidden>

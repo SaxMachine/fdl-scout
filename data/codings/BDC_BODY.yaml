@@ -21,8 +21,6 @@
   note:
     it: Già attivo nel BDC. Nella DME risulta Wert_00, ma la funzione la gestisce il BDC.
     en: Already active in the BDC. The DME shows Wert_00, but the function is handled by the BDC.
-  insieme_a:
-  - dme.memoria-start-stop
   fonti:
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5658504/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-12.html
@@ -242,10 +240,6 @@
   - F56
   note:
     it: ''
-  insieme_a:
-  - bdc_body.velocita-minima-per-le-luci-di-stop-lampeggianti
-  - bdc_body.decelerazione-che-attiva-le-luci-di-stop-lampeggianti
-  - bdc_body.disattivazione-stop-lampeggianti
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-5.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -278,10 +272,6 @@
   note:
     it: 'Interruttore generale della chiusura comfort: tenendo premuto il tasto di chiusura si chiudono finestrini e tetto (SA 402) e si ripiegano gli specchi. Le varianti dal telecomando e dal Comfort Access hanno voci a parte.'
     en: 'Master switch of comfort closing: holding the lock button closes the windows and roof (SA 402) and folds the mirrors. The remote and Comfort Access variants have their own entries.'
-  insieme_a:
-  - bdc_body.apertura-e-chiusura-comfort-dal-telecomando
-  - bdc_body.apertura-comfort-comfort-access-e-specchi
-  - bdc_body.specchi-ripiegati-con-chiusura-comfort
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
@@ -460,10 +450,6 @@
   - F60
   note:
     it: ''
-  insieme_a:
-  - bdc_body.chiusura-comfort-del-tetto-con-la-chiave
-  - bdc_body.apertura-e-chiusura-comfort-dal-telecomando
-  - bdc_body.apertura-comfort-comfort-access-e-specchi
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -1037,10 +1023,6 @@
   note:
     it: Elenco BimmerCode (Gefahrenbremslicht). Abbassa la velocità da cui scattano in frenata d'emergenza.
     en: BimmerCode list (Gefahrenbremslicht). Lowers the speed above which they trigger under emergency braking.
-  insieme_a:
-  - bdc_body.stop-lampeggianti-in-frenata-d-emergenza
-  - bdc_body.decelerazione-che-attiva-le-luci-di-stop-lampeggianti
-  - bdc_body.disattivazione-stop-lampeggianti
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -1075,10 +1057,6 @@
   note:
     it: Elenco BimmerCode.
     en: BimmerCode list.
-  insieme_a:
-  - bdc_body.stop-lampeggianti-in-frenata-d-emergenza
-  - bdc_body.velocita-minima-per-le-luci-di-stop-lampeggianti
-  - bdc_body.disattivazione-stop-lampeggianti
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -1204,8 +1182,6 @@
   note:
     it: Citato su NAM. Toglie un blocco di sicurezza contro le partenze involontarie con la marcia inserita.
     en: Mentioned on NAM. Removes a safety interlock against unintended moves with a gear engaged.
-  insieme_a:
-  - bdc_body.avvio-senza-freno-park
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -1366,10 +1342,6 @@
       E-Sys mostra ''aktiv'' con dato 00: se non funziona, controlla il valore nella lista.'
     en: 'Holding open or close on the remote opens or closes the windows and the roof. On the reference F54 E-Sys
       shows ''aktiv'' with data 00: if it does not work, check the value in the list.'
-  insieme_a:
-  - bdc_body.chiusura-comfort-del-tetto-con-la-chiave
-  - bdc_body.apertura-comfort-comfort-access-e-specchi
-  - bdc_body.specchi-ripiegati-con-chiusura-comfort
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-2.html
   - https://bimmercode.app/vehicles/f56
@@ -1709,10 +1681,6 @@
   note:
     it: 'Interruttori, non ritardi: KOMFORTOEFFNUNG apre i finestrini tenendo premuto il tasto di apertura, KOMFORTSCHLIESSUNG_PA chiude tenendo il dito sulla maniglia (Comfort Access), ASP_AUSKLAPPEN_NACH_KOMFORTSCHLIESSEN riapre gli specchi. Provata con esito su una X1 F48. I ritardi sono nella voce a parte.'
     en: 'Switches, not delays: KOMFORTOEFFNUNG opens the windows by holding the unlock button, KOMFORTSCHLIESSUNG_PA closes by holding a finger on the handle (Comfort Access), ASP_AUSKLAPPEN_NACH_KOMFORTSCHLIESSEN unfolds the mirrors. Tested successfully on an X1 F48. The delays have their own entry.'
-  insieme_a:
-  - bdc_body.chiusura-comfort-del-tetto-con-la-chiave
-  - bdc_body.apertura-e-chiusura-comfort-dal-telecomando
-  - bdc_body.specchi-ripiegati-con-chiusura-comfort
   fonti:
   - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/11
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -2131,8 +2099,6 @@
       la codifica è documentata nei cheat sheet su GitHub.
     en: Removes a safety interlock at start-up. Not recommended. Parameter present in the reference F54 FWL files;
       the coding is documented in GitHub cheat sheets.
-  insieme_a:
-  - bdc_body.avvio-motore-senza-premere-il-freno
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -2856,10 +2822,6 @@
       riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Deceleration below which the brake lights stop flashing. Parameter present in the reference F54 FWL files;
       the coding is documented in GitHub cheat sheets.
-  insieme_a:
-  - bdc_body.stop-lampeggianti-in-frenata-d-emergenza
-  - bdc_body.velocita-minima-per-le-luci-di-stop-lampeggianti
-  - bdc_body.decelerazione-che-attiva-le-luci-di-stop-lampeggianti
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   osservazioni:

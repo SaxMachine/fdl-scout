@@ -300,3 +300,29 @@ dialog pre { background: var(--paper); border: 1px solid var(--rule); border-rad
 .more .together ul { margin: .25rem 0 0 1.1rem; padding: 0; }
 .more .together li { margin: .1rem 0; }
 .row:target { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* ---------- funzioni su più parti ---------- */
+.seg.s-parziale, .legend .s-parziale button::before { background: var(--blue-wash); outline: 1px solid var(--blue); }
+.row.s-parziale .state { color: var(--blue); font-weight: 600; }
+.toggle.s-parziale { border-color: var(--blue); background: var(--blue-wash); }
+.toggle.s-parziale i { left: 50%; transform: translateX(-50%); background: var(--blue); }
+.tag.multi { border-color: var(--ink-2); color: var(--ink); }
+.func-body { padding: 0 0.9rem 0.7rem calc(0.9rem + 2.6rem + 0.9rem); }
+.func-hint, .func-progress { margin: 0.2rem 0 0.5rem; font-size: var(--step--1); color: var(--ink-2); max-width: 70ch; }
+.func-progress { color: var(--blue); }
+.parts { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; }
+.row.part { background: var(--paper); }
+.row.part .row-main { grid-template-columns: auto 1fr; padding-top: 0.55rem; }
+.row.part h3 { font-size: var(--step--1); }
+@media (max-width: 40rem) { .func-body { padding-left: 0.9rem; } }
+
+/* ---------- confronto prima/dopo ---------- */
+.cmp-pick { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 0.75rem; margin: 0 0 1.25rem; max-width: 46rem; }
+.cmp-side { display: grid; gap: 0.4rem; padding: 0.8rem 0.9rem; background: var(--sheet); border: 1px dashed var(--rule); border-radius: 0.6rem; }
+.cmp-side input { max-width: 100%; }
+.cmp-side small { color: var(--ink-2); overflow-wrap: anywhere; }
+.cmp-group { margin: 0 0 1.25rem; }
+.cmp-group h3 { margin: 0 0 0.4rem; font-size: var(--step-0); }
+.cmp-group .ecu { font-family: var(--f-code); }
+.cmp-table td { vertical-align: top; padding: 0.25rem 0.6rem 0.25rem 0; overflow-wrap: anywhere; }
+.cmp-new { color: var(--chili); font-weight: 600; }

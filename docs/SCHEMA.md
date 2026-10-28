@@ -51,7 +51,7 @@ Le codifiche stanno in `data/codings/<CENTRALINA>.yaml`, un file per centralina,
 | `telai` | no | Telai su cui la voce è documentata (es. `F54`, `F30`). Se l'utente carica una FA di un telaio diverso, la pagina lo avvisa. Aggiungi un telaio solo con una fonte o un FWL che lo dimostri: stessa funzione non vuol dire stesso parametro. |
 | `requisiti_sa` | no | Codici SA necessari, es. `['248']` per il volante riscaldato. Se l'utente carica la FA e il codice manca, la voce risulta "Manca l'optional". Metti solo codici verificati. |
 | `note` | no | `it`/`en`: dipendenze, avvertenze, effetti collaterali. Scrivi in modo generale, non riferito alla tua auto. |
-| `insieme_a` | no | Id delle voci da codificare insieme a questa (es. la parte HU e la parte KOMBI della stessa funzione). Il legame vale nei due sensi: basta scriverlo in una delle due voci. La pagina le mostra nella scheda e la lista per E-Sys avvisa se ne manca una. |
+| `insieme_a` | no | Non si scrive a mano: lo calcola la build dalle funzioni in `data/funzioni.yaml` (ogni parte è collegata alle altre). |
 | `fonti` | no | Link alle discussioni o guide da cui viene la voce. Riassumi con parole tue, non copiare i testi. |
 | `osservazioni` | no | Auto su cui il parametro è stato letto: telaio, anno, i-level, valore letto, esito. È la prova empirica della voce. |
 
@@ -64,3 +64,15 @@ Alcuni PSdZData non hanno il nome di certi valori: l'FWL mostra `UnknowParam05 [
 ## Codici SA (`data/sa.yaml`)
 
 Dizionario dei codici optional mostrati nella pagina quando l'utente carica la FA. Contiene solo codici con un significato verificato su una fonte pubblica. Alcuni codici hanno significati diversi tra BMW e MINI, e un nome sbagliato è peggio di nessun nome: se un codice è stato verificato solo su certi telai, indicali in `telai` e la pagina lo nominerà solo per quelle auto. Formato: `"248": { it: "Volante riscaldato", en: "Heated steering wheel" }`, oppure con `telai: [F54, F55, F56, F57, F60]`.
+
+## Funzioni su più voci (`data/funzioni.yaml`)
+
+Una funzione raccoglie le voci che vanno codificate insieme, spesso in centraline diverse. La pagina la mostra come una scheda unica.
+
+```yaml
+- id: hud-indicatore-sportivo
+  titolo: { it: "Indicatore sportivo (contagiri) nell'HUD", en: "Sport display (rev counter) in the HUD" }
+  parti: [hu_nbt2.indicatore-sportivo-hud, kombi.indicatore-sportivo-hud]
+```
+
+Aggiungi una funzione solo se una fonte cambia quei parametri insieme (stesso blocco di un cheat sheet, "Part 1 of 2", una guida che dice che servono tutti). Una voce può stare in più funzioni.

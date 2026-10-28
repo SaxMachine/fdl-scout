@@ -33,6 +33,7 @@ Guida passo passo all'esportazione da E-Sys: [docs/ESPORTARE-DA-ESYS.md](docs/ES
 |---|---|
 | Attivabile | Tutti i parametri esistono nel tuo CAFD e almeno uno non è ancora al valore indicato |
 | Regolabile | I parametri esistono e il valore è a tua scelta (tempi, soglie, luminosità) |
+| Attiva in parte | Funzione su più parti (spesso centraline diverse): alcune sono già a posto, altre no |
 | Già attiva | Tutti i parametri sono già al valore indicato |
 | Manca l'optional | Hai caricato la FA e non c'è l'optional (SA) che la funzione richiede |
 | Non disponibile | La centralina è stata letta ma il tuo CAFD non ha questo parametro |
@@ -40,6 +41,14 @@ Guida passo passo all'esportazione da E-Sys: [docs/ESPORTARE-DA-ESYS.md](docs/ES
 | Da mappare | La funzione è nota ma i nomi dei parametri non sono ancora documentati |
 
 "Attivabile" vuol dire che il parametro esiste, non che la funzione funzionerà di sicuro: alcune voci richiedono hardware (SA) o altre centraline. Leggi sempre le note e il livello di rischio.
+
+### Funzioni su più centraline
+
+Alcune funzioni si attivano solo cambiando parametri in più centraline: per esempio l'indicatore sportivo nell'HUD vuole la HU e il KOMBI, il limitatore di velocità il DSC e il KOMBI. FDL Scout le mostra come una scheda unica con lo stato complessivo e, dentro, le parti per centralina. Spuntando la funzione, la lista per E-Sys contiene tutte le parti che mancano. Le funzioni sono definite in [data/funzioni.yaml](data/funzioni.yaml).
+
+### Prima/dopo
+
+Nella scheda **Prima/dopo** carichi l'FWL di una centralina prima e dopo una codifica (fatta con E-Sys o con un'app) e vedi esattamente quali parametri sono cambiati, con il collegamento alle voci del database o l'indicazione "nuova scoperta". Il confronto si può mandare come segnalazione, senza VIN né dati personali.
 
 ## Eseguire in locale
 
@@ -107,6 +116,7 @@ Step-by-step export guide: [docs/en/EXPORTING-FROM-ESYS.md](docs/en/EXPORTING-FR
 |---|---|
 | Can be enabled | Every parameter exists in your CAFD and at least one is not at the documented value yet |
 | Adjustable | The parameters exist and the value is up to you (times, thresholds, brightness) |
+| Partly on | Multi-part feature (often across units): some parts are already set, others are not |
 | Already on | Every parameter is already at the documented value |
 | Option missing | You loaded the FA and the option (SA) the feature needs is not there |
 | Not available | The unit was read but your CAFD does not have this parameter |
@@ -114,6 +124,14 @@ Step-by-step export guide: [docs/en/EXPORTING-FROM-ESYS.md](docs/en/EXPORTING-FR
 | Not mapped yet | The feature is known but the parameter names are not documented yet |
 
 "Can be enabled" means the parameter exists, not that the feature is guaranteed to work: some entries need hardware (SA) or other units. Always read the notes and the risk level.
+
+### Features across several units
+
+Some features only work when parameters change in several units: the sport display in the HUD needs the HU and the KOMBI, the speed limiter the DSC and the KOMBI. FDL Scout shows them as a single card with the overall state and, inside, the parts per unit. Ticking the feature puts every missing part in the E-Sys list. Features are defined in [data/funzioni.yaml](data/funzioni.yaml).
+
+### Before/after
+
+In the **Before/after** tab you load the FWL of a unit before and after a coding (done with E-Sys or an app) and see exactly which parameters changed, linked to the database entries or marked "new discovery". The comparison can be sent as an issue, without VIN or personal data.
 
 ### Running locally
 

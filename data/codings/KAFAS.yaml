@@ -20,10 +20,6 @@
   note:
     it: Mostra il tempo di distanza. L'ACC su F54 è a telecamera; l'effetto varia.
     en: Shows the time gap. ACC on the F54 is camera-based; the effect varies.
-  insieme_a:
-  - hu_nbt2.distanza-alla-prossima-svolta-nell-hud
-  - kombi.distanza-acc-nell-hud-quadro
-  - kafas.distanza-acc-nell-hud
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -203,10 +199,6 @@
       codifica è documentata nei cheat sheet su GitHub.
     en: Goes with the KOMBI and HU entries. ACC required. Parameter present in the reference F54 FWL files; the
       coding is documented in GitHub cheat sheets.
-  insieme_a:
-  - hu_nbt2.distanza-alla-prossima-svolta-nell-hud
-  - kombi.distanza-acc-nell-hud-quadro
-  - kafas.distanza-dal-veicolo-che-precede
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -384,8 +376,8 @@
   - nome: NPI_ON_OFF
     regolabile: true
   valori_suggeriti:
-    it: 01 nella fonte
-    en: 01 in the source
+    it: 'Sulle BMW F10/F15 la fonte usa 01; su una MINI F56 (NAM) il valore per attivarlo è F056, quello già presente nella F54 di riferimento.'
+    en: 'On BMW F10/F15 the source uses 01; on a MINI F56 (NAM) the value to enable it is F056, which the reference F54 already has.'
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -393,15 +385,12 @@
   - F10
   - F15
   - F54
+  - F56
   note:
     it: Va con HUD_NPI_ENABLE nel KOMBI. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
       nei cheat sheet su GitHub.
     en: Goes with HUD_NPI_ENABLE in the KOMBI. Parameter present in the reference F54 FWL files; the coding is documented
       in GitHub cheat sheets.
-  insieme_a:
-  - kombi.limite-e-divieto-di-sorpasso-nell-hud
-  - kombi.limiti-velocita-nel-quadro
-  - hu_nbt2.info-limite-di-velocita
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-40.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml

@@ -53,7 +53,7 @@ Field names are in Italian because the project started in Italian; they are the 
 | `telai` | no | Chassis the entry is documented on (e.g. `F54`, `F30`). If the user loads an FA from a different chassis, the page warns them. Only add a chassis with a source or an FWL that proves it: same feature does not mean same parameter. |
 | `requisiti_sa` | no | Required SA codes, e.g. `['248']` for the heated steering wheel. If the user loads the FA and the code is missing, the entry shows as "Option missing". Only use verified codes. |
 | `note` | no | `it`/`en`: dependencies, warnings, side effects. Write in general terms, not about your own car. |
-| `insieme_a` | no | Ids of the entries to code together with this one (e.g. the HU part and the KOMBI part of the same function). The link works both ways: writing it in one of the two entries is enough. The page shows them in the card and the E-Sys list warns when one is missing. |
+| `insieme_a` | no | Not written by hand: the build computes it from the features in `data/funzioni.yaml` (each part is linked to the others). |
 | `fonti` | no | Links to the threads or guides the entry comes from. Summarise in your own words, do not copy text. |
 | `osservazioni` | no | Cars the parameter was read on: chassis, year, i-level, value read, result. This is the evidence for the entry. |
 
@@ -66,3 +66,15 @@ Some PSdZData have no name for certain values: the FWL shows `UnknowParam05 [05]
 ## SA codes (`data/sa.yaml`)
 
 Dictionary of option codes shown on the page when the user loads the FA. It only holds codes whose meaning has been verified on a public source. Some codes mean different things on BMW and MINI, and a wrong name is worse than none: if a code was verified only on some chassis, list them in `telai` and the page will name it only for those cars. Format: `"248": { it: "Volante riscaldato", en: "Heated steering wheel" }`, or with `telai: [F54, F55, F56, F57, F60]`.
+
+## Features across several entries (`data/funzioni.yaml`)
+
+A feature groups the entries that must be coded together, often in different units. The page shows it as a single card.
+
+```yaml
+- id: hud-indicatore-sportivo
+  titolo: { it: "Indicatore sportivo (contagiri) nell'HUD", en: "Sport display (rev counter) in the HUD" }
+  parti: [hu_nbt2.indicatore-sportivo-hud, kombi.indicatore-sportivo-hud]
+```
+
+Add a feature only when a source changes those parameters together (same cheat sheet block, "Part 1 of 2", a guide saying all of them are needed). An entry can belong to several features.

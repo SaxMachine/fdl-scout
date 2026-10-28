@@ -13,6 +13,11 @@ export const STATI = /** @type {const} */ ([
   'da_mappare',          // la voce non ha ancora i nomi dei parametri
 ]);
 
+/** Stati di una funzione su più voci: in più c'è "attiva in parte". */
+export const STATI_FUNZIONE = /** @type {const} */ ([
+  'attivabile', 'regolabile', 'parziale', 'attiva', 'manca_optional', 'non_disponibile', 'centralina_non_letta', 'da_mappare',
+]);
+
 /** Confronto tollerante: maiuscole, spazi/trattini bassi e "0x" non contano. */
 const norm = v => String(v).trim().toLowerCase().replace(/^0x/, '').replace(/[\s_]+/g, '_');
 const hexNorm = v => String(v).replace(/\s+/g, '').replace(/^0x/i, '').toUpperCase();
@@ -106,9 +111,40 @@ export function unexplored(db, ecus) {
 
 /** Riepilogo per stato, utile per i contatori della pagina. */
 export function summarize(results) {
-  const c = Object.fromEntries(STATI.map(s => [s, 0]));
+  const c = Object.fromEntries(STATI_FUNZIONE.map(s => [s, 0]));
   for (const r of results) c[r.stato]++;
   return c;
+}
+
+/**
+ * Stato complessivo di una funzione dalle sue parti.
+ * Se una parte non si può fare o non si può sapere (optional, parametro assente, centralina non letta)
+ * quello è lo stato della funzione: senza tutte le parti la funzione non è completa.
+ * Altrimenti: tutte attive = attiva; alcune attive = parziale; nessuna = attivabile o regolabile.
+ */
+export function functionState(stati) {
+  for (const s of ['manca_optional', 'non_disponibile', 'centralina_non_letta', 'da_mappare']) if (stati.includes(s)) return s;
+  if (stati.every(s => s === 'attiva')) return 'attiva';
+  if (stati.includes('attiva')) return 'parziale';
+  return stati.includes('attivabile') ? 'attivabile' : 'regolabile';
+}
+
+/**
+ * Elementi da mostrare: una per funzione (con le sue parti) e una per ogni voce che non fa parte
+ * di nessuna funzione. Una voce può stare in più funzioni.
+ */
+export function buildItems(results, funzioni = []) {
+  const byId = Object.fromEntries(results.map(r => [r.id, r]));
+  const inFunction = new Set();
+  const items = [];
+  for (const f of funzioni) {
+    const parti = f.parti.map(id => byId[id]).filter(Boolean);
+    if (parti.length < 2) continue;
+    parti.forEach(r => inFunction.add(r.id));
+    items.push({ tipo: 'funzione', id: 'funz-' + f.id, funzione: f, parti, stato: functionState(parti.map(r => r.stato)) });
+  }
+  for (const r of results) if (!inFunction.has(r.id)) items.push({ tipo: 'voce', id: r.id, r, stato: r.stato });
+  return items;
 }
 
 /**

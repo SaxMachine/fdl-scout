@@ -1,8 +1,9 @@
 import { parseFwl, identifyEcu } from './src/parser.js';
-import { evaluateAll, unexplored, summarize, esysChecklist, STATI } from './src/matcher.js';
+import { evaluateAll, unexplored, summarize, esysChecklist, buildItems, STATI_FUNZIONE } from './src/matcher.js';
 import { buildFootprint } from './src/footprint.js';
 import { isFa, parseFa } from './src/fa.js';
 import { T } from './i18n.js';
+import { diffParams, entriesForChanges, diffReport } from './src/diff.js';
 
 // Repository pubblico del progetto (link a codice, database e segnalazioni).
 const REPO = 'https://github.com/SaxMachine/fdl-scout';
@@ -32,7 +33,10 @@ const state = {
   fa: null,             // {serie, tipo, produzione, sa[]} dalla FA, senza VIN
   selected: new Set(),
   results: [],
+  funzioni: [],         // funzioni su più voci (data/funzioni.yaml)
+  items: [],            // cosa mostra la lista: funzioni e voci singole
   tab: 'codings',
+  cmp: { before: [], after: [] }, // file per il confronto prima/dopo
 };
 const t = () => T[state.lang];
 const tr = obj => (obj && (obj[state.lang] || obj.it || obj.en)) || '';
@@ -54,6 +58,7 @@ async function loadDb() {
   const r = await fetch('db.json', { cache: 'no-cache' }); // sempre l'ultima versione del database
   const data = await r.json();
   state.db = data.voci;
+  state.funzioni = data.funzioni || [];
   state.map = data.centraline;
   state.sa = data.sa || {};
   $('#dbDate').textContent = `${state.db.length} · ${data.generato.slice(0, 10)}`;
@@ -141,14 +146,14 @@ function renderUnits() {
 }
 
 function renderOverview(counts) {
-  const total = state.results.length;
-  const order = state.files.length ? STATI : ['da_mappare', 'centralina_non_letta'];
+  const total = state.items.length;
+  const order = state.files.length ? STATI_FUNZIONE : ['da_mappare', 'centralina_non_letta'];
   $('#meter').replaceChildren(...order.filter(s => counts[s]).map(s => {
     const seg = el('span', { class: `seg s-${s}`, title: `${t().stati[s]}: ${counts[s]}` });
     seg.style.flexGrow = String(counts[s]); // CSSOM: permesso dalla Content-Security-Policy, l'attributo style no
     return seg;
   }));
-  $('#legend').replaceChildren(...STATI.filter(s => counts[s]).map(s =>
+  $('#legend').replaceChildren(...STATI_FUNZIONE.filter(s => counts[s]).map(s =>
     el('li', { class: `s-${s}` },
       el('button', { type: 'button', title: t().statiHelp[s], onclick: () => { $('#fState').value = s; renderRows(); } },
         el('b', { text: counts[s] }), ' ', t().stati[s]))));
@@ -160,7 +165,7 @@ function renderFilters() {
   const keepE = ecuSel.value, keepS = stSel.value;
   const units = [...new Set(state.db.map(e => e.centralina))].sort();
   ecuSel.replaceChildren(el('option', { value: '', text: t().allEcus }), ...units.map(u => el('option', { value: u, text: u })));
-  stSel.replaceChildren(el('option', { value: '', text: t().allStates }), ...STATI.map(s => el('option', { value: s, text: t().stati[s] })));
+  stSel.replaceChildren(el('option', { value: '', text: t().allStates }), ...STATI_FUNZIONE.map(s => el('option', { value: s, text: t().stati[s] })));
   ecuSel.value = keepE; stSel.value = keepS;
 }
 
@@ -170,23 +175,26 @@ const otherChassis = e => !!(state.fa?.serie && e.telai?.length && !e.telai.incl
 // Se nessuna voce copre il telaio della FA basta l'avviso in cima, senza ripeterlo su ogni riga.
 const chassisCovered = () => state.db.some(e => e.telai?.includes(state.fa?.serie));
 
-const RANK = { attivabile: 0, regolabile: 1, attiva: 2, manca_optional: 3, non_disponibile: 4, centralina_non_letta: 5, da_mappare: 6 };
+const RANK = { attivabile: 0, regolabile: 1, parziale: 2, attiva: 3, manca_optional: 4, non_disponibile: 5, centralina_non_letta: 6, da_mappare: 7 };
 
 function renderRows() {
   const fe = $('#fEcu').value, fs = $('#fState').value, q = $('#fQ').value.trim().toLowerCase(), hide = $('#fHide').checked;
-  const rows = state.results
-    .filter(r => !fe || r.entry.centralina === fe)
-    .filter(r => !fs || r.stato === fs)
-    .filter(r => !hide || r.entry.consiglio !== 'sconsigliata')
-    .filter(r => !q || [tr(r.entry.titolo), r.entry.centralina, ...r.entry.parametri.map(p => p.nome)].join(' ').toLowerCase().includes(q))
-    .sort((a, b) => RANK[a.stato] - RANK[b.stato] || otherChassis(a.entry) - otherChassis(b.entry) || a.entry.centralina.localeCompare(b.entry.centralina));
+  const parts = it => it.tipo === 'funzione' ? it.parti : [it.r];
+  const firstUnit = it => parts(it)[0].entry.centralina;
+  const allOther = it => parts(it).every(r => otherChassis(r.entry));
+  const rows = state.items
+    .filter(it => !fe || parts(it).some(r => r.entry.centralina === fe))
+    .filter(it => !fs || it.stato === fs)
+    .filter(it => !hide || !parts(it).some(r => r.entry.consiglio === 'sconsigliata'))
+    .filter(it => !q || [it.tipo === 'funzione' ? tr(it.funzione.titolo) : '', ...parts(it).flatMap(r => [tr(r.entry.titolo), r.entry.centralina, ...r.entry.parametri.map(p => p.nome)])].join(' ').toLowerCase().includes(q))
+    .sort((a, b) => RANK[a.stato] - RANK[b.stato] || allOther(a) - allOther(b) || (b.tipo === 'funzione') - (a.tipo === 'funzione') || firstUnit(a).localeCompare(firstUnit(b)));
   // Con la FA di un telaio che il database non copre ancora, un avviso unico in cima.
   const serie = state.fa?.serie;
   const covered = serie && state.db.filter(e => e.telai?.includes(serie)).length;
   $('#chassisNote').hidden = !serie || covered > 0;
   if (serie && !covered) $('#chassisNote').textContent = t().chassisNone(serie);
   $('#empty').hidden = rows.length > 0;
-  $('#rows').replaceChildren(...rows.map(rowView));
+  $('#rows').replaceChildren(...rows.map(it => it.tipo === 'funzione' ? functionView(it) : rowView(it.r)));
 }
 
 function valueCell(v) {
@@ -231,9 +239,9 @@ function reportView(e) {
   return el('p', { class: 'report' }, el('a', { href: `${REPO}/issues/new?labels=prova&title=${title}&body=${body}`, target: '_blank', rel: 'noopener noreferrer', text }));
 }
 
-function rowView(r) {
+function rowView(r, nested = false) {
   const e = r.entry;
-  const actionable = r.stato === 'attivabile' || r.stato === 'regolabile';
+  const actionable = !nested && (r.stato === 'attivabile' || r.stato === 'regolabile');
   const id = 'sel-' + e.id.replace(/\W/g, '-');
   const titleLang = e.titolo[state.lang] ? null : el('span', { class: 'lang-fallback', text: e.titolo.it ? 'IT' : 'EN', title: t().notTranslated });
   const switchEl = el('span', { class: `toggle s-${r.stato}`, role: 'img', 'aria-label': t().stati[r.stato] }, el('i'));
@@ -261,12 +269,12 @@ function rowView(r) {
     e.valori_suggeriti ? el('p', {}, el('b', { text: t().suggested + ': ' }), tr(e.valori_suggeriti)) : null,
     e.requisiti_sa?.length ? el('p', {}, el('b', { text: t().needsSa + ': ' }), e.requisiti_sa.join(', ')) : null,
     tr(e.note) ? el('p', { class: 'note', text: tr(e.note) }) : null,
-    togetherView(e),
+    nested ? null : togetherView(e),
     seen.length ? el('p', { class: 'seen', text: `${t().seenOn}: ${seen.join('; ')}` }) : null,
     sourcesView(e.fonti),
     reportView(e));
 
-  return el('li', { id: 'voce-' + e.id, class: `row s-${r.stato}` + (e.consiglio === 'sconsigliata' ? ' advised-against' : '') },
+  return el('li', { id: nested ? null : 'voce-' + e.id, class: `row s-${r.stato}` + (nested ? ' part' : '') + (e.consiglio === 'sconsigliata' ? ' advised-against' : '') },
     el('div', { class: 'row-main' },
       switchEl,
       el('div', { class: 'row-title' },
@@ -276,6 +284,40 @@ function rowView(r) {
         el('input', { type: 'checkbox', id, checked: state.selected.has(e.id), onchange: ev => { ev.target.checked ? state.selected.add(e.id) : state.selected.delete(e.id); renderDock(); } }),
         el('span', { class: 'sr', text: t().addToList })) : null),
     details);
+}
+
+/**
+ * Una funzione su più voci: una scheda sola con lo stato complessivo.
+ * Dentro, le parti (una per voce, spesso in centraline diverse) con il loro stato e i parametri.
+ */
+function functionView(it) {
+  const f = it.funzione, parts = it.parti;
+  const units = [...new Set(parts.map(r => r.entry.centralina))];
+  const todo = parts.filter(r => r.stato === 'attivabile' || r.stato === 'regolabile');
+  const id = 'sel-' + it.id;
+  const riskOrder = { basso: 0, medio: 1, alto: 2 };
+  const risk = parts.map(r => r.entry.rischio).sort((a, b) => riskOrder[b] - riskOrder[a])[0];
+  const tags = [
+    el('span', { class: `risk r-${risk}`, text: t().risk[risk] }),
+    parts.some(r => r.entry.consiglio === 'sconsigliata') ? el('span', { class: 'tag bad', text: t().advisedAgainst }) : null,
+    parts.some(r => r.entry.affidabilita === 'da_verificare') ? el('span', { class: 'tag', text: t().unverified }) : null,
+    el('span', { class: 'tag multi', text: t().funcParts(parts.length, units.length) }),
+  ];
+  const selected = todo.length > 0 && todo.every(r => state.selected.has(r.id));
+  const progress = it.stato === 'parziale' ? el('p', { class: 'func-progress', text: t().funcProgress(parts.filter(r => r.stato === 'attiva').length, parts.length) }) : null;
+  return el('li', { id: 'voce-' + it.id, class: `row func s-${it.stato}` + (parts.some(r => r.entry.consiglio === 'sconsigliata') ? ' advised-against' : '') },
+    el('div', { class: 'row-main' },
+      el('span', { class: `toggle s-${it.stato}`, role: 'img', 'aria-label': t().stati[it.stato] }, el('i')),
+      el('div', { class: 'row-title' },
+        el('h3', {}, tr(f.titolo)),
+        el('p', { class: 'row-sub' }, el('span', { class: 'ecu', text: units.join(' + ') }), ' ', el('span', { class: 'state', text: t().stati[it.stato] }), ...tags)),
+      todo.length ? el('label', { class: 'pick', for: id, title: t().addToList },
+        el('input', { type: 'checkbox', id, checked: selected, onchange: ev => { todo.forEach(r => ev.target.checked ? state.selected.add(r.id) : state.selected.delete(r.id)); renderDock(); } }),
+        el('span', { class: 'sr', text: t().addToList })) : null),
+    el('div', { class: 'func-body' },
+      el('p', { class: 'func-hint', text: t().funcHint }),
+      progress,
+      el('ol', { class: 'parts' }, ...parts.map(r => rowView(r, true)))));
 }
 
 function renderDiscover() {
@@ -351,6 +393,80 @@ $('#shareForm').addEventListener('submit', e => {
   save(`${t().fileFootprint}-${(meta.telaio || t().fileCar).toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${footprint.creata}.json`, JSON.stringify(footprint, null, 2), 'application/json');
 });
 
+// ---------- confronto prima/dopo ----------
+async function readSide(fileList) {
+  const out = [];
+  for (const file of [...fileList]) {
+    const parsed = parseFwl(await file.text(), file.name);
+    const { ecu } = identifyEcu(parsed, state.map);
+    out.push({ name: file.name, parsed, ecu: ecu || file.name });
+  }
+  return out;
+}
+['before', 'after'].forEach(side => {
+  const inp = $(side === 'before' ? '#cmpBefore' : '#cmpAfter');
+  inp.addEventListener('change', async () => { state.cmp[side] = await readSide(inp.files); renderCompare(); });
+});
+
+/** Coppie prima/dopo per centralina; con un solo file per parte li confronta comunque. */
+function comparePairs() {
+  const { before, after } = state.cmp;
+  if (before.length === 1 && after.length === 1) return [{ ecu: after[0].ecu, a: before[0], b: after[0] }];
+  const units = [...new Set([...before, ...after].map(f => f.ecu))];
+  return units.map(ecu => ({ ecu, a: before.find(f => f.ecu === ecu), b: after.find(f => f.ecu === ecu) }));
+}
+
+function renderCompare() {
+  // Il campo file mostra già il nome se è uno solo: l'elenco serve con più file.
+  $('#cmpBeforeNames').textContent = state.cmp.before.length > 1 ? state.cmp.before.map(f => f.name).join(', ') : '';
+  $('#cmpAfterNames').textContent = state.cmp.after.length > 1 ? state.cmp.after.map(f => f.name).join(', ') : '';
+  const out = [], groups = [];
+  if (state.cmp.before.length && state.cmp.after.length) {
+    for (const { ecu, a, b } of comparePairs()) {
+      if (!a || !b) { out.push(el('p', { class: 'chassis-note', text: t().cmpMissing(ecu, a ? t().cmpSideAfter : t().cmpSideBefore) })); continue; }
+      const diff = diffParams(a.parsed.params, b.parsed.params);
+      const entries = entriesForChanges([...diff.changed, ...diff.added], state.db, ecu);
+      const cafd = b.parsed.cafd ? `${b.parsed.cafd}${b.parsed.cafdVersion ? '_' + b.parsed.cafdVersion : ''}` : '';
+      groups.push({ ecu, cafd, diff, entries });
+      const N = x => x.toUpperCase().replace(/[^A-Z0-9]/g, '');
+      const where = nome => entries.filter(e => e.parametri.some(p => N(p.nome) === N(nome)));
+      const cell = v => el('code', { class: 'v', text: v ? `${v.value}${v.hex && v.hex !== v.value ? ' [' + v.hex + ']' : ''}` : '—' });
+      const entryCell = nome => {
+        const list = where(nome);
+        return list.length
+          ? el('td', {}, ...list.flatMap((e, i) => {
+              const f = state.items.find(it => it.tipo === 'funzione' && it.parti.some(r => r.id === e.id)); // le parti stanno dentro la scheda della funzione
+              return [i ? ', ' : null, el('a', { href: '#voce-' + (f ? f.id : e.id), text: tr(e.titolo), onclick: () => showTab('tab-codings') })];
+            }))
+          : el('td', { class: 'cmp-new', text: t().cmpNew });
+      };
+      const rows = [...diff.changed.map(c => [c.nome, c.prima, c.dopo]), ...diff.added.map(c => [c.nome, null, c.dopo]), ...diff.removed.map(c => [c.nome, c.prima, null])];
+      out.push(el('section', { class: 'cmp-group' },
+        el('h3', {}, el('span', { class: 'ecu', text: ecu }), cafd ? ` · CAFD ${cafd}` : ''),
+        a.parsed.cafd && b.parsed.cafd && a.parsed.cafd !== b.parsed.cafd ? el('p', { class: 'chassis-note', text: t().cmpCafd(a.parsed.cafd, b.parsed.cafd) }) : null,
+        rows.length
+          ? el('table', { class: 'params cmp-table' },
+              el('thead', {}, el('tr', {}, el('th', { text: t().cmpParam }), el('th', { text: t().cmpBeforeCol }), el('th', { text: t().cmpAfterCol }), el('th', { text: t().cmpEntryCol }))),
+              el('tbody', {}, ...rows.map(([n, x, y]) => el('tr', {}, el('td', {}, el('code', { text: n })), el('td', {}, cell(x)), el('td', {}, cell(y)), entryCell(n)))))
+          : el('p', { class: 'empty', text: t().cmpNone }),
+        diff.hidden ? el('p', { class: 'privacy', text: t().cmpHidden(diff.hidden) }) : null));
+    }
+  }
+  $('#cmpOut').replaceChildren(...out);
+  const has = groups.some(g => g.diff.changed.length || g.diff.added.length || g.diff.removed.length);
+  $('#cmpActions').hidden = !has;
+  if (has) {
+    const report = diffReport(groups, state.lang);
+    state.cmpReport = report;
+    const title = encodeURIComponent(`${t().cmpIssueTitle}: ${groups.map(g => g.ecu).join(', ')}`);
+    const body = encodeURIComponent((t().cmpIssueBody + report).slice(0, 6000));
+    $('#cmpIssue').href = `${REPO}/issues/new?labels=prova&title=${title}&body=${body}`;
+  }
+}
+$('#cmpCopy').addEventListener('click', async e => {
+  try { await navigator.clipboard.writeText(state.cmpReport || ''); e.target.textContent = t().copied; setTimeout(() => (e.target.textContent = t().cmpCopy), 1500); } catch { /* clipboard negato */ }
+});
+
 function renderDock() {
   const n = [...state.selected].filter(id => state.results.some(r => r.id === id && (r.stato === 'attivabile' || r.stato === 'regolabile'))).length;
   $('#dock').hidden = n === 0;
@@ -382,13 +498,15 @@ document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click'
 
 function refresh() {
   state.results = evaluateAll(state.db, ecus(), { sa: state.fa ? new Set(state.fa.sa) : null });
+  state.items = buildItems(state.results, state.funzioni);
   renderUnits();
-  renderOverview(summarize(state.results));
+  renderOverview(summarize(state.items));
   renderFilters();
   renderRows();
   renderDiscover();
   renderCommunity();
   renderShare();
+  renderCompare();
   renderDock();
 }
 

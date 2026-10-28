@@ -81,8 +81,6 @@
   note:
     it: 'Il quadro ha già SLD_ENABLE aktiv e il DSC ha C_SpeedLimitDevice_I aktiv, ma la funzione C_SLD_Funktion è spenta. Su Bimmerfest la combinazione KOMBI SLD_ENABLE + DSC C_SLD_Funktion attiva il limitatore con il tasto del cruise control. La gamma regolabile è nella voce ''Limitatore di velocità: gamma regolabile''. Una guida dice che servono tutti e quattro i parametri del limitatore LIM: SLD_ENABLE nel KOMBI, SLD_Funktion, C_Umschaltung_ACC_DCC = zugelassen e LDM_SET_Taste. Sulla F54 di riferimento C_Umschaltung_ACC_DCC è già zugelassen e LDM_SET_Taste non esiste.'
     en: 'The cluster already has SLD_ENABLE aktiv and the DSC has C_SpeedLimitDevice_I aktiv, but the C_SLD_Funktion function is off. On Bimmerfest, KOMBI SLD_ENABLE together with DSC C_SLD_Funktion enables the limiter on the cruise control button. The adjustable range is in the entry ''Speed limiter: adjustable range''. One guide says all four LIM speed limiter parameters are required: SLD_ENABLE in the KOMBI, SLD_Funktion, C_Umschaltung_ACC_DCC = zugelassen and LDM_SET_Taste. On the reference F54 C_Umschaltung_ACC_DCC is already zugelassen and LDM_SET_Taste does not exist.'
-  insieme_a:
-  - kombi.limitatore-nel-quadro
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Instrument-Cluster.md
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
@@ -171,9 +169,6 @@
   note:
     it: 'Documentata su una F54 (centralina DSC2): con MACRO_FDS = popup_and_config nella HU compare la configurazione della modalità Sport in iDrive. Sulle BMW con ICM l''equivalente è ICMKOD_B_SPORTINDIVIDUALISIERBAR.'
     en: 'Documented on an F54 (DSC2 unit): with MACRO_FDS = popup_and_config in the HU the Sport mode configuration appears in iDrive. On BMWs with an ICM the equivalent is ICMKOD_B_SPORTINDIVIDUALISIERBAR.'
-  insieme_a:
-  - hu_nbt2.display-sportivi
-  - hu_nbt2.colori-m-display-sportivi
   fonti:
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5673906/note.aspx
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Transmission/Sport-Mode.md

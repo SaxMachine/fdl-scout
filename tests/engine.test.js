@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseFwl, identifyEcu, tokenize } from '../src/parser.js';
-import { evaluateEntry, unexplored, esysChecklist, summarize, evaluateAll } from '../src/matcher.js';
+import { evaluateEntry, unexplored, esysChecklist, summarize, evaluateAll, functionState, buildItems } from '../src/matcher.js';
 import { buildFootprint } from '../src/footprint.js';
 
 // FWL sintetici: riproducono le varianti di formato viste finora (tab, spazi multipli, "=").
@@ -164,4 +164,38 @@ test('lista E-Sys: avvisa delle voci da codificare insieme non selezionate', () 
   const txt = esysChecklist(rs, new Set(['hu_nbt2.a']));
   assert.match(txt, /serve anche: Parte KOMBI \(KOMBI\)/);
   assert.doesNotMatch(esysChecklist(rs, new Set(['hu_nbt2.a', 'kombi.b'])), /serve anche/);
+});
+
+test('funzioni: stato complessivo dalle parti', () => {
+  assert.equal(functionState(['attiva', 'attiva']), 'attiva');
+  assert.equal(functionState(['attiva', 'attivabile']), 'parziale');
+  assert.equal(functionState(['attivabile', 'regolabile']), 'attivabile');
+  assert.equal(functionState(['regolabile', 'regolabile']), 'regolabile');
+  assert.equal(functionState(['attiva', 'centralina_non_letta']), 'centralina_non_letta');
+  assert.equal(functionState(['attivabile', 'manca_optional']), 'manca_optional');
+});
+
+test('funzioni: le parti escono dalla lista come voci singole', () => {
+  const rs = [{ id: 'a', stato: 'attiva' }, { id: 'b', stato: 'attivabile' }, { id: 'c', stato: 'attivabile' }];
+  const items = buildItems(rs, [{ id: 'f', titolo: { it: 'F' }, parti: ['a', 'b'] }]);
+  assert.equal(items.length, 2);
+  assert.equal(items[0].tipo, 'funzione');
+  assert.equal(items[0].stato, 'parziale');
+  assert.deepEqual(items.filter(i => i.tipo === 'voce').map(i => i.id), ['c']);
+});
+
+import { diffParams, entriesForChanges, diffReport } from '../src/diff.js';
+
+test('prima/dopo: trova i parametri cambiati e non mostra il VIN', () => {
+  const before = { A: { value: 'nicht_aktiv', hex: '00' }, B: { value: 'x', hex: '01' }, VIN: { value: 'WMW00TEST0A123456', hex: '' }, C: { value: 'wert_01', hex: '05' } };
+  const after = { A: { value: 'aktiv', hex: '01' }, B: { value: 'x', hex: '01' }, VIN: { value: 'WMW00TEST0A654321', hex: '' }, C: { value: 'wert_01', hex: '07' } };
+  const d = diffParams(before, after);
+  assert.deepEqual(d.changed.map(c => c.nome), ['A', 'C']);
+  assert.equal(d.hidden, 1);
+  const db = [{ id: 'hu.a', centralina: 'HU_NBT2', parametri: [{ nome: 'A' }] }, { id: 'kombi.a', centralina: 'KOMBI', parametri: [{ nome: 'A' }] }];
+  assert.deepEqual(entriesForChanges(d.changed, db, 'HU_NBT2').map(e => e.id), ['hu.a']);
+  const txt = diffReport([{ ecu: 'HU_NBT2', cafd: '00001EF6', diff: d, entries: entriesForChanges(d.changed, db, 'HU_NBT2') }]);
+  assert.match(txt, /A: nicht_aktiv \[00\] -> aktiv \[01\]\n/);
+  assert.match(txt, /C: wert_01 \[05\] -> wert_01 \[07\] \(non nel database\)/);
+  assert.doesNotMatch(txt, /WMW/);
 });

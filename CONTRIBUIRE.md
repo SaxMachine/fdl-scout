@@ -19,6 +19,10 @@ Non hai un account GitHub? Condividi il file nel gruppo o nel forum dove hai tro
 
 Hai fatto una codifica? Apri la sua scheda in FDL Scout e premi **L'hai provata?**: si apre una segnalazione già compilata con il nome della voce. Indica telaio, anno, i-level, valore impostato e se funziona. Una voce confermata su più auto passa da "da verificare" a "confermata".
 
+## Confronto prima/dopo
+
+Il contributo più prezioso. Prima di una codifica esporta l'FWL della centralina, dopo esportalo di nuovo e caricali nella scheda **Prima/dopo** di FDL Scout: vedi quali parametri sono cambiati e puoi mandare il confronto con **Racconta la prova su GitHub**. Così una voce diventa certa, oppure ne scopriamo una nuova.
+
 ## Aggiungere o correggere una codifica
 
 1. Fai un fork e modifica `data/codings/<CENTRALINA>.yaml` seguendo [docs/SCHEMA.md](docs/SCHEMA.md).

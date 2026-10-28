@@ -19,6 +19,10 @@ No GitHub account? Share the file in the group or forum where you found FDL Scou
 
 Did you code something? Open its card in FDL Scout and press **Tried it?**: a pre-filled issue opens with the entry name. Add chassis, year, i-level, the value you set and whether it works. An entry confirmed on several cars moves from unverified to confirmed.
 
+## Before/after comparison
+
+The most valuable contribution. Export the unit's FWL before a coding, export it again afterwards and load both in the **Before/after** tab of FDL Scout: you see which parameters changed and can send the comparison with **Report the test on GitHub**. That makes an entry certain, or uncovers a new one.
+
 ## Add or fix a coding entry
 
 1. Fork the repository and edit `data/codings/<UNIT>.yaml` following [docs/en/SCHEMA.md](docs/en/SCHEMA.md).
