@@ -155,3 +155,13 @@ test('i nomi di E-Sys di una MINI F54 portano alla stessa centralina', () => {
   assert.equal(identifyEcu(p('ICAM2.fwl'), map).ecu, 'TRSVC');
   assert.equal(identifyEcu(p('PMA2.fwl'), map).ecu, 'PMA');
 });
+
+test('lista E-Sys: avvisa delle voci da codificare insieme non selezionate', () => {
+  const a = { id: 'hu_nbt2.a', centralina: 'HU_NBT2', titolo: { it: 'Parte HU' }, parametri: [{ nome: 'X', target: 'aktiv' }], insieme_a: ['kombi.b'] };
+  const b = { id: 'kombi.b', centralina: 'KOMBI', titolo: { it: 'Parte KOMBI' }, parametri: [{ nome: 'Y', target: 'aktiv' }], insieme_a: ['hu_nbt2.a'] };
+  const ecus = { HU_NBT2: { params: { X: { value: 'nicht_aktiv', hex: '00' } } }, KOMBI: { params: { Y: { value: 'nicht_aktiv', hex: '00' } } } };
+  const rs = evaluateAll([a, b], ecus, {});
+  const txt = esysChecklist(rs, new Set(['hu_nbt2.a']));
+  assert.match(txt, /serve anche: Parte KOMBI \(KOMBI\)/);
+  assert.doesNotMatch(esysChecklist(rs, new Set(['hu_nbt2.a', 'kombi.b'])), /serve anche/);
+});

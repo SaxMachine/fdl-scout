@@ -122,13 +122,20 @@ export function esysChecklist(results, selectedIds, lang = 'it') {
     (byEcu[r.entry.centralina] ||= []).push(r);
   }
   const L = lang === 'en'
-    ? { head: 'E-Sys work list', backup: 'Save the FDL of each unit before writing.', choose: 'choose a value' }
-    : { head: 'Lista di lavoro per E-Sys', backup: 'Salva l\'FDL di ogni centralina prima di scrivere.', choose: 'scegli un valore' };
+    ? { head: 'E-Sys work list', backup: 'Save the FDL of each unit before writing.', choose: 'choose a value', together: 'also needs' }
+    : { head: 'Lista di lavoro per E-Sys', backup: 'Salva l\'FDL di ogni centralina prima di scrivere.', choose: 'scegli un valore', together: 'serve anche' };
+  const byId = Object.fromEntries(results.map(r => [r.id, r]));
+  const title = e => e.titolo[lang] || e.titolo.it || e.titolo.en;
   const lines = [`# ${L.head}`, `# ${L.backup}`, ''];
   for (const [ecu, rs] of Object.entries(byEcu)) {
     lines.push(`## ${ecu}`);
     for (const r of rs) {
-      lines.push(`# ${r.entry.titolo[lang] || r.entry.titolo.it || r.entry.titolo.en}`);
+      lines.push(`# ${title(r.entry)}`);
+      for (const o of r.entry.insieme_a || []) {
+        const other = byId[o];
+        if (!other || selectedIds.has(o) || other.stato === 'attiva') continue;
+        lines.push(`#   ${L.together}: ${title(other.entry)} (${other.entry.centralina})`);
+      }
       for (const v of r.valori) {
         const to = v.target != null ? v.target : `<${L.choose}>`;
         if (v.ok) continue;

@@ -156,8 +156,8 @@
 - id: hu_nbt2.distanza-alla-prossima-svolta-nell-hud
   centralina: HU_NBT2
   titolo:
-    it: Distanza alla prossima svolta nell'HUD
-    en: Distance to the next turn in the HUD
+    it: 'Distanza dell''ACC nell''HUD (parte HU)'
+    en: 'ACC distance in the HUD (HU part)'
   parametri:
   - nome: HUD_DISTANCE_INFO
     target: aktiv
@@ -170,9 +170,14 @@
   - F54
   - F56
   note:
-    it: L'HUD MINI (SA 6AD) è gestito dal KOMBI; la HU decide quali dati di navigazione inviargli.
-    en: The MINI HUD (SA 6AD) is driven by the KOMBI; the HU decides which navigation data to send it.
+    it: 'Le fonti la indicano come parte 2 di 3 della distanza ACC nell''HUD, insieme alle voci in KOMBI e KAFAS. Non è la distanza dalla prossima svolta della navigazione. Serve l''ACC.'
+    en: 'Sources give it as part 2 of 3 of the ACC distance in the HUD, together with the KOMBI and KAFAS entries. It is not the distance to the next navigation turn. Requires ACC.'
+  insieme_a:
+  - kombi.distanza-acc-nell-hud-quadro
+  - kafas.distanza-acc-nell-hud
+  - kafas.distanza-dal-veicolo-che-precede
   fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/HUD.md
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/jokinawa.xml
@@ -239,6 +244,8 @@
   note:
     it: 'Confermato su un''altra F54: API_USB_VIDEO = both, più il codec XVID. Riproduzione a vettura ferma.'
     en: 'Confirmed on another F54: API_USB_VIDEO = both, plus the XVID codec. Playback only when stationary.'
+  insieme_a:
+  - hu_nbt2.altri-formati-video-da-usb
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-7.html
   - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
@@ -275,6 +282,8 @@
       all''ora legale.'
     en: 'SETTINGS_TIME_AUTOMATIC is already set to online and the KOMBI has GPS_UHR active: only the automatic switch
       to daylight saving time is missing.'
+  insieme_a:
+  - hu_nbt2.ora-dalla-navigazione
   fonti:
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5658504/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-22.html
@@ -308,6 +317,9 @@
     it: 'Su F54 documentato con FF. Toglie i blocchi di inserimento in marcia: il guidatore non deve usarlo mentre
       guida.'
     en: 'Documented on an F54 with FF. Removes the input locks while driving: the driver must not use it while driving.'
+  insieme_a:
+  - hu_nbt2.blocchi-in-marcia
+  - hu_nbt2.menu-sblocco-media
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
   - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
@@ -401,6 +413,8 @@
       disattivazione totale.
     en: 'Source: NAM. Shows in iDrive the choice between the ASD_SOUND_1-4 sounds (already active). A gentler alternative
       to switching it off completely.'
+  insieme_a:
+  - hu_nbt2.suono-asd-4
   fonti:
   - https://minkara.carview.co.jp/userid/125014/car/2087329/3641570/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
@@ -432,6 +446,8 @@
       e temperatura, quindi è probabile che funzioni.
     en: 'Source: NAM. Requires direct pressure monitoring with sensors in the wheels. RDC_DRUCK_TEMP is already
       set to pressure and temperature, so it will probably work.'
+  insieme_a:
+  - hu_nbt2.pressione-e-temperatura-gomme
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
@@ -467,6 +483,8 @@
   note:
     it: Fonte NAM. Mostra l'indicatore di direzione nell'Head-Up Display.
     en: 'Source: NAM. Shows the turn indicator in the head-up display.'
+  insieme_a:
+  - kombi.frecce-nell-hud-quadro
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -498,6 +516,9 @@
   note:
     it: Fonte NAM, insieme a KI_PIA_SPEED_LIMIT nel KOMBI (da attivare se non lo è già).
     en: 'Source: NAM, together with KI_PIA_SPEED_LIMIT in the KOMBI (enable it if it is not already).'
+  insieme_a:
+  - kombi.limiti-velocita-nel-quadro
+  - kafas.divieto-sorpasso-hud-telecamera
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   osservazioni:
@@ -618,6 +639,8 @@
   note:
     it: Fonte NAM.
     en: 'Source: NAM.'
+  insieme_a:
+  - hu_nbt2.importazione-destinazioni
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -985,6 +1008,8 @@
   - F60
   note:
     it: ''
+  insieme_a:
+  - hu_nbt2.bussola-e-xview
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -1014,6 +1039,9 @@
   - F60
   note:
     it: ''
+  insieme_a:
+  - kombi.hud-media-e-telefono
+  - hu_nbt2.telefono-e-media-nell-hud
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -1074,6 +1102,8 @@
     it: 'Elenco BimmerCode e NAM. Mostra l''intero SMS anche guidando: leggerlo distrae, valutalo per il passeggero.'
     en: 'BimmerCode list and NAM. Shows the whole SMS while driving: reading it is distracting, consider it for
       the passenger.'
+  insieme_a:
+  - hu_nbt2.blocchi-in-marcia
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
@@ -1149,6 +1179,8 @@
       sul disco della HU.
     en: 'Sources: NAM and Bimmerfest, in addition to API_USB_VIDEO and XVID. ENT_MC_VIDEO_SUPPORT lets you save
       videos to the HU''s disk.'
+  insieme_a:
+  - hu_nbt2.video-da-chiavetta-usb
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
@@ -1408,6 +1440,10 @@
     en: Removes the locks that prevent video, Bluetooth pairing, text input and message reading while driving. The
       driver must not use them while driving. Parameter present in the reference F54 FWL files; the coding is documented
       in GitHub cheat sheets.
+  insieme_a:
+  - hu_nbt2.navigazione-e-menu-in-movimento
+  - hu_nbt2.menu-sblocco-media
+  - hu_nbt2.testo-completo-dei-messaggi-in-marcia
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-10.html
@@ -1480,6 +1516,9 @@
       F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Shows power and torque in iDrive. For M colours see the dedicated entry. Parameter present in the reference
       F54 FWL files; the coding is documented in GitHub cheat sheets.
+  insieme_a:
+  - hu_nbt2.colori-m-display-sportivi
+  - dsc.sport-personalizzabile
   fonti:
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5673906/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-12.html
@@ -1553,6 +1592,8 @@
       Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Compass in iDrive, alternative inclinometer graphics and torque split menu (xDrive/ALL4). Parameter present
       in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  insieme_a:
+  - hu_nbt2.inclinometro-xview
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -2074,6 +2115,8 @@
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  insieme_a:
+  - hu_nbt2.cambio-ora-legale-automatico
   fonti:
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5658504/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-22.html
@@ -2137,6 +2180,9 @@
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  insieme_a:
+  - hu_nbt2.display-sportivi
+  - dsc.sport-personalizzabile
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -2261,6 +2307,8 @@
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  insieme_a:
+  - hu_nbt2.pressione-e-temperatura-gomme-in-info-veicolo
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -2334,6 +2382,8 @@
       della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Rev counter and gear in the HUD in sport mode. Goes with the same entries in the KOMBI. Parameter present
       in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  insieme_a:
+  - kombi.indicatore-sportivo-hud
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-24.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -2680,6 +2730,8 @@
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  insieme_a:
+  - hu_nbt2.importazione-percorsi-nella-navigazione
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
@@ -2857,6 +2909,8 @@
       è documentata nei cheat sheet su GitHub.
     en: Part of the ASD sound configuration menu. Parameter present in the reference F54 FWL files; the coding is
       documented in GitHub cheat sheets.
+  insieme_a:
+  - hu_nbt2.menu-configurazione-suono-asd
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-9.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -3333,6 +3387,8 @@
       è documentata nei cheat sheet su GitHub.
     en: Goes with SPA_KOMBISELECT_DISABLE in the KOMBI. Parameter present in the reference F54 FWL files; the coding
       is documented in GitHub cheat sheets.
+  insieme_a:
+  - kombi.punto-di-cambiata
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3704,6 +3760,9 @@
       nei cheat sheet su GitHub.
     en: Goes with HUD_VZA_ENABLE in the KOMBI. Parameter present in the reference F54 FWL files; the coding is documented
       in GitHub cheat sheets.
+  insieme_a:
+  - kombi.hud-media-e-telefono
+  - hu_nbt2.elenchi-musicali-nell-hud
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:
@@ -3874,6 +3933,9 @@
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+  insieme_a:
+  - hu_nbt2.blocchi-in-marcia
+  - hu_nbt2.navigazione-e-menu-in-movimento
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/Video-in-Motion.md
   osservazioni:
@@ -3896,10 +3958,8 @@
   telai:
   - F54
   note:
-    it: 'Seconda parte: serve anche la funzione nel cambio o nella DME. Parametro presente nei FWL della F54 di
-      riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'Second part: the function is also needed in the gearbox or DME. Parameter present in the reference F54
-      FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'Seconda parte: serve anche la funzione nel cambio o nella DME. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub. Una guida lo indica come parte 2 di 4 (con SEGELN_ENABLE, C_Segeln_vorhanden e Segeln nella EGS; solo cambio automatico). Nei FWL della F54 di riferimento SEGELN_ENABLE è nella KOMBI e C_Segeln_vorhanden nel DSC, entrambi già attivi; nella EGS il parametro Segeln non c''è.'
+    en: 'Second part: the function is also needed in the gearbox or DME. Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets. One guide gives it as part 2 of 4 (with SEGELN_ENABLE, C_Segeln_vorhanden and Segeln in the EGS; automatic only). In the reference F54 FWL files SEGELN_ENABLE is in the KOMBI and C_Segeln_vorhanden in the DSC, both already active; the EGS has no Segeln parameter.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Transmission/Sport-Mode.md
   osservazioni:

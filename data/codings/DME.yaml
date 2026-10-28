@@ -31,3 +31,33 @@
     i_level: F056-26-03-519
     valore_letto: IGR=Wert_01
     esito: Da verificare
+- id: dme.memoria-start-stop
+  centralina: DME
+  titolo:
+    it: 'Memoria Start/Stop (parte DME)'
+    en: 'Start/Stop memory (DME part)'
+  parametri:
+  - nome: TCM_MSA_MEMORY
+    target: '01'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - G11
+  - G30
+  note:
+    it: 'Parte nella centralina motore della memoria Start/Stop: secondo una guida ricorda lo stato anche a motore spento con quadro acceso. Documentata sulla DME di G11/G30; nella DME della F54 di riferimento il parametro esiste e vale Wert_00. Va con la parte nella BDC.'
+    en: 'Engine-unit part of the Start/Stop memory: per one guide it keeps the state also with the engine off and ignition on. Documented on the G11/G30 DME; in the reference F54 DME the parameter exists and reads Wert_00. Goes with the BDC part.'
+  insieme_a:
+  - bdc_body.memoria-start-stop-ultimo-stato
+  fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Start-Stop.md
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/stanleyy.xml
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: TCM_MSA_MEMORY=Wert_00
+    esito: Da verificare

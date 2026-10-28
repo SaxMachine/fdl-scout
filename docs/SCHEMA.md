@@ -51,6 +51,7 @@ Le codifiche stanno in `data/codings/<CENTRALINA>.yaml`, un file per centralina,
 | `telai` | no | Telai su cui la voce è documentata (es. `F54`, `F30`). Se l'utente carica una FA di un telaio diverso, la pagina lo avvisa. Aggiungi un telaio solo con una fonte o un FWL che lo dimostri: stessa funzione non vuol dire stesso parametro. |
 | `requisiti_sa` | no | Codici SA necessari, es. `['248']` per il volante riscaldato. Se l'utente carica la FA e il codice manca, la voce risulta "Manca l'optional". Metti solo codici verificati. |
 | `note` | no | `it`/`en`: dipendenze, avvertenze, effetti collaterali. Scrivi in modo generale, non riferito alla tua auto. |
+| `insieme_a` | no | Id delle voci da codificare insieme a questa (es. la parte HU e la parte KOMBI della stessa funzione). Il legame vale nei due sensi: basta scriverlo in una delle due voci. La pagina le mostra nella scheda e la lista per E-Sys avvisa se ne manca una. |
 | `fonti` | no | Link alle discussioni o guide da cui viene la voce. Riassumi con parole tue, non copiare i testi. |
 | `osservazioni` | no | Auto su cui il parametro è stato letto: telaio, anno, i-level, valore letto, esito. È la prova empirica della voce. |
 

@@ -54,6 +54,8 @@ def load_db():
                     err("requisiti_sa deve essere una lista di codici SA")
                 else:
                     e["requisiti_sa"] = [str(x).upper() for x in e["requisiti_sa"]]
+            if "insieme_a" in e and not (isinstance(e["insieme_a"], list) and all(isinstance(x, str) for x in e["insieme_a"])):
+                err("insieme_a deve essere una lista di id di voci")
             if not params and e.get("stato_mappatura") != "da_mappare":
                 err("senza parametri serve stato_mappatura: da_mappare")
             if e.get("rischio") not in RISCHI:
@@ -63,6 +65,19 @@ def load_db():
             if e.get("affidabilita") not in AFFIDABILITA:
                 err(f"affidabilita deve essere uno di {sorted(AFFIDABILITA)}")
             db.append(e)
+    # insieme_a: gli id devono esistere e il legame vale nei due sensi
+    ids = {e["id"] for e in db}
+    for e in db:
+        for o in e.get("insieme_a", []):
+            if o not in ids:
+                errors.append(f'{e["id"]}: insieme_a punta a una voce che non esiste: {o}')
+            elif o == e["id"]:
+                errors.append(f'{e["id"]}: insieme_a non può puntare a se stessa')
+    byid = {e["id"]: e for e in db}
+    for e in db:
+        for o in e.get("insieme_a", []):
+            if o in byid and e["id"] not in byid[o].setdefault("insieme_a", []):
+                byid[o]["insieme_a"].append(e["id"])
     return db, errors
 
 

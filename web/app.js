@@ -211,6 +211,19 @@ function sourcesView(fonti) {
 }
 
 /** Link a una segnalazione GitHub già compilata per raccontare una prova. */
+// Voci da codificare insieme: titolo, centralina e stato sulla tua auto, con link alla riga.
+function togetherView(e) {
+  const ids = e.insieme_a || [];
+  if (!ids.length) return null;
+  const byId = Object.fromEntries((state.results || []).map(r => [r.id, r]));
+  const items = ids.map(id => {
+    const r = byId[id]; const o = r?.entry || state.db.find(x => x.id === id);
+    if (!o) return null;
+    return el('li', {}, el('a', { href: '#voce-' + id, text: tr(o.titolo) }), ` (${o.centralina}${r ? ' · ' + t().stati[r.stato] : ''})`);
+  }).filter(Boolean);
+  return el('div', { class: 'together' }, el('b', { text: t().together + ':' }), el('ul', {}, ...items));
+}
+
 function reportView(e) {
   const title = encodeURIComponent(`${t().reportTitle}: ${tr(e.titolo)}`);
   const body = encodeURIComponent(t().reportBody(e.id, tr(e.titolo)));
@@ -248,11 +261,12 @@ function rowView(r) {
     e.valori_suggeriti ? el('p', {}, el('b', { text: t().suggested + ': ' }), tr(e.valori_suggeriti)) : null,
     e.requisiti_sa?.length ? el('p', {}, el('b', { text: t().needsSa + ': ' }), e.requisiti_sa.join(', ')) : null,
     tr(e.note) ? el('p', { class: 'note', text: tr(e.note) }) : null,
+    togetherView(e),
     seen.length ? el('p', { class: 'seen', text: `${t().seenOn}: ${seen.join('; ')}` }) : null,
     sourcesView(e.fonti),
     reportView(e));
 
-  return el('li', { class: `row s-${r.stato}` + (e.consiglio === 'sconsigliata' ? ' advised-against' : '') },
+  return el('li', { id: 'voce-' + e.id, class: `row s-${r.stato}` + (e.consiglio === 'sconsigliata' ? ' advised-against' : '') },
     el('div', { class: 'row-main' },
       switchEl,
       el('div', { class: 'row-title' },

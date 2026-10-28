@@ -295,3 +295,8 @@ dialog pre { background: var(--paper); border: 1px solid var(--rule); border-rad
 .howto p { margin: 0.4rem 0 0; }
 .hero.compact .howto { display: none; }
 @media (max-width: 760px) { .howto { grid-column: 1; } }
+
+.more .together { margin: .5rem 0; }
+.more .together ul { margin: .25rem 0 0 1.1rem; padding: 0; }
+.more .together li { margin: .1rem 0; }
+.row:target { outline: 2px solid var(--focus); outline-offset: 2px; }
