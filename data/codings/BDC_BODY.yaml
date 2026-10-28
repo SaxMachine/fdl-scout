@@ -1655,7 +1655,6 @@
     anno: 2022
     i_level: F056-26-03-519
     valore_letto: KOMFORT_SCHLIESSEN=UNKNOWN, KOMFORT_OEFFNEN=wert_01
-      ASP_AUSKLAPPEN_NACH_KOMFORTSCHLIESSEN=aktiv
     esito: Da verificare
 - id: bdc_body.apertura-comfort-comfort-access-e-specchi
   centralina: BDC_BODY
@@ -3884,5 +3883,5 @@
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
-    valore_letto: KOMFORT_SCHL_SHD=wert_01 (23)
+    valore_letto: KOMFORT_SCHL_SHD=wert_01
     esito: Da verificare
