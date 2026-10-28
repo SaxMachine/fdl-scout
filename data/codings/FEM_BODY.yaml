@@ -55,8 +55,8 @@
 - id: fem_body.ritardo-apertura-baule-tasto
   centralina: FEM_BODY
   titolo:
-    it: 'Ritardo di apertura del baule col tasto'
-    en: 'Boot opening delay with the button'
+    it: 'Ritardo di sblocco del baule (senza Smart Opener)'
+    en: 'Boot unlock delay (without Smart Opener)'
   parametri:
   - nome: CLM_TIME_DELAY_BOOTLID
     regolabile: true
@@ -71,8 +71,8 @@
   - F30
   - F80
   note:
-    it: 'Ritardo tra la pressione del tasto (o del telecomando) e lo sblocco del baule, senza Smart Opener.'
-    en: 'Delay between pressing the button (or fob) and the boot unlocking, without Smart Opener.'
+    it: 'Ritardo con cui il baule si sblocca, senza Smart Opener (una fonte: di fabbrica 0,3 s). Il tempo per cui va tenuto premuto il tasto del baule sul telecomando è un altro parametro, RC_TIME_DELAY_BOOTLID.'
+    en: 'Delay with which the boot unlocks, without Smart Opener (one source: factory 0.3 s). How long the boot button on the remote must be held is a different parameter, RC_TIME_DELAY_BOOTLID.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml

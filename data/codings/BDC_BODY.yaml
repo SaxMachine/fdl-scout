@@ -166,8 +166,8 @@
 - id: bdc_body.idrive-e-radio-spenti-all-apertura-della-porta
   centralina: BDC_BODY
   titolo:
-    it: iDrive e radio spenti all'apertura della porta
-    en: iDrive and radio off when the door opens
+    it: 'Logica del morsetto 15 all''apertura della porta (effetto da verificare)'
+    en: 'Terminal 15 logic when the door is opened (effect to be verified)'
   parametri:
   - nome: TCM_LOGIC_15_OFF_DOOR
     target: aktiv
@@ -177,8 +177,8 @@
   telai:
   - F54
   note:
-    it: 'Citata su F55/F56. A motore spento, aprendo la porta del guidatore si spegne il quadro. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
-    en: 'Reported on F55/F56. With the engine off, opening the driver''s door switches the ignition off. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
+    it: 'Fa parte del gruppo TCM_LOGIC_15_OFF_* (spegnimento del morsetto 15: con la cintura, la chiusura, la presa OBD…). Lo spegnimento di radio e navigazione aprendo la porta è un altro parametro, TCM_LOGIC_R_OFF_DOOR. Nessuna fonte trovata riporta questo parametro: l''effetto va provato.'
+    en: 'Part of the TCM_LOGIC_15_OFF_* group (terminal 15 switch-off: with the belt, locking, the OBD port…). Switching off radio and navigation when the door is opened is a different parameter, TCM_LOGIC_R_OFF_DOOR. No source found gives this parameter: the effect has to be tested.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -255,8 +255,8 @@
 - id: bdc_body.chiusura-comfort-del-tetto-con-la-chiave
   centralina: BDC_BODY
   titolo:
-    it: Chiusura comfort del tetto con la chiave
-    en: Comfort closing of the sunroof with the key
+    it: 'Chiusura comfort: finestrini, tetto e specchi tenendo premuto il tasto'
+    en: 'Comfort closing: windows, roof and mirrors by holding the button'
   parametri:
   - nome: KOMFORTSCHLIESSUNG
     target: aktiv
@@ -270,8 +270,8 @@
   - F57
   - F60
   note:
-    it: Tetto panorama (SA 402) incluso.
-    en: Includes the panoramic roof (SA 402).
+    it: 'Interruttore generale della chiusura comfort: tenendo premuto il tasto di chiusura si chiudono finestrini e tetto (SA 402) e si ripiegano gli specchi. Le varianti dal telecomando e dal Comfort Access hanno voci a parte.'
+    en: 'Master switch of comfort closing: holding the lock button closes the windows and roof (SA 402) and folds the mirrors. The remote and Comfort Access variants have their own entries.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
@@ -368,8 +368,8 @@
 - id: bdc_body.radio-spenta-in-retromarcia-con-porta-aperta
   centralina: BDC_BODY
   titolo:
-    it: Radio spenta in retromarcia con porta aperta
-    en: Radio off when reversing with the door open
+    it: 'Radio e navigazione spente aprendo la porta del guidatore'
+    en: 'Radio and navigation off when the driver''s door is opened'
   parametri:
   - nome: TCM_LOGIC_R_OFF_DOOR
     target: aktiv
@@ -381,8 +381,8 @@
   - F55
   - F56
   note:
-    it: Fonte NAM. Variante di TCM_LOGIC_15_OFF_DOOR.
-    en: 'Source: NAM. Variant of TCM_LOGIC_15_OFF_DOOR.'
+    it: 'Le fonti la descrivono così: a motore spento, aprendo la porta del guidatore si spengono radio e navigazione. La R del nome non indica la retromarcia.'
+    en: 'Sources describe it this way: with the engine off, opening the driver''s door switches off radio and navigation. The R in the name does not mean reverse gear.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -1604,12 +1604,6 @@
     regolabile: true
   - nome: KOMFORT_OEFFNEN
     regolabile: true
-  - nome: KOMFORTOEFFNUNG
-    regolabile: true
-  - nome: KOMFORTSCHLIESSUNG_PA
-    regolabile: true
-  - nome: ASP_AUSKLAPPEN_NACH_KOMFORTSCHLIESSEN
-    regolabile: true
   valori_suggeriti:
     it: 00 = nessun ritardo; valori in esadecimale (0A = 1 s)
     en: 00 = no delay; values in hex (0A = 1 s)
@@ -1660,9 +1654,48 @@
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
-    valore_letto: KOMFORT_SCHLIESSEN=UNKNOWN, KOMFORT_OEFFNEN=wert_01, KOMFORTOEFFNUNG=aktiv, KOMFORTSCHLIESSUNG_PA=aktiv,
+    valore_letto: KOMFORT_SCHLIESSEN=UNKNOWN, KOMFORT_OEFFNEN=wert_01
       ASP_AUSKLAPPEN_NACH_KOMFORTSCHLIESSEN=aktiv
     esito: Da verificare
+- id: bdc_body.apertura-comfort-comfort-access-e-specchi
+  centralina: BDC_BODY
+  titolo:
+    it: 'Apertura comfort, chiusura col Comfort Access e specchi riaperti'
+    en: 'Comfort opening, closing with Comfort Access and mirrors unfolded'
+  parametri:
+  - nome: KOMFORTOEFFNUNG
+    target: aktiv
+  - nome: KOMFORTSCHLIESSUNG_PA
+    target: aktiv
+  - nome: ASP_AUSKLAPPEN_NACH_KOMFORTSCHLIESSEN
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: confermata
+  telai:
+  - F22
+  - F23
+  - F30
+  - F48
+  - F54
+  - F80
+  - F82
+  note:
+    it: 'Interruttori, non ritardi: KOMFORTOEFFNUNG apre i finestrini tenendo premuto il tasto di apertura, KOMFORTSCHLIESSUNG_PA chiude tenendo il dito sulla maniglia (Comfort Access), ASP_AUSKLAPPEN_NACH_KOMFORTSCHLIESSEN riapre gli specchi. Provata con esito su una X1 F48. I ritardi sono nella voce a parte.'
+    en: 'Switches, not delays: KOMFORTOEFFNUNG opens the windows by holding the unlock button, KOMFORTSCHLIESSUNG_PA closes by holding a finger on the handle (Comfort Access), ASP_AUSKLAPPEN_NACH_KOMFORTSCHLIESSEN unfolds the mirrors. Tested successfully on an X1 F48. The delays have their own entry.'
+  fonti:
+  - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/11
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
+  - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Mirrors.md
+  - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
+  - https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=118
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: KOMFORTOEFFNUNG=aktiv, KOMFORTSCHLIESSUNG_PA=aktiv, ASP_AUSKLAPPEN_NACH_KOMFORTSCHLIESSEN=aktiv
+    esito: Già attivo
 - id: bdc_body.finestrini-con-porta-aperta
   centralina: BDC_BODY
   titolo:
@@ -3768,8 +3801,8 @@
 - id: bdc_body.ritardo-apertura-baule-tasto
   centralina: BDC_BODY
   titolo:
-    it: 'Ritardo di apertura del baule col tasto'
-    en: 'Boot opening delay with the button'
+    it: 'Ritardo di sblocco del baule (senza Smart Opener)'
+    en: 'Boot unlock delay (without Smart Opener)'
   parametri:
   - nome: VAM_TIME_DELAY_BOOTLID
     regolabile: true
@@ -3782,8 +3815,8 @@
   telai:
   - F54
   note:
-    it: 'Ritardo tra la pressione del tasto (o del telecomando) e lo sblocco del baule, senza Smart Opener. Sulle BMW con FEM il parametro si chiama CLM_TIME_DELAY_BOOTLID; nella BDC della F54 di riferimento esiste VAM_TIME_DELAY_BOOTLID, con il prefisso VAM_ al posto di CLM_ come per altri parametri delle chiusure. La corrispondenza è dedotta dal nome: da verificare.'
-    en: 'Delay between pressing the button (or fob) and the boot unlocking, without Smart Opener. On BMWs with a FEM the parameter is called CLM_TIME_DELAY_BOOTLID; the reference F54 BDC has VAM_TIME_DELAY_BOOTLID, with the VAM_ prefix instead of CLM_ as for other locking parameters. The match is inferred from the name: to be verified.'
+    it: 'Ritardo con cui il baule si sblocca, senza Smart Opener (una fonte: di fabbrica 0,3 s). Il tempo per cui va tenuto premuto il tasto del baule sul telecomando è un altro parametro, RC_TIME_DELAY_BOOTLID. Sulle BMW con FEM il parametro si chiama CLM_TIME_DELAY_BOOTLID; nella BDC della F54 di riferimento esiste VAM_TIME_DELAY_BOOTLID, con il prefisso VAM_ al posto di CLM_ come per altri parametri delle chiusure. La corrispondenza è dedotta dal nome: da verificare.'
+    en: 'Delay with which the boot unlocks, without Smart Opener (one source: factory 0.3 s). How long the boot button on the remote must be held is a different parameter, RC_TIME_DELAY_BOOTLID. On BMWs with a FEM the parameter is called CLM_TIME_DELAY_BOOTLID; the reference F54 BDC has VAM_TIME_DELAY_BOOTLID, with the VAM_ prefix instead of CLM_ as for other locking parameters. The match is inferred from the name: to be verified.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -3825,4 +3858,31 @@
     anno: 2022
     i_level: F056-26-03-519
     valore_letto: VAM_TIME_PIA_LOCK_AT_TIMEOUT=01
+    esito: Da verificare
+- id: bdc_body.ritardo-tetto-chiusura-comfort
+  centralina: BDC_BODY
+  titolo:
+    it: 'Ritardo del tetto nella chiusura comfort'
+    en: 'Sunroof delay during comfort closing'
+  parametri:
+  - nome: KOMFORT_SCHL_SHD
+    regolabile: true
+  valori_suggeriti:
+    it: 'Esadecimale; sulla F54 di riferimento vale 23 (valore di fabbrica secondo la fonte).'
+    en: 'Hexadecimal; the reference F54 reads 23 (factory value per the source).'
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  note:
+    it: 'Ritardo tra finestrini e tetto quando si chiude con la chiusura comfort. È un valore, non un interruttore.'
+    en: 'Delay between windows and sunroof when closing with comfort closing. It is a value, not a switch.'
+  fonti:
+  - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Windows-Doors.md
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: KOMFORT_SCHL_SHD=wert_01 (23)
     esito: Da verificare

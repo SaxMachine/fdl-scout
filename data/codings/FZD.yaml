@@ -106,3 +106,32 @@
     en: aktiv / nicht aktiv for each.
   requisiti_sa:
   - '302'
+- id: fzd.tipo-di-sirena
+  centralina: FZD
+  titolo:
+    it: 'Tipo di suono della sirena d''allarme'
+    en: 'Alarm siren sound type'
+  parametri:
+  - nome: Alarm type
+    regolabile: true
+  valori_suggeriti:
+    it: 'Sulla F10 i valori sono ECE (suono europeo), US (sirena americana) e GB (come ECE ma più lungo).'
+    en: 'On the F10 the values are ECE (European sound), US (American siren) and GB (like ECE but longer).'
+  rischio: medio
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F10
+  - F11
+  - F54
+  note:
+    it: 'Documentata sulla FZD della F10 (gruppo 3002 DWA). Sulla F54 di riferimento il valore attuale è 08 e non ha un nome: controlla in E-Sys quali opzioni offre la tua FZD. Il suono dell''allarme deve restare conforme alle norme del tuo paese.'
+    en: 'Documented on the F10 FZD (group 3002 DWA). On the reference F54 the current value is 08 with no name: check in E-Sys which options your FZD offers. The alarm sound must stay compliant with your country''s rules.'
+  fonti:
+  - https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=142
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: Alarm type=initwert (08)
+    esito: Da verificare
