@@ -143,8 +143,10 @@
   telai:
   - F54
   note:
-    it: 'Accende i sedili in base alla temperatura esterna. Su IHKA monozona MINI il supporto non è garantito. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
-    en: 'Switches the seats on depending on the outside temperature. Support is not guaranteed with the MINI single-zone IHKA. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
+    it: 'Accende i sedili in base alla temperatura esterna. Su IHKA monozona MINI il supporto non è garantito. Il parametro è documentato con lo stesso nome nella head unit HU_MGU delle BMW G05.'
+    en: 'Switches the seats on depending on the outside temperature. Support is not guaranteed with the MINI single-zone IHKA. The parameter is documented with the same name in the HU_MGU head unit of BMW G05.'
+  fonti:
+  - https://g05.bimmerpost.com/forums/attachment.php?attachmentid=2775656
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -813,8 +815,10 @@
   telai:
   - F54
   note:
-    it: 'Voce di menu: accende il volante in base alla temperatura. Non presente nell''elenco BimmerCode MINI, quindi da provare. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
-    en: 'Menu entry: switches the wheel heating on depending on the temperature. Not in the BimmerCode MINI list, so it needs testing. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
+    it: 'Voce di menu: accende il volante in base alla temperatura. Non presente nell''elenco BimmerCode MINI, quindi da provare. Il parametro è documentato con lo stesso nome nella head unit HU_MGU delle BMW G05.'
+    en: 'Menu entry: switches the wheel heating on depending on the temperature. Not in the BimmerCode MINI list, so it needs testing. The parameter is documented with the same name in the HU_MGU head unit of BMW G05.'
+  fonti:
+  - https://g05.bimmerpost.com/forums/attachment.php?attachmentid=2775656
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -3968,3 +3972,28 @@
     i_level: F056-26-03-519
     valore_letto: EFF_DYN_SAILING=nicht_aktiv
     esito: Da verificare
+- id: hu_nbt2.opzione-freccia-5-lampeggi
+  centralina: HU_NBT2
+  titolo:
+    it: 'Opzione "5 lampeggi" della freccia comfort nel menu iDrive'
+    en: '"5 flashes" comfort turn signal option in the iDrive menu'
+  parametri:
+  - nome: 5_FACH_TIPPBLINKEN
+    target: aktiv
+  rischio: basso
+  consiglio: ok
+  affidabilita: da_verificare
+  telai:
+  - F54
+  - G05
+  note:
+    it: 'Mostra la scelta dei 5 lampeggi nelle impostazioni delle luci. Il valore predefinito della freccia comfort sta nella BDC (PIA_DEFAULT_TIPPBLINKEN, vedi la voce "Lampeggio comfort"). Documentato con lo stesso nome nella head unit HU_MGU delle BMW G05.'
+    en: 'Shows the 5-flash choice in the lighting settings. The default comfort turn signal value is in the BDC (PIA_DEFAULT_TIPPBLINKEN, see the "Comfort turn signal" entry). Documented with the same name in the HU_MGU head unit of BMW G05.'
+  fonti:
+  - https://g05.bimmerpost.com/forums/attachment.php?attachmentid=2775656
+  osservazioni:
+  - telaio: F54
+    anno: 2022
+    i_level: F056-26-03-519
+    valore_letto: 5_FACH_TIPPBLINKEN=aktiv
+    esito: Già attivo
