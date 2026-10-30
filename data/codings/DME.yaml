@@ -6,6 +6,9 @@
   titolo:
     it: Batteria caricata al 100% (niente recupero in rilascio)
     en: Battery charged to 100% (no regeneration)
+  descrizione:
+    it: 'La batteria viene caricata fino al 100% invece di circa l''80%, rinunciando alla ricarica in rilascio (IGR).'
+    en: 'The battery is charged to 100% instead of about 80%, giving up regenerative charging when coasting (IGR).'
   parametri:
   - nome: IGR
     regolabile: true
@@ -19,11 +22,8 @@
   - F54
   - F56
   note:
-    it: 'Disattiva la carica intelligente: la batteria resta piena ma si perde un po'' di efficienza. Codifica sulla
-      centralina motore. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
-      sheet su GitHub.'
-    en: 'Disables smart charging: the battery stays full but some efficiency is lost. Coded on the engine unit.
-      Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'La fonte imposta 00. Il recupero di energia in rilascio serve a consumare un po'' meno: spegnendolo la batteria resta più carica ma l''efficienza cala leggermente. È una codifica della centralina motore.'
+    en: 'The source sets 00. Regeneration when coasting saves a little fuel: turning it off keeps the battery fuller but slightly lowers efficiency. This is an engine unit coding.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Transmission/Sport-Mode.md
   osservazioni:
@@ -42,6 +42,9 @@
   titolo:
     it: 'Memoria Start/Stop (parte DME)'
     en: 'Start/Stop memory (DME part)'
+  descrizione:
+    it: 'Secondo le fonti BMW la centralina motore ricorda se avevi spento lo Start/Stop, anche dopo aver spento e riacceso.'
+    en: 'According to BMW sources the engine unit remembers whether you had turned Start/Stop off, even after switching off and on again.'
   parametri:
   - nome: TCM_MSA_MEMORY
     target: '01'
@@ -54,8 +57,8 @@
   - G11
   - G30
   note:
-    it: 'Parte nella centralina motore della memoria Start/Stop: secondo una guida ricorda lo stato anche a motore spento con quadro acceso. Documentata sulla DME di G11/G30. Sulla F54 non serve: la memoria funziona con la sola voce nel BDC (provata), con questo parametro a Wert_00.'
-    en: 'Engine-unit part of the Start/Stop memory: per one guide it keeps the state also with the engine off and ignition on. Documented on the G11/G30 DME. On the F54 it is not needed: the memory works with the BDC entry alone (tested), with this parameter at Wert_00.'
+    it: 'Documentata sulla DME di G11/G30; una guida dice che ricorda lo stato anche a motore spento con quadro acceso. Sulla F54 non serve: la memoria funziona con la sola voce nel BDC (provata), con questo parametro a Wert_00.'
+    en: 'Documented on the G11/G30 DME; one guide says it keeps the state also with the engine off and ignition on. On the F54 it is not needed: the memory works with the BDC entry alone (tested), with this parameter at Wert_00.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Start-Stop.md
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml

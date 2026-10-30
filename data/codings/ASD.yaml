@@ -6,6 +6,9 @@
   titolo:
     it: Profilo del suono motore (ASD)
     en: Engine sound profile (ASD)
+  descrizione:
+    it: 'Cambia il suono del motore che l''Active Sound Design riproduce dagli altoparlanti in abitacolo, scegliendo quello di un altro motore.'
+    en: 'Changes the engine sound that Active Sound Design plays through the cabin speakers, picking the one of another engine.'
   parametri:
   - nome: Engine
     regolabile: true
@@ -19,10 +22,8 @@
   - F54
   - F56
   note:
-    it: Cambia il suono sintetico riprodotto in abitacolo. Il valore deve esistere nella lista del tuo CAFD. Parametro
-      presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Changes the synthetic sound played in the cabin. The value must exist in your CAFD list. Parameter present
-      in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Il valore è un codice motore e deve esistere nella lista del tuo CAFD. L''unica fonte usa S63B44 (il V8 delle M) partendo da N26B20. Non cambia il suono allo scarico, solo quello riprodotto in abitacolo.'
+    en: 'The value is an engine code and must exist in your CAFD''s list. The only source uses S63B44 (the M V8) starting from N26B20. It does not change the exhaust sound, only what is played in the cabin.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Sport-Features.md
   osservazioni:

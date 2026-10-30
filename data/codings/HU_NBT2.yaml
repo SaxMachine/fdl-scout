@@ -6,6 +6,9 @@
   titolo:
     it: Menu ricircolo automatico (AUC) nel clima
     en: Automatic recirculation (AUC) menu in climate settings
+  descrizione:
+    it: 'Aggiunge nel menu del clima la voce del ricircolo automatico (AUC), che chiude le prese d''aria quando il sensore rileva aria inquinata.'
+    en: 'Adds the automatic recirculation (AUC) item to the climate menu, which closes the air intake when the sensor detects polluted air.'
   parametri:
   - nome: CLIMATE_AUTORECIRCULATION
     target: auc_vorhanden
@@ -16,8 +19,8 @@
   - F54
   - F56
   note:
-    it: 'IHKA ha AUC=AKTIV e il BDC ha il sensore (AIC_AUC_SENSOR analogico): manca solo la voce nel menu della HU. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
-    en: 'IHKA has AUC=AKTIV and the BDC has the sensor (analogue AIC_AUC_SENSOR): only the menu entry in the HU is missing. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
+    it: 'Serve il sensore della qualità dell''aria (AUC) e la funzione attiva nel clima (IHKA AUC). Nessuna fonte pubblica descrive il parametro: l''abbinamento viene dal nome nel FWL.'
+    en: 'Needs the air quality sensor (AUC) and the function enabled in the climate unit (IHKA AUC). No public source describes the parameter: the match comes from the name in the FWL.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -34,6 +37,9 @@
   titolo:
     it: Voce menu chiusura automatica in marcia
     en: Menu entry for automatic locking when driving off
+  descrizione:
+    it: 'Aggiunge nelle impostazioni del veicolo la voce per far chiudere le porte da sole quando parti.'
+    en: 'Adds the setting to lock the doors automatically when you drive off.'
   parametri:
   - nome: DOOR_LOCK_AFTER_DRIVING_AWAY
     target: aktiv
@@ -44,9 +50,8 @@
   - F54
   - F56
   note:
-    it: La logica è nel BDC (CLI_DEFAULT_LOCK_AT_SPEED già impostato). Così la gestisci dalle impostazioni del veicolo.
-    en: The logic is in the BDC (CLI_DEFAULT_LOCK_AT_SPEED already set). This lets you manage it from the vehicle
-      settings.
+    it: 'La chiusura vera e propria la fa il BDC (CLI_DEFAULT_LOCK_AT_SPEED); questa voce serve a gestirla dal menu.'
+    en: 'The locking itself is done by the BDC (CLI_DEFAULT_LOCK_AT_SPEED); this entry lets you manage it from the menu.'
   fonti:
   - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
   osservazioni:
@@ -65,6 +70,9 @@
   titolo:
     it: Voce menu ribaltamento specchietti alla chiusura
     en: Menu entry for folding mirrors when locking
+  descrizione:
+    it: 'Aggiunge in iDrive la voce per scegliere se gli specchietti si ripiegano quando chiudi l''auto.'
+    en: 'Adds the iDrive setting to choose whether the mirrors fold when you lock the car.'
   parametri:
   - nome: SETTINGS_AUTOMATIC_EXT_MIRROR_FOLDING
     target: aktiv
@@ -75,8 +83,8 @@
   - F54
   - F56
   note:
-    it: Nel BDC ASP_BEIKLAPPEN è già attivo. Sulla grafica MINI la voce non sempre compare.
-    en: ASP_BEIKLAPPEN is already active in the BDC. With the MINI graphics the entry does not always appear.
+    it: 'La fonte la indica per G12 e G30 con firmware da 11-16 in poi. Il ripiegamento lo fa il BDC (ASP_BEIKLAPPEN). Sulla grafica MINI la voce non sempre compare.'
+    en: 'The source gives it for G12 and G30 with firmware 11-16 or later. The folding itself is done by the BDC (ASP_BEIKLAPPEN). On the MINI graphics the item does not always appear.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
@@ -97,6 +105,9 @@
   titolo:
     it: Memoria sedile richiamata dalla chiave
     en: Seat memory recalled by the key
+  descrizione:
+    it: 'Nessuna fonte descrive questo parametro. Dal nome è la funzione che richiama la posizione del sedile memorizzata quando apri l''auto con la tua chiave.'
+    en: 'No source describes this parameter. From its name it is the function that recalls the stored seat position when you unlock with your key.'
   parametri:
   - nome: DOORLOCKING_SEATMEMORY
     target: aktiv
@@ -106,8 +117,8 @@
   telai:
   - F54
   note:
-    it: 'Richiede SA 459 e la centralina SMFA. Serve anche il parametro corrispondente in SMFA, ancora da mappare. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
-    en: 'Requires SA 459 and the SMFA unit. The matching SMFA parameter, not yet mapped, is also needed. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
+    it: 'Serve il sedile elettrico con memoria (SA 459) e la centralina SMFA, dove il parametro corrispondente non è ancora stato trovato.'
+    en: 'Needs the electric seat with memory (SA 459) and the SMFA unit, where the matching parameter has not been found yet.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -121,6 +132,9 @@
   titolo:
     it: Voce menu conferma acustica di chiusura
     en: Menu entry for the audible lock confirmation
+  descrizione:
+    it: 'Aggiunge in iDrive la voce per accendere o spegnere il segnale acustico quando chiudi e apri l''auto.'
+    en: 'Adds the iDrive setting to switch the audible signal on locking and unlocking on or off.'
   parametri:
   - nome: ACOUSTICAL_LOCK_CONFIRM
     target: aktiv
@@ -132,8 +146,8 @@
   - F55
   - F56
   note:
-    it: 'Secondo le fonti aggiunge al menu iDrive la voce per accendere o spegnere il segnale acustico di chiusura. Il suono lo dà il BDC con VAM_HORN_AT_SECURE: sulla F54 di riferimento l''auto suona alla chiusura anche con questo parametro spento e senza la voce nel menu.'
-    en: 'According to the sources it adds the iDrive menu entry to switch the audible lock signal on or off. The sound itself comes from the BDC via VAM_HORN_AT_SECURE: on the reference F54 the car beeps on locking even with this parameter off and no menu entry.'
+    it: 'Il segnale è quello della sirena dell''allarme: un cheat sheet BMW dice che la voce compare solo con l''allarme, uno coreano che serve il cicalino dell''antifurto. Su una F54 con allarme il parametro risulta spento e la voce non compare nel menu.'
+    en: 'The signal comes from the alarm siren: a BMW cheat sheet says the item only appears with the alarm, a Korean one that the anti-theft buzzer is needed. On an F54 with an alarm the parameter reads off and the item does not appear in the menu.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-12.html
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
@@ -152,6 +166,9 @@
   titolo:
     it: Riscaldamento sedili automatico
     en: Automatic seat heating
+  descrizione:
+    it: 'Aggiunge in iDrive l''accensione automatica del riscaldamento dei sedili in base alla temperatura.'
+    en: 'Adds automatic seat heating in iDrive, based on the temperature.'
   parametri:
   - nome: AKT_AUTO_SITZE_FRONT
     target: aktiv
@@ -162,8 +179,8 @@
   - F54
   - F56
   note:
-    it: 'Accende i sedili in base alla temperatura esterna. Su IHKA monozona MINI il supporto non è garantito. Il parametro è documentato con lo stesso nome nella head unit HU_MGU delle BMW G05.'
-    en: 'Switches the seats on depending on the outside temperature. Support is not guaranteed with the MINI single-zone IHKA. The parameter is documented with the same name in the HU_MGU head unit of BMW G05.'
+    it: 'Il parametro è documentato con lo stesso nome nella head unit HU_MGU delle BMW G05; nessuna fonte lo ha provato su una MINI. Serve il riscaldamento dei sedili.'
+    en: 'The parameter is documented under the same name in the HU_MGU head unit of the BMW G05; no source has tested it on a MINI. Needs heated seats.'
   fonti:
   - https://g05.bimmerpost.com/forums/attachment.php?attachmentid=2775656
   osservazioni:
@@ -184,6 +201,9 @@
   titolo:
     it: 'Distanza dell''ACC nell''HUD (parte HU)'
     en: 'ACC distance in the HUD (HU part)'
+  descrizione:
+    it: 'È la parte della HU che serve a mostrare nell''HUD la distanza dell''ACC dal veicolo davanti.'
+    en: 'It is the HU part needed to show the ACC distance to the vehicle ahead in the HUD.'
   parametri:
   - nome: HUD_DISTANCE_INFO
     target: aktiv
@@ -196,8 +216,8 @@
   - F54
   - F56
   note:
-    it: 'Le fonti la indicano come parte 2 di 3 della distanza ACC nell''HUD, insieme alle voci in KOMBI e KAFAS. Non è la distanza dalla prossima svolta della navigazione. Serve l''ACC.'
-    en: 'Sources give it as part 2 of 3 of the ACC distance in the HUD, together with the KOMBI and KAFAS entries. It is not the distance to the next navigation turn. Requires ACC.'
+    it: 'Le fonti la danno come parte 2 di 3, insieme alle voci nel KOMBI e nella KAFAS. Non è la distanza dalla prossima svolta della navigazione. Serve il cruise control attivo (ACC) e l''HUD.'
+    en: 'Sources give it as part 2 of 3, together with the KOMBI and KAFAS entries. It is not the distance to the next navigation turn. Needs active cruise control (ACC) and the HUD.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/HUD.md
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -214,6 +234,9 @@
   titolo:
     it: Interruttore luci diurne nel menu iDrive
     en: Daytime running lights switch in the iDrive menu
+  descrizione:
+    it: 'Aggiunge nel menu luci dell''iDrive la voce per accendere o spegnere le luci diurne.'
+    en: 'Adds the item to switch daytime running lights on or off to the iDrive lighting menu.'
   parametri:
   - nome: DAYDRIVING_LIGHT
     target: standard
@@ -226,10 +249,8 @@
   - F56
   - F57
   note:
-    it: Confermato su F54 e F56 (stesso passaggio perm_off → standard). Permette di spegnere la DRL dal menu luci,
-      per profilo.
-    en: Confirmed on F54 and F56 (same change, perm_off → standard). Lets you switch the DRL off from the lights
-      menu, per profile.
+    it: 'Confermata su F54 e F56 con il passaggio da perm_off o perm_on a standard. Una fonte francese la dà come parte 2 di 3 con FEM_BODY e REM, ma sulle MINI basta la HU.'
+    en: 'Confirmed on F54 and F56 by changing perm_off or perm_on to standard. A French source gives it as part 2 of 3 with FEM_BODY and REM, but on MINIs the HU is enough.'
   fonti:
   - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
   - https://minkara.carview.co.jp/userid/125014/car/2087329/5550627/note.aspx
@@ -250,6 +271,9 @@
   titolo:
     it: Video da chiavetta USB
     en: Video from a USB stick
+  descrizione:
+    it: 'Permette di guardare sullo schermo i video da una chiavetta USB.'
+    en: 'Lets you watch videos from a USB stick on the screen.'
   parametri:
   - nome: API_USB_VIDEO
     target: both
@@ -264,8 +288,8 @@
   - F56
   - F57
   note:
-    it: 'Confermato su un''altra F54: API_USB_VIDEO = both, più il codec XVID. Riproduzione a vettura ferma.'
-    en: 'Confirmed on another F54: API_USB_VIDEO = both, plus the XVID codec. Playback only when stationary.'
+    it: 'Servono tutti e due i parametri: API_USB_VIDEO = both e il codec XVID. Confermata su una F54. Il video si vede solo a vettura ferma, a meno di togliere anche i blocchi in marcia.'
+    en: 'Both parameters are needed: API_USB_VIDEO = both and the XVID codec. Confirmed on an F54. Video only plays when stationary, unless the driving locks are also removed.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-7.html
   - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
@@ -286,6 +310,9 @@
   titolo:
     it: Cambio ora legale automatico
     en: Automatic daylight saving time
+  descrizione:
+    it: 'L''orologio passa da solo all''ora legale e a quella solare.'
+    en: 'The clock switches to and from daylight saving time by itself.'
   parametri:
   - nome: CLOCK_CHANGE_AUTOMATIC
     target: aktiv
@@ -298,10 +325,8 @@
   - F56
   - F57
   note:
-    it: 'SETTINGS_TIME_AUTOMATIC è già su online e il KOMBI ha GPS_UHR attivo: manca solo il passaggio automatico
-      all''ora legale.'
-    en: 'SETTINGS_TIME_AUTOMATIC is already set to online and the KOMBI has GPS_UHR active: only the automatic switch
-      to daylight saving time is missing.'
+    it: 'Funziona insieme all''ora presa dalla rete o dal GPS (SETTINGS_TIME_AUTOMATIC e, nel KOMBI, GPS_UHR).'
+    en: 'Works together with the time taken from the network or GPS (SETTINGS_TIME_AUTOMATIC and, in the KOMBI, GPS_UHR).'
   fonti:
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5658504/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-22.html
@@ -318,6 +343,9 @@
   titolo:
     it: Navigazione e menu in movimento
     en: Navigation and menus while moving
+  descrizione:
+    it: 'Toglie i blocchi che impediscono di inserire indirizzi e guardare video quando l''auto è in movimento.'
+    en: 'Removes the locks that prevent entering addresses and watching video while the car is moving.'
   parametri:
   - nome: SPEEDLOCK_X_KMH_MIN
     target: FF
@@ -332,9 +360,8 @@
   - F56
   - F57
   note:
-    it: 'Su F54 documentato con FF. Toglie i blocchi di inserimento in marcia: il guidatore non deve usarlo mentre
-      guida.'
-    en: 'Documented on an F54 with FF. Removes the input locks while driving: the driver must not use it while driving.'
+    it: 'Documentata su F54 con FF. Su alcune versioni di iDrive funziona solo fino a 63 km/h. Il guidatore non deve usarla mentre guida: sconsigliata.'
+    en: 'Documented on F54 with FF. On some iDrive versions it only works up to 63 km/h. The driver must not use it while driving: not recommended.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
   - https://minkara.carview.co.jp/userid/125014/car/2087329/3515937/note.aspx
@@ -355,6 +382,9 @@
   titolo:
     it: Menu livello olio elettronico
     en: Electronic oil level menu
+  descrizione:
+    it: 'Mostra in iDrive il livello dell''olio misurato dal sensore.'
+    en: 'Shows the oil level measured by the sensor in iDrive.'
   parametri:
   - nome: OELSTANDSMENUE
     target: aktiv
@@ -367,8 +397,8 @@
   - F54
   - F56
   note:
-    it: 'Mostra il livello olio nell''iDrive. Funziona solo se il B48 ha il sensore OENS; altrimenti il menu resta vuoto. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
-    en: 'Shows the oil level in iDrive. It only works if the B48 has the OENS sensor; otherwise the menu stays empty. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
+    it: 'Funziona solo se il motore ha il sensore di livello olio (OENS); altrimenti il menu resta vuoto. Nessuna fonte pubblica descrive i parametri: l''abbinamento viene dal nome nel FWL.'
+    en: 'Only works if the engine has the oil level sensor (OENS); otherwise the menu stays empty. No public source describes the parameters: the match comes from the name in the FWL.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -385,6 +415,9 @@
   titolo:
     it: Disattivazione Active Sound Design
     en: Disable Active Sound Design
+  descrizione:
+    it: 'Spegne il suono sintetico del motore riprodotto in abitacolo (Active Sound Design).'
+    en: 'Turns off the synthetic engine sound played in the cabin (Active Sound Design).'
   parametri:
   - nome: ASD_SOUND_OFF
     target: aktiv
@@ -396,10 +429,8 @@
   - F55
   - F56
   note:
-    it: Fonte NAM, testata su F55/F56. Si codifica nella HU, non nella centralina ASD. Spegne il suono sintetico
-      del motore in abitacolo.
-    en: 'Source: NAM, tested on F55/F56. It is coded in the HU, not in the ASD unit. Turns off the synthetic engine
-      sound in the cabin.'
+    it: 'Testata su F55/F56 (NAM). Si codifica nella HU, non nella centralina ASD.'
+    en: 'Tested on F55/F56 (NAM). It is coded in the HU, not in the ASD unit.'
   fonti:
   - https://minkara.carview.co.jp/userid/125014/car/2087329/3641570/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
@@ -417,6 +448,9 @@
   titolo:
     it: Menu configurazione suono ASD
     en: ASD sound configuration menu
+  descrizione:
+    it: 'Aggiunge in iDrive il menu per scegliere il suono dell''Active Sound Design tra quelli disponibili.'
+    en: 'Adds the iDrive menu to choose the Active Sound Design sound among those available.'
   parametri:
   - nome: ASD_CONFIGURATION
     target: aktiv
@@ -430,10 +464,8 @@
   - F57
   - F60
   note:
-    it: Fonte NAM. Mostra in iDrive la scelta tra i suoni ASD_SOUND_1-4 (già attivi). Alternativa più morbida alla
-      disattivazione totale.
-    en: 'Source: NAM. Shows in iDrive the choice between the ASD_SOUND_1-4 sounds (already active). A gentler alternative
-      to switching it off completely.'
+    it: 'Fonte NAM. È un''alternativa più morbida allo spegnimento totale.'
+    en: 'Source: NAM. A softer alternative to turning it off completely.'
   fonti:
   - https://minkara.carview.co.jp/userid/125014/car/2087329/3641570/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
@@ -450,6 +482,9 @@
   titolo:
     it: Pressione e temperatura gomme in Info veicolo
     en: Tyre pressure and temperature in Vehicle info
+  descrizione:
+    it: 'Nella schermata del controllo gomme compaiono pressione e temperatura di ogni pneumatico.'
+    en: 'The tyre monitor screen shows the pressure and temperature of each tyre.'
   parametri:
   - nome: RDC_SAFETY
     target: aktiv
@@ -461,10 +496,8 @@
   - F55
   - F56
   note:
-    it: Fonte NAM. Serve il controllo pressione diretto con sensori nelle ruote. RDC_DRUCK_TEMP è già su pressione
-      e temperatura, quindi è probabile che funzioni.
-    en: 'Source: NAM. Requires direct pressure monitoring with sensors in the wheels. RDC_DRUCK_TEMP is already
-      set to pressure and temperature, so it will probably work.'
+    it: 'Serve il controllo pressione diretto, con sensori nelle ruote. Fonte NAM.'
+    en: 'Needs direct tyre pressure monitoring, with sensors in the wheels. Source: NAM.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
@@ -485,6 +518,9 @@
   titolo:
     it: Frecce nell'HUD
     en: Turn signals in the HUD
+  descrizione:
+    it: 'Mostra nell''HUD le frecce quando lampeggiano.'
+    en: 'Shows the turn signals in the HUD while they flash.'
   parametri:
   - nome: HUD_TURNSIGNAL
     target: aktiv
@@ -498,8 +534,8 @@
   - F57
   - F60
   note:
-    it: Fonte NAM. Mostra l'indicatore di direzione nell'Head-Up Display.
-    en: 'Source: NAM. Shows the turn indicator in the head-up display.'
+    it: 'Va con la voce nel KOMBI. Una fonte dice che non va con il quadro digitale 6WB; una fonte francese riporta che non funziona. Serve l''HUD.'
+    en: 'Goes with the KOMBI entry. One source says it does not work with the 6WB digital cluster; a French source reports it does not work. Needs the HUD.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -518,6 +554,9 @@
   titolo:
     it: Info limite di velocità
     en: Speed limit info
+  descrizione:
+    it: 'Attiva sulla HU la visualizzazione del limite di velocità.'
+    en: 'Enables speed limit display on the HU.'
   parametri:
   - nome: SPEEDLIMIT_INFO
     target: aktiv
@@ -529,8 +568,8 @@
   - F55
   - F56
   note:
-    it: Fonte NAM, insieme a KI_PIA_SPEED_LIMIT nel KOMBI (da attivare se non lo è già).
-    en: 'Source: NAM, together with KI_PIA_SPEED_LIMIT in the KOMBI (enable it if it is not already).'
+    it: 'Fonte NAM, insieme a KI_PIA_SPEED_LIMIT nel KOMBI (da attivare se non lo è già). Serve la telecamera frontale.'
+    en: 'Source: NAM, together with KI_PIA_SPEED_LIMIT in the KOMBI (enable it if it is not already). Needs the front camera.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   osservazioni:
@@ -544,6 +583,9 @@
   titolo:
     it: Data e ora nel registro chiamate
     en: Date and time in the call log
+  descrizione:
+    it: 'Il registro delle chiamate mostra data e ora di ogni chiamata.'
+    en: 'The call log shows the date and time of each call.'
   parametri:
   - nome: TIMESTAMP_DISPLAY
     target: aktiv
@@ -555,9 +597,6 @@
   - F55
   - F56
   - F57
-  note:
-    it: Fonte NAM.
-    en: 'Source: NAM.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -574,6 +613,9 @@
   titolo:
     it: Dettatura vocale per SMS ed e-mail
     en: Voice dictation for SMS and email
+  descrizione:
+    it: 'Permette di dettare a voce SMS ed e-mail.'
+    en: 'Lets you dictate text messages and emails by voice.'
   parametri:
   - nome: SPEECH_2_TEXT
     target: aktiv
@@ -586,8 +628,8 @@
   - F56
   - F57
   note:
-    it: Fonte NAM. Dipende dal supporto della lingua italiana.
-    en: 'Source: NAM. Depends on support for your language.'
+    it: 'Una fonte francese dice che serve un abbonamento al servizio di riconoscimento vocale. Dipende anche dalla lingua.'
+    en: 'A French source says a subscription to the speech recognition service is needed. It also depends on the language.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -604,6 +646,9 @@
   titolo:
     it: Suoneria del telefono come principale
     en: Phone ringtone as the main ringtone
+  descrizione:
+    it: 'Quando ti chiamano, dagli altoparlanti dell''auto senti la suoneria del telefono invece di quella dell''auto.'
+    en: 'When someone calls, the car speakers play your phone''s ringtone instead of the car''s.'
   parametri:
   - nome: INBAND_RINGING
     target: aktiv
@@ -615,8 +660,8 @@
   - F55
   - F56
   note:
-    it: Fonte NAM. Usa la suoneria del telefono invece di quella dell'auto.
-    en: 'Source: NAM. Uses the phone''s ringtone instead of the car''s.'
+    it: 'Le fonti dicono che funziona solo con iPhone.'
+    en: 'Sources say it only works with an iPhone.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
@@ -636,6 +681,9 @@
   titolo:
     it: Importazione percorsi nella navigazione
     en: Route import in navigation
+  descrizione:
+    it: 'Permette di caricare nella navigazione un percorso da una chiavetta USB.'
+    en: 'Lets you load a route into the navigation from a USB stick.'
   parametri:
   - nome: NAVI_TRIP_IMPORT
     target: aktiv
@@ -648,9 +696,6 @@
   - F56
   - F57
   - F60
-  note:
-    it: Fonte NAM.
-    en: 'Source: NAM.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -667,6 +712,9 @@
   titolo:
     it: Grafica John Cooper Works in iDrive
     en: John Cooper Works graphics in iDrive
+  descrizione:
+    it: 'L''iDrive usa le schermate e i colori John Cooper Works, anche nell''anello LED.'
+    en: 'The iDrive uses John Cooper Works screens and colours, including the LED ring.'
   parametri:
   - nome: JOHN_COOPER_WORKS_HMI
     target: aktiv
@@ -678,8 +726,8 @@
   - F55
   - F56
   note:
-    it: Fonte mini-f56-forum.de e minif56.com. Solo estetica (anello LED e schermate JCW).
-    en: 'Source: mini-f56-forum.de and minif56.com. Cosmetic only (LED ring and JCW screens).'
+    it: 'Solo estetica.'
+    en: 'Cosmetic only.'
   fonti:
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5673906/note.aspx
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
@@ -694,6 +742,9 @@
   titolo:
     it: 'Avviso uscita di corsia: voce nel menu iDrive'
     en: 'Lane departure warning: entry in the iDrive menu'
+  descrizione:
+    it: 'Aggiunge in iDrive la voce per accendere e regolare l''avviso di uscita di corsia.'
+    en: 'Adds the iDrive item to switch on and adjust lane departure warning.'
   parametri:
   - nome: LANE_DEPARTURE_WARNING
     target: aktiv
@@ -705,16 +756,8 @@
   - F55
   - F56
   note:
-    it: 'Parte di una procedura su quattro centraline. Nella F54 di riferimento KOMBI, BDC e gran parte della KAFAS
-      sono già pronti: mancano questa voce e le due della KAFAS. Procedura completa su F54 (minif56): KOMBI TLC_VERBAUT,
-      ST_TLC_*; BDC ComAdapterPdu_18A_Steuerung_Vibration_Lenkrad e SPURVERLASSENS_WARNUNG; KAFAS TLC_ON_OFF, SEND_MSG_327/18A;
-      HU LANE_DEPARTURE_WARNING; KAFAS TLC_START_VERSION 01 e DT_LNDT_SEND. Un utente F54 l''ha attivata senza montare
-      il motorino di vibrazione: la vibrazione è leggera. Richiede la telecamera KAFAS.'
-    en: 'Part of a procedure across four units. On the reference F54 the KOMBI, the BDC and most of the KAFAS are
-      already set up: this entry and the two KAFAS ones are missing. Full procedure on an F54 (minif56): KOMBI TLC_VERBAUT,
-      ST_TLC_*; BDC ComAdapterPdu_18A_Steuerung_Vibration_Lenkrad and SPURVERLASSENS_WARNUNG; KAFAS TLC_ON_OFF,
-      SEND_MSG_327/18A; HU LANE_DEPARTURE_WARNING; KAFAS TLC_START_VERSION 01 and DT_LNDT_SEND. One F54 owner enabled
-      it without fitting the vibration motor: the vibration is light. Requires the KAFAS camera.'
+    it: 'Fa parte di una procedura su quattro centraline descritta su una F54 (minif56): KOMBI TLC_VERBAUT e ST_TLC_*; BDC ComAdapterPdu_18A_Steuerung_Vibration_Lenkrad e SPURVERLASSENS_WARNUNG; KAFAS TLC_ON_OFF, SEND_MSG_327/18A, TLC_START_VERSION 01 e DT_LNDT_SEND; HU LANE_DEPARTURE_WARNING. Serve la telecamera KAFAS.'
+    en: 'It is part of a four-unit procedure described on an F54 (minif56): KOMBI TLC_VERBAUT and ST_TLC_*; BDC ComAdapterPdu_18A_Steuerung_Vibration_Lenkrad and SPURVERLASSENS_WARNUNG; KAFAS TLC_ON_OFF, SEND_MSG_327/18A, TLC_START_VERSION 01 and DT_LNDT_SEND; HU LANE_DEPARTURE_WARNING. Needs the KAFAS camera.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -729,6 +772,9 @@
   titolo:
     it: Scrittura su chiavetta USB
     en: Writing to a USB stick
+  descrizione:
+    it: 'Permette all''iDrive di scrivere su una chiavetta USB, per esempio per esportare dati.'
+    en: 'Lets the iDrive write to a USB stick, for example to export data.'
   parametri:
   - nome: API_USB_READ_WRITE
     target: aktiv
@@ -740,8 +786,8 @@
   - F55
   - F56
   note:
-    it: Fonte Bimmerfest. Permette di esportare dati (es. percorsi) su USB.
-    en: 'Source: Bimmerfest. Lets you export data (e.g. routes) to USB.'
+    it: 'Fonte Bimmerfest.'
+    en: 'Source: Bimmerfest.'
   fonti: &id002
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   osservazioni:
@@ -755,6 +801,9 @@
   titolo:
     it: Scelta della velocità digitale dal menu iDrive
     en: Choose the digital speed display from the iDrive menu
+  descrizione:
+    it: 'Aggiunge in iDrive la casella per mostrare la velocità in cifre nel computer di bordo del quadro.'
+    en: 'Adds the iDrive checkbox to show digital speed in the cluster''s on-board computer.'
   parametri:
   - nome: KI_DISP_CB_SPEED_DIGITAL
     target: aktiv
@@ -768,8 +817,8 @@
   - F57
   - F60
   note:
-    it: 'Aggiunge la casella in iDrive per scegliere cosa mostrare nel computer di bordo del quadro. Abbinala a DIGITAL_TACHO_ENABLE. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
-    en: 'Adds the checkbox in iDrive to choose what the cluster''s on-board computer shows. Pair it with DIGITAL_TACHO_ENABLE. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
+    it: 'Va con DIGITAL_TACHO_ENABLE nel KOMBI. Nessuna fonte pubblica descrive il parametro: l''abbinamento viene dal nome nel FWL e dall''elenco di BimmerCode.'
+    en: 'Goes with DIGITAL_TACHO_ENABLE in the KOMBI. No public source describes the parameter: the match comes from the name in the FWL and the BimmerCode list.'
   fonti: &id001
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -783,6 +832,9 @@
   titolo:
     it: Altre voci del computer di bordo selezionabili
     en: More selectable on-board computer items
+  descrizione:
+    it: 'Aggiunge in iDrive le caselle per mostrare nel quadro autonomia, temperatura del motore e medie di velocità e consumo.'
+    en: 'Adds iDrive checkboxes to show range, engine temperature and average speed and consumption in the cluster.'
   parametri:
   - nome: KI_DISP_CB_BC_RANGE_ENABLE
     target: aktiv
@@ -800,8 +852,8 @@
   - F57
   - F60
   note:
-    it: 'Caselle in iDrive per autonomia, temperatura motore e media di velocità/consumo nel quadro. Sono menu: il KOMBI deve supportarle (BC_MOTORTEMP_ENABLE è già attivo). Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
-    en: 'Checkboxes in iDrive for range, engine temperature and average speed/consumption in the cluster. These are menu entries: the KOMBI must support them (BC_MOTORTEMP_ENABLE is already active). No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
+    it: 'Sono solo caselle di menu: il KOMBI deve avere attivi i dati corrispondenti. Nessuna fonte pubblica descrive i parametri: l''abbinamento viene dal nome nel FWL e dall''elenco di BimmerCode.'
+    en: 'They are only menu checkboxes: the KOMBI must have the matching data enabled. No public source describes the parameters: the match comes from the name in the FWL and the BimmerCode list.'
   fonti: *id001
   osservazioni:
   - telaio: F54
@@ -814,6 +866,9 @@
   titolo:
     it: Volante riscaldato automatico
     en: Automatic heated steering wheel
+  descrizione:
+    it: 'Aggiunge in iDrive l''accensione automatica del volante riscaldato in base alla temperatura.'
+    en: 'Adds automatic steering wheel heating in iDrive, based on the temperature.'
   parametri:
   - nome: AKT_AUTO_LENKRADHEIZUNG
     target: aktiv
@@ -823,8 +878,8 @@
   telai:
   - F54
   note:
-    it: 'Voce di menu: accende il volante in base alla temperatura. Non presente nell''elenco BimmerCode MINI, quindi da provare. Il parametro è documentato con lo stesso nome nella head unit HU_MGU delle BMW G05.'
-    en: 'Menu entry: switches the wheel heating on depending on the temperature. Not in the BimmerCode MINI list, so it needs testing. The parameter is documented with the same name in the HU_MGU head unit of BMW G05.'
+    it: 'Il parametro è documentato con lo stesso nome nella head unit HU_MGU delle BMW G05; non è nell''elenco BimmerCode MINI e nessuno l''ha provato su una MINI. Serve il volante riscaldato.'
+    en: 'The parameter is documented under the same name in the HU_MGU head unit of the BMW G05; it is not in the BimmerCode MINI list and nobody has tested it on a MINI. Needs a heated steering wheel.'
   fonti:
   - https://g05.bimmerpost.com/forums/attachment.php?attachmentid=2775656
   osservazioni:
@@ -840,6 +895,9 @@
   titolo:
     it: Popup del volume
     en: Volume pop-up
+  descrizione:
+    it: 'Quando regoli il volume, sullo schermo compare la barra del livello.'
+    en: 'When you adjust the volume, a level bar appears on the screen.'
   parametri:
   - nome: VOLUME_POPUP_DISPLAY
     target: aktiv
@@ -852,9 +910,6 @@
   - F56
   - F57
   - F60
-  note:
-    it: Elenco BimmerCode. Mostra a schermo il livello del volume quando lo regoli.
-    en: BimmerCode list. Shows the volume level on screen when you adjust it.
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Sport-Features.md
@@ -871,6 +926,9 @@
   titolo:
     it: Suono di avviso
     en: Warning sound
+  descrizione:
+    it: 'Cambia la serie di suoni di avviso dell''auto con quella BMW, MINI, BMW i o Rolls-Royce.'
+    en: 'Changes the car''s warning sounds to the BMW, MINI, BMW i or Rolls-Royce set.'
   parametri:
   - nome: SOUND_SIGNAL_SET
     regolabile: true
@@ -887,8 +945,8 @@
   - F57
   - F60
   note:
-    it: Elenco BimmerCode. Su un'altra F54 documentato 02_RR. Solo gusto personale.
-    en: BimmerCode list. Documented as 02_RR on another F54. Purely a matter of taste.
+    it: 'Valori: 00 BMW, 01 MINI, 02 Rolls-Royce, 03 BMW i. Sulle MINI lette è impostato bmw. Solo gusto personale.'
+    en: 'Values: 00 BMW, 01 MINI, 02 Rolls-Royce, 03 BMW i. The MINIs read are set to bmw. Personal taste only.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-13.html
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/?pageNo=225
@@ -908,6 +966,9 @@
   titolo:
     it: Animazione di avvio
     en: Start-up animation
+  descrizione:
+    it: 'Cambia l''animazione o la schermata che l''iDrive mostra all''accensione.'
+    en: 'Changes the animation or screen the iDrive shows at start-up.'
   parametri:
   - nome: STARTUP_EMBLEM
     regolabile: true
@@ -926,8 +987,8 @@
   - F57
   - F60
   note:
-    it: 'Elenco BimmerCode: animazioni MINI, JCW e altre. Solo estetica.'
-    en: 'BimmerCode list: MINI, JCW and other animations. Cosmetic only.'
+    it: 'STARTUP_EMBLEM sceglie la variante (le fonti BMW citano M Performance e ConnectedDrive; l''elenco BimmerCode cita MINI e JCW), STARTUP_TYPE sceglie tra animazione e schermata nera. Solo estetica.'
+    en: 'STARTUP_EMBLEM picks the variant (BMW sources mention M Performance and ConnectedDrive; the BimmerCode list mentions MINI and JCW), STARTUP_TYPE picks animation or a black screen. Cosmetic only.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-14.html
   - https://bimmercode.app/vehicles/f56
@@ -948,6 +1009,9 @@
   titolo:
     it: Popup del clima a ogni regolazione
     en: Climate pop-up on every adjustment
+  descrizione:
+    it: 'Sullo schermo compare un riquadro quando cambi la distribuzione dell''aria o la modalità AUTO del clima.'
+    en: 'A pop-up appears on the screen when you change air distribution or the climate AUTO mode.'
   parametri:
   - nome: HVAC_POPUP_AIRDISTR
     target: aktiv
@@ -963,8 +1027,8 @@
   - F57
   - F60
   note:
-    it: 'Mostra un riquadro a schermo quando cambi distribuzione aria o modalità AUTO. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
-    en: 'Shows a box on screen when you change air distribution or AUTO mode. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
+    it: 'Nessuna fonte pubblica descrive i parametri: l''abbinamento viene dal nome nel FWL e dall''elenco di BimmerCode.'
+    en: 'No public source describes the parameters: the match comes from the name in the FWL and the BimmerCode list.'
   fonti: *id001
   osservazioni:
   - telaio: F54
@@ -977,6 +1041,9 @@
   titolo:
     it: Storico tagliandi
     en: Service history
+  descrizione:
+    it: 'Mostra in iDrive lo storico dei tagliandi fatti in officina.'
+    en: 'Shows the dealer service history in iDrive.'
   parametri:
   - nome: SERVICE_HISTORY
     target: aktiv
@@ -990,7 +1057,8 @@
   - F57
   - F60
   note:
-    it: ''
+    it: 'Sulle MINI lette è già attivo.'
+    en: 'Already on in the MINIs read.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -1006,6 +1074,9 @@
   titolo:
     it: Inclinometro xView
     en: xView inclinometer
+  descrizione:
+    it: 'Aggiunge in iDrive la schermata xView con inclinazione e pendenza dell''auto.'
+    en: 'Adds the xView screen with the car''s tilt and gradient to iDrive.'
   parametri:
   - nome: X_VIEW
     target: aktiv
@@ -1019,7 +1090,8 @@
   - F57
   - F60
   note:
-    it: ''
+    it: 'Le fonti la chiamano X-Drive, come la trazione integrale BMW. Sulla F54 letta è già attiva.'
+    en: 'Sources call it X-Drive, like BMW all-wheel drive. Already on in the F54 read.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -1035,6 +1107,9 @@
   titolo:
     it: Elenchi musicali nell'HUD
     en: Music lists in the HUD
+  descrizione:
+    it: 'Mostra nell''HUD i dettagli di intrattenimento e telefono, come gli elenchi dei brani e delle chiamate.'
+    en: 'Shows entertainment and phone details in the HUD, such as track and call lists.'
   parametri:
   - nome: HUD_ENTERTAINMENTLIST
     target: aktiv
@@ -1048,7 +1123,8 @@
   - F57
   - F60
   note:
-    it: ''
+    it: 'È la seconda di due parti: l''altra è nel KOMBI. Aggiunge la casella "Intrattenimento/Telefono" nelle impostazioni dell''HUD. Serve l''HUD.'
+    en: 'It is the second of two parts: the other is in the KOMBI. Adds the "Entertainment/Telephone" checkbox to the HUD settings. Needs the HUD.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -1065,6 +1141,9 @@
   titolo:
     it: Chiusura finestrini quando piove
     en: Close the windows when it rains
+  descrizione:
+    it: 'Aggiunge in iDrive la voce per far chiudere i finestrini quando inizia a piovere.'
+    en: 'Adds the iDrive item to close the windows when it starts raining.'
   parametri:
   - nome: REGEN_SCHLIESSEN
     target: aktiv
@@ -1077,8 +1156,8 @@
   - F56
   - F57
   note:
-    it: Fonte Bimmerfest, mai confermata. Aggiunge la voce in iDrive; serve che il BDC supporti la funzione.
-    en: 'Source: Bimmerfest, never confirmed. Adds the entry in iDrive; the BDC must support the function.'
+    it: 'Fonte Bimmerfest, mai confermata da nessuno. Serve che il BDC supporti la funzione.'
+    en: 'Source: Bimmerfest, never confirmed by anyone. The BDC must support the function.'
   fonti:
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
@@ -1093,6 +1172,9 @@
   titolo:
     it: Testo completo dei messaggi in marcia
     en: Full message text while driving
+  descrizione:
+    it: 'Durante la guida l''iDrive mostra il testo completo dei messaggi (SMS) invece della sola prima pagina.'
+    en: 'While driving the iDrive shows the full text of messages (SMS) instead of just the first page.'
   parametri:
   - nome: PIM_DRIVING_TEXT_LENGTH
     target: whole_text
@@ -1106,9 +1188,8 @@
   - F57
   - F60
   note:
-    it: 'Elenco BimmerCode e NAM. Mostra l''intero SMS anche guidando: leggerlo distrae, valutalo per il passeggero.'
-    en: 'BimmerCode list and NAM. Shows the whole SMS while driving: reading it is distracting, consider it for
-      the passenger.'
+    it: 'Fonti: elenco BimmerCode, NAM e cheat sheet BMW. Leggere i messaggi guidando distrae: è utile soprattutto al passeggero.'
+    en: 'Sources: BimmerCode list, NAM and BMW cheat sheets. Reading messages while driving is distracting: it is mainly useful for the passenger.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
@@ -1127,6 +1208,9 @@
   titolo:
     it: Volume massimo all'accensione
     en: Maximum volume at start-up
+  descrizione:
+    it: 'All''accensione la radio riparte al volume che avevi lasciato fino a questo livello, invece di ripartire al 25%.'
+    en: 'At start-up the radio comes back at the volume you left, up to this level, instead of restarting at 25%.'
   parametri:
   - nome: VOL_MAX_ON
     regolabile: true
@@ -1143,8 +1227,8 @@
   - F57
   - F60
   note:
-    it: Elenco BimmerCode, NAM e forum tedesco. La radio non riparte più bassa di questo valore.
-    en: BimmerCode list, NAM and the German forum. The radio no longer starts quieter than this value.
+    it: 'Esadecimale: 19 = 25% (di fabbrica), 32 = 50%, 4B = 75%. Confermata da più utenti (BimmerCode, NAM, forum tedesco).'
+    en: 'Hex: 19 = 25% (factory), 32 = 50%, 4B = 75%. Confirmed by several users (BimmerCode, NAM, German forum).'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
@@ -1163,6 +1247,9 @@
   titolo:
     it: Altri formati video da USB
     en: More video formats from USB
+  descrizione:
+    it: 'Aggiunge la riproduzione di altri formati video (OGG, VCD) e la possibilità di copiare i video sul disco della HU.'
+    en: 'Adds playback of more video formats (OGG, VCD) and the ability to copy videos to the HU hard drive.'
   parametri:
   - nome: ENT_VIDEO
     target: aktiv
@@ -1180,10 +1267,8 @@
   - F55
   - F56
   note:
-    it: Fonti NAM e Bimmerfest, in aggiunta a API_USB_VIDEO e XVID. ENT_MC_VIDEO_SUPPORT permette di salvare i video
-      sul disco della HU.
-    en: 'Sources: NAM and Bimmerfest, in addition to API_USB_VIDEO and XVID. ENT_MC_VIDEO_SUPPORT lets you save
-      videos to the HU''s disk.'
+    it: 'Si aggiunge alla voce "Video da chiavetta USB" (API_USB_VIDEO e XVID). Fonti NAM e Bimmerfest.'
+    en: 'Comes on top of the entry "Video from a USB stick" (API_USB_VIDEO and XVID). Sources: NAM and Bimmerfest.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
@@ -1202,6 +1287,9 @@
   titolo:
     it: Streaming multimediale via Wi-Fi
     en: Media streaming over Wi-Fi
+  descrizione:
+    it: 'Permette di riprodurre musica e video da un dispositivo collegato in Wi-Fi, con le copertine degli album.'
+    en: 'Lets you play music and video from a device connected over Wi-Fi, with album covers.'
   parametri:
   - nome: ENT_MC_WLAN_STREAM_DMP
     target: aktiv
@@ -1218,8 +1306,8 @@
   - F56
   - F57
   note:
-    it: Fonte Bimmerfest. Riproduce musica e video da un dispositivo in rete Wi-Fi (DLNA).
-    en: 'Source: Bimmerfest. Plays music and video from a device on the Wi-Fi network (DLNA).'
+    it: 'Fonte Bimmerfest; un cheat sheet BMW lo collega a Miracast e al modulo Wi-Fi. Non è descritto su una MINI.'
+    en: 'Source: Bimmerfest; a BMW cheat sheet links it to Miracast and the Wi-Fi module. Not described on a MINI.'
   fonti:
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -1236,6 +1324,9 @@
   titolo:
     it: Barra di avanzamento al reset pressione gomme
     en: Progress bar when resetting tyre pressure
+  descrizione:
+    it: 'Quando azzeri il controllo pressione gomme, una barra mostra l''avanzamento della taratura.'
+    en: 'When you reset the tyre pressure monitor, a bar shows the calibration progress.'
   parametri:
   - nome: RDC_FORTSCHRITTSANZEIGE
     target: aktiv
@@ -1247,8 +1338,8 @@
   - F55
   - F56
   note:
-    it: Fonte Bimmerfest.
-    en: 'Source: Bimmerfest.'
+    it: 'Fonte Bimmerfest; la descrizione viene dal nome del parametro (Fortschrittsanzeige, indicatore di avanzamento).'
+    en: 'Source: Bimmerfest; the description comes from the parameter name (Fortschrittsanzeige, progress indicator).'
   fonti: *id002
   osservazioni:
   - telaio: F54
@@ -1263,6 +1354,9 @@
   titolo:
     it: Regolazione luminosità luci ambiente in iDrive
     en: Ambient light brightness setting in iDrive
+  descrizione:
+    it: 'Aggiunge in iDrive la regolazione della luminosità delle luci ambiente separata da quella del quadro.'
+    en: 'Adds an ambient light brightness setting in iDrive, separate from the cluster brightness.'
   parametri:
   - nome: HELLIGKEIT_AMBILIGHT
     target: aktiv
@@ -1276,8 +1370,8 @@
   - F57
   - F60
   note:
-    it: 'Collegato alla voce BimmerCode che separa la luminosità delle luci ambiente da quella del quadro. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
-    en: 'Linked to the BimmerCode entry that separates ambient light brightness from cluster brightness. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
+    it: 'Nessuna fonte pubblica descrive il parametro: l''abbinamento viene dal nome nel FWL e dall''elenco di BimmerCode.'
+    en: 'No public source describes the parameter: the match comes from the name in the FWL and the BimmerCode list.'
   fonti: *id001
   osservazioni:
   - telaio: F54
@@ -1290,6 +1384,9 @@
   titolo:
     it: Limitatore automatico in base ai cartelli
     en: Automatic limiter based on road signs
+  descrizione:
+    it: 'Il limitatore di velocità si regola da solo sui limiti letti dai cartelli.'
+    en: 'The speed limiter sets itself to the limits read from road signs.'
   parametri:
   - nome: AUTOLIMITER
     target: aktiv
@@ -1301,9 +1398,8 @@
   - F55
   - F56
   note:
-    it: 'Fonte Bimmerfest. Parte dello Speed Limit Assist: va insieme alle voci LDM_ISA di KOMBI, DSC e SAS.'
-    en: 'Source: Bimmerfest. Part of Speed Limit Assist: goes together with the LDM_ISA entries in KOMBI, DSC and
-      SAS.'
+    it: 'Fonte Bimmerfest. È parte dello Speed Limit Assist: va con le voci LDM_ISA di KOMBI, DSC e SAS, e nessuno l''ha provato su una MINI.'
+    en: 'Source: Bimmerfest. It is part of Speed Limit Assist: goes with the LDM_ISA entries in KOMBI, DSC and SAS, and nobody has tested it on a MINI.'
   fonti: *id002
   osservazioni:
   - telaio: F54
@@ -1316,6 +1412,9 @@
   titolo:
     it: Suoneria delle chiamate dell'auto
     en: Car ringtone for calls
+  descrizione:
+    it: 'Cambia la suoneria che l''auto usa per le chiamate - BMW, MINI, BMW i o Rolls-Royce.'
+    en: 'Changes the ringtone the car uses for calls - BMW, MINI, BMW i or Rolls-Royce.'
   parametri:
   - nome: RINGTONE
     regolabile: true
@@ -1332,8 +1431,8 @@
   - F57
   - F60
   note:
-    it: Cambia la suoneria usata dall'auto quando il telefono non trasmette la propria.
-    en: Changes the ringtone the car uses when the phone does not send its own.
+    it: 'Valori: 00 BMW, 01 MINI, 02 BMW i, 03 Rolls-Royce. Vale quando il telefono non trasmette la propria suoneria.'
+    en: 'Values: 00 BMW, 01 MINI, 02 BMW i, 03 Rolls-Royce. It applies when the phone does not send its own ringtone.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -1349,6 +1448,9 @@
   titolo:
     it: Blocchi dell'iDrive in marcia (video, Bluetooth, testi)
     en: iDrive lock-outs while driving (video, Bluetooth, text)
+  descrizione:
+    it: 'Toglie i blocchi che in marcia impediscono video, manuale d''uso, abbinamento Bluetooth, scrittura sul touchpad, radio e lettura completa dei messaggi.'
+    en: 'Removes the locks that block video, the owner''s manual, Bluetooth pairing, touchpad writing, radio and full message reading while driving.'
   parametri:
   - nome: VIDEO_FRONT_LOCKED
     regolabile: true
@@ -1437,12 +1539,8 @@
   - F85
   - F86
   note:
-    it: Toglie i blocchi che impediscono video, abbinamento Bluetooth, inserimento testo e lettura messaggi durante
-      la guida. Il guidatore non deve usarli in marcia. Parametro presente nei FWL della F54 di riferimento; la
-      codifica è documentata nei cheat sheet su GitHub.
-    en: Removes the locks that prevent video, Bluetooth pairing, text input and message reading while driving. The
-      driver must not use them while driving. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'Sono molti parametri, ciascuno per un blocco: puoi toglierne solo alcuni. Su alcune versioni di iDrive il video funziona solo fino a 63 km/h; una fonte G07 dice che dopo la codifica serve una combinazione di tasti. Il guidatore non deve usarli in marcia: sconsigliata.'
+    en: 'There are many parameters, one per lock: you can remove only some. On some iDrive versions video only works up to 63 km/h; a G07 source says a button combination is needed after coding. The driver must not use them while driving: not recommended.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-10.html
@@ -1462,6 +1560,9 @@
   titolo:
     it: Display sportivi in iDrive
     en: Sport displays in iDrive
+  descrizione:
+    it: 'In iDrive compaiono i display sportivi con potenza e coppia, e la configurazione della modalità Sport.'
+    en: 'The iDrive shows the sport displays with power and torque, and the Sport mode setup.'
   parametri:
   - nome: MACRO_FDS
     target: popup_and_config
@@ -1511,10 +1612,8 @@
   - F85
   - F86
   note:
-    it: Mostra potenza e coppia in iDrive. Per i colori M vedi la voce dedicata. Parametro presente nei FWL della
-      F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Shows power and torque in iDrive. For M colours see the dedicated entry. Parameter present in the reference
-      F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'MACRO_FDS = popup_and_config aggiunge la configurazione della modalità Sport; gli altri due parametri, già attivi sulle MINI lette, mostrano i display. Una fonte la dà come parte 1 di 2 insieme al KOMBI. Per i colori M vedi la voce dedicata.'
+    en: 'MACRO_FDS = popup_and_config adds the Sport mode setup; the other two parameters, already on in the MINIs read, show the displays. One source gives it as part 1 of 2 together with the KOMBI. For M colours see the dedicated entry.'
   fonti:
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5673906/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-12.html
@@ -1533,6 +1632,9 @@
   titolo:
     it: Bussola e grafica xView
     en: Compass and xView graphics
+  descrizione:
+    it: 'Aggiunge la bussola in iDrive, una grafica diversa per l''inclinometro xView e il menu della ripartizione di coppia.'
+    en: 'Adds the compass to iDrive, a different graphic for the xView inclinometer and the torque distribution menu.'
   parametri:
   - nome: COMPASS
     target: aktiv
@@ -1584,10 +1686,8 @@
   - F85
   - F86
   note:
-    it: Bussola in iDrive, grafica alternativa dell'inclinometro e menu della ripartizione di coppia (xDrive/ALL4).
-      Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Compass in iDrive, alternative inclinometer graphics and torque split menu (xDrive/ALL4). Parameter present
-      in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Il menu della ripartizione di coppia ha senso con la trazione integrale (xDrive/ALL4).'
+    en: 'The torque distribution menu makes sense with all-wheel drive (xDrive/ALL4).'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -1603,6 +1703,9 @@
   titolo:
     it: Togliere gli avvisi legali di avvio e telecamere
     en: Remove start-up and camera legal disclaimers
+  descrizione:
+    it: 'Toglie gli avvisi legali che compaiono all''avvio dell''iDrive e quando accendi le telecamere.'
+    en: 'Removes the legal disclaimers shown at iDrive start-up and when the cameras turn on.'
   parametri:
   - nome: LEGAL_DISCLAIMER_TIME
     target: kein_ld
@@ -1652,8 +1755,8 @@
   - F85
   - F86
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Sulle MINI lette l''avviso di avvio è già tolto (kein_ld). MACRO_NIVICAM_LDISCLAIMER riguarda la visione notturna, che le MINI non hanno.'
+    en: 'On the MINIs read the start-up disclaimer is already removed (kein_ld). MACRO_NIVICAM_LDISCLAIMER concerns night vision, which MINIs do not have.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-22.html
@@ -1674,6 +1777,9 @@
   titolo:
     it: Copertine e brani dal telefono via Bluetooth
     en: Cover art and track info from the phone via Bluetooth
+  descrizione:
+    it: 'In iDrive compaiono copertina, titolo dei brani e navigazione nella libreria della musica che arriva dal telefono via Bluetooth.'
+    en: 'The iDrive shows the cover, track titles and library browsing for music streamed from the phone over Bluetooth.'
   parametri:
   - nome: ENT_BTAS_IAP_COVERART
     target: aktiv
@@ -1723,8 +1829,8 @@
   - F85
   - F86
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Sulle MINI lette è già attivo. L''unica fonte è un cheat sheet coreano.'
+    en: 'Already on in the MINIs read. The only source is a Korean cheat sheet.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:
@@ -1738,6 +1844,9 @@
   titolo:
     it: Zoom della retrocamera (modalità rimorchio)
     en: Rear camera zoom (trailer mode)
+  descrizione:
+    it: 'Aggiunge nella retrocamera lo zoom sul gancio di traino, per agganciare il rimorchio.'
+    en: 'Adds a zoom on the tow hitch to the reversing camera, for hitching a trailer.'
   parametri:
   - nome: MACRO_TRAILER_COUPLING
     target: aktiv
@@ -1783,8 +1892,8 @@
   - F85
   - F86
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Serve la retrocamera. Le fonti (BMW e cheat sheet coreani) usano aktiv o 01.'
+    en: 'Needs the reversing camera. Sources (BMW and Korean cheat sheets) use aktiv or 01.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -1800,6 +1909,9 @@
   titolo:
     it: Tipo di impianto audio
     en: Audio system type
+  descrizione:
+    it: 'Dice alla HU che tipo di impianto audio è montato; cambiandolo cambia l''equalizzazione del suono.'
+    en: 'Tells the HU which audio system is fitted; changing it changes the sound equalisation.'
   parametri:
   - nome: AUDIO_SYSTEM
     regolabile: true
@@ -1850,11 +1962,8 @@
   - F85
   - F86
   note:
-    it: 'Cambia l''equalizzazione per un impianto diverso da quello montato: il suono può peggiorare. Annota i valori
-      originali. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet
-      su GitHub.'
-    en: 'Changes the equalisation for a different system than the one fitted: sound may get worse. Note the original
-      values. Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'Un cheat sheet coreano usa highpremium e variant3 per rinforzare bassi e medi. Su un impianto diverso da quello indicato il suono può peggiorare: annota i valori originali.'
+    en: 'A Korean cheat sheet uses highpremium and variant3 to boost bass and mids. On a system other than the one set the sound may get worse: write down the original values.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:
@@ -1868,6 +1977,9 @@
   titolo:
     it: 'Popup del volume: eccezioni'
     en: 'Volume pop-up: exceptions'
+  descrizione:
+    it: 'Completa la voce «Popup del volume» con le eccezioni, cioè le situazioni in cui la barra del volume non compare.'
+    en: 'Completes the entry "Volume pop-up" with the exceptions, i.e. the situations where the volume bar does not appear.'
   parametri:
   - nome: VOLUME_POPUP_REJECTION
     regolabile: true
@@ -1918,10 +2030,8 @@
   - F85
   - F86
   note:
-    it: Completa la voce "Popup del volume". Parametro presente nei FWL della F54 di riferimento; la codifica è
-      documentata nei cheat sheet su GitHub.
-    en: Completes the "Volume pop-up" entry. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'L''unica fonte è un cheat sheet coreano, che li imposta a 01 insieme alla barra del volume; cosa cambi esattamente non è descritto.'
+    en: 'The only source is a Korean cheat sheet, which sets them to 01 together with the volume bar; exactly what changes is not described.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:
@@ -1935,6 +2045,9 @@
   titolo:
     it: Abbaglianti automatici attivi all'avvio
     en: High-beam assistant on at start-up
+  descrizione:
+    it: 'Gli abbaglianti automatici sono già accesi quando avvii l''auto, senza doverli attivare ogni volta.'
+    en: 'Automatic high beams are already on when you start the car, without enabling them every time.'
   parametri:
   - nome: HIGH_BEAM_ASSISTANT
     target: aktiv
@@ -1980,10 +2093,8 @@
   - F85
   - F86
   note:
-    it: Una fonte riporta che non funziona. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: One source reports it does not work. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'Una fonte francese riporta che non funziona; un cheat sheet coreano la descrive come regolazione dell''assistente abbaglianti in iDrive. Serve la telecamera con abbaglianti automatici.'
+    en: 'A French source reports it does not work; a Korean cheat sheet describes it as the high beam assistant setting in iDrive. Needs the camera with automatic high beams.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -1999,6 +2110,9 @@
   titolo:
     it: Simbolo Logic7 nelle impostazioni audio
     en: Logic7 symbol in audio settings
+  descrizione:
+    it: 'Nelle impostazioni audio (Surround) compare il logo Logic7; il suono non cambia.'
+    en: 'The Logic7 logo appears in the audio (Surround) settings; the sound does not change.'
   parametri:
   - nome: LOGIC7_SYMBOL
     target: aktiv
@@ -2044,10 +2158,8 @@
   - F85
   - F86
   note:
-    it: Ha senso solo con impianto HiFi (SA 667/688). Parametro presente nei FWL della F54 di riferimento; la codifica
-      è documentata nei cheat sheet su GitHub.
-    en: Only makes sense with a HiFi system (SA 667/688). Parameter present in the reference F54 FWL files; the
-      coding is documented in GitHub cheat sheets.
+    it: 'Logic7 è il surround Harman Kardon degli impianti HiFi BMW (SA 667/688). Su una Serie 5 E60 attivare il simbolo ha solo aggiunto il logo.'
+    en: 'Logic7 is the Harman Kardon surround of BMW HiFi systems (SA 667/688). On an E60 5 Series enabling the symbol only added the logo.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -2062,6 +2174,9 @@
   titolo:
     it: Ora impostata dal GPS della navigazione
     en: Time set from the navigation GPS
+  descrizione:
+    it: 'L''orologio prende l''ora dal GPS della navigazione.'
+    en: 'The clock takes the time from the navigation GPS.'
   parametri:
   - nome: SETTINGS_TIME_AUTOMATIC
     target: navigation
@@ -2107,8 +2222,8 @@
   - F85
   - F86
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Le alternative sono online (dalla rete) e navigation (dal GPS). Fonte: cheat sheet coreani.'
+    en: 'The options are online (from the network) and navigation (from GPS). Source: Korean cheat sheets.'
   fonti:
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5658504/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-22.html
@@ -2125,6 +2240,9 @@
   titolo:
     it: Colori M per i display sportivi
     en: M colours for the sport displays
+  descrizione:
+    it: 'I display sportivi in iDrive usano i colori M, rosso e argento, invece dell''arancione.'
+    en: 'The sport displays in iDrive use M colours, red and silver, instead of amber.'
   parametri:
   - nome: M_VEHICLE
     target: aktiv
@@ -2170,8 +2288,8 @@
   - F85
   - F86
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Serve la voce "Display sportivi in iDrive".'
+    en: 'Needs the entry "Sport displays in iDrive".'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -2184,8 +2302,11 @@
 - id: hu_nbt2.menu-audio-bang-olufsen
   centralina: HU_NBT2
   titolo:
-    it: Menu audio Bang & Olufsen
-    en: Bang & Olufsen audio menu
+    it: 'Menu audio high-end B&W o B&O'
+    en: 'B&W or B&O high-end audio menu'
+  descrizione:
+    it: 'Cambia la grafica del menu audio per un impianto di fascia alta; il suono non cambia.'
+    en: 'Changes the audio menu graphics for a high-end system; the sound does not change.'
   parametri:
   - nome: HIGH_END_AUDIO_B_UND_W
     target: keine_insz
@@ -2231,10 +2352,8 @@
   - F85
   - F86
   note:
-    it: 'Solo grafica: non cambia l''impianto. Parametro presente nei FWL della F54 di riferimento; la codifica
-      è documentata nei cheat sheet su GitHub.'
-    en: 'Graphics only: does not change the system. Parameter present in the reference F54 FWL files; the coding
-      is documented in GitHub cheat sheets.'
+    it: 'Un cheat sheet coreano lo chiama "profilo Bang & Olufsen", ma il nome del parametro (B_UND_W) fa pensare a Bowers & Wilkins: il marchio non è chiaro. Il valore keine_insz sta probabilmente per "keine Inszenierung", nessuna presentazione grafica.'
+    en: 'A Korean cheat sheet calls it "Bang & Olufsen profile", but the parameter name (B_UND_W) suggests Bowers & Wilkins: the brand is unclear. The value keine_insz probably stands for "keine Inszenierung", no graphic presentation.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -2249,6 +2368,9 @@
   titolo:
     it: Pressione e temperatura gomme nella schermata RDC
     en: Tyre pressure and temperature on the RDC screen
+  descrizione:
+    it: 'La schermata del controllo gomme mostra pressione e temperatura invece della sola pressione.'
+    en: 'The tyre monitor screen shows pressure and temperature instead of pressure only.'
   parametri:
   - nome: RDC_DRUCK_TEMP
     target: druck_und_temperatur
@@ -2294,8 +2416,8 @@
   - F85
   - F86
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Serve il controllo pressione diretto, con sensori nelle ruote. Sulle MINI lette è già impostato su pressione e temperatura: per vederle serve anche la voce "Pressione e temperatura gomme in Info veicolo".'
+    en: 'Needs direct tyre pressure monitoring, with sensors in the wheels. The MINIs read are already set to pressure and temperature: to see them you also need the entry "Tyre pressure and temperature in Vehicle info".'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -2311,6 +2433,9 @@
   titolo:
     it: Info traffico in tempo reale
     en: Real-time traffic information
+  descrizione:
+    it: 'Attiva le informazioni sul traffico in tempo reale nella navigazione.'
+    en: 'Enables real-time traffic information in the navigation.'
   parametri:
   - nome: NAVI_TRAFFIC_INFO_MAP
     target: aktiv
@@ -2331,10 +2456,8 @@
   - F54
   - F56
   note:
-    it: Può richiedere i servizi connessi attivi. Parametro presente nei FWL della F54 di riferimento; la codifica
-      è documentata nei cheat sheet su GitHub.
-    en: May require active connected services. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'Può richiedere i servizi connessi attivi.'
+    en: 'May require active connected services.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -2355,6 +2478,9 @@
   titolo:
     it: Indicatore sportivo nell'HUD
     en: Sport indicator in the HUD
+  descrizione:
+    it: 'In modalità Sport l''HUD mostra contagiri e marcia.'
+    en: 'In Sport mode the HUD shows the rev counter and gear.'
   parametri:
   - nome: HUD_SPORTANZEIGE_ENABLE
     target: aktiv
@@ -2371,8 +2497,8 @@
   - F54
   - F56
   note:
-    it: 'Contagiri e marcia nell''HUD in modalità Sport. Va codificata insieme alla voce nel KOMBI (stessi tre parametri): servono tutte e due. Richiede l''HUD. Provata su F54: funziona. Dopo la codifica l''iDrive può mostrare vari errori: chiudi l''auto e aspetta 30 secondi.'
-    en: 'Rev counter and gear in the HUD in Sport mode. Code it together with the KOMBI entry (same three parameters): both are needed. Requires the HUD. Tested on F54: it works. After coding the iDrive may show various errors: lock the car and wait 30 seconds.'
+    it: 'Va codificata insieme alla voce nel KOMBI (stessi tre parametri): servono tutte e due. Serve l''HUD. Provata su F54: funziona. Dopo la codifica l''iDrive può mostrare vari errori: chiudi l''auto e aspetta 30 secondi.'
+    en: 'Code it together with the KOMBI entry (same three parameters): both are needed. Needs the HUD. Tested on F54: it works. After coding the iDrive may show various errors: lock the car and wait 30 seconds.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-24.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -2391,6 +2517,9 @@
   titolo:
     it: Video da iPod/iPhone via USB
     en: Video from iPod/iPhone via USB
+  descrizione:
+    it: 'Permette di guardare sullo schermo i video da un iPod o iPhone collegato via USB.'
+    en: 'Lets you watch videos from an iPod or iPhone connected via USB on the screen.'
   parametri:
   - nome: API_IPOD_VIDEO
     target: both
@@ -2436,8 +2565,8 @@
   - F85
   - F86
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'L''unica fonte è un cheat sheet coreano, insieme alla voce "Video da chiavetta USB".'
+    en: 'The only source is a Korean cheat sheet, together with the entry "Video from a USB stick".'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:
@@ -2451,6 +2580,9 @@
   titolo:
     it: Codice regione dei DVD
     en: DVD region code
+  descrizione:
+    it: 'Toglie il blocco della regione dei DVD, per vedere dischi di qualsiasi zona.'
+    en: 'Removes the DVD region lock, to play discs from any region.'
   parametri:
   - nome: ENT_VIDEO_DVD_AREA_CODE
     target: alle_anderen
@@ -2496,10 +2628,8 @@
   - F85
   - F86
   note:
-    it: Solo con lettore DVD. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei
-      cheat sheet su GitHub.
-    en: Only with a DVD drive. Parameter present in the reference F54 FWL files; the coding is documented in GitHub
-      cheat sheets.
+    it: 'Solo con lettore DVD.'
+    en: 'Only with a DVD player.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:
@@ -2513,6 +2643,9 @@
   titolo:
     it: 'Bluetooth avanzato: due telefoni e foto dei contatti'
     en: 'Enhanced Bluetooth: two phones and contact pictures'
+  descrizione:
+    it: 'Bluetooth avanzato - due telefoni collegati insieme e foto dei contatti in rubrica.'
+    en: 'Enhanced Bluetooth - two phones connected at once and contact photos in the address book.'
   parametri:
   - nome: TWO_PHONES_PARALLEL
     target: aktiv
@@ -2533,8 +2666,8 @@
   - F80
   - F82
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Sulle MINI lette è già attivo.'
+    en: 'Already on in the MINIs read.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
   osservazioni:
@@ -2554,6 +2687,9 @@
   titolo:
     it: Miracast (schermo del telefono via Wi-Fi)
     en: Miracast (phone screen over Wi-Fi)
+  descrizione:
+    it: 'Permette di vedere lo schermo del telefono sul display dell''auto via Wi-Fi (Miracast).'
+    en: 'Lets you mirror the phone screen on the car display over Wi-Fi (Miracast).'
   parametri:
   - nome: ENT_MIRACAST
     target: aktiv
@@ -2572,10 +2708,8 @@
   - F54
   - F56
   note:
-    it: Documentato su F15/F30 e G11. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: Documented on F15/F30 and G11. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'Documentato su F15/F30 e G11; serve anche il Wi-Fi della HU. Funziona solo con telefoni che supportano Miracast.'
+    en: 'Documented on F15/F30 and G11; the HU Wi-Fi is also needed. Only works with phones that support Miracast.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
@@ -2596,6 +2730,9 @@
   titolo:
     it: Simulatore del percorso nella navigazione
     en: Route simulator in navigation
+  descrizione:
+    it: 'Aggiunge alla navigazione la simulazione del percorso, che lo mostra come se lo stessi già guidando.'
+    en: 'Adds route simulation to the navigation, which shows the route as if you were already driving it.'
   parametri:
   - nome: ROUTE_FLIGHT
     target: aktiv
@@ -2610,8 +2747,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Servono tutti e due i parametri. Fonte francese e cheat sheet BMW.'
+    en: 'Both parameters are needed. French source and BMW cheat sheet.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/iDrive-Features.md
@@ -2631,6 +2768,9 @@
   titolo:
     it: Voce inglese britannica nella navigazione
     en: British English navigation voice
+  descrizione:
+    it: 'Aggiunge la voce in inglese britannico alla navigazione.'
+    en: 'Adds the British English voice to the navigation.'
   parametri:
   - nome: LANGUAGE_ENGLISH_UK
     regolabile: true
@@ -2650,10 +2790,8 @@
   - F54
   - F56
   note:
-    it: Una fonte la indica solo per ID4. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: One source says ID4 only. Parameter present in the reference F54 FWL files; the coding is documented in
-      GitHub cheat sheets.
+    it: 'Una fonte la dà come parte 1 di 2 insieme al KOMBI e solo per iDrive ID4.'
+    en: 'One source gives it as part 1 of 2 together with the KOMBI and only for iDrive ID4.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-7.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -2674,6 +2812,9 @@
   titolo:
     it: Copertine degli album a tutto schermo
     en: Full-size album covers
+  descrizione:
+    it: 'Le copertine degli album occupano tutto lo schermo.'
+    en: 'Album covers fill the whole screen.'
   parametri:
   - nome: ENT_MC_COVER_SCALE
     target: aktiv
@@ -2686,9 +2827,6 @@
   - F30
   - F54
   - F56
-  note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -2708,6 +2846,9 @@
   titolo:
     it: Database Gracenote e aggiornamento via USB
     en: Gracenote database and USB update
+  descrizione:
+    it: 'Attiva il database Gracenote, che riconosce titoli e copertine della musica, e il suo aggiornamento da USB o PC.'
+    en: 'Enables the Gracenote database, which recognises music titles and covers, and its update via USB or PC.'
   parametri:
   - nome: ENT_GRACENOTE_INSTALLED
     target: aktiv
@@ -2719,9 +2860,6 @@
   telai:
   - F54
   - F56
-  note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
@@ -2740,6 +2878,9 @@
   titolo:
     it: Importazione di destinazioni e POI via USB
     en: Destination and POI import via USB
+  descrizione:
+    it: 'Permette di caricare nella navigazione destinazioni e punti di interesse personali da una chiavetta USB.'
+    en: 'Lets you load destinations and personal points of interest into the navigation from a USB stick.'
   parametri:
   - nome: NAVI_DEST_IMPORT
     target: aktiv
@@ -2753,9 +2894,6 @@
   - F30
   - F54
   - F56
-  note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
@@ -2774,6 +2912,9 @@
   titolo:
     it: Menu di localizzazione del veicolo
     en: Vehicle finder menu
+  descrizione:
+    it: 'Aggiunge in iDrive il menu per la localizzazione dell''auto.'
+    en: 'Adds the vehicle location menu to iDrive.'
   parametri:
   - nome: ASSIST_SVR_SHOW
     target: aktiv
@@ -2788,10 +2929,8 @@
   - F54
   - F56
   note:
-    it: Una fonte dice che senza abbonamento non funziona. Parametro presente nei FWL della F54 di riferimento;
-      la codifica è documentata nei cheat sheet su GitHub.
-    en: One source says it does not work without a subscription. Parameter present in the reference F54 FWL files;
-      the coding is documented in GitHub cheat sheets.
+    it: 'Una fonte francese dice che senza abbonamento ai servizi connessi non sembra funzionare.'
+    en: 'A French source says it does not seem to work without a connected services subscription.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -2810,6 +2949,9 @@
   titolo:
     it: Tethering Bluetooth
     en: Bluetooth tethering
+  descrizione:
+    it: 'Permette all''auto di usare la connessione Internet del telefono via Bluetooth.'
+    en: 'Lets the car use the phone''s internet connection over Bluetooth.'
   parametri:
   - nome: DUN_PROFILE
     regolabile: true
@@ -2827,10 +2969,8 @@
   - F54
   - F56
   note:
-    it: 'La fonte dice che serve anche modificare il provisioning XML: procedura per esperti. Parametro presente
-      nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'The source says the XML provisioning must be changed too: expert procedure. Parameter present in the reference
-      F54 FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'La fonte francese dice che serve anche modificare il file di provisioning con Tool32: procedura per esperti.'
+    en: 'The French source says the provisioning file must also be changed with Tool32: an expert procedure.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -2849,6 +2989,9 @@
   titolo:
     it: Visite guidate nella navigazione
     en: Guided tours in navigation
+  descrizione:
+    it: 'Aggiunge alla navigazione le visite guidate.'
+    en: 'Adds guided tours to the navigation.'
   parametri:
   - nome: GUIDED_TOURS
     target: aktiv
@@ -2863,10 +3006,8 @@
   - F54
   - F56
   note:
-    it: La fonte la indica "in prova". Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: The source marks it "testing". Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'L''unica fonte, francese, la indica come "in prova".'
+    en: 'The only source, French, marks it as "testing".'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -2885,6 +3026,9 @@
   titolo:
     it: Sensori di parcheggio automatici
     en: Automatic parking sensors
+  descrizione:
+    it: 'I sensori di parcheggio si accendono da soli quando ti avvicini a un ostacolo.'
+    en: 'The parking sensors turn on by themselves when you approach an obstacle.'
   parametri:
   - nome: AUTO_PDC
     target: aktiv
@@ -2899,10 +3043,8 @@
   - F54
   - F56
   note:
-    it: Una fonte dice che non funziona senza hardware specifico. Parametro presente nei FWL della F54 di riferimento;
-      la codifica è documentata nei cheat sheet su GitHub.
-    en: One source says it does not work without specific hardware. Parameter present in the reference F54 FWL files;
-      the coding is documented in GitHub cheat sheets.
+    it: 'Una fonte francese dice che non funziona senza hardware specifico.'
+    en: 'A French source says it does not work without specific hardware.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -2921,6 +3063,9 @@
   titolo:
     it: Radio AM sulle ibride
     en: AM radio on hybrids
+  descrizione:
+    it: 'Riattiva la radio AM sulle auto ibride ed elettriche dove è disattivata.'
+    en: 'Re-enables AM radio on hybrid and electric cars where it is disabled.'
   parametri:
   - nome: RADIO_BAND_KW
     target: aktiv
@@ -2933,10 +3078,8 @@
   - F54
   - F56
   note:
-    it: Pensata per F15 40e, i3 e i8. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: Meant for F15 40e, i3 and i8. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'Pensata per X5 40e (F15), i3 e i8; su un''auto non ibrida non ha motivo di essere toccata.'
+    en: 'Meant for the X5 40e (F15), i3 and i8; on a non-hybrid car there is no reason to touch it.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
@@ -2955,6 +3098,9 @@
   titolo:
     it: Quarto suono ASD nel menu
     en: Fourth ASD sound in the menu
+  descrizione:
+    it: 'Rende selezionabile il quarto suono dell''Active Sound Design nel menu di configurazione.'
+    en: 'Makes the fourth Active Sound Design sound selectable in the setup menu.'
   parametri:
   - nome: ASD_SOUND_4
     target: aktiv
@@ -2965,10 +3111,8 @@
   - F54
   - F56
   note:
-    it: Parte del menu configurazione suono ASD. Parametro presente nei FWL della F54 di riferimento; la codifica
-      è documentata nei cheat sheet su GitHub.
-    en: Part of the ASD sound configuration menu. Parameter present in the reference F54 FWL files; the coding is
-      documented in GitHub cheat sheets.
+    it: 'È la seconda parte del menu di configurazione del suono ASD. Sulle MINI lette è già attivo.'
+    en: 'It is the second part of the ASD sound setup menu. Already on in the MINIs read.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-9.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -2989,6 +3133,9 @@
   titolo:
     it: Categorie delle info traffico
     en: Traffic info categories
+  descrizione:
+    it: 'Aggiunge nelle opzioni delle info traffico la scelta delle categorie di avvisi.'
+    en: 'Adds the choice of message categories to the traffic info options.'
   parametri:
   - nome: TRAFFIC_CATEGORIES
     target: aktiv
@@ -3000,9 +3147,6 @@
   - F30
   - F54
   - F56
-  note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -3022,6 +3166,9 @@
   titolo:
     it: Impostazione follow-me-home sulla chiave
     en: Follow-me-home key setting
+  descrizione:
+    it: 'Aggiunge in iDrive l''impostazione delle luci follow-me-home accese dalla chiave.'
+    en: 'Adds the setting for the follow-me-home lights turned on from the key to iDrive.'
   parametri:
   - nome: KEY_CONF_COMFORT_HOMELIGHT
     target: aktiv
@@ -3034,10 +3181,8 @@
   - F54
   - F56
   note:
-    it: Va con FOLLOWMEHOME_VIA_FFB nel BDC. Parametro presente nei FWL della F54 di riferimento; la codifica è
-      documentata nei cheat sheet su GitHub.
-    en: Goes with FOLLOWMEHOME_VIA_FFB in the BDC. Parameter present in the reference F54 FWL files; the coding
-      is documented in GitHub cheat sheets.
+    it: 'Va con FOLLOWMEHOME_VIA_FFB nel BDC. Una fonte francese la indica come "in prova".'
+    en: 'Goes with FOLLOWMEHOME_VIA_FFB in the BDC. A French source marks it as "testing".'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -3057,6 +3202,9 @@
   titolo:
     it: Popup di guida della navigazione (split e pieno)
     en: Navigation guidance pop-ups (split and full)
+  descrizione:
+    it: 'Attiva i riquadri di guida della navigazione, a schermo diviso e a schermo intero.'
+    en: 'Enables the navigation guidance pop-ups, split screen and full screen.'
   parametri:
   - nome: NAVI_FULL_GUIDINGPOPUP
     target: aktiv
@@ -3068,9 +3216,6 @@
   - F30
   - F54
   - F56
-  note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -3090,6 +3235,9 @@
   titolo:
     it: Radio meteo NOAA
     en: NOAA weather band radio
+  descrizione:
+    it: 'Aggiunge tra le sorgenti radio la banda meteo NOAA.'
+    en: 'Adds the NOAA weather band to the radio sources.'
   parametri:
   - nome: RADIO_WEATHERBAND
     target: aktiv
@@ -3100,10 +3248,8 @@
   - F54
   - F56
   note:
-    it: Serve solo negli Stati Uniti. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: Only useful in the United States. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'Serve solo negli Stati Uniti, dove esistono queste stazioni.'
+    en: 'Only useful in the United States, where these stations exist.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/Radio-Settings.md
@@ -3125,6 +3271,9 @@
   titolo:
     it: 'POI di rifornimento: carburante o ricarica'
     en: 'Fuel POIs: fuel or charging'
+  descrizione:
+    it: 'Sceglie quali punti di rifornimento mostra la navigazione - distributori di benzina e gasolio, colonnine di ricarica o entrambi.'
+    en: 'Chooses which refuelling points the navigation shows - petrol and diesel stations, charging points or both.'
   parametri:
   - nome: CAR_TYPE_POI
     regolabile: true
@@ -3140,10 +3289,8 @@
   - F54
   - F56
   note:
-    it: Sceglie se mostrare distributori, colonnine o entrambi. Parametro presente nei FWL della F54 di riferimento;
-      la codifica è documentata nei cheat sheet su GitHub.
-    en: Chooses whether to show fuel stations, chargers or both. Parameter present in the reference F54 FWL files;
-      the coding is documented in GitHub cheat sheets.
+    it: 'Secondo la fonte 00 mostra solo le colonnine e 01 solo benzina e gasolio.'
+    en: 'According to the source 00 shows only charging points and 01 only petrol and diesel.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
@@ -3162,6 +3309,9 @@
   titolo:
     it: Immagini degli svincoli nell'HUD
     en: Junction images in the HUD
+  descrizione:
+    it: 'Mostra nell''HUD l''immagine degli svincoli autostradali durante la navigazione.'
+    en: 'Shows motorway junction images in the HUD during navigation.'
   parametri:
   - nome: JUNCTION_VIEW_HUD
     target: aktiv
@@ -3174,8 +3324,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Serve l''HUD. Sulle MINI lette è già attivo.'
+    en: 'Needs the HUD. Already on in the MINIs read.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/HUD.md
@@ -3195,6 +3345,9 @@
   titolo:
     it: Proposta di sosta per rifornimento
     en: Fuel stop proposal
+  descrizione:
+    it: 'La navigazione propone una sosta per fare carburante quando serve.'
+    en: 'The navigation suggests a fuel stop when needed.'
   parametri:
   - nome: NAVI_FUELSTOP_PROPOSAL
     target: aktiv
@@ -3209,8 +3362,8 @@
   - F80
   - F82
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Sulle MINI lette è già attivo.'
+    en: 'Already on in the MINIs read.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
@@ -3230,6 +3383,9 @@
   titolo:
     it: Menu sviluppatore nelle impostazioni
     en: Developer menu in settings
+  descrizione:
+    it: 'Aggiunge nelle impostazioni un menu sviluppatore con versioni del software, data di build e dati tecnici.'
+    en: 'Adds a developer menu to the settings with software versions, build date and technical data.'
   parametri:
   - nome: ENTWICKLER_MENUE
     target: aktiv
@@ -3242,10 +3398,8 @@
   - F54
   - F56
   note:
-    it: Mostra versioni e dati tecnici. Non modificare nulla da lì. Parametro presente nei FWL della F54 di riferimento;
-      la codifica è documentata nei cheat sheet su GitHub.
-    en: Shows versions and technical data. Do not change anything from there. Parameter present in the reference
-      F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Usalo solo per leggere: non modificare nulla da lì.'
+    en: 'Use it for reading only: do not change anything from there.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/iDrive-Features.md
@@ -3266,6 +3420,9 @@
   titolo:
     it: Zoom automatico vicino alle svolte
     en: Auto-zoom near turns
+  descrizione:
+    it: 'La mappa si ingrandisce da sola quando ti avvicini a una svolta.'
+    en: 'The map zooms in by itself when you approach a turn.'
   parametri:
   - nome: NAVI_AUTOZOOM
     target: aktiv
@@ -3278,10 +3435,8 @@
   - F54
   - F56
   note:
-    it: Una fonte riporta che non funziona. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: One source reports it does not work. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'Una fonte francese riporta che non funziona. Sulle MINI lette è già attivo.'
+    en: 'A French source reports it does not work. Already on in the MINIs read.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/iDrive-Features.md
@@ -3301,6 +3456,9 @@
   titolo:
     it: Menu audio high-end (Logic7 o B&O)
     en: High-end audio menu (Logic7 or B&O)
+  descrizione:
+    it: 'Mostra il menu audio degli impianti di fascia alta, Logic7 o B&O; il suono non cambia.'
+    en: 'Shows the audio menu of high-end systems, Logic7 or B&O; the sound does not change.'
   parametri:
   - nome: HIGH_END_AUDIO_MENUE
     regolabile: true
@@ -3316,10 +3474,8 @@
   - F80
   - F82
   note:
-    it: Solo grafica. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet
-      su GitHub.
-    en: Graphics only. Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat
-      sheets.
+    it: 'Nella fonte 00 = Logic7 e 03 = B&O. Solo grafica: senza l''impianto corrispondente non porta altro.'
+    en: 'In the source 00 = Logic7 and 03 = B&O. Graphics only: without the matching system it adds nothing else.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
   osservazioni:
@@ -3338,6 +3494,9 @@
   titolo:
     it: Info ECO PRO nel quadro
     en: ECO PRO info in the cluster
+  descrizione:
+    it: 'Mostra nel quadro le informazioni della modalità ECO PRO.'
+    en: 'Shows ECO PRO mode information in the cluster.'
   parametri:
   - nome: ECO_INFO_DISPLAY
     target: aktiv
@@ -3348,8 +3507,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Sulle MINI lette è già attivo.'
+    en: 'Already on in the MINIs read.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
@@ -3368,6 +3527,9 @@
   titolo:
     it: Vista frecce sulla mappa
     en: Arrow view on the map
+  descrizione:
+    it: 'Aggiunge la vista della navigazione a sole frecce.'
+    en: 'Adds the arrow-only navigation view.'
   parametri:
   - nome: NAVI_MAP_ARROWVIEW
     target: aktiv
@@ -3377,9 +3539,6 @@
   telai:
   - F54
   - F56
-  note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
@@ -3398,6 +3557,9 @@
   titolo:
     it: Formato orario 24 ore predefinito
     en: 24-hour time by default
+  descrizione:
+    it: 'L''orologio usa di base il formato 24 ore.'
+    en: 'The clock uses the 24-hour format by default.'
   parametri:
   - nome: DEFAULT_ZEIT_EINHEIT
     target: 24h
@@ -3410,8 +3572,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Sulle MINI lette è già impostato.'
+    en: 'Already set in the MINIs read.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
@@ -3430,6 +3592,9 @@
   titolo:
     it: Brano successivo nel quadro
     en: Next track in the cluster
+  descrizione:
+    it: 'Il quadro mostra anche il brano successivo della musica in riproduzione.'
+    en: 'The cluster also shows the next track of the music playing.'
   parametri:
   - nome: BASIS_KOMBI_MMI_LIST
     target: aktiv
@@ -3442,10 +3607,8 @@
   - F54
   - F56
   note:
-    it: La fonte la indica per i quadri base. Parametro presente nei FWL della F54 di riferimento; la codifica è
-      documentata nei cheat sheet su GitHub.
-    en: The source says basic clusters only. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'La fonte francese la indica solo per i quadri base (KOMBI_LOW).'
+    en: 'The French source gives it only for basic clusters (KOMBI_LOW).'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3464,6 +3627,9 @@
   titolo:
     it: Segnalibri nella raccolta musicale
     en: Bookmarks in the music collection
+  descrizione:
+    it: 'Aggiunge i segnalibri nella raccolta musicale.'
+    en: 'Adds bookmarks to the music collection.'
   parametri:
   - nome: ENT_MC_SONG_BOOKMARKS
     target: aktiv
@@ -3475,9 +3641,6 @@
   - F30
   - F54
   - F56
-  note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3496,6 +3659,9 @@
   titolo:
     it: Durata degli elenchi multimediali nell'HUD
     en: Media list duration in the HUD
+  descrizione:
+    it: 'Cambia per quanto tempo restano nell''HUD le informazioni multimediali; di fabbrica 4 secondi.'
+    en: 'Changes how long media information stays in the HUD; factory value 4 seconds.'
   parametri:
   - nome: DISPLAYTIME_LIST_HUD_KOMBI
     regolabile: true
@@ -3511,8 +3677,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Una fonte francese usa 03 (2,5 s). Serve l''HUD.'
+    en: 'A French source uses 03 (2.5 s). Needs the HUD.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3531,6 +3697,9 @@
   titolo:
     it: Casella del punto di cambiata in iDrive
     en: Shift point checkbox in iDrive
+  descrizione:
+    it: 'Aggiunge in iDrive la casella per mostrare nel quadro l''indicatore del punto di cambiata.'
+    en: 'Adds the iDrive checkbox to show the shift point indicator in the cluster.'
   parametri:
   - nome: SPA_CHECKBOX
     target: aktiv
@@ -3543,10 +3712,8 @@
   - F54
   - F56
   note:
-    it: Va con SPA_KOMBISELECT_DISABLE nel KOMBI. Parametro presente nei FWL della F54 di riferimento; la codifica
-      è documentata nei cheat sheet su GitHub.
-    en: Goes with SPA_KOMBISELECT_DISABLE in the KOMBI. Parameter present in the reference F54 FWL files; the coding
-      is documented in GitHub cheat sheets.
+    it: 'È la seconda di due parti: l''altra è SPA_KOMBISELECT_DISABLE nel KOMBI.'
+    en: 'It is the second of two parts: the other is SPA_KOMBISELECT_DISABLE in the KOMBI.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3565,6 +3732,9 @@
   titolo:
     it: Avviso vicino ai POI
     en: Alert near POIs
+  descrizione:
+    it: 'La navigazione avvisa quando sei vicino a un punto di interesse.'
+    en: 'The navigation warns you when you are near a point of interest.'
   parametri:
   - nome: NAVI_ALERT_POI
     target: aktiv
@@ -3576,9 +3746,6 @@
   - F30
   - F54
   - F56
-  note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3597,6 +3764,9 @@
   titolo:
     it: Calcolo del percorso online
     en: Online route optimisation
+  descrizione:
+    it: 'Aggiunge nelle preferenze di percorso il calcolo fatto dai server BMW.'
+    en: 'Adds route calculation by BMW servers to the route preferences.'
   parametri:
   - nome: NAVI_ONLINE_OPTIMIZATION_BUTTON
     target: aktiv
@@ -3609,10 +3779,8 @@
   - F54
   - F56
   note:
-    it: Richiede i servizi connessi. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: Requires connected services. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'Richiede i servizi connessi.'
+    en: 'Requires connected services.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3631,6 +3799,9 @@
   titolo:
     it: Tappa intermedia "a magnete"
     en: Route magnet waypoint
+  descrizione:
+    it: 'Permette di aggiungere una tappa trascinando il percorso sulla mappa, come una calamita.'
+    en: 'Lets you add a stop by dragging the route on the map, like a magnet.'
   parametri:
   - nome: NAVI_ROUTENMAGNET
     target: aktiv
@@ -3643,8 +3814,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Sulle MINI lette è già attivo.'
+    en: 'Already on in the MINIs read.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3663,6 +3834,9 @@
   titolo:
     it: Strade veloci nelle preferenze di percorso
     en: Express roads in route preferences
+  descrizione:
+    it: 'Aggiunge "strade veloci" tra le preferenze di percorso della navigazione.'
+    en: 'Adds "express roads" to the navigation route preferences.'
   parametri:
   - nome: NAVI_EXPRESS_ROADS
     target: aktiv
@@ -3674,9 +3848,6 @@
   - F30
   - F54
   - F56
-  note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3695,6 +3866,9 @@
   titolo:
     it: Siri Eyes Free
     en: Siri Eyes Free
+  descrizione:
+    it: 'Permette di usare Siri dal tasto dei comandi vocali con un iPhone collegato.'
+    en: 'Lets you use Siri from the voice control button with a connected iPhone.'
   parametri:
   - nome: CE_DEVICE_SPEECH_RECOGNITION
     regolabile: true
@@ -3710,8 +3884,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Sulle MINI lette è già attivo.'
+    en: 'Already on in the MINIs read.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-24.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -3731,6 +3905,9 @@
   titolo:
     it: Menu del controllo di trazione
     en: Traction control menu
+  descrizione:
+    it: 'Aggiunge in iDrive il menu del controllo di trazione.'
+    en: 'Adds the traction control menu to iDrive.'
   parametri:
   - nome: TRACTION_DEMAND_CONTROL
     target: aktiv
@@ -3743,10 +3920,8 @@
   - F54
   - F56
   note:
-    it: Una fonte dice che il menu compare ma non fa nulla. Parametro presente nei FWL della F54 di riferimento;
-      la codifica è documentata nei cheat sheet su GitHub.
-    en: One source says the menu appears but does nothing. Parameter present in the reference F54 FWL files; the
-      coding is documented in GitHub cheat sheets.
+    it: 'Una fonte francese dice che il menu compare ma non fa nulla.'
+    en: 'A French source says the menu appears but does nothing.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3765,6 +3940,9 @@
   titolo:
     it: Icone dei contatti
     en: Contact icons
+  descrizione:
+    it: 'Dovrebbe mostrare le icone dei contatti nel telefono.'
+    en: 'Should show contact icons in the phone menu.'
   parametri:
   - nome: CONTACTS_ICON
     target: aktiv
@@ -3777,10 +3955,8 @@
   - F54
   - F56
   note:
-    it: Una fonte riporta che non funziona. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: One source reports it does not work. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'Una fonte francese riporta che non funziona.'
+    en: 'A French source reports it does not work.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3799,6 +3975,9 @@
   titolo:
     it: Assistente di uscita dal parcheggio
     en: Parking exit assistant
+  descrizione:
+    it: 'Aggiunge l''assistente per uscire da un parcheggio in linea.'
+    en: 'Adds the assistant for leaving a parallel parking space.'
   parametri:
   - nome: MACRO_PMA_AUSPARKEN
     target: aktiv
@@ -3811,10 +3990,8 @@
   - F54
   - F56
   note:
-    it: Una fonte dice che serve hardware specifico. Parametro presente nei FWL della F54 di riferimento; la codifica
-      è documentata nei cheat sheet su GitHub.
-    en: One source says specific hardware is needed. Parameter present in the reference F54 FWL files; the coding
-      is documented in GitHub cheat sheets.
+    it: 'Una fonte francese dice che non funziona senza hardware specifico.'
+    en: 'A French source says it does not work without specific hardware.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3833,6 +4010,9 @@
   titolo:
     it: Possibilità di spegnere la luce ambiente
     en: Option to switch off the ambient light
+  descrizione:
+    it: 'Dovrebbe aggiungere la possibilità di spegnere le luci ambiente dal menu.'
+    en: 'Should add the option to switch the ambient lights off from the menu.'
   parametri:
   - nome: DEAKTIVIERUNGSMOEGLICHKEIT_AMBILIGHT
     regolabile: true
@@ -3848,10 +4028,8 @@
   - F54
   - F56
   note:
-    it: Una fonte riporta che non funziona (solo F4x). Parametro presente nei FWL della F54 di riferimento; la codifica
-      è documentata nei cheat sheet su GitHub.
-    en: One source reports it does not work (F4x only). Parameter present in the reference F54 FWL files; the coding
-      is documented in GitHub cheat sheets.
+    it: 'Una fonte francese la indica solo per le F4x e riporta che non funziona.'
+    en: 'A French source gives it only for F4x cars and reports it does not work.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3870,6 +4048,9 @@
   titolo:
     it: Informazioni sulla batteria
     en: Battery information
+  descrizione:
+    it: 'Dovrebbe mostrare le informazioni sulla batteria nella schermata di stato.'
+    en: 'Should show battery information on the status screen.'
   parametri:
   - nome: KI_SELECTION_SOC
     target: aktiv
@@ -3882,10 +4063,8 @@
   - F54
   - F56
   note:
-    it: Una fonte riporta che non funziona. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: One source reports it does not work. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'Una fonte francese riporta che non funziona.'
+    en: 'A French source reports it does not work.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3904,6 +4083,9 @@
   titolo:
     it: Apertura comfort con doppio clic
     en: Comfort opening with a double click
+  descrizione:
+    it: 'Con un doppio clic sul tasto di apertura del telecomando i finestrini si abbassano al 75%.'
+    en: 'Double-clicking the unlock button on the key lowers the windows to 75%.'
   parametri:
   - nome: COMFORT_OPENING
     target: aktiv
@@ -3916,10 +4098,8 @@
   - F54
   - F56
   note:
-    it: La fonte la indica "in prova". Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: The source marks it "testing". Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'L''unica fonte, francese, la indica come "in prova" e utile sulle coupé.'
+    en: 'The only source, French, marks it as "testing" and useful on coupés.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3938,6 +4118,9 @@
   titolo:
     it: Zoom automatico della mappa
     en: Automatic map zoom
+  descrizione:
+    it: 'La mappa regola lo zoom da sola.'
+    en: 'The map adjusts its zoom by itself.'
   parametri:
   - nome: AUTO_MAP_ZOOM
     target: aktiv
@@ -3950,10 +4133,8 @@
   - F54
   - F56
   note:
-    it: Una fonte riporta che non funziona. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: One source reports it does not work. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'Una fonte francese riporta che non funziona. Sulle MINI lette è già attivo.'
+    en: 'A French source reports it does not work. Already on in the MINIs read.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3972,6 +4153,9 @@
   titolo:
     it: Telefono, media e comandi vocali nell'HUD
     en: Phone, media and voice in the HUD
+  descrizione:
+    it: 'È la parte della HU che serve a mostrare nell''HUD telefono, media e comandi vocali.'
+    en: 'It is the HU part needed to show phone, media and voice control in the HUD.'
   parametri:
   - nome: HUD_VZA
     regolabile: true
@@ -3992,10 +4176,8 @@
   - F85
   - F86
   note:
-    it: Va con HUD_VZA_ENABLE nel KOMBI. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: Goes with HUD_VZA_ENABLE in the KOMBI. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'Va con le voci nel KOMBI. L''unica fonte è un cheat sheet coreano. Serve l''HUD.'
+    en: 'Goes with the KOMBI entries. The only source is a Korean cheat sheet. Needs the HUD.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:
@@ -4014,6 +4196,9 @@
   titolo:
     it: Logo M nell'HUD
     en: M logo in the HUD
+  descrizione:
+    it: 'Mostra il logo M nell''HUD.'
+    en: 'Shows the M logo in the HUD.'
   parametri:
   - nome: HUD_M
     regolabile: true
@@ -4034,8 +4219,8 @@
   - F85
   - F86
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Serve l''HUD.'
+    en: 'Needs the HUD.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://www.minif56.com/threads/the-other-coding-options-tracker-f55-f56-f54.40969/
@@ -4055,6 +4240,9 @@
   titolo:
     it: Tasto "Menu DVD"
     en: '"DVD Menu" button'
+  descrizione:
+    it: 'Aggiunge il tasto "Menu DVD" mentre guardi un DVD.'
+    en: 'Adds the "DVD Menu" button while you watch a DVD.'
   parametri:
   - nome: ENT_VIDEO_HMI
     target: aktiv
@@ -4065,10 +4253,8 @@
   - F54
   - F56
   note:
-    it: Solo con lettore DVD. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei
-      cheat sheet su GitHub.
-    en: Only with a DVD drive. Parameter present in the reference F54 FWL files; the coding is documented in GitHub
-      cheat sheets.
+    it: 'Solo con lettore DVD.'
+    en: 'Only with a DVD player.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/Codecs-USB-Video.md
   osservazioni:
@@ -4087,6 +4273,9 @@
   titolo:
     it: Regione della radio
     en: Radio region
+  descrizione:
+    it: 'Imposta la regione della radio - ece per Europa e Russia, usa, jpn o kor.'
+    en: 'Sets the radio region - ece for Europe and Russia, usa, jpn or kor.'
   parametri:
   - nome: RADIO_COUNTRY
     regolabile: true
@@ -4100,10 +4289,8 @@
   - F54
   - F56
   note:
-    it: Deve corrispondere al paese in cui usi l'auto. Parametro presente nei FWL della F54 di riferimento; la codifica
-      è documentata nei cheat sheet su GitHub.
-    en: Must match the country where you use the car. Parameter present in the reference F54 FWL files; the coding
-      is documented in GitHub cheat sheets.
+    it: 'Deve corrispondere al paese in cui usi l''auto.'
+    en: 'It must match the country where you use the car.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/Radio-Settings.md
   osservazioni:
@@ -4122,6 +4309,9 @@
   titolo:
     it: De-enfasi FM
     en: FM de-emphasis
+  descrizione:
+    it: 'Imposta la de-enfasi della radio FM - 50 µs in Europa, 75 µs negli Stati Uniti.'
+    en: 'Sets FM de-emphasis - 50 µs in Europe, 75 µs in the United States.'
   parametri:
   - nome: FM_DEEMPHASIS
     regolabile: true
@@ -4135,8 +4325,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Lascia il valore del tuo paese: un valore sbagliato cambia il timbro del suono.'
+    en: 'Keep your country''s value: a wrong value changes the tone of the sound.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/Radio-Settings.md
   osservazioni:
@@ -4155,6 +4345,9 @@
   titolo:
     it: Frequenza radio in MHz
     en: Radio frequency in MHz
+  descrizione:
+    it: 'La radio mostra la frequenza in MHz (101.2) invece che in kHz (10120).'
+    en: 'The radio shows the frequency in MHz (101.2) instead of kHz (10120).'
   parametri:
   - nome: ANZEIGE_FREQ
     regolabile: true
@@ -4167,11 +4360,6 @@
   telai:
   - F54
   - F56
-  note:
-    it: Mostra 101.2 invece di 10120. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: Shows 101.2 instead of 10120. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/Radio-Settings.md
   osservazioni:
@@ -4190,6 +4378,9 @@
   titolo:
     it: Menu di sblocco nei media
     en: Unlock menu in Media
+  descrizione:
+    it: 'Aggiunge nei media un menu di sblocco usato per attivare il video in marcia.'
+    en: 'Adds an unlock menu to Media, used to enable video while driving.'
   parametri:
   - nome: SPEEDLOCK_FREISCHALTMENU
     target: aktiv
@@ -4200,8 +4391,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Una fonte G07 dice che dopo la codifica serve una combinazione di tasti per attivarlo. Fa parte della funzione "Video e menu in marcia": il guidatore non deve usarli mentre guida.'
+    en: 'A G07 source says a button combination is needed after coding to enable it. It belongs to the feature "Video and menus while driving": the driver must not use them while driving.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/Video-in-Motion.md
   osservazioni:
@@ -4220,6 +4411,9 @@
   titolo:
     it: Veleggio (coasting) nelle impostazioni ECO PRO
     en: Coasting in the ECO PRO settings
+  descrizione:
+    it: 'Aggiunge nelle impostazioni ECO PRO la voce del veleggio, in cui il motore si stacca quando togli il piede dall''acceleratore.'
+    en: 'Adds the coasting item to the ECO PRO settings, where the engine is disengaged when you lift off the accelerator.'
   parametri:
   - nome: EFF_DYN_SAILING
     target: aktiv
@@ -4230,8 +4424,8 @@
   - F54
   - F56
   note:
-    it: 'Seconda parte: serve anche la funzione nel cambio o nella DME. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub. Una guida lo indica come parte 2 di 4 (con SEGELN_ENABLE, C_Segeln_vorhanden e Segeln nella EGS; solo cambio automatico). Nei FWL della F54 di riferimento SEGELN_ENABLE è nella KOMBI e C_Segeln_vorhanden nel DSC, entrambi già attivi; nella EGS il parametro Segeln non c''è.'
-    en: 'Second part: the function is also needed in the gearbox or DME. Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets. One guide gives it as part 2 of 4 (with SEGELN_ENABLE, C_Segeln_vorhanden and Segeln in the EGS; automatic only). In the reference F54 FWL files SEGELN_ENABLE is in the KOMBI and C_Segeln_vorhanden in the DSC, both already active; the EGS has no Segeln parameter.'
+    it: 'Una guida la indica come parte 2 di 4, con SEGELN_ENABLE nel KOMBI, C_Segeln_vorhanden nel DSC e Segeln nel cambio (EGS); solo cambio automatico. Sulle MINI lette le parti di KOMBI e DSC sono già attive, mentre nella EGS il parametro Segeln non c''è.'
+    en: 'One guide gives it as part 2 of 4, with SEGELN_ENABLE in the KOMBI, C_Segeln_vorhanden in the DSC and Segeln in the gearbox (EGS); automatic gearbox only. On the MINIs read the KOMBI and DSC parts are already on, while the EGS has no Segeln parameter.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Transmission/Sport-Mode.md
   osservazioni:
@@ -4250,6 +4444,9 @@
   titolo:
     it: 'Opzione "5 lampeggi" della freccia comfort nel menu iDrive'
     en: '"5 flashes" comfort turn signal option in the iDrive menu'
+  descrizione:
+    it: 'Aggiunge nelle impostazioni delle luci la scelta di 5 lampeggi per la freccia comfort.'
+    en: 'Adds the 5-flash option for the comfort turn signal to the lighting settings.'
   parametri:
   - nome: 5_FACH_TIPPBLINKEN
     target: aktiv
@@ -4261,8 +4458,8 @@
   - F56
   - G05
   note:
-    it: 'Mostra la scelta dei 5 lampeggi nelle impostazioni delle luci. Il valore predefinito della freccia comfort sta nella BDC (PIA_DEFAULT_TIPPBLINKEN, vedi la voce "Lampeggio comfort"). Documentato con lo stesso nome nella head unit HU_MGU delle BMW G05.'
-    en: 'Shows the 5-flash choice in the lighting settings. The default comfort turn signal value is in the BDC (PIA_DEFAULT_TIPPBLINKEN, see the "Comfort turn signal" entry). Documented with the same name in the HU_MGU head unit of BMW G05.'
+    it: 'Il valore predefinito della freccia comfort sta nel BDC (PIA_DEFAULT_TIPPBLINKEN). Documentato con lo stesso nome nella head unit HU_MGU delle BMW G05; sulle MINI lette è già attivo.'
+    en: 'The default comfort turn signal value is in the BDC (PIA_DEFAULT_TIPPBLINKEN). Documented under the same name in the HU_MGU head unit of the BMW G05; already on in the MINIs read.'
   fonti:
   - https://g05.bimmerpost.com/forums/attachment.php?attachmentid=2775656
   osservazioni:

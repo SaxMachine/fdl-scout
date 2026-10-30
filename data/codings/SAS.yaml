@@ -6,6 +6,9 @@
   titolo:
     it: 'ACC Stop & Go: frenata fino all''arresto'
     en: 'ACC Stop & Go: braking to a standstill'
+  descrizione:
+    it: 'Il cruise control attivo frena fino all''arresto nel traffico invece di disattivarsi sotto una certa velocità.'
+    en: 'Active cruise control brakes to a standstill in traffic instead of switching off below a certain speed.'
   parametri:
   - nome: LDM_Fahrfunktion
     target: ACC_SnG
@@ -19,11 +22,8 @@
   - F55
   - F56
   note:
-    it: 'Va insieme a C_Funktion_AccStopAndGo_aktiv_I nel DSC (attivo nella F54 di riferimento). Su minif56 un utente
-      F57 con cambio DKG riporta che dopo la codifica non è cambiato nulla: esito incerto sulle MINI con ACC a telecamera.'
-    en: 'Goes together with C_Funktion_AccStopAndGo_aktiv_I in the DSC (active on the reference F54). On minif56
-      an F57 owner with the DKG gearbox reports that nothing changed after coding: uncertain outcome on MINIs with
-      camera-based ACC.'
+    it: 'Va con C_Funktion_AccStopAndGo_aktiv_I nel DSC. Su minif56 un utente con F57 e cambio DKG riporta che dopo la codifica non è cambiato nulla: esito incerto sulle MINI con ACC a telecamera.'
+    en: 'Goes with C_Funktion_AccStopAndGo_aktiv_I in the DSC. On minif56 a user with an F57 and DKG gearbox reports nothing changed after coding: uncertain outcome on MINIs with camera-based ACC.'
   fonti:
   - https://www.minif56.com/threads/active-cruise-control-541-activating-stop-and-go.87884/
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
@@ -32,6 +32,9 @@
   titolo:
     it: 'ACC: ripartenza automatica dopo l''arresto'
     en: 'ACC: automatic restart after stopping'
+  descrizione:
+    it: 'Dopo un arresto con l''ACC, l''auto riparte da sola quando riparte chi ti precede.'
+    en: 'After stopping with ACC, the car moves off by itself when the car ahead moves off.'
   parametri:
   - nome: LDM_Automatisches_Losfahren
     regolabile: true
@@ -48,8 +51,8 @@
   - F55
   - F56
   note:
-    it: Facoltativa, dopo lo Stop & Go. Valore 'automatisches Losfahren' dalla lista E-Sys.
-    en: Optional, after Stop & Go. Value 'automatisches Losfahren' from the E-Sys list.
+    it: 'Ha senso solo con lo Stop & Go attivo. Valore ''automatisches Losfahren'' dalla lista E-Sys; sulle MINI lette è già impostato.'
+    en: 'Only makes sense with Stop & Go on. Value ''automatisches Losfahren'' from the E-Sys list; on the MINIs read it is already set.'
   fonti:
   - https://www.minif56.com/threads/active-cruise-control-541-activating-stop-and-go.87884/
 - id: sas.acc-velocita-massima
@@ -57,6 +60,9 @@
   titolo:
     it: 'ACC: velocità massima impostabile'
     en: 'ACC: maximum set speed'
+  descrizione:
+    it: 'Alza la velocità massima che puoi impostare nel cruise control attivo; di fabbrica 140 km/h.'
+    en: 'Raises the maximum speed you can set in active cruise control; factory value 140 km/h.'
   parametri:
   - nome: LDM_Wunschgeschw_ACC_max_kmh
     regolabile: true
@@ -73,10 +79,8 @@
   - F55
   - F56
   note:
-    it: 'Su Bimmerfest portata da 140 a 180 km/h. Sulle F5x il valore potrebbe stare anche nel DSC (C_Wunschgeschw_ACC_max_kmh):
-      verifica quale dei due usa la tua auto.'
-    en: 'Raised from 140 to 180 km/h on Bimmerfest. On the F5x the value may also be in the DSC (C_Wunschgeschw_ACC_max_kmh):
-      check which of the two your car uses.'
+    it: 'Su Bimmerfest portata da 140 a 180 km/h. Sulle F5x il limite esiste anche nel DSC (C_Wunschgeschw_ACC_max_kmh): non è documentato quale dei due valga.'
+    en: 'On Bimmerfest raised from 140 to 180 km/h. On F5x cars the limit also exists in the DSC (C_Wunschgeschw_ACC_max_kmh): it is not documented which one applies.'
   fonti:
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
 - id: sas.assistente-coda
@@ -84,6 +88,9 @@
   titolo:
     it: Assistente nel traffico (Traffic Jam Assist)
     en: Traffic Jam Assist
+  descrizione:
+    it: 'Attiva l''assistente nel traffico, che in coda mantiene la corsia e la distanza; di fabbrica è limitato all''autostrada.'
+    en: 'Enables Traffic Jam Assist, which keeps lane and distance in queues; from the factory it is limited to motorways.'
   parametri:
   - nome: LDM_STA_Einschraenkung
     regolabile: true
@@ -104,9 +111,7 @@
   - F45
   - F48
   note:
-    it: 'Documentato su BMW F45/F48 con radar. Su una F56 l''iDrive ha risposto che la funzione non è attivabile:
-      probabilmente richiede hardware che le MINI non hanno.'
-    en: 'Documented on BMW F45/F48 with radar. On an F56 iDrive replied that the function cannot be enabled: it
-      probably needs hardware that MINIs do not have.'
+    it: 'Documentato su BMW F45/F48 con radar. Su una F56 l''iDrive ha risposto che la funzione non è attivabile: probabilmente richiede hardware che le MINI non hanno.'
+    en: 'Documented on BMW F45/F48 with radar. On an F56 the iDrive replied that the function cannot be enabled: it probably needs hardware MINIs do not have.'
   fonti:
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/

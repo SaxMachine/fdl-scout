@@ -21,6 +21,9 @@ Field names are in Italian because the project started in Italian; they are the 
   consiglio: ok
   affidabilita: confermata
   telai: [F54, F55, F56, F57, F60]
+  descrizione:
+    it: Nell'HUD compare la marcia inserita.
+    en: The HUD shows the current gear.
   note:
     it: Le tre voci HUD_SPORTANZEIGE_* devono essere già attive in HU e KOMBI.
     en: The three HUD_SPORTANZEIGE_* entries must already be active in the HU and the KOMBI.
@@ -52,7 +55,8 @@ Field names are in Italian because the project started in Italian; they are the 
 | `affidabilita` | yes | `confermata` (confirmed) if at least one car has tried it with a known result, otherwise `da_verificare` (to be verified). |
 | `telai` | no | Chassis the entry is documented on (e.g. `F54`, `F30`). If the user loads an FA from a different chassis, the page warns them. Only add a chassis with a source or an FWL that proves it: same feature does not mean same parameter. |
 | `requisiti_sa` | no | Required SA codes, e.g. `['248']` for the heated steering wheel. If the user loads the FA and the code is missing, the entry shows as "Option missing". Only use verified codes. |
-| `note` | no | `it`/`en`: dependencies, warnings, side effects. Write in general terms, not about your own car. |
+| `descrizione` | yes | `it`/`en`: what changes in the car, in plain words: what you see or hear and where. One or two sentences, always visible under the title. Write only what the sources say; if no source describes the effect, say so. |
+| `note` | no | `it`/`en`, shown as "Good to know": what is needed (options, other units), risks, side effects, what still needs testing. Write in general terms, not about your own car. Do not repeat where the entry comes from: `fonti` and `osservazioni` already say that. |
 | `insieme_a` | no | Not written by hand: the build computes it from the features in `data/funzioni.yaml` (each part is linked to the others). |
 | `fonti` | no | Links to the threads or guides the entry comes from. Summarise in your own words, do not copy text. |
 | `osservazioni` | no | Cars the parameter was read on: chassis, year, i-level, value read, result. This is the evidence for the entry. |

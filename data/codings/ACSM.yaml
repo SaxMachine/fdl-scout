@@ -6,6 +6,9 @@
   titolo:
     it: Togliere il cicalino quando si slaccia la cintura in marcia (guidatore)
     en: Remove the chime when the seat belt is unbuckled while driving (driver)
+  descrizione:
+    it: 'Toglie il cicalino che suona quando il guidatore slaccia la cintura con l''auto già in marcia.'
+    en: 'Removes the chime that sounds when the driver unbuckles while the car is already moving.'
   parametri:
   - nome: SBR-Prewarning_Fahrer
     target: nicht_aktiv
@@ -19,8 +22,8 @@
   - F56
   - F57
   note:
-    it: 'Non è l''avviso alla partenza (quello è SeatBeltReminder_Fahrer): è il cicalino che suona quando la cintura si slaccia con l''auto già in marcia. Così lo descrivono le fonti per tutte le ACSM serie F; il cheat sheet coreano parla invece di spia. Documentato sullo stesso CAFD della F54 (ACSM 000011AB, F55/F56/F57/F45) come Prewarning_* o SBR_PreWarning_*; nel FWL della F54 il nome è SBR-Prewarning_*. Riguarda la sicurezza: sconsigliata.'
-    en: 'Not the warning at departure (that is SeatBeltReminder_Fahrer): it is the chime that sounds when the belt is unbuckled while the car is already moving. That is how sources describe it for every F-series ACSM; the Korean cheat sheet calls it a warning light instead. Documented on the same CAFD as the F54 (ACSM 000011AB, F55/F56/F57/F45) as Prewarning_* or SBR_PreWarning_*; in the F54 FWL the name is SBR-Prewarning_*. Safety-related: not recommended.'
+    it: 'Non è l''avviso alla partenza: quello è la voce "Togliere l''avviso cinture del guidatore". Le fonti per le ACSM serie F lo descrivono come cicalino; un cheat sheet coreano parla invece di spia. A seconda della versione il parametro si chiama SBR-Prewarning_*, Prewarning_* o SBR_PreWarning_*. Riguarda la sicurezza: sconsigliata.'
+    en: 'This is not the warning when you set off: that is the entry "Remove the driver seat belt warning". Sources for F-series ACSMs describe it as a chime; a Korean cheat sheet speaks of a light instead. Depending on the version the parameter is called SBR-Prewarning_*, Prewarning_* or SBR_PreWarning_*. Safety-related: not recommended.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Safety-Features.md
@@ -39,6 +42,9 @@
   titolo:
     it: Togliere il cicalino quando si slaccia la cintura in marcia (passeggero)
     en: Remove the chime when the seat belt is unbuckled while driving (passenger)
+  descrizione:
+    it: 'Toglie il cicalino che suona quando il passeggero slaccia la cintura con l''auto già in marcia.'
+    en: 'Removes the chime that sounds when the front passenger unbuckles while the car is already moving.'
   parametri:
   - nome: SBR-Prewarning_Beifahrer
     target: nicht_aktiv
@@ -52,8 +58,8 @@
   - F56
   - F57
   note:
-    it: 'Non è l''avviso alla partenza (quello è SeatBeltReminder_Beifahrer): è il cicalino che suona quando la cintura si slaccia con l''auto già in marcia. Così lo descrivono le fonti per tutte le ACSM serie F; il cheat sheet coreano parla invece di spia. Documentato sullo stesso CAFD della F54 (ACSM 000011AB, F55/F56/F57/F45) come Prewarning_* o SBR_PreWarning_*; nel FWL della F54 il nome è SBR-Prewarning_*. Riguarda la sicurezza: sconsigliata.'
-    en: 'Not the warning at departure (that is SeatBeltReminder_Beifahrer): it is the chime that sounds when the belt is unbuckled while the car is already moving. That is how sources describe it for every F-series ACSM; the Korean cheat sheet calls it a warning light instead. Documented on the same CAFD as the F54 (ACSM 000011AB, F55/F56/F57/F45) as Prewarning_* or SBR_PreWarning_*; in the F54 FWL the name is SBR-Prewarning_*. Safety-related: not recommended.'
+    it: 'Non è l''avviso alla partenza: quello è la voce "Togliere l''avviso cinture del passeggero". Le fonti per le ACSM serie F lo descrivono come cicalino; un cheat sheet coreano parla invece di spia. A seconda della versione il parametro si chiama SBR-Prewarning_*, Prewarning_* o SBR_PreWarning_*. Riguarda la sicurezza: sconsigliata.'
+    en: 'This is not the warning when you set off: that is the entry "Remove the passenger seat belt warning". Sources for F-series ACSMs describe it as a chime; a Korean cheat sheet speaks of a light instead. Depending on the version the parameter is called SBR-Prewarning_*, Prewarning_* or SBR_PreWarning_*. Safety-related: not recommended.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Safety-Features.md
@@ -72,6 +78,9 @@
   titolo:
     it: Spegnere la spia cinture del guidatore nel quadro
     en: Turn off the driver seat belt light in the cluster
+  descrizione:
+    it: 'Nel quadro non compare più lo stato della cintura del guidatore.'
+    en: 'The cluster no longer shows the driver''s seat belt status.'
   parametri:
   - nome: Gurtzustandsanzeige_Fahrer
     target: nicht_aktiv
@@ -82,8 +91,8 @@
   - F54
   - F56
   note:
-    it: 'Spegne la spia delle cinture nel quadro. Documentato sull''ACSM di G11/G30 con questo nome esatto e su F10/F20/F30 come Gurtzustandsanzeige_*_GWF_GZA_*; non ancora sul CAFD MINI. Riguarda la sicurezza: sconsigliata. Vedi anche le voci sull''avviso cinture (SeatBeltReminder_*).'
-    en: 'Turns off the seat belt light in the cluster. Documented on the G11/G30 ACSM with this exact name and on F10/F20/F30 as Gurtzustandsanzeige_*_GWF_GZA_*; not yet on the MINI CAFD. Safety-related: not recommended. See also the seat belt reminder entries (SeatBeltReminder_*).'
+    it: 'Documentata con questo nome sull''ACSM di G11/G30 ("firmware 2016") e su F10/F20/F30 come Gurtzustandsanzeige_*_GWF_GZA_*; nessuna fonte la descrive su una MINI. Riguarda la sicurezza: sconsigliata. Vedi anche le voci sull''avviso cinture.'
+    en: 'Documented under this name on the G11/G30 ACSM ("2016 firmware") and on F10/F20/F30 as Gurtzustandsanzeige_*_GWF_GZA_*; no source describes it on a MINI. Safety-related: not recommended. See also the seat belt warning entries.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -103,6 +112,9 @@
   titolo:
     it: Spegnere la spia cinture del passeggero nel quadro
     en: Turn off the passenger seat belt light in the cluster
+  descrizione:
+    it: 'Nel quadro non compare più lo stato della cintura del passeggero.'
+    en: 'The cluster no longer shows the front passenger''s seat belt status.'
   parametri:
   - nome: Gurtzustandsanzeige_Beifahrer
     target: nicht_aktiv
@@ -113,8 +125,8 @@
   - F54
   - F56
   note:
-    it: 'Spegne la spia delle cinture nel quadro. Documentato sull''ACSM di G11/G30 con questo nome esatto e su F10/F20/F30 come Gurtzustandsanzeige_*_GWF_GZA_*; non ancora sul CAFD MINI. Riguarda la sicurezza: sconsigliata. Vedi anche le voci sull''avviso cinture (SeatBeltReminder_*).'
-    en: 'Turns off the seat belt light in the cluster. Documented on the G11/G30 ACSM with this exact name and on F10/F20/F30 as Gurtzustandsanzeige_*_GWF_GZA_*; not yet on the MINI CAFD. Safety-related: not recommended. See also the seat belt reminder entries (SeatBeltReminder_*).'
+    it: 'Documentata con questo nome sull''ACSM di G11/G30 ("firmware 2016") e su F10/F20/F30 come Gurtzustandsanzeige_*_GWF_GZA_*; nessuna fonte la descrive su una MINI. Riguarda la sicurezza: sconsigliata. Vedi anche le voci sull''avviso cinture.'
+    en: 'Documented under this name on the G11/G30 ACSM ("2016 firmware") and on F10/F20/F30 as Gurtzustandsanzeige_*_GWF_GZA_*; no source describes it on a MINI. Safety-related: not recommended. See also the seat belt warning entries.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -134,6 +146,9 @@
   titolo:
     it: Durata del cicalino delle cinture
     en: Seat belt chime duration
+  descrizione:
+    it: 'Cambia per quanto tempo suona l''avviso delle cinture slacciate.'
+    en: 'Changes how long the unbuckled seat belt warning sounds.'
   parametri:
   - nome: GWF_SBR_WARNDAUER
     regolabile: true
@@ -182,10 +197,8 @@
   - F85
   - F86
   note:
-    it: 'Accorcia l''avviso acustico delle cinture. Riguarda la sicurezza: sconsigliata. Parametro presente nei
-      FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'Shortens the seat belt chime. Safety-related: not recommended. Parameter present in the reference F54 FWL
-      files; the coding is documented in GitHub cheat sheets.'
+    it: 'Le fonti indicano 5A (90 s) o 100 s come valore di fabbrica e lo portano a 05 (5 s), 0A (10 s) o 00. Riguarda la sicurezza: sconsigliata.'
+    en: 'Sources give 5A (90 s) or 100 s as the factory value and change it to 05 (5 s), 0A (10 s) or 00. Safety-related: not recommended.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-6.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
@@ -200,8 +213,11 @@
 - id: acsm.avviso-cinture-guidatore
   centralina: ACSM
   titolo:
-    it: Togliere l'avviso cinture del guidatore
-    en: Remove the driver seat belt reminder
+    it: 'Togliere l''avviso cinture del guidatore'
+    en: 'Remove the driver seat belt warning'
+  descrizione:
+    it: 'Toglie l''avviso (spia e cicalino) che parte quando l''auto si muove con la cintura del guidatore slacciata.'
+    en: 'Removes the warning (light and chime) that starts when the car moves with the driver''s seat belt unbuckled.'
   parametri:
   - nome: SeatBeltReminder_Fahrer
     target: '00'
@@ -215,8 +231,8 @@
   - F56
   - F57
   note:
-    it: 'È l''avviso alla partenza (spia e cicalino quando l''auto si muove con la cintura slacciata). Su una ACSM più recente (ACSM_5 di G11/G30, CAFD 00001B29) i valori documentati sono 00 = SBR_nicht_verbaut (assente), 03 = SBR_mit_SBE (con sensore di occupazione del sedile), 04 = SBR_ohne_SBE (senza sensore); sulla F54 il 04 è coerente, ma la tabella va confermata in E-Sys. Alcune fonti chiamano il parametro SeatBeltReminder_SBR_*. La F54 di riferimento legge 04 e l''avviso funziona su guidatore e passeggero. Portarlo a 00 è documentato sullo stesso CAFD della F54 (000011AB, F55/F56/F57/F45). Riguarda la sicurezza: sconsigliata.'
-    en: 'This is the warning at departure (light and chime when the car moves with the belt unbuckled). On a newer ACSM (ACSM_5 of G11/G30, CAFD 00001B29) the documented values are 00 = SBR_nicht_verbaut (not fitted), 03 = SBR_mit_SBE (with seat occupancy sensor), 04 = SBR_ohne_SBE (without sensor); on the F54 the 04 is consistent, but the table must be confirmed in E-Sys. Some sources call the parameter SeatBeltReminder_SBR_*. The reference F54 reads 04 and the warning works for driver and passenger. Setting it to 00 is documented on the same CAFD as the F54 (000011AB, F55/F56/F57/F45). Safety-related: not recommended.'
+    it: 'Il valore 00 per toglierlo è documentato sullo stesso CAFD della ACSM MINI (000011AB, F55/F56/F57/F45). Su una ACSM più recente (G11/G30) i valori sono 00 = assente, 03 = con sensore di occupazione del sedile, 04 = senza sensore; sulle MINI si legge 04, ma la tabella va controllata in E-Sys. Alcune fonti chiamano il parametro SeatBeltReminder_SBR_*. Riguarda la sicurezza: sconsigliata.'
+    en: 'The value 00 to remove it is documented on the same CAFD as the MINI ACSM (000011AB, F55/F56/F57/F45). On a newer ACSM (G11/G30) the values are 00 = not fitted, 03 = with seat occupancy sensor, 04 = without sensor; MINIs read 04, but check the table in E-Sys. Some sources call the parameter SeatBeltReminder_SBR_*. Safety-related: not recommended.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/tutuianu_daniel.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Safety-Features.md
@@ -230,8 +246,11 @@
 - id: acsm.avviso-cinture-passeggero
   centralina: ACSM
   titolo:
-    it: Togliere l'avviso cinture del passeggero
-    en: Remove the passenger seat belt reminder
+    it: 'Togliere l''avviso cinture del passeggero'
+    en: 'Remove the passenger seat belt warning'
+  descrizione:
+    it: 'Toglie l''avviso (spia e cicalino) che parte quando l''auto si muove con la cintura del passeggero slacciata.'
+    en: 'Removes the warning (light and chime) that starts when the car moves with the front passenger''s seat belt unbuckled.'
   parametri:
   - nome: SeatBeltReminder_Beifahrer
     target: '00'
@@ -245,8 +264,8 @@
   - F56
   - F57
   note:
-    it: 'È l''avviso alla partenza (spia e cicalino quando l''auto si muove con la cintura slacciata). Su una ACSM più recente (ACSM_5 di G11/G30, CAFD 00001B29) i valori documentati sono 00 = SBR_nicht_verbaut (assente), 03 = SBR_mit_SBE (con sensore di occupazione del sedile), 04 = SBR_ohne_SBE (senza sensore); sulla F54 il 04 è coerente, ma la tabella va confermata in E-Sys. Alcune fonti chiamano il parametro SeatBeltReminder_SBR_*. La F54 di riferimento legge 04 e l''avviso funziona su guidatore e passeggero. Portarlo a 00 è documentato sullo stesso CAFD della F54 (000011AB, F55/F56/F57/F45). Riguarda la sicurezza: sconsigliata.'
-    en: 'This is the warning at departure (light and chime when the car moves with the belt unbuckled). On a newer ACSM (ACSM_5 of G11/G30, CAFD 00001B29) the documented values are 00 = SBR_nicht_verbaut (not fitted), 03 = SBR_mit_SBE (with seat occupancy sensor), 04 = SBR_ohne_SBE (without sensor); on the F54 the 04 is consistent, but the table must be confirmed in E-Sys. Some sources call the parameter SeatBeltReminder_SBR_*. The reference F54 reads 04 and the warning works for driver and passenger. Setting it to 00 is documented on the same CAFD as the F54 (000011AB, F55/F56/F57/F45). Safety-related: not recommended.'
+    it: 'Il valore 00 per toglierlo è documentato sullo stesso CAFD della ACSM MINI (000011AB, F55/F56/F57/F45). Su una ACSM più recente (G11/G30) i valori sono 00 = assente, 03 = con sensore di occupazione del sedile, 04 = senza sensore; sulle MINI si legge 04, ma la tabella va controllata in E-Sys. Alcune fonti chiamano il parametro SeatBeltReminder_SBR_*. Riguarda la sicurezza: sconsigliata.'
+    en: 'The value 00 to remove it is documented on the same CAFD as the MINI ACSM (000011AB, F55/F56/F57/F45). On a newer ACSM (G11/G30) the values are 00 = not fitted, 03 = with seat occupancy sensor, 04 = without sensor; MINIs read 04, but check the table in E-Sys. Some sources call the parameter SeatBeltReminder_SBR_*. Safety-related: not recommended.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/tutuianu_daniel.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Safety-Features.md

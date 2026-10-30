@@ -6,6 +6,9 @@
   titolo:
     it: Distanza percorsa nel computer di bordo
     en: Distance travelled in the on-board computer
+  descrizione:
+    it: 'Aggiunge al computer di bordo del quadro la pagina con la distanza percorsa.'
+    en: 'Adds the distance travelled page to the cluster''s on-board computer.'
   parametri:
   - nome: BC_DISTANZ_ENABLE
     target: aktiv
@@ -19,8 +22,8 @@
   - F55
   - F56
   note:
-    it: Aggiunge la pagina di distanza al BC del quadro.
-    en: Adds the distance page to the cluster's on-board computer.
+    it: 'Servono tutti e due i parametri.'
+    en: 'Both parameters are needed.'
   fonti:
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/?pageNo=322
   osservazioni:
@@ -34,6 +37,9 @@
   titolo:
     it: Ora di arrivo nel computer di bordo
     en: Arrival time in the on-board computer
+  descrizione:
+    it: 'Aggiunge al computer di bordo del quadro l''ora di arrivo stimata della navigazione.'
+    en: 'Adds the navigation''s estimated arrival time to the cluster''s on-board computer.'
   parametri:
   - nome: KI_PIA_ANKUNFT
     target: aktiv
@@ -45,8 +51,8 @@
   - F55
   - F56
   note:
-    it: 'BC_ANKUNFTSZEIT_ENABLE è già attivo: manca solo la voce selezionabile.'
-    en: 'BC_ANKUNFTSZEIT_ENABLE is already active: only the selectable entry is missing.'
+    it: 'Il dato (BC_ANKUNFTSZEIT_ENABLE) di solito è già attivo: questa voce aggiunge la pagina selezionabile.'
+    en: 'The data (BC_ANKUNFTSZEIT_ENABLE) is usually already on: this entry adds the selectable page.'
   fonti:
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/?pageNo=322
   osservazioni:
@@ -60,6 +66,9 @@
   titolo:
     it: Avviso superamento limite nel quadro
     en: Speed limit warning in the cluster
+  descrizione:
+    it: 'Quando superi il limite riconosciuto, il cartello lampeggia anche nel quadro e non solo nell''HUD.'
+    en: 'When you exceed the recognised limit, the sign flashes in the cluster too, not only in the HUD.'
   parametri:
   - nome: SLI_WARNUNG_ENABLE
     target: aktiv
@@ -70,8 +79,8 @@
   - F54
   - F56
   note:
-    it: 'L''HUD lo fa già (HUD_SLI_WARNUNG_ENABLE). Così il segnale lampeggia anche nel quadro quando l''HUD è spento. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
-    en: 'The HUD already does it (HUD_SLI_WARNUNG_ENABLE). This makes the sign flash in the cluster too when the HUD is off. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
+    it: 'Nell''HUD c''è il parametro gemello HUD_SLI_WARNUNG_ENABLE. Nessuna fonte pubblica descrive questo: l''abbinamento viene dal nome nel FWL.'
+    en: 'The HUD has the twin parameter HUD_SLI_WARNUNG_ENABLE. No public source describes this one: the match comes from the name in the FWL.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -88,6 +97,9 @@
   titolo:
     it: Marcia inserita nell'HUD
     en: Current gear in the HUD
+  descrizione:
+    it: 'Mostra nell''HUD la marcia inserita.'
+    en: 'Shows the current gear in the HUD.'
   parametri:
   - nome: HUD_FAHRSTUFE_ENABLE
     target: aktiv
@@ -119,6 +131,9 @@
   titolo:
     it: Ora sincronizzata da GPS
     en: Time synchronised from GPS
+  descrizione:
+    it: 'L''orologio si regola da solo con l''ora del GPS.'
+    en: 'The clock sets itself from GPS time.'
   parametri:
   - nome: GPS_UHR
     target: aktiv
@@ -131,7 +146,8 @@
   - F56
   - F57
   note:
-    it: ''
+    it: 'Sulle MINI lette è già attivo. Per l''ora legale automatica vedi le voci della HU.'
+    en: 'Already on in the MINIs read. For automatic daylight saving see the HU entries.'
   fonti:
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5658504/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-12.html
@@ -150,6 +166,9 @@
   titolo:
     it: Temperatura olio numerica
     en: Numeric oil temperature
+  descrizione:
+    it: 'Mostra la temperatura dell''olio in cifre invece che solo con la barra.'
+    en: 'Shows the oil temperature as a number instead of just a bar.'
   parametri:
   - nome: OEL_TEMP_NUMERISCH
     target: aktiv
@@ -160,8 +179,8 @@
   - F54
   - F56
   note:
-    it: 'Il quadro IC_MID non ha sempre la grafica per mostrarla. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
-    en: 'The IC_MID cluster does not always have the graphics to show it. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
+    it: 'Nessuna fonte pubblica descrive il parametro: l''abbinamento viene dal nome nel FWL. Il quadro analogico (IC_MID) non sempre ha la grafica per mostrarla.'
+    en: 'No public source describes the parameter: the match comes from the name in the FWL. The analogue cluster (IC_MID) does not always have the graphics to show it.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -178,6 +197,9 @@
   titolo:
     it: Speed Limit Assist (ACC adotta il limite)
     en: Speed Limit Assist (ACC adopts the limit)
+  descrizione:
+    it: 'Il cruise control attivo propone di adottare il limite di velocità letto dalla telecamera; l''indicazione compare anche nell''HUD.'
+    en: 'Active cruise control offers to adopt the speed limit read by the camera; the prompt also shows in the HUD.'
   parametri:
   - nome: LDM_ISA_ENABLE
     target: aktiv
@@ -191,8 +213,8 @@
   - F55
   - F56
   note:
-    it: Richiede supporto in DSC e KAFAS oltre al KOMBI. Non procedere senza l'FWL del DSC.
-    en: Needs support in the DSC and KAFAS as well as the KOMBI. Do not go ahead without the DSC FWL.
+    it: 'Richiede supporto anche nel DSC e nella KAFAS oltre al KOMBI, e nessuna fonte lo ha provato su una MINI. Non procedere senza aver controllato l''FWL del DSC.'
+    en: 'Also needs support in the DSC and the KAFAS besides the KOMBI, and no source has tested it on a MINI. Do not go ahead without checking the DSC FWL.'
   fonti:
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   osservazioni:
@@ -208,6 +230,9 @@
   titolo:
     it: Limite e divieto di sorpasso nell'HUD
     en: Speed limit and no-overtaking signs in the HUD
+  descrizione:
+    it: 'Mostra nell''HUD il limite di velocità e il divieto di sorpasso riconosciuti.'
+    en: 'Shows the recognised speed limit and no-overtaking sign in the HUD.'
   parametri:
   - nome: HUD_SLI_ENABLE
     target: aktiv
@@ -221,7 +246,8 @@
   - F55
   - F56
   note:
-    it: ''
+    it: 'È la prima di due parti: l''altra è NPI_ON_OFF nella KAFAS. Serve la telecamera frontale.'
+    en: 'It is the first of two parts: the other is NPI_ON_OFF in the KAFAS. Needs the front camera.'
   fonti:
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -234,8 +260,11 @@
 - id: kombi.quadro-piu-luminoso-di-giorno
   centralina: KOMBI
   titolo:
-    it: Quadro più luminoso di giorno
-    en: Brighter cluster in daylight
+    it: 'Quadro sempre con l''illuminazione diurna'
+    en: 'Cluster always with daytime lighting'
+  descrizione:
+    it: 'Il quadro usa sempre l''illuminazione diurna, anche di notte, invece di passare alla luce notturna.'
+    en: 'The cluster always uses its daytime lighting, also at night, instead of switching to night lighting.'
   parametri:
   - nome: DIM_NACHT_EIN
     target: FF
@@ -249,8 +278,8 @@
   - F57
   - F60
   note:
-    it: Fonte NAM. Gli utenti riportano un quadro molto più leggibile alla luce del sole.
-    en: 'Source: NAM. Owners report a much more readable cluster in sunlight.'
+    it: 'Una fonte BMW dice che di notte la retroilluminazione diventa bianca invece che arancione (valore di fabbrica 32). Su NAM gli utenti MINI riportano un quadro molto più leggibile al sole.'
+    en: 'A BMW source says the backlight stays white at night instead of orange (factory value 32). On NAM MINI owners report a much more readable cluster in sunlight.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -266,6 +295,9 @@
   titolo:
     it: Velocità digitale nel computer di bordo
     en: Digital speed in the on-board computer
+  descrizione:
+    it: 'Mostra la velocità in cifre nel computer di bordo del quadro.'
+    en: 'Shows the speed as a number in the cluster''s on-board computer.'
   parametri:
   - nome: DIGITAL_TACHO_ENABLE
     regolabile: true
@@ -282,10 +314,8 @@
   - F57
   - F60
   note:
-    it: 'Elenco BimmerCode F5x. Mostra i km/h in cifre nel quadro. Con alcuni PSdZData il valore attuale non ha
-      nome: scegli la voce kmh dalla lista.'
-    en: 'BimmerCode F5x list. Shows km/h as digits in the cluster. With some PSdZData the current value has no name:
-      pick the kmh entry from the list.'
+    it: 'Dall''elenco BimmerCode delle F5x. Con alcune versioni dei dati di E-Sys il valore attuale non ha nome: scegli dalla lista la voce con kmh.'
+    en: 'From the BimmerCode list for F5x cars. With some E-Sys data versions the current value has no name: pick the kmh entry from the list.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -300,6 +330,9 @@
   titolo:
     it: Riga vuota nel computer di bordo
     en: Blank line in the on-board computer
+  descrizione:
+    it: 'Aggiunge al computer di bordo una pagina vuota, per avere il quadro senza dati.'
+    en: 'Adds an empty page to the on-board computer, for a cluster without data.'
   parametri:
   - nome: BC_LEERZEILE
     target: aktiv
@@ -313,8 +346,8 @@
   - F57
   - F60
   note:
-    it: Elenco BimmerCode. Permette di lasciare il computer di bordo senza dati, per un quadro più pulito.
-    en: BimmerCode list. Lets you leave the on-board computer without data, for a cleaner cluster.
+    it: 'Dall''elenco BimmerCode; il nome viene dal FWL.'
+    en: 'From the BimmerCode list; the name comes from the FWL.'
   fonti:
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/?pageNo=322
   - https://bimmercode.app/vehicles/f56
@@ -329,6 +362,9 @@
   titolo:
     it: Azzeramento automatico delle medie
     en: Automatic reset of averages
+  descrizione:
+    it: 'Decide quando il computer di bordo azzera da solo medie e contatori del viaggio - dopo alcune ore di sosta, a ogni viaggio o mai.'
+    en: 'Decides when the on-board computer resets trip averages by itself - after some hours parked, every trip or never.'
   parametri:
   - nome: BC_AUTORESET_ZEIT
     regolabile: true
@@ -345,8 +381,8 @@
   - F57
   - F60
   note:
-    it: 'Elenco BimmerCode. Con alcuni PSdZData il valore attuale non ha nome: scegli dalla lista E-Sys.'
-    en: 'BimmerCode list. With some PSdZData the current value has no name: pick from the E-Sys list.'
+    it: 'Le fonti BMW usano FF per non azzerarle mai e 00 per azzerarle a ogni viaggio. Con alcune versioni dei dati di E-Sys il valore attuale non ha nome: scegli dalla lista.'
+    en: 'BMW sources use FF to never reset and 00 to reset every trip. With some E-Sys data versions the current value has no name: pick from the list.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -363,6 +399,9 @@
   titolo:
     it: Soglia della riserva carburante
     en: Fuel reserve threshold
+  descrizione:
+    it: 'Cambia con quanti litri rimasti si accende la spia della riserva; non cambia la capacità del serbatoio.'
+    en: 'Changes how many litres are left when the fuel reserve light comes on; it does not change the tank size.'
   parametri:
   - nome: TNK_SCHWELLE_RESERVE
     regolabile: true
@@ -379,8 +418,8 @@
   - F57
   - F60
   note:
-    it: Elenco BimmerCode (Reservewarnung). Cambia quando compare la spia della riserva, non la capacità reale.
-    en: BimmerCode list (Reservewarnung). Changes when the reserve warning appears, not the real capacity.
+    it: 'Un cheat sheet coreano usa valori da 6 a 10 litri (18, 20, 24, 28 in esadecimale). Sulle MINI lette la soglia è 11 o 12,5 litri.'
+    en: 'A Korean cheat sheet uses values from 6 to 10 litres (18, 20, 24, 28 in hex). On the MINIs read the threshold is 11 or 12.5 litres.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
@@ -395,6 +434,9 @@
   titolo:
     it: Fondo scala dell'indicatore di consumo
     en: Full scale of the consumption gauge
+  descrizione:
+    it: 'Cambia il valore massimo della barra del consumo istantaneo nel quadro; di fabbrica 20 l/100 km.'
+    en: 'Changes the maximum of the instant consumption bar in the cluster; factory value 20 l/100 km.'
   parametri:
   - nome: HMI_KVA_SKALA
     regolabile: true
@@ -413,8 +455,8 @@
   - F57
   - F60
   note:
-    it: 'Cambia il valore massimo della barra del consumo nel quadro. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
-    en: 'Changes the maximum value of the consumption bar in the cluster. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
+    it: 'Nessuna fonte pubblica descrive i parametri: l''abbinamento viene dal nome nel FWL e dall''elenco di BimmerCode.'
+    en: 'No public source describes the parameters: the match comes from the name in the FWL and the BimmerCode list.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -428,6 +470,9 @@
   titolo:
     it: Data nel computer di bordo
     en: Date in the on-board computer
+  descrizione:
+    it: 'Aggiunge la data tra le pagine del computer di bordo.'
+    en: 'Adds the date to the on-board computer pages.'
   parametri:
   - nome: BC_DATUM
     target: aktiv
@@ -441,8 +486,8 @@
   - F57
   - F60
   note:
-    it: 'Aggiunge la data tra le voci del computer di bordo. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
-    en: 'Adds the date to the on-board computer items. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
+    it: 'Sulle MINI lette è già attiva. Nessuna fonte pubblica descrive il parametro: l''abbinamento viene dal nome nel FWL e dall''elenco di BimmerCode.'
+    en: 'Already on in the MINIs read. No public source describes the parameter: the match comes from the name in the FWL and the BimmerCode list.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -456,6 +501,9 @@
   titolo:
     it: Memoria dei segnali stradali nel quadro (TSM)
     en: Road sign memory in the cluster (TSM)
+  descrizione:
+    it: 'Il quadro dovrebbe ricordare e mostrare anche altri cartelli letti dalla telecamera, oltre al limite di velocità.'
+    en: 'The cluster should remember and show other signs read by the camera as well as the speed limit.'
   parametri:
   - nome: TSM_ENABLE
     target: aktiv
@@ -471,10 +519,8 @@
   - F55
   - F56
   note:
-    it: Citati su Bimmerfest insieme al riconoscimento dei limiti di velocità (già attivo nella F54 di riferimento).
-      TSM dovrebbe mostrare anche altri cartelli memorizzati; l'effetto su MINI non è confermato.
-    en: Mentioned on Bimmerfest together with speed limit recognition (already active on the reference F54). TSM
-      should also show other stored signs; the effect on MINI is not confirmed.
+    it: 'Citati su Bimmerfest insieme al riconoscimento dei limiti. L''effetto su una MINI non è confermato.'
+    en: 'Mentioned on Bimmerfest together with speed limit recognition. The effect on a MINI is not confirmed.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-40.html
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
@@ -489,6 +535,9 @@
   titolo:
     it: Logo all'avvio del quadro
     en: Cluster start-up logo
+  descrizione:
+    it: 'Cambia il logo che compare nel quadro e nell''HUD all''avvio, e può aggiungere un logo M Performance fisso nel quadro.'
+    en: 'Changes the logo shown in the cluster and HUD at start-up, and can add a permanent M Performance logo in the cluster.'
   parametri:
   - nome: MPM_ENABLE
     regolabile: true
@@ -541,10 +590,8 @@
   - F85
   - F86
   note:
-    it: Sulle MINI il valore di fabbrica è mini. Parametro presente nei FWL della F54 di riferimento; la codifica
-      è documentata nei cheat sheet su GitHub.
-    en: On MINIs the factory value is mini. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'BMW_LOGO è il logo all''avvio (sulle MINI vale mini); MPM_ENABLE con MPM_LOGO mostra in basso a destra un logo M Performance scelto dalla lista (135i, 140i, M50d…), secondo una fonte francese. I valori disponibili dipendono dal CAFD.'
+    en: 'BMW_LOGO is the start-up logo (mini on MINIs); MPM_ENABLE with MPM_LOGO shows an M Performance logo picked from the list (135i, 140i, M50d…) bottom right, according to a French source. Available values depend on the CAFD.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -564,6 +611,9 @@
   titolo:
     it: Media, telefono e comandi vocali nell'HUD
     en: Media, phone and voice in the HUD
+  descrizione:
+    it: 'Mostra nell''HUD le informazioni di media, telefono e comandi vocali.'
+    en: 'Shows media, phone and voice control information in the HUD.'
   parametri:
   - nome: HUD_ENTERTAINMENT_ENABLE
     target: aktiv
@@ -610,8 +660,8 @@
   - F85
   - F86
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Va con la voce nella HU. Un cheat sheet coreano attiva tutti e tre i parametri insieme. Serve l''HUD.'
+    en: 'Goes with the HU entry. A Korean cheat sheet enables all three parameters together. Needs the HUD.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -632,6 +682,9 @@
   titolo:
     it: Frecce nell'HUD (parte KOMBI)
     en: Turn signals in the HUD (KOMBI part)
+  descrizione:
+    it: 'Mostra nell''HUD le frecce quando lampeggiano.'
+    en: 'Shows the turn signals in the HUD while they flash.'
   parametri:
   - nome: HUD_BLINKER_ENABLE
     target: aktiv
@@ -676,10 +729,8 @@
   - F85
   - F86
   note:
-    it: Va con HUD_TURNSIGNAL nella HU. Una fonte dice non con quadro digitale 6WB. Parametro presente nei FWL della
-      F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Goes with HUD_TURNSIGNAL in the HU. One source says not with the 6WB digital cluster. Parameter present
-      in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Va con HUD_TURNSIGNAL nella HU. Una fonte dice che non va con il quadro digitale 6WB; una fonte francese riporta che non funziona. Serve l''HUD.'
+    en: 'Goes with HUD_TURNSIGNAL in the HU. One source says it does not work with the 6WB digital cluster; a French source reports it does not work. Needs the HUD.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -702,6 +753,9 @@
   titolo:
     it: Marcia inserita in modalità Sport
     en: Gear shown in Sport mode
+  descrizione:
+    it: 'Con il cambio automatico in modalità Sport il quadro mostra la marcia (S1…S8) invece di DS.'
+    en: 'With the automatic gearbox in Sport mode the cluster shows the gear (S1…S8) instead of DS.'
   parametri:
   - nome: SPA_SPORT_ENABLE
     target: aktiv
@@ -735,10 +789,8 @@
   - F82
   - F83
   note:
-    it: Mostra S1…S8 invece di DS. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: Shows S1…S8 instead of DS. Parameter present in the reference F54 FWL files; the coding is documented in
-      GitHub cheat sheets.
+    it: 'Sulle MINI lette è già attiva.'
+    en: 'Already on in the MINIs read.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -754,6 +806,9 @@
   titolo:
     it: Togliere la spia "Start/Stop spento"
     en: Remove the "Start/Stop off" indicator
+  descrizione:
+    it: 'Toglie dal quadro l''indicazione "Start/Stop spento".'
+    en: 'Removes the "Auto Start/Stop off" indicator from the cluster.'
   parametri:
   - nome: MSA_VERFUEGBARANZEIGE_ENABLE
     target: nicht_aktiv
@@ -781,10 +836,8 @@
   - F82
   - F83
   note:
-    it: Fonte anche F55/F56/F57/F45. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: Source includes F55/F56/F57/F45. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'Documentata anche su F55/F56/F57/F45.'
+    en: 'Also documented on F55/F56/F57/F45.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Start-Stop.md
@@ -800,6 +853,9 @@
   titolo:
     it: Velocità reale senza correzione
     en: Real speed without correction
+  descrizione:
+    it: 'Il tachimetro mostra la velocità reale invece di quella maggiorata di fabbrica.'
+    en: 'The speedometer shows the real speed instead of the factory over-reading.'
   parametri:
   - nome: BC_V_KORREKTUR
     target: nicht_aktiv
@@ -819,10 +875,8 @@
   - F54
   - F56
   note:
-    it: 'Il tachimetro per legge non deve indicare meno della velocità reale: sconsigliata. Parametro presente nei
-      FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'By law the speedometer must not read below the real speed: not recommended. Parameter present in the reference
-      F54 FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'Per legge il tachimetro non può indicare meno della velocità reale: sconsigliata.'
+    en: 'By law the speedometer must not read below the real speed: not recommended.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -844,6 +898,9 @@
   titolo:
     it: Distanza dell'ACC nell'HUD (parte KOMBI)
     en: ACC distance in the HUD (KOMBI part)
+  descrizione:
+    it: 'È la parte del quadro che serve a mostrare nell''HUD la distanza dell''ACC dal veicolo davanti.'
+    en: 'It is the cluster part needed to show the ACC distance to the vehicle ahead in the HUD.'
   parametri:
   - nome: IBRAKE_ABSTAND_ENABLE
     target: aktiv
@@ -860,10 +917,8 @@
   - F54
   - F56
   note:
-    it: Serve l'ACC. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet
-      su GitHub.
-    en: ACC required. Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat
-      sheets.
+    it: 'Va con le voci nella KAFAS e nella HU. Serve il cruise control attivo (ACC) e l''HUD.'
+    en: 'Goes with the KAFAS and HU entries. Needs active cruise control (ACC) and the HUD.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/HUD.md
@@ -883,6 +938,9 @@
   titolo:
     it: Visione notturna nel quadro
     en: Night vision in the cluster
+  descrizione:
+    it: 'Mostra nel quadro l''immagine della visione notturna con il riconoscimento dei pedoni.'
+    en: 'Shows the night vision picture with pedestrian detection in the cluster.'
   parametri:
   - nome: FGS_NIVI_KI_ENABLE
     target: aktiv
@@ -897,10 +955,8 @@
   - F54
   - F56
   note:
-    it: Serve la telecamera Night Vision. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: Night Vision camera required. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'Serve la telecamera Night Vision, che le MINI non hanno. Va con la voce nella centralina NIVI.'
+    en: 'Needs the Night Vision camera, which MINIs do not have. Goes with the entry in the NIVI unit.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
@@ -919,6 +975,9 @@
   titolo:
     it: Temperatura motore nel computer di bordo
     en: Engine temperature in the trip computer
+  descrizione:
+    it: 'Secondo un cheat sheet coreano mostra la temperatura del motore nel computer di bordo.'
+    en: 'According to a Korean cheat sheet it shows the engine temperature in the on-board computer.'
   parametri:
   - nome: BC_MOTORTEMP_ENABLE
     target: aktiv
@@ -931,8 +990,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Sulle MINI lette è già attiva.'
+    en: 'Already on in the MINIs read.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   osservazioni:
@@ -951,6 +1010,9 @@
   titolo:
     it: Primo avviso di autonomia carburante
     en: First fuel range warning
+  descrizione:
+    it: 'Cambia a quanti km di autonomia compare il primo avviso di carburante basso; di fabbrica 90 km.'
+    en: 'Changes at how many km of range the first low fuel warning appears; factory value 90 km.'
   parametri:
   - nome: CC_RW_WARNUNG_2
     regolabile: true
@@ -966,8 +1028,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Esadecimale in km: una fonte francese usa 46 (70 km).'
+    en: 'Hex in km: a French source uses 46 (70 km).'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -986,6 +1048,9 @@
   titolo:
     it: Secondo avviso di autonomia carburante
     en: Second fuel range warning
+  descrizione:
+    it: 'Cambia a quanti km di autonomia compare il secondo avviso di carburante basso; di fabbrica 50 km.'
+    en: 'Changes at how many km of range the second low fuel warning appears; factory value 50 km.'
   parametri:
   - nome: CC_RW_WARNUNG
     regolabile: true
@@ -1001,8 +1066,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Esadecimale in km: una fonte francese usa 1E (30 km).'
+    en: 'Hex in km: a French source uses 1E (30 km).'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -1021,6 +1086,9 @@
   titolo:
     it: Limitatore di velocità nel quadro
     en: Speed limiter in the cluster
+  descrizione:
+    it: 'È la parte del quadro del limitatore di velocità (LIM).'
+    en: 'It is the cluster part of the speed limiter (LIM).'
   parametri:
   - nome: SLD_ENABLE
     target: aktiv
@@ -1033,10 +1101,8 @@
   - F80
   - F82
   note:
-    it: 'Prima parte del limitatore: vedi la voce del DSC. Parametro presente nei FWL della F54 di riferimento;
-      la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'First part of the limiter: see the DSC entry. Parameter present in the reference F54 FWL files; the coding
-      is documented in GitHub cheat sheets.'
+    it: 'Da sola non basta: serve anche C_SLD_Funktion nel DSC (voce "Limitatore di velocità (LIM)"). Sulle MINI lette è già attiva.'
+    en: 'Not enough on its own: C_SLD_Funktion in the DSC is also needed (entry "Speed limiter (LIM)"). Already on in the MINIs read.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Instrument-Cluster.md
@@ -1056,6 +1122,9 @@
   titolo:
     it: Indicatore del punto di cambiata
     en: Shift point indicator
+  descrizione:
+    it: 'Il quadro indica quando conviene cambiare marcia.'
+    en: 'The cluster shows when to change gear.'
   parametri:
   - nome: SPA_KOMBISELECT_DISABLE
     target: nicht_aktiv
@@ -1068,10 +1137,8 @@
   - F54
   - F56
   note:
-    it: Va con SPA_CHECKBOX nella HU. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: Goes with SPA_CHECKBOX in the HU. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'È la prima di due parti: l''altra è SPA_CHECKBOX nella HU. Fonte francese.'
+    en: 'It is the first of two parts: the other is SPA_CHECKBOX in the HU. French source.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -1090,6 +1157,9 @@
   titolo:
     it: Marcia inserita nel quadro
     en: Current gear in the cluster
+  descrizione:
+    it: 'Il quadro mostra la marcia inserita.'
+    en: 'The cluster shows the current gear.'
   parametri:
   - nome: SPA_IST_GANG_ENABLE
     target: aktiv
@@ -1102,8 +1172,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Sulle MINI lette è già attiva.'
+    en: 'Already on in the MINIs read.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -1122,6 +1192,9 @@
   titolo:
     it: Durata dell'avvio dell'HUD
     en: HUD start-up duration
+  descrizione:
+    it: 'Allunga l''animazione di avvio dell''HUD, per vedere il logo più a lungo; di fabbrica 4 secondi.'
+    en: 'Lengthens the HUD start-up animation, to see the logo longer; factory value 4 seconds.'
   parametri:
   - nome: HUD_STARTUP_TIME
     regolabile: true
@@ -1137,8 +1210,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Una fonte francese usa 0A (10 s). Serve l''HUD.'
+    en: 'A French source uses 0A (10 s). Needs the HUD.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://ncs-expert.com/wp-content/uploads/Coding-Parameters-F22.pdf
@@ -1158,6 +1231,9 @@
   titolo:
     it: Regolazione della posizione dell'HUD
     en: HUD position adjustment
+  descrizione:
+    it: 'Dovrebbe permettere di regolare la posizione dell''immagine dell''HUD.'
+    en: 'Should allow adjusting the position of the HUD picture.'
   parametri:
   - nome: HUD_POSITIONCHANGE_ENABLE
     target: aktiv
@@ -1170,10 +1246,8 @@
   - F54
   - F56
   note:
-    it: La fonte la indica "in prova". Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: The source marks it "testing". Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'L''unica fonte la indica come "in prova" e non dice cosa succede. Serve l''HUD.'
+    en: 'The only source marks it as "testing" and does not say what happens. Needs the HUD.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -1192,6 +1266,9 @@
   titolo:
     it: Segnale acustico all'inserimento della retro
     en: Chime when reverse is engaged
+  descrizione:
+    it: 'Suona un segnale quando inserisci la retromarcia.'
+    en: 'A chime sounds when you engage reverse.'
   parametri:
   - nome: R_GANG_AKUSTIK_ENABLE
     regolabile: true
@@ -1205,8 +1282,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Una fonte lo toglie (nicht_aktiv), un cheat sheet coreano lo attiva (01). Sulle MINI lette è già spento.'
+    en: 'One source removes it (nicht_aktiv), a Korean cheat sheet enables it (01). Already off in the MINIs read.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Instrument-Cluster.md
   osservazioni:
@@ -1225,6 +1302,9 @@
   titolo:
     it: Indicatore sportivo nell'HUD (parte KOMBI)
     en: Sport display in the HUD (KOMBI part)
+  descrizione:
+    it: 'In modalità Sport l''HUD mostra contagiri e marcia.'
+    en: 'In Sport mode the HUD shows the rev counter and gear.'
   parametri:
   - nome: HUD_SPORTANZEIGE_ENABLE
     target: aktiv
@@ -1240,8 +1320,8 @@
   - F55
   - F56
   note:
-    it: 'Contagiri e marcia nell''HUD in modalità Sport. Va codificata insieme alla voce sulla HU (stessi tre parametri): servono tutte e due. Richiede l''HUD. Provata su F54: funziona. Dopo la codifica l''iDrive può mostrare vari errori: chiudi l''auto e aspetta 30 secondi.'
-    en: 'Rev counter and gear in the HUD in Sport mode. Code it together with the HU entry (same three parameters): both are needed. Requires the HUD. Tested on F54: it works. After coding the iDrive may show various errors: lock the car and wait 30 seconds.'
+    it: 'Va codificata insieme alla voce sulla HU (stessi tre parametri): servono tutte e due. Serve l''HUD. Provata su F54: funziona. Dopo la codifica l''iDrive può mostrare vari errori: chiudi l''auto e aspetta 30 secondi.'
+    en: 'Code it together with the HU entry (same three parameters): both are needed. Needs the HUD. Tested on F54: it works. After coding the iDrive may show various errors: lock the car and wait 30 seconds.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-24.html
   - https://www.minif56.com/threads/the-other-coding-options-tracker-f55-f56-f54.40969/
@@ -1258,6 +1338,9 @@
   titolo:
     it: 'Limiti di velocità e divieto di sorpasso nel quadro (SLI)'
     en: 'Speed limits and no-passing info in the cluster (SLI)'
+  descrizione:
+    it: 'Il quadro mostra il limite di velocità e il divieto di sorpasso letti dalla telecamera.'
+    en: 'The cluster shows the speed limit and no-overtaking sign read by the camera.'
   parametri:
   - nome: SPEED_LIMIT
     target: 'aktiv'
@@ -1275,8 +1358,8 @@
   - F55
   - F56
   note:
-    it: 'Parte KOMBI dell''attivazione SLI documentata su una F56: servono anche la KAFAS (SLI_ON_OFF e NPI_ON_OFF) e sulla HU SPEEDLIMIT_INFO o, con EntryNav2, SLI_NAVI_DISPLAY. Richiede la telecamera frontale.'
-    en: 'KOMBI part of the SLI activation documented on an F56: the KAFAS (SLI_ON_OFF and NPI_ON_OFF) is also needed, and on the HU SPEEDLIMIT_INFO or, with EntryNav2, SLI_NAVI_DISPLAY. Requires the front camera.'
+    it: 'È la parte KOMBI dell''attivazione documentata su una F56: servono anche la KAFAS (SLI_ON_OFF e NPI_ON_OFF) e sulla HU SPEEDLIMIT_INFO o, con EntryNav2, SLI_NAVI_DISPLAY. Serve la telecamera frontale.'
+    en: 'It is the KOMBI part of the activation documented on an F56: the KAFAS (SLI_ON_OFF and NPI_ON_OFF) and on the HU SPEEDLIMIT_INFO or, with EntryNav2, SLI_NAVI_DISPLAY are also needed. Needs the front camera.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-40.html
   osservazioni:

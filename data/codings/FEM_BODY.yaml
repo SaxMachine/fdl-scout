@@ -6,6 +6,9 @@
   titolo:
     it: 'Ritardo di apertura del baule col piede (Comfort Access)'
     en: 'Kick-to-open boot delay (Comfort Access)'
+  descrizione:
+    it: 'Riduce o toglie l''attesa tra il movimento del piede sotto il paraurti e l''apertura del baule.'
+    en: 'Shortens or removes the wait between the foot movement under the bumper and the boot opening.'
   parametri:
   - nome: CLM_TIMEOUT_HK_SMO
     regolabile: true
@@ -21,8 +24,8 @@
   - F80
   - F82
   note:
-    it: 'Solo con Comfort Access e apertura col piede (Smart Opener). Sulle MINI con BDC il parametro corrispondente sembra VAM_TIMEOUT_HK_SMO.'
-    en: 'Only with Comfort Access and kick-to-open (Smart Opener). On MINIs with a BDC the matching parameter appears to be VAM_TIMEOUT_HK_SMO.'
+    it: 'Solo con Comfort Access e apertura col piede (Smart Opener). Questo è il nome sulle BMW con FEM; sulle MINI con BDC la stessa funzione è VAM_TIMEOUT_HK_SMO (voce del BDC).'
+    en: 'Only with Comfort Access and kick opening (Smart Opener). This is the name on BMWs with a FEM; on MINIs with a BDC the same function is VAM_TIMEOUT_HK_SMO (BDC entry).'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -33,6 +36,9 @@
   titolo:
     it: 'Niente lampeggio delle luci aprendo il baule col piede'
     en: 'No light flashing when opening the boot with a kick'
+  descrizione:
+    it: 'Le luci posteriori non lampeggiano più quando apri il baule col piede.'
+    en: 'The tail lights no longer flash when you open the boot with your foot.'
   parametri:
   - nome: CLM_SMO_INDICATOR
     target: nicht_aktiv
@@ -45,8 +51,8 @@
   - F80
   - F82
   note:
-    it: 'Di fabbrica le luci posteriori lampeggiano quando il baule si apre col piede. Non trovato nella BDC della MINI F54.'
-    en: 'From the factory the rear lights flash when the boot opens with a kick. Not found in the MINI F54 BDC.'
+    it: 'Solo con Comfort Access e Smart Opener. Documentata sul FEM delle BMW; non trovata nel BDC delle MINI.'
+    en: 'Only with Comfort Access and Smart Opener. Documented on the BMW FEM; not found in the MINI BDC.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -57,6 +63,9 @@
   titolo:
     it: 'Ritardo di sblocco del baule (senza Smart Opener)'
     en: 'Boot unlock delay (without Smart Opener)'
+  descrizione:
+    it: 'Riduce o toglie il ritardo con cui il baule si sblocca dal tasto, senza Smart Opener.'
+    en: 'Shortens or removes the delay before the boot unlocks from the button, without Smart Opener.'
   parametri:
   - nome: CLM_TIME_DELAY_BOOTLID
     regolabile: true
@@ -71,8 +80,8 @@
   - F30
   - F80
   note:
-    it: 'Ritardo con cui il baule si sblocca, senza Smart Opener (una fonte: di fabbrica 0,3 s). Il tempo per cui va tenuto premuto il tasto del baule sul telecomando è un altro parametro, RC_TIME_DELAY_BOOTLID.'
-    en: 'Delay with which the boot unlocks, without Smart Opener (one source: factory 0.3 s). How long the boot button on the remote must be held is a different parameter, RC_TIME_DELAY_BOOTLID.'
+    it: 'Una fonte indica 0,3 s di fabbrica. Il tempo per cui va tenuto premuto il tasto del baule sul telecomando è un altro parametro (RC_TIME_DELAY_BOOTLID).'
+    en: 'One source gives 0.3 s from the factory. How long you must hold the boot button on the key is another parameter (RC_TIME_DELAY_BOOTLID).'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -81,6 +90,9 @@
   titolo:
     it: 'Tempo prima della richiusura automatica'
     en: 'Time before automatic relocking'
+  descrizione:
+    it: 'Se apri l''auto con la chiave e non apri nessuna porta, si richiude da sola dopo questo tempo.'
+    en: 'If you unlock the car with the key and open no door, it locks itself again after this time.'
   parametri:
   - nome: CLM_TIME_PIA_LOCK_AT_TIMEOUT
     regolabile: true
@@ -96,8 +108,8 @@
   - F80
   - F82
   note:
-    it: 'Se apri l''auto e non apri nessuna porta, dopo questo tempo si richiude da sola; serve la richiusura automatica attiva (CLI_DEFAULT_LOCK_AT_TIMEOUT).'
-    en: 'If you unlock the car and open no door, it relocks after this time; automatic relocking must be on (CLI_DEFAULT_LOCK_AT_TIMEOUT).'
+    it: 'Serve la richiusura automatica attiva (CLI_DEFAULT_LOCK_AT_TIMEOUT). Le fonti BMW indicano 120 s di fabbrica; una fonte coreana usa 18 s.'
+    en: 'Needs automatic relocking on (CLI_DEFAULT_LOCK_AT_TIMEOUT). BMW sources give 120 s from the factory; a Korean source uses 18 s.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml

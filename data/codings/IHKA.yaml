@@ -6,6 +6,9 @@
   titolo:
     it: Memoria del ricircolo
     en: Recirculation memory
+  descrizione:
+    it: 'Quando riaccendi l''auto il ricircolo dell''aria resta come l''avevi lasciato.'
+    en: 'When you restart the car, air recirculation stays as you left it.'
   parametri:
   - nome: MEMORY_UMLUFT
     target: AKTIV
@@ -17,8 +20,8 @@
   - F55
   - F56
   note:
-    it: Al riavvio il ricircolo resta come l'avevi lasciato.
-    en: After a restart recirculation stays as you left it.
+    it: 'Una fonte francese precisa che di fabbrica lo stato viene ricordato solo per 15 minuti dallo spegnimento.'
+    en: 'A French source notes that from the factory the state is only remembered for 15 minutes after switching off.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-6.html
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
@@ -37,6 +40,9 @@
   titolo:
     it: Calore residuo a motore spento
     en: Residual heat with the engine off
+  descrizione:
+    it: 'Nessuna fonte descrive questo parametro. Dal nome (Restwärme, calore residuo) è la funzione che scalda l''abitacolo con il calore del motore spento.'
+    en: 'No source describes this parameter. From its name (Restwärme, residual heat) it is the function that heats the cabin with the heat of the switched-off engine.'
   parametri:
   - nome: RESTWAERME
     regolabile: true
@@ -47,8 +53,8 @@
   - F54
   - F56
   note:
-    it: 'Manca la pompa acqua elettrica supplementare (ZUSATZWASSERPUMPE non montata). Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
-    en: 'Missing the auxiliary electric water pump (ZUSATZWASSERPUMPE not fitted). No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
+    it: 'Sulle auto lette manca la pompa dell''acqua elettrica supplementare, che questa funzione di solito richiede: probabilmente non funziona. L''abbinamento viene solo dal nome nel FWL.'
+    en: 'The cars read lack the additional electric water pump this function usually needs: it probably does not work. The match comes only from the name in the FWL.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -65,6 +71,9 @@
   titolo:
     it: Memoria del clima spento
     en: Climate off memory
+  descrizione:
+    it: 'Se spegni l''auto con l''aria condizionata spenta, alla ripartenza resta spenta.'
+    en: 'If you switch the car off with the A/C off, it stays off when you set off again.'
   parametri:
   - nome: MEMORY_OFF
     target: AKTIV
@@ -75,8 +84,6 @@
   - F54
   - F55
   - F56
-  note:
-    it: ''
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-6.html
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
@@ -95,6 +102,9 @@
   titolo:
     it: Cambio colore del display clima
     en: Climate display colour change
+  descrizione:
+    it: 'Il display del clima cambia colore, rosso o blu, quando alzi o abbassi la temperatura.'
+    en: 'The climate display changes colour, red or blue, when you raise or lower the temperature.'
   parametri:
   - nome: Display-Farbumschlag
     target: AKTIV
@@ -108,8 +118,8 @@
   - F57
   - F60
   note:
-    it: 'Elenco BimmerCode. Il display del clima cambia colore (rosso/blu) quando alzi o abbassi la temperatura. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
-    en: 'BimmerCode list. The climate display changes colour (red/blue) when you raise or lower the temperature. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
+    it: 'Nessuna fonte pubblica descrive il parametro: la descrizione viene dall''elenco di BimmerCode e il nome dal FWL.'
+    en: 'No public source describes the parameter: the description comes from the BimmerCode list and the name from the FWL.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -123,6 +133,9 @@
   titolo:
     it: A/C non attivata dal tasto AUTO
     en: A/C not switched on by AUTO
+  descrizione:
+    it: 'Premendo AUTO sul clima l''aria condizionata non si accende più da sola; la accendi tu col tasto A/C.'
+    en: 'Pressing AUTO on the climate control no longer switches the A/C on by itself; you turn it on with the A/C button.'
   parametri:
   - nome: AC_ON_WITH_AUTO
     target: nicht_aktiv
@@ -149,9 +162,6 @@
   - F80
   - F82
   - F83
-  note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-6.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
@@ -168,6 +178,9 @@
   titolo:
     it: Ricircolo non riattivato automaticamente
     en: Recirculation not restarted automatically
+  descrizione:
+    it: 'Il clima non riattiva più da solo il ricircolo dell''aria.'
+    en: 'The climate control no longer switches air recirculation back on by itself.'
   parametri:
   - nome: UMLUFT_AUTO_AUS
     regolabile: true
@@ -190,8 +203,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Le fonti usano nicht_aktiv (BMW) o disable (cheat sheet coreano).'
+    en: 'Sources use nicht_aktiv (BMW) or disable (Korean cheat sheet).'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml

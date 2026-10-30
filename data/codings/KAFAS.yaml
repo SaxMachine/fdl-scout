@@ -6,6 +6,9 @@
   titolo:
     it: Distanza dal veicolo che precede
     en: Distance to the vehicle ahead
+  descrizione:
+    it: 'Nell''HUD compare l''indicazione della distanza dal veicolo davanti.'
+    en: 'The HUD shows the distance to the vehicle ahead.'
   parametri:
   - nome: DISPLAY_HEADWAY_DISTANCE
     regolabile: true
@@ -19,8 +22,8 @@
   - F54
   - F56
   note:
-    it: Mostra il tempo di distanza. L'ACC su F54 è a telecamera; l'effetto varia.
-    en: Shows the time gap. ACC on the F54 is camera-based; the effect varies.
+    it: 'È la terza parte della funzione insieme alle voci nel KOMBI e nella HU. Le fonti dicono che serve il cruise control attivo (ACC). Sulle MINI l''ACC funziona con la telecamera e l''effetto non è documentato.'
+    en: 'It is the third part of the feature together with the KOMBI and HU entries. Sources say active cruise control (ACC) is needed. On MINIs ACC works with the camera and the effect is not documented.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -40,6 +43,9 @@
   titolo:
     it: 'Avviso uscita di corsia: attivazione nella telecamera'
     en: 'Lane departure warning: enable in the camera'
+  descrizione:
+    it: 'Attiva nella telecamera l''avviso di uscita di corsia, che fa vibrare il volante quando superi le strisce senza freccia.'
+    en: 'Enables lane departure warning in the camera, which vibrates the steering wheel when you cross the lines without indicating.'
   parametri:
   - nome: TLC_START_VERSION
     target: '01'
@@ -53,15 +59,8 @@
   - F55
   - F56
   note:
-    it: 'TLC_START_VERSION non ha 01 nella lista E-Sys: va scritto a mano. Procedura completa su F54 (minif56):
-      KOMBI TLC_VERBAUT, ST_TLC_*; BDC ComAdapterPdu_18A_Steuerung_Vibration_Lenkrad e SPURVERLASSENS_WARNUNG; KAFAS
-      TLC_ON_OFF, SEND_MSG_327/18A; HU LANE_DEPARTURE_WARNING; KAFAS TLC_START_VERSION 01 e DT_LNDT_SEND. Un utente
-      F54 l''ha attivata senza montare il motorino di vibrazione: la vibrazione è leggera. Richiede la telecamera
-      KAFAS.'
-    en: 'TLC_START_VERSION has no 01 in the E-Sys list: it must be entered by hand. Full procedure on an F54 (minif56):
-      KOMBI TLC_VERBAUT, ST_TLC_*; BDC ComAdapterPdu_18A_Steuerung_Vibration_Lenkrad and SPURVERLASSENS_WARNUNG;
-      KAFAS TLC_ON_OFF, SEND_MSG_327/18A; HU LANE_DEPARTURE_WARNING; KAFAS TLC_START_VERSION 01 and DT_LNDT_SEND.
-      One F54 owner enabled it without fitting the vibration motor: the vibration is light. Requires the KAFAS camera.'
+    it: 'È l''ultimo passo di una procedura su più centraline, descritta su una F54 (minif56): KOMBI TLC_VERBAUT e ST_TLC_*; BDC ComAdapterPdu_18A_Steuerung_Vibration_Lenkrad e SPURVERLASSENS_WARNUNG; KAFAS TLC_ON_OFF e SEND_MSG_327/18A; HU LANE_DEPARTURE_WARNING. TLC_START_VERSION non ha 01 nella lista E-Sys: va scritto a mano. Un utente l''ha attivata senza montare il motorino di vibrazione nel volante e la vibrazione è risultata leggera. Serve la telecamera KAFAS.'
+    en: 'It is the last step of a procedure across several units, described on an F54 (minif56): KOMBI TLC_VERBAUT and ST_TLC_*; BDC ComAdapterPdu_18A_Steuerung_Vibration_Lenkrad and SPURVERLASSENS_WARNUNG; KAFAS TLC_ON_OFF and SEND_MSG_327/18A; HU LANE_DEPARTURE_WARNING. TLC_START_VERSION has no 01 in the E-Sys list: type it by hand. One user enabled it without fitting the steering wheel vibration motor and found the vibration weak. Needs the KAFAS camera.'
   fonti:
   - https://www.minif56.com/threads/lane-departure-warning-coding-on-f54-clubman.89617/
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
@@ -76,6 +75,9 @@
   titolo:
     it: 'Abbaglianti automatici: soglie di velocità'
     en: 'High-beam assistant: speed thresholds'
+  descrizione:
+    it: 'Cambia a che velocità gli abbaglianti automatici si attivano e si disattivano. Di fabbrica si accendono sopra i 40 km/h e si spengono sotto i 30.'
+    en: 'Changes at which speed automatic high beams switch on and off. From the factory they come on above 40 km/h and go off below 30.'
   parametri:
   - nome: FLA_ON_OFF
     regolabile: true
@@ -128,10 +130,8 @@
   - F85
   - F86
   note:
-    it: Sulla F54 di riferimento sono impostate le soglie USA. FLA_ON_OFF accende la funzione. Parametro presente
-      nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: On the reference F54 the US thresholds are set. FLA_ON_OFF switches the function on. Parameter present in
-      the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Una fonte francese li porta a 30 e 25 km/h (1E e 19). FLA_ON_OFF è l''interruttore generale della funzione e di solito è già FLA_on. Sulle MINI lette la soglia di accensione ha l''etichetta US ma il valore è 28, cioè 40 km/h come di fabbrica.'
+    en: 'A French source sets them to 30 and 25 km/h (1E and 19). FLA_ON_OFF is the main switch of the feature and is usually already FLA_on. On the MINIs read the switch-on threshold is labelled US but its value is 28, i.e. 40 km/h as from the factory.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -147,6 +147,9 @@
   titolo:
     it: 'Abbaglianti automatici: tempi di reazione'
     en: 'High-beam assistant: reaction delays'
+  descrizione:
+    it: 'Gli abbaglianti automatici si riaccendono prima dopo un''auto incrociata, superata o seguita.'
+    en: 'Automatic high beams come back on sooner after an oncoming, overtaken or preceding car.'
   parametri:
   - nome: DELAY_AFTER_ONCOMING
     regolabile: true
@@ -168,8 +171,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Una sola fonte, francese, con valori esadecimali più bassi di quelli di fabbrica. Ritardi troppo brevi possono abbagliare gli altri.'
+    en: 'A single French source, with hex values lower than the factory ones. Delays that are too short may dazzle other drivers.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -189,6 +192,9 @@
   titolo:
     it: Distanza dell'ACC nell'HUD
     en: ACC distance in the HUD
+  descrizione:
+    it: 'È la parte della telecamera che serve a mostrare nell''HUD la distanza dell''ACC dal veicolo davanti.'
+    en: 'It is the camera part needed to show the ACC distance to the vehicle ahead in the HUD.'
   parametri:
   - nome: SEND_STATUS_IBRAKE
     regolabile: true
@@ -208,10 +214,8 @@
   - F54
   - F56
   note:
-    it: Va con le voci nel KOMBI e nella HU. Serve l'ACC. Parametro presente nei FWL della F54 di riferimento; la
-      codifica è documentata nei cheat sheet su GitHub.
-    en: Goes with the KOMBI and HU entries. ACC required. Parameter present in the reference F54 FWL files; the
-      coding is documented in GitHub cheat sheets.
+    it: 'Va con le voci nel KOMBI e nella HU. Le fonti la danno come terza parte di tre e dicono che serve il cruise control attivo (ACC).'
+    en: 'Goes with the KOMBI and HU entries. Sources give it as part three of three and say active cruise control (ACC) is needed.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -231,6 +235,9 @@
   titolo:
     it: 'Avviso uscita di corsia: velocità minima'
     en: 'Lane departure warning: minimum speed'
+  descrizione:
+    it: 'Abbassa la velocità da cui l''avviso di uscita di corsia si attiva. Di fabbrica parte a 70 km/h e si spegne sotto i 65.'
+    en: 'Lowers the speed from which lane departure warning works. From the factory it starts at 70 km/h and stops below 65.'
   parametri:
   - nome: THRV_AVAI_TLC_HIGH
     regolabile: true
@@ -248,8 +255,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Valori esadecimali in km/h: le fonti usano 37 (55) e 32 (50), oppure 3C (60) e 37 (55).'
+    en: 'Hex values in km/h: sources use 37 (55) and 32 (50), or 3C (60) and 37 (55).'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Driver-Assistance/LDW.md
@@ -269,6 +276,9 @@
   titolo:
     it: Avviso corsia anche sul bordo strada senza strisce
     en: Lane warning on unmarked road edges
+  descrizione:
+    it: 'L''avviso di uscita di corsia interviene anche sul bordo della strada senza strisce, riconoscendo erba e marciapiede.'
+    en: 'Lane departure warning also reacts to the road edge without lines, recognising grass and kerbs.'
   parametri:
   - nome: ROAD_EDGE_WARNING_ENABLED
     target: detection_for_grass_edge_and_curb_stone
@@ -283,8 +293,8 @@
   - F80
   - F82
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Su F54 e F56 lette risulta già attivo.'
+    en: 'On the F54 and F56 read it is already on.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
@@ -305,6 +315,9 @@
   titolo:
     it: Sensibilità degli abbaglianti automatici nel menu
     en: High-beam assistant sensitivity in the menu
+  descrizione:
+    it: 'Dovrebbe aggiungere nel menu la regolazione della sensibilità degli abbaglianti automatici.'
+    en: 'Should add the automatic high beam sensitivity setting to the menu.'
   parametri:
   - nome: ALLOW_SENS_CHANGE
     regolabile: true
@@ -320,10 +333,8 @@
   - F54
   - F56
   note:
-    it: Una fonte riporta che non funziona. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: One source reports it does not work. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'L''unica fonte, francese, dice che non funziona.'
+    en: 'The only source, French, says it does not work.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -342,6 +353,9 @@
   titolo:
     it: 'Abbaglianti automatici: soglia in città'
     en: 'High-beam assistant: city threshold'
+  descrizione:
+    it: 'Cambia la soglia di velocità che gli abbaglianti automatici usano in città per attivarsi; di fabbrica 85 km/h.'
+    en: 'Changes the speed threshold automatic high beams use in town to switch on; factory value 85 km/h.'
   parametri:
   - nome: HIGH_SPEED_SWITCHING_HIGH_BEAMS
     regolabile: true
@@ -357,8 +371,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Una fonte francese la porta a 75 km/h (4B).'
+    en: 'A French source sets it to 75 km/h (4B).'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -377,6 +391,9 @@
   titolo:
     it: Limiti di velocità solo dalla telecamera
     en: Speed limits from the camera only
+  descrizione:
+    it: 'I limiti di velocità mostrati vengono solo dalla telecamera, senza usare i dati della navigazione.'
+    en: 'Speed limits shown come only from the camera, without using navigation data.'
   parametri:
   - nome: COD_CAM_ONLY
     regolabile: true
@@ -397,10 +414,8 @@
   - F85
   - F86
   note:
-    it: fusion_mode usa anche i dati di navigazione. Parametro presente nei FWL della F54 di riferimento; la codifica
-      è documentata nei cheat sheet su GitHub.
-    en: fusion_mode also uses navigation data. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'Di fabbrica è fusion_mode, che unisce telecamera e mappe. camera_only viene da un cheat sheet coreano; non è descritto se il risultato è migliore.'
+    en: 'Factory setting is fusion_mode, which combines camera and maps. camera_only comes from a Korean cheat sheet; it is not described whether the result is better.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Driver-Assistance/Traffic-Sign.md
@@ -420,12 +435,15 @@
   titolo:
     it: Divieto di sorpasso nell'HUD (telecamera)
     en: No-overtaking in the HUD (camera)
+  descrizione:
+    it: 'È la parte della telecamera che serve a mostrare nell''HUD il divieto di sorpasso.'
+    en: 'It is the camera part needed to show no-overtaking signs in the HUD.'
   parametri:
   - nome: NPI_ON_OFF
     regolabile: true
   valori_suggeriti:
-    it: 'Sulle BMW F10/F15 la fonte usa 01; su una MINI F56 (NAM) il valore per attivarlo è F056, quello già presente nella F54 di riferimento.'
-    en: 'On BMW F10/F15 the source uses 01; on a MINI F56 (NAM) the value to enable it is F056, which the reference F54 already has.'
+    it: 'Sulle BMW F10/F15 la fonte usa 01; su una MINI F56 (NAM) il valore per attivarlo è F056.'
+    en: 'On BMW F10/F15 the source uses 01; on a MINI F56 (NAM) the value to enable it is F056.'
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -435,10 +453,8 @@
   - F54
   - F56
   note:
-    it: Va con HUD_NPI_ENABLE nel KOMBI. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
-      nei cheat sheet su GitHub.
-    en: Goes with HUD_NPI_ENABLE in the KOMBI. Parameter present in the reference F54 FWL files; the coding is documented
-      in GitHub cheat sheets.
+    it: 'Va con HUD_NPI_ENABLE nel KOMBI. Sulle BMW F10/F15 la fonte usa 01; su una MINI F56 (NAM) il valore è F056, che sulle MINI lette c''è già.'
+    en: 'Goes with HUD_NPI_ENABLE in the KOMBI. On BMW F10/F15 the source uses 01; on a MINI F56 (NAM) the value is F056, which the MINIs read already have.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-40.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -453,6 +469,9 @@
   titolo:
     it: Abbaglianti antiabbagliamento nella telecamera
     en: Glare-free high beam in the camera
+  descrizione:
+    it: 'Attiva nella telecamera gli abbaglianti antiabbagliamento, che oscurano la parte di fascio diretta verso le altre auto.'
+    en: 'Enables glare-free high beams in the camera, which dim the part of the beam aimed at other cars.'
   parametri:
   - nome: GLAREFREE_HIGHBEAM_ENABLED
     regolabile: true
@@ -468,10 +487,8 @@
   - F80
   - F82
   note:
-    it: Richiede fari con abbaglianti antiabbagliamento. Parametro presente nei FWL della F54 di riferimento; la
-      codifica è documentata nei cheat sheet su GitHub.
-    en: Requires glare-free high beam headlights. Parameter present in the reference F54 FWL files; the coding is
-      documented in GitHub cheat sheets.
+    it: 'Richiede fari LED con abbaglianti antiabbagliamento e va codificata insieme a FEM/BDC e ai moduli fari (voce FLE). Su fari normali non funziona e rischi luci non omologate: sconsigliata.'
+    en: 'Needs LED headlights with glare-free high beams and must be coded together with FEM/BDC and the headlight modules (FLE entry). It does not work with standard headlights and you risk non-compliant lights: not recommended.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/pmooiweer.xml
   osservazioni:
@@ -490,6 +507,9 @@
   titolo:
     it: 'Avviso di collisione: soglie e tempi'
     en: 'Collision warning: thresholds and timing'
+  descrizione:
+    it: 'Cambia quando scatta l''avviso di collisione frontale - velocità minime, tempi e distanze dei due livelli di avviso.'
+    en: 'Changes when the forward collision warning triggers - minimum speeds, times and distances of the two warning levels.'
   parametri:
   - nome: SPEED_THRV_FCW_ACUTE_DYNAMIC
     regolabile: true
@@ -519,10 +539,8 @@
   - F54
   - F56
   note:
-    it: 'Cambia quando scatta l''avviso di collisione. Riguarda la sicurezza: sconsigliata. Parametro presente nei
-      FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'Changes when the collision warning triggers. Safety-related: not recommended. Parameter present in the
-      reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'I valori della fonte rendono l''avviso più anticipato o più tardivo a seconda del parametro. Riguarda la sicurezza: sconsigliata.'
+    en: 'The source values make the warning earlier or later depending on the parameter. Safety-related: not recommended.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Driver-Assistance/FCW.md
   osservazioni:
@@ -541,6 +559,9 @@
   titolo:
     it: Regione della telecamera e dei cartelli
     en: Camera and sign region
+  descrizione:
+    it: 'Imposta per quale paese la telecamera è tarata e come mostra i cartelli; per l''Europa è ECE.'
+    en: 'Sets which country the camera is calibrated for and how it shows signs; ECE for Europe.'
   parametri:
   - nome: COUNTRY_VARIATION
     regolabile: true
@@ -558,10 +579,8 @@
   - F54
   - F56
   note:
-    it: Deve corrispondere al paese in cui usi l'auto. Parametro presente nei FWL della F54 di riferimento; la codifica
-      è documentata nei cheat sheet su GitHub.
-    en: Must match the country where you use the car. Parameter present in the reference F54 FWL files; the coding
-      is documented in GitHub cheat sheets.
+    it: 'Deve corrispondere al paese in cui usi l''auto. COUNTRY_CODING_DISPLAY = 00 mostra il cartello europeo (cerchio bianco bordato di rosso) anche dove il mercato prevede altro.'
+    en: 'It must match the country where you use the car. COUNTRY_CODING_DISPLAY = 00 shows the European sign (white circle with red border) even where the market expects another one.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Driver-Assistance/Traffic-Sign.md
   osservazioni:
@@ -580,6 +599,9 @@
   titolo:
     it: Spegnere l'avviso di collisione frontale
     en: Turn off the forward collision warning
+  descrizione:
+    it: 'Spegne l''avviso di collisione frontale; il tasto non lo riattiva più.'
+    en: 'Turns off forward collision warning; the button no longer turns it back on.'
   parametri:
   - nome: FCW_ON_OFF
     target: '00'
@@ -591,8 +613,8 @@
   - F54
   - F56
   note:
-    it: 'Con FCW_off l''avviso resta spento e il tasto non lo riattiva più. Provato su una X1 F48 (KAFAS2, gruppo 3060/3150). Sulla F54 il valore di fabbrica ha lo stesso nome della F48 (FCW_on_ENCAP_F45_F46_F48), quindi la centralina è la stessa famiglia. Riguarda la sicurezza attiva: sconsigliata.'
-    en: 'With FCW_off the warning stays off and the button cannot turn it back on. Tested on an X1 F48 (KAFAS2, group 3060/3150). On the F54 the factory value has the same name as on the F48 (FCW_on_ENCAP_F45_F46_F48), so the unit is the same family. Active safety: not recommended.'
+    it: 'Provato su una X1 F48 (KAFAS2, gruppo 3060/3150). Sulle MINI il valore di fabbrica ha lo stesso nome della F48 (FCW_on_ENCAP_F45_F46_F48), quindi è la stessa famiglia di centralina. Riguarda la sicurezza attiva: sconsigliata.'
+    en: 'Tested on an X1 F48 (KAFAS2, group 3060/3150). On MINIs the factory value has the same name as on the F48 (FCW_on_ENCAP_F45_F46_F48), so it is the same unit family. Active safety: not recommended.'
   fonti:
   - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/5
   osservazioni:
@@ -611,6 +633,9 @@
   titolo:
     it: Spegnere la frenata pre-crash
     en: Turn off pre-crash braking
+  descrizione:
+    it: 'Spegne la frenata automatica pre-crash, quella che può frenare l''auto da sola prima di un urto.'
+    en: 'Turns off pre-crash braking, the function that can brake the car by itself before an impact.'
   parametri:
   - nome: PRE_CRASH_ON_OFF
     target: '00'
@@ -622,8 +647,8 @@
   - F54
   - F56
   note:
-    it: 'È la funzione che può frenare l''auto da sola prima di un urto. Provato su una X1 F48 (KAFAS2, gruppo 3060/3150). Sulla F54 il valore di fabbrica ha lo stesso nome della F48 (pre_crash_on_ENCAP_F45_F46_F48), quindi la centralina è la stessa famiglia. Riguarda la sicurezza attiva: sconsigliata.'
-    en: 'This is the function that can brake the car by itself before a crash. Tested on an X1 F48 (KAFAS2, group 3060/3150). On the F54 the factory value has the same name as on the F48 (pre_crash_on_ENCAP_F45_F46_F48), so the unit is the same family. Active safety: not recommended.'
+    it: 'Provato su una X1 F48 (KAFAS2, gruppo 3060/3150). Sulle MINI il valore di fabbrica ha lo stesso nome della F48 (pre_crash_on_ENCAP_F45_F46_F48). Riguarda la sicurezza attiva: sconsigliata.'
+    en: 'Tested on an X1 F48 (KAFAS2, group 3060/3150). On MINIs the factory value has the same name as on the F48 (pre_crash_on_ENCAP_F45_F46_F48). Active safety: not recommended.'
   fonti:
   - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/5
   osservazioni:
@@ -642,6 +667,9 @@
   titolo:
     it: Spegnere l'avviso pedoni
     en: Turn off the pedestrian warning
+  descrizione:
+    it: 'Spegne l''avviso pedoni della telecamera.'
+    en: 'Turns off the camera''s pedestrian warning.'
   parametri:
   - nome: PPP_MANUAL_ACTIVATION_ON_OFF
     target: '00'
@@ -653,8 +681,8 @@
   - F54
   - F56
   note:
-    it: 'Disattiva la protezione pedoni della telecamera. Provato su una X1 F48 (KAFAS2, gruppo 3060/3150). Il parametro esiste con lo stesso nome nella KAFAS della F54, che per FCW e pre-crash usa gli stessi valori ENCAP F45/F46/F48. Riguarda la sicurezza attiva: sconsigliata.'
-    en: 'Disables the camera pedestrian protection. Tested on an X1 F48 (KAFAS2, group 3060/3150). The parameter exists with the same name in the F54 KAFAS, which uses the same ENCAP F45/F46/F48 values for FCW and pre-crash. Active safety: not recommended.'
+    it: 'Provato su una X1 F48 (KAFAS2, gruppo 3060/3150). Il parametro esiste con lo stesso nome nella KAFAS delle MINI. Riguarda la sicurezza attiva: sconsigliata.'
+    en: 'Tested on an X1 F48 (KAFAS2, group 3060/3150). The parameter exists under the same name in the MINI KAFAS. Active safety: not recommended.'
   fonti:
   - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/5
   osservazioni:

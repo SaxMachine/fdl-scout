@@ -19,6 +19,9 @@ Le codifiche stanno in `data/codings/<CENTRALINA>.yaml`, un file per centralina,
   consiglio: ok
   affidabilita: confermata
   telai: [F54, F55, F56, F57, F60]
+  descrizione:
+    it: Nell'HUD compare la marcia inserita.
+    en: The HUD shows the current gear.
   note:
     it: Le tre voci HUD_SPORTANZEIGE_* devono essere già attive in HU e KOMBI.
     en: The three HUD_SPORTANZEIGE_* entries must already be active in the HU and the KOMBI.
@@ -50,7 +53,8 @@ Le codifiche stanno in `data/codings/<CENTRALINA>.yaml`, un file per centralina,
 | `affidabilita` | sì | `confermata` se almeno un'auto l'ha provata con esito, altrimenti `da_verificare`. |
 | `telai` | no | Telai su cui la voce è documentata (es. `F54`, `F30`). Se l'utente carica una FA di un telaio diverso, la pagina lo avvisa. Aggiungi un telaio solo con una fonte o un FWL che lo dimostri: stessa funzione non vuol dire stesso parametro. |
 | `requisiti_sa` | no | Codici SA necessari, es. `['248']` per il volante riscaldato. Se l'utente carica la FA e il codice manca, la voce risulta "Manca l'optional". Metti solo codici verificati. |
-| `note` | no | `it`/`en`: dipendenze, avvertenze, effetti collaterali. Scrivi in modo generale, non riferito alla tua auto. |
+| `descrizione` | sì | `it`/`en`: cosa cambia in auto, detto in parole semplici: cosa vedi o senti e dove. Una o due frasi, sempre visibili sotto il titolo. Scrivi solo quello che dicono le fonti; se nessuna fonte descrive l'effetto, dillo. |
+| `note` | no | `it`/`en`, mostrato come "Da sapere": cosa serve (optional, altre centraline), rischi, effetti collaterali, cosa resta da provare. Scrivi in modo generale, non riferito alla tua auto. Non ripetere da dove viene la voce: lo dicono già `fonti` e `osservazioni`. |
 | `insieme_a` | no | Non si scrive a mano: lo calcola la build dalle funzioni in `data/funzioni.yaml` (ogni parte è collegata alle altre). |
 | `fonti` | no | Link alle discussioni o guide da cui viene la voce. Riassumi con parole tue, non copiare i testi. |
 | `osservazioni` | no | Auto su cui il parametro è stato letto: telaio, anno, i-level, valore letto, esito. È la prova empirica della voce. |

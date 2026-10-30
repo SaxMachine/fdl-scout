@@ -6,6 +6,9 @@
   titolo:
     it: 'Limitatore di velocità: gamma regolabile'
     en: 'Speed limiter: adjustable range'
+  descrizione:
+    it: 'Cambia la velocità minima e massima che puoi impostare nel limitatore di velocità.'
+    en: 'Changes the minimum and maximum speed you can set in the speed limiter.'
   parametri:
   - nome: C_SLD_vmin_kmh
     regolabile: true
@@ -19,8 +22,8 @@
   - F55
   - F56
   note:
-    it: 'Fonte mini-f56-forum.de.'
-    en: 'Source: mini-f56-forum.de.'
+    it: 'Serve il limitatore attivo (voce "Limitatore di velocità (LIM)"). Velocità in km/h dalla lista E-Sys. Fonte: forum MINI tedesco.'
+    en: 'Needs the limiter enabled (entry "Speed limiter (LIM)"). Speeds in km/h from the E-Sys list. Source: German MINI forum.'
   fonti:
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   osservazioni:
@@ -34,6 +37,9 @@
   titolo:
     it: 'ACC: velocità massima e minima impostabili'
     en: 'ACC: maximum and minimum set speed'
+  descrizione:
+    it: 'Cambia la velocità massima e minima che puoi impostare nel cruise control attivo (ACC); le fonti lo abbassano fino a 10 km/h.'
+    en: 'Changes the maximum and minimum speed you can set in active cruise control (ACC); sources lower it down to 10 km/h.'
   parametri:
   - nome: C_Wunschgeschw_ACC_max_kmh
     regolabile: true
@@ -50,8 +56,8 @@
   - F55
   - F56
   note:
-    it: 'Sulla F54 di riferimento questi limiti esistono sia nel DSC (C_Wunschgeschw_*: massimo ACC initwert, minimo 30 km/h) sia nella SAS (LDM_Wunschgeschw_*: massimo 140, minimo 30; vedi la voce SAS). Non è documentato quale dei due valga sulla F54: le fonti BMW li danno nel DSC, il forum tedesco nell''ICM di una F55 senza SAS. Nel DSC risulta attiva anche C_Funktion_AccStopAndGo_aktiv_I.'
-    en: 'On the reference F54 these limits exist both in the DSC (C_Wunschgeschw_*: ACC maximum initwert, minimum 30 km/h) and in the SAS (LDM_Wunschgeschw_*: maximum 140, minimum 30; see the SAS entry). Which one applies on the F54 is not documented: BMW sources put them in the DSC, the German forum in the ICM of an F55 without SAS. C_Funktion_AccStopAndGo_aktiv_I is also active in the DSC.'
+    it: 'Di fabbrica il minimo è 30 km/h (1E). Questi limiti esistono sia nel DSC (C_Wunschgeschw_*) sia nella SAS (LDM_Wunschgeschw_*, vedi la voce SAS): non è documentato quale dei due valga sulle MINI. Le fonti BMW li danno nel DSC, il forum tedesco nell''ICM di una F55 senza SAS.'
+    en: 'Factory minimum is 30 km/h (1E). These limits exist both in the DSC (C_Wunschgeschw_*) and in the SAS (LDM_Wunschgeschw_*, see the SAS entry): it is not documented which one applies on MINIs. BMW sources put them in the DSC, the German forum in the ICM of an F55 without SAS.'
   fonti:
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/?pageNo=286
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -68,6 +74,9 @@
   titolo:
     it: Limitatore di velocità (LIM)
     en: Speed limiter (LIM)
+  descrizione:
+    it: 'Attiva il limitatore di velocità (LIM), che si comanda dai tasti del cruise control.'
+    en: 'Enables the speed limiter (LIM), operated from the cruise control buttons.'
   parametri:
   - nome: C_SLD_Funktion
     target: aktiv
@@ -79,8 +88,8 @@
   - F55
   - F56
   note:
-    it: 'Il quadro ha già SLD_ENABLE aktiv e il DSC ha C_SpeedLimitDevice_I aktiv, ma la funzione C_SLD_Funktion è spenta. Su Bimmerfest la combinazione KOMBI SLD_ENABLE + DSC C_SLD_Funktion attiva il limitatore con il tasto del cruise control. La gamma regolabile è nella voce ''Limitatore di velocità: gamma regolabile''. Una guida dice che servono tutti e quattro i parametri del limitatore LIM: SLD_ENABLE nel KOMBI, SLD_Funktion, C_Umschaltung_ACC_DCC = zugelassen e LDM_SET_Taste. Sulla F54 di riferimento C_Umschaltung_ACC_DCC è già zugelassen e LDM_SET_Taste non esiste.'
-    en: 'The cluster already has SLD_ENABLE aktiv and the DSC has C_SpeedLimitDevice_I aktiv, but the C_SLD_Funktion function is off. On Bimmerfest, KOMBI SLD_ENABLE together with DSC C_SLD_Funktion enables the limiter on the cruise control button. The adjustable range is in the entry ''Speed limiter: adjustable range''. One guide says all four LIM speed limiter parameters are required: SLD_ENABLE in the KOMBI, SLD_Funktion, C_Umschaltung_ACC_DCC = zugelassen and LDM_SET_Taste. On the reference F54 C_Umschaltung_ACC_DCC is already zugelassen and LDM_SET_Taste does not exist.'
+    it: 'Va con la parte nel KOMBI (SLD_ENABLE): su Bimmerfest la combinazione KOMBI SLD_ENABLE + DSC C_SLD_Funktion attiva il limitatore. Una guida cita anche C_Umschaltung_ACC_DCC = zugelassen e LDM_SET_Taste; sulle MINI lette il primo è già zugelassen e il secondo non esiste. La gamma è nella voce "Limitatore di velocità: gamma regolabile".'
+    en: 'Goes with the KOMBI part (SLD_ENABLE): on Bimmerfest the KOMBI SLD_ENABLE + DSC C_SLD_Funktion combination enables the limiter. One guide also mentions C_Umschaltung_ACC_DCC = zugelassen and LDM_SET_Taste; on the MINIs read the first is already zugelassen and the second does not exist. The range is in the entry "Speed limiter: adjustable range".'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Instrument-Cluster.md
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
@@ -96,6 +105,9 @@
   titolo:
     it: 'DSC: impostazioni MDM delle M USA'
     en: 'DSC: US M Dynamic Mode settings'
+  descrizione:
+    it: 'Porta il controllo di stabilità (modalità MDM) alle impostazioni europee sulle M3/M4 F80/F82 americane.'
+    en: 'Switches stability control (MDM mode) to the European settings on US-spec M3/M4 F80/F82.'
   parametri:
   - nome: C_AMR_2_c
     regolabile: true
@@ -112,10 +124,8 @@
   - F56
   - F80
   note:
-    it: 'Impostazioni del controllo di stabilità per M3/M4 F80/F82 USA. Su altre auto: sconsigliata. Parametro presente
-      nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'Stability control settings for US M3/M4 F80/F82. On other cars: not recommended. Parameter present in the
-      reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'La fonte riguarda solo le M3/M4 F80/F82 di specifica USA. Su altre auto cambia il comportamento del controllo di stabilità senza un motivo documentato: sconsigliata.'
+    en: 'The source only covers US-spec M3/M4 F80/F82. On other cars it changes stability control behaviour for no documented reason: not recommended.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
@@ -134,6 +144,9 @@
   titolo:
     it: Dynamic Brake Control
     en: Dynamic Brake Control
+  descrizione:
+    it: 'Attiva il Dynamic Brake Control, l''aiuto del DSC nelle frenate di emergenza.'
+    en: 'Enables Dynamic Brake Control, the DSC assistance in emergency braking.'
   parametri:
   - nome: C_Funktion_DynamicBrakeControl_aktiv_I
     target: '01'
@@ -147,10 +160,8 @@
   - F56
   - F57
   note:
-    it: 'Fonte F55/F56/F57/F45: va attivata insieme al cambio (EGS). Riguarda la frenata: prova con prudenza. Parametro
-      presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'F55/F56/F57/F45 source: enable it together with the gearbox (EGS). Affects braking: test carefully. Parameter
-      present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'L''unica fonte (F55/F56/F57/F45) dice di attivarla insieme al cambio (EGS). Non descrive cosa cambia alla guida. Riguarda la frenata: prova con prudenza.'
+    en: 'The only source (F55/F56/F57/F45) says to enable it together with the gearbox (EGS). It does not describe what changes while driving. Affects braking: test with care.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:
@@ -164,6 +175,9 @@
   titolo:
     it: 'Modalità Sport personalizzabile'
     en: 'Customisable Sport mode'
+  descrizione:
+    it: 'In iDrive compare la configurazione della modalità Sport, per scegliere come si comporta l''auto in Sport.'
+    en: 'The iDrive shows the Sport mode setup, to choose how the car behaves in Sport.'
   parametri:
   - nome: QdmKfvSportIndividualisierbarDep
     target: Individualisierbar
@@ -174,8 +188,8 @@
   - F54
   - F56
   note:
-    it: 'Documentata su una F54 (centralina DSC2): con MACRO_FDS = popup_and_config nella HU compare la configurazione della modalità Sport in iDrive. Sulle BMW con ICM l''equivalente è ICMKOD_B_SPORTINDIVIDUALISIERBAR.'
-    en: 'Documented on an F54 (DSC2 unit): with MACRO_FDS = popup_and_config in the HU the Sport mode configuration appears in iDrive. On BMWs with an ICM the equivalent is ICMKOD_B_SPORTINDIVIDUALISIERBAR.'
+    it: 'Documentata su una F54 con centralina DSC2, insieme a MACRO_FDS = popup_and_config nella HU. Sulle BMW con ICM l''equivalente è ICMKOD_B_SPORTINDIVIDUALISIERBAR. Sulla JCW F56 letta risulta già attiva.'
+    en: 'Documented on an F54 with a DSC2 unit, together with MACRO_FDS = popup_and_config in the HU. On BMWs with ICM the equivalent is ICMKOD_B_SPORTINDIVIDUALISIERBAR. On the JCW F56 read it is already on.'
   fonti:
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5673906/note.aspx
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Transmission/Sport-Mode.md

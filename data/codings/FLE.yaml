@@ -6,6 +6,9 @@
   titolo:
     it: 'Abbaglianti antiabbagliamento: tabelle dei fari'
     en: 'Glare-free high beam: headlight tables'
+  descrizione:
+    it: 'Abilita nei moduli dei fari gli abbaglianti antiabbagliamento, che oscurano la parte di fascio diretta verso le altre auto.'
+    en: 'Enables glare-free high beams in the headlight modules, which dim the part of the beam aimed at other cars.'
   parametri:
   - nome: Blendfreies_Fernlicht_Idx
     regolabile: true
@@ -22,12 +25,8 @@
   - F80
   - F82
   note:
-    it: Le fonti modificano più di 120 parametri dei moduli fari per F80/F82 e F15. Su fari diversi rischi malfunzionamenti
-      e luci non omologate. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
-      sheet su GitHub.
-    en: The sources change more than 120 headlight module parameters for F80/F82 and F15. On different headlights
-      you risk malfunctions and non-compliant lights. Parameter present in the reference F54 FWL files; the coding
-      is documented in GitHub cheat sheets.
+    it: 'Le fonti cambiano più di 120 parametri dei moduli fari, con tabelle specifiche per i fari LED di F80/F82 e F15, insieme a FEM/BDC e alla telecamera (KAFAS). Su fari diversi rischi malfunzionamenti e luci non omologate: sconsigliata.'
+    en: 'Sources change more than 120 headlight module parameters, with tables specific to the F80/F82 and F15 LED headlights, together with FEM/BDC and the camera (KAFAS). On other headlights you risk faults and non-compliant lights: not recommended.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml

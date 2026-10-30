@@ -6,6 +6,9 @@
   titolo:
     it: Retrocamera e sensori quando l'auto arretra senza la retro inserita
     en: Rear camera and sensors when the car rolls back without reverse engaged
+  descrizione:
+    it: 'Retrocamera e sensori di parcheggio si accendono anche quando l''auto arretra senza la retromarcia inserita, per esempio in folle in salita.'
+    en: 'The reversing camera and parking sensors also turn on when the car rolls backwards without reverse engaged, for example in neutral on a slope.'
   parametri:
   - nome: aktivierung_rueckwaertsrollen
     target: '01'
@@ -16,12 +19,8 @@
   - F54
   - F56
   note:
-    it: 'Documentata per la PMA delle serie F come AKT_RUECKWAERTSROLLEN → aktiv. Sul CAFD della F54 (0000146B) il
-      parametro si chiama aktivierung_rueckwaertsrollen e vale 00: il nome è diverso, la centralina e la funzione
-      sono le stesse. Il valore 01 per "attivo" va confermato in E-Sys.'
-    en: 'Documented for the F-series PMA as AKT_RUECKWAERTSROLLEN → aktiv. On the F54 CAFD (0000146B) the parameter
-      is named aktivierung_rueckwaertsrollen and reads 00: different name, same unit and function. The value 01
-      for "active" still needs confirming in E-Sys.'
+    it: 'Documentata per la PMA delle serie F come AKT_RUECKWAERTSROLLEN = aktiv. Sul CAFD MINI 0000146B il parametro si chiama aktivierung_rueckwaertsrollen e vale 00: il nome è diverso, centralina e funzione le stesse. Il valore 01 per "attivo" va confermato in E-Sys.'
+    en: 'Documented for the F-series PMA as AKT_RUECKWAERTSROLLEN = aktiv. On the MINI CAFD 0000146B the parameter is called aktivierung_rueckwaertsrollen and reads 00: the name differs, the unit and function are the same. The value 01 for "on" must be checked in E-Sys.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/Video-in-Motion.md
   osservazioni:
@@ -40,6 +39,9 @@
   titolo:
     it: 'Retrocamera e vista dall''alto: velocità e distanza di spegnimento'
     en: 'Rear and top view camera: switch-off speed and distance'
+  descrizione:
+    it: 'Cambia a che velocità e dopo quanti metri si spengono retrocamera e vista dall''alto quando riparti.'
+    en: 'Changes at what speed and after how many metres the reversing camera and top view switch off when you drive off.'
   parametri:
   - nome: v_schwelle_1_kmh
     regolabile: true
@@ -64,13 +66,8 @@
   - F56
   - F57
   note:
-    it: 'Documentata sulla PMA_PDC (CAFD 00001AB7) di F55/F56/F57/F45 come V_SCHWELLE_1/2 e D_SCHWELLE_1/2 = FF. Sul
-      CAFD della F54 i nomi hanno il suffisso _kmh; i valori di fabbrica coincidono con quelli documentati per lo
-      stesso parametro su G11/G30. Con FF l''immagine resta accesa a qualsiasi velocità: meglio un limite moderato,
-      perché distrae alla guida.'
-    en: 'Documented on the F55/F56/F57/F45 PMA_PDC (CAFD 00001AB7) as V_SCHWELLE_1/2 and D_SCHWELLE_1/2 = FF. On the
-      F54 CAFD the names carry a _kmh suffix; factory values match those documented for the same parameter on
-      G11/G30. With FF the image stays on at any speed: a moderate limit is better, as it distracts while driving.'
+    it: 'Documentata sulla PMA_PDC (CAFD 00001AB7) di F55/F56/F57/F45 come V_SCHWELLE_1/2 e D_SCHWELLE_1/2 = FF; su altri CAFD i nomi hanno il suffisso _kmh. Valori di fabbrica 23 (35 km/h) e 32 (50 m). Con FF l''immagine resta accesa a qualsiasi velocità: meglio un limite moderato, perché distrae alla guida.'
+    en: 'Documented on the PMA_PDC (CAFD 00001AB7) of F55/F56/F57/F45 as V_SCHWELLE_1/2 and D_SCHWELLE_1/2 = FF; on other CAFDs the names have the _kmh suffix. Factory values 23 (35 km/h) and 32 (50 m). With FF the picture stays on at any speed: a moderate limit is better, as it distracts while driving.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Head-Unit/Video-in-Motion.md

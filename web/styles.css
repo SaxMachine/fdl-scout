@@ -150,6 +150,7 @@ main { max-width: 72rem; margin: 0 auto; padding: 0 1rem 6rem; }
 .row h3 { margin: 0; font-size: var(--step-0); font-weight: 600; line-height: 1.3; }
 .row-sub { margin: 0.15rem 0 0; font-size: 0.8rem; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 0.25rem 0.6rem; align-items: center; }
 .row-sub .ecu { font-family: var(--f-code); }
+.row-desc { margin: 0.35rem 0 0; font-size: 0.9rem; line-height: 1.45; color: var(--ink); max-width: 68ch; }
 .row.s-attivabile .state { color: var(--chili); font-weight: 600; }
 .row.s-attiva .state { color: var(--blue); font-weight: 600; }
 .row.s-regolabile .state { color: var(--amber); font-weight: 600; }

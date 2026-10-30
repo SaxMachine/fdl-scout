@@ -6,6 +6,9 @@
   titolo:
     it: Memoria Start/Stop (ultimo stato)
     en: Start/Stop memory (last state)
+  descrizione:
+    it: 'Lo Start/Stop resta come l''hai lasciato - se lo spegni, alla ripartenza è ancora spento.'
+    en: 'Start/Stop stays as you left it - if you turn it off, it is still off when you set off again.'
   parametri:
   - nome: TCM_MSA_MEMORY
     target: aktiv
@@ -19,8 +22,8 @@
   - F57
   - F60
   note:
-    it: 'Codificata e provata su F54: lo Start/Stop resta come l''hai lasciato. Basta il BDC: nella DME il parametro resta Wert_00.'
-    en: 'Coded and tested on F54: Start/Stop stays as you left it. The BDC is enough: in the DME the parameter stays Wert_00.'
+    it: 'Codificata e provata su F54. Basta il BDC: nella DME il parametro gemello resta Wert_00.'
+    en: 'Coded and tested on F54. The BDC is enough: in the DME the twin parameter stays Wert_00.'
   fonti:
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5658504/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-12.html
@@ -40,6 +43,9 @@
   titolo:
     it: Specchio passeggero inclinato in retromarcia
     en: Passenger mirror tilts down in reverse
+  descrizione:
+    it: 'In retromarcia lo specchio del passeggero si abbassa per farti vedere il marciapiede.'
+    en: 'In reverse the passenger mirror tilts down so you can see the kerb.'
   parametri:
   - nome: ASP_BORDSTEINAUTOMATIK
     target: aktiv
@@ -51,8 +57,8 @@
   - F55
   - F56
   note:
-    it: Con memoria specchi (ASP_MEMORY_VERBAUT).
-    en: Requires mirror memory (ASP_MEMORY_VERBAUT).
+    it: 'Serve la memoria degli specchi (ASP_MEMORY_VERBAUT). L''angolo si regola con la voce "Angolo dello specchio passeggero in retromarcia".'
+    en: 'Needs mirror memory (ASP_MEMORY_VERBAUT). The angle is set with the entry "Passenger mirror angle in reverse".'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-6.html
   osservazioni:
@@ -66,6 +72,9 @@
   titolo:
     it: Ribaltamento specchietti alla chiusura
     en: Fold mirrors when locking
+  descrizione:
+    it: 'Gli specchietti si ripiegano quando chiudi l''auto con la chiave o con il Comfort Access, e si riaprono quando riparti.'
+    en: 'The mirrors fold when you lock the car with the key or Comfort Access, and unfold when you drive off.'
   parametri:
   - nome: ASP_BEIKLAPPEN
     target: aktiv
@@ -77,7 +86,8 @@
   - F55
   - F56
   note:
-    it: ''
+    it: 'Servono gli specchi ripiegabili elettricamente. La velocità di riapertura è in una voce a parte.'
+    en: 'Needs electrically folding mirrors. The unfolding speed is in a separate entry.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-2.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
@@ -96,6 +106,9 @@
   titolo:
     it: Angolo dello specchio passeggero in retromarcia
     en: Passenger mirror angle in reverse
+  descrizione:
+    it: 'Cambia di quanto si abbassa lo specchio del passeggero in retromarcia.'
+    en: 'Changes how far the passenger mirror tilts down in reverse.'
   parametri:
   - nome: ASP_BORDSTEINAUTOMATIK_DELTA
     target: '32'
@@ -108,9 +121,8 @@
   - F56
   - F57
   note:
-    it: 'Su F54 documentato da 55 a 32: lo specchio si abbassa meno. Valore a gusto, ritocca finché vedi bene il
-      marciapiede.'
-    en: 'Documented on an F54 from 55 to 32: the mirror tilts down less. Adjust to taste until you can see the kerb.'
+    it: 'Valore esadecimale: più alto, più si abbassa. Le fonti BMW usano 46 o 5A per abbassarlo di più; su una F54 è stato portato da 55 a 32 per abbassarlo di meno. Ritocca finché vedi bene il marciapiede.'
+    en: 'Hex value: higher means further down. BMW sources use 46 or 5A to lower it more; on an F54 it was changed from 55 to 32 to lower it less. Adjust until you see the kerb well.'
   fonti:
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5953565/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-6.html
@@ -131,6 +143,9 @@
   titolo:
     it: Memoria della modalità di guida
     en: Driving mode memory
+  descrizione:
+    it: 'Alla ripartenza l''auto resta nella modalità di guida che avevi scelto (Sport o Green) invece di tornare a quella normale.'
+    en: 'When you restart, the car stays in the driving mode you chose (Sport or Green) instead of going back to the normal one.'
   parametri:
   - nome: FesAllowMode4LastFunction
     target: aktiv
@@ -151,10 +166,8 @@
   - F57
   - F60
   note:
-    it: 'Più utenti F5x la attivano. Abilita il ricordo solo per le modalità presenti nel tuo BDC (parametri FesHasModeN):
-      sulla F54 di riferimento sono 3, 4 e 7, abilita il ricordo per quelle che vuoi mantenere al riavvio.'
-    en: 'Several F5x owners enable it. Enable memory only for the modes present in your BDC (FesHasModeN parameters):
-      on the reference F54 these are 3, 4 and 7. Enable it for the ones you want kept after a restart.'
+    it: 'Si abilita una modalità alla volta: FesAllowModeNLastFunction vale per la modalità N, e solo per quelle presenti nel BDC (FesHasModeN). Sulle MINI lette sono 3, 4 e 7. FesLastFunctionInterval decide per quanto tempo viene ricordata (FF = sempre). Più utenti F5x la usano.'
+    en: 'You enable one mode at a time: FesAllowModeNLastFunction applies to mode N, and only for modes present in the BDC (FesHasModeN). On the MINIs read they are 3, 4 and 7. FesLastFunctionInterval decides how long it is remembered (FF = always). Several F5x owners use it.'
   fonti:
   - https://github.com/butterflywaltz/BMW_Coding/blob/main/FDL%20Codes/BDC_FDL_Final.txt
   osservazioni:
@@ -168,6 +181,9 @@
   titolo:
     it: 'Logica del morsetto 15 all''apertura della porta (effetto da verificare)'
     en: 'Terminal 15 logic when the door is opened (effect to be verified)'
+  descrizione:
+    it: 'Nessuna fonte descrive questo parametro. Dal nome spegne il morsetto 15 (l''alimentazione da quadro acceso) quando apri la porta; l''effetto va provato.'
+    en: 'No source describes this parameter. From its name it switches off terminal 15 (ignition power) when you open the door; the effect needs testing.'
   parametri:
   - nome: TCM_LOGIC_15_OFF_DOOR
     target: aktiv
@@ -178,8 +194,8 @@
   - F54
   - F56
   note:
-    it: 'Fa parte del gruppo TCM_LOGIC_15_OFF_* (spegnimento del morsetto 15: con la cintura, la chiusura, la presa OBD…). Lo spegnimento di radio e navigazione aprendo la porta è un altro parametro, TCM_LOGIC_R_OFF_DOOR. Nessuna fonte trovata riporta questo parametro: l''effetto va provato.'
-    en: 'Part of the TCM_LOGIC_15_OFF_* group (terminal 15 switch-off: with the belt, locking, the OBD port…). Switching off radio and navigation when the door is opened is a different parameter, TCM_LOGIC_R_OFF_DOOR. No source found gives this parameter: the effect has to be tested.'
+    it: 'Fa parte del gruppo TCM_LOGIC_15_OFF_*, che spegne il morsetto 15 in diverse situazioni (cintura, chiusura, presa OBD…). Lo spegnimento di radio e navigazione aprendo la porta è un altro parametro, TCM_LOGIC_R_OFF_DOOR. Sulla JCW F56 letta risulta attivo.'
+    en: 'It belongs to the TCM_LOGIC_15_OFF_* group, which switches terminal 15 off in several situations (seat belt, locking, OBD socket…). Switching off radio and navigation when opening the door is another parameter, TCM_LOGIC_R_OFF_DOOR. It is on in the JCW F56 read.'
   osservazioni:
   - telaio: F54
     anno: 2022
@@ -196,6 +212,9 @@
   titolo:
     it: Comportamento DRL con luci di posizione
     en: DRL behaviour with parking lights
+  descrizione:
+    it: 'Decide come si comportano le luci diurne quando accendi le luci di posizione.'
+    en: 'Decides how daytime running lights behave when you turn on the side lights.'
   parametri:
   - nome: TFL_MODUS
     target: tfl_s
@@ -209,10 +228,8 @@
   - F57
   - F60
   note:
-    it: Con il valore 02 l'anello si spegne quando accendi le luci di posizione. Il valore 05 lo tiene sempre acceso.
-      Non lega la DRL alla posizione 0 della levetta.
-    en: With value 02 the ring switches off when you turn on the parking lights. Value 05 keeps it always on. It
-      does not tie the DRL to position 0 of the light switch.
+    it: 'Su una MINI con il valore 02 l''anello si spegne quando accendi le luci di posizione, con 05 resta sempre acceso. Le fonti BMW indicano anche 0 (spente), A (automatiche) e P. Non lega le diurne alla posizione 0 della levetta.'
+    en: 'On a MINI with value 02 the ring goes off when you turn on the side lights, with 05 it always stays on. BMW sources also list 0 (off), A (automatic) and P. It does not tie the DRLs to switch position 0.'
   fonti:
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5658504/note.aspx
   - https://minkara.carview.co.jp/userid/125014/car/2087329/3641570/note.aspx
@@ -234,6 +251,9 @@
   titolo:
     it: Stop lampeggianti in frenata d'emergenza
     en: Flashing brake lights under emergency braking
+  descrizione:
+    it: 'In una frenata d''emergenza le luci di stop lampeggiano invece di allargarsi.'
+    en: 'In an emergency stop the brake lights flash instead of enlarging.'
   parametri:
   - nome: ESS_AKTIVIERBARER_AUSGANG
     target: bremslicht_blinkend
@@ -245,7 +265,8 @@
   - F55
   - F56
   note:
-    it: ''
+    it: 'Di fabbrica il BDC allarga la superficie illuminata (flaechenvergroesserung); sulle MINI lette è già impostato il lampeggio. Velocità e decelerazione che lo attivano sono in voci a parte.'
+    en: 'From the factory the BDC enlarges the lit area (flaechenvergroesserung); the MINIs read are already set to flashing. The speed and deceleration that trigger it are in separate entries.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-5.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -263,6 +284,9 @@
   titolo:
     it: 'Chiusura comfort: finestrini, tetto e specchi tenendo premuto il tasto'
     en: 'Comfort closing: windows, roof and mirrors by holding the button'
+  descrizione:
+    it: 'Tenendo premuto il tasto di chiusura si chiudono finestrini e tetto e si ripiegano gli specchi; tenendo premuto quello di apertura si aprono.'
+    en: 'Holding the lock button closes the windows and roof and folds the mirrors; holding the unlock button opens them.'
   parametri:
   - nome: KOMFORTSCHLIESSUNG
     target: aktiv
@@ -276,8 +300,8 @@
   - F57
   - F60
   note:
-    it: 'Interruttore generale della chiusura comfort: tenendo premuto il tasto di chiusura si chiudono finestrini e tetto (SA 402) e si ripiegano gli specchi. Le varianti dal telecomando e dal Comfort Access hanno voci a parte.'
-    en: 'Master switch of comfort closing: holding the lock button closes the windows and roof (SA 402) and folds the mirrors. The remote and Comfort Access variants have their own entries.'
+    it: 'È l''interruttore generale della chiusura comfort, dal telecomando e dal Comfort Access. Una fonte precisa che l''apertura parte dopo 2 secondi e la chiusura subito. Il tetto richiede il tetto apribile (SA 402).'
+    en: 'It is the main switch for comfort closing, from the key and from Comfort Access. One source notes that opening starts after 2 seconds and closing immediately. The roof needs the sunroof (SA 402).'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
@@ -295,6 +319,9 @@
   titolo:
     it: Lampeggio comfort
     en: Comfort turn signal
+  descrizione:
+    it: 'Cambia quante volte lampeggia la freccia con un tocco leggero della levetta.'
+    en: 'Changes how many times the indicator flashes with a light touch of the stalk.'
   parametri:
   - nome: PIA_DEFAULT_TIPPBLINKEN
     regolabile: true
@@ -307,11 +334,8 @@
   - F56
   - F57
   note:
-    it: 'Numero di lampeggi già regolabile dal menu iDrive. Se lo codifichi a mano (PIA_DEFAULT_TIPPBLINKEN o BLINKZYKLEN_ANZAHL_TIPP),
-      il valore vale lampeggi meno uno: due fonti indipendenti (NAM e Xcar) riportano che 4 dà 5 lampeggi.'
-    en: 'The number of flashes can already be set in the iDrive menu. If you code it by hand (PIA_DEFAULT_TIPPBLINKEN
-      or BLINKZYKLEN_ANZAHL_TIPP), the value is flashes minus one: two independent sources (NAM and Xcar) report
-      that 4 gives 5 flashes.'
+    it: 'Il numero si può già scegliere dal menu iDrive. Se lo codifichi a mano il valore vale lampeggi meno uno: due fonti indipendenti (NAM e Xcar) riportano che 4 dà 5 lampeggi. Una fonte francese dice che non funziona.'
+    en: 'The count can already be chosen in the iDrive menu. If you code it by hand the value is flashes minus one: two independent sources (NAM and Xcar) report that 4 gives 5 flashes. A French source says it does not work.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
@@ -329,6 +353,9 @@
   titolo:
     it: Fendinebbia come luci di svolta
     en: Fog lights as cornering lights
+  descrizione:
+    it: 'In curva e svoltando a bassa velocità si accende il fendinebbia dal lato della svolta, come luce di svolta.'
+    en: 'When cornering or turning at low speed the fog light on that side comes on as a cornering light.'
   parametri:
   - nome: MAPPING_ABBIEGEL_L_OUTPUT
     regolabile: true
@@ -353,8 +380,8 @@
   - F57
   - F60
   note:
-    it: 'Procedura completa da mini-f56-forum.de. Se nsw_l/nsw_r non funziona, copia nell''uscita il valore che trovi in MAPPING_NEBELSCHW_L/R_OUTPUT. Non toccare C_BLC_ENA se non hai i fari adattivi (AHL): su una F54 ha bloccato la regolazione manuale dei fari e acceso un errore. Verifica che resti conforme all''omologazione.'
-    en: 'Full procedure from mini-f56-forum.de. If nsw_l/nsw_r does not work, copy into the output the value found in MAPPING_NEBELSCHW_L/R_OUTPUT. Do not touch C_BLC_ENA without adaptive headlights (AHL): on an F54 it disabled the manual headlight leveling and raised a fault. Check that it stays compliant with type approval.'
+    it: 'Procedura completa da mini-f56-forum.de. Se nsw_l/nsw_r non funziona, copia nell''uscita il valore che trovi in MAPPING_NEBELSCHW_L/R_OUTPUT. Non toccare C_BLC_ENA se non hai i fari adattivi (AHL): su una F54 ha bloccato la regolazione manuale dei fari e acceso un errore. Servono i fendinebbia. Verifica che resti conforme all''omologazione.'
+    en: 'Full procedure from mini-f56-forum.de. If nsw_l/nsw_r does not work, copy into the output the value you find in MAPPING_NEBELSCHW_L/R_OUTPUT. Do not touch C_BLC_ENA unless you have adaptive headlights (AHL): on an F54 it locked manual headlight adjustment and raised a fault. Needs fog lights. Check it stays compliant with type approval.'
   fonti:
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5668592/note.aspx
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5658504/note.aspx
@@ -376,6 +403,9 @@
   titolo:
     it: 'Radio e navigazione spente aprendo la porta del guidatore'
     en: 'Radio and navigation off when the driver''s door is opened'
+  descrizione:
+    it: 'A motore spento, aprendo la porta del guidatore si spengono radio e navigazione.'
+    en: 'With the engine off, opening the driver''s door switches off radio and navigation.'
   parametri:
   - nome: TCM_LOGIC_R_OFF_DOOR
     target: aktiv
@@ -387,8 +417,8 @@
   - F55
   - F56
   note:
-    it: 'Le fonti la descrivono così: a motore spento, aprendo la porta del guidatore si spengono radio e navigazione. La R del nome non indica la retromarcia.'
-    en: 'Sources describe it this way: with the engine off, opening the driver''s door switches off radio and navigation. The R in the name does not mean reverse gear.'
+    it: 'La R nel nome del parametro non indica la retromarcia. Sulla JCW F56 letta è già attivo.'
+    en: 'The R in the parameter name does not mean reverse. Already on in the JCW F56 read.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -407,6 +437,9 @@
   titolo:
     it: Velocità di riapertura degli specchietti
     en: Speed at which folded mirrors reopen
+  descrizione:
+    it: 'Cambia la velocità oltre la quale gli specchi ripiegati si riaprono da soli.'
+    en: 'Changes the speed above which folded mirrors unfold by themselves.'
   parametri:
   - nome: ASP_GESCHWINDIGKEIT_AUTO_AUSKLAPPEN
     regolabile: true
@@ -421,8 +454,8 @@
   - F55
   - F56
   note:
-    it: Fonte NAM. Gli specchi ripiegati si riaprono da soli superata questa velocità. Il valore è binario.
-    en: 'Source: NAM. Folded mirrors unfold by themselves above this speed. The value is binary.'
+    it: 'Valore esadecimale in km/h: le fonti usano 14 (20 km/h), 19 (25) o 32 (50). Fonte NAM e cheat sheet BMW.'
+    en: 'Hex value in km/h: sources use 14 (20 km/h), 19 (25) or 32 (50). Source: NAM and BMW cheat sheets.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -442,6 +475,9 @@
   titolo:
     it: Specchi ripiegati con chiusura comfort
     en: Fold mirrors with comfort closing
+  descrizione:
+    it: 'Durante la chiusura comfort (tasto di chiusura tenuto premuto) si ripiegano anche gli specchi.'
+    en: 'During comfort closing (lock button held down) the mirrors fold too.'
   parametri:
   - nome: ASP_BEIKLAPPEN_BEI_KOMFORTSCHLIESSEN
     target: aktiv
@@ -455,7 +491,8 @@
   - F57
   - F60
   note:
-    it: ''
+    it: 'Va con la voce "Chiusura comfort" (KOMFORTSCHLIESSUNG). Sulle MINI lette è già attivo.'
+    en: 'Goes with the entry "Comfort closing" (KOMFORTSCHLIESSUNG). Already on in the MINIs read.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -477,6 +514,9 @@
   titolo:
     it: Fendinebbia accesi con luci di posizione
     en: Fog lights on with parking lights
+  descrizione:
+    it: 'I fendinebbia si possono accendere anche con le sole luci di posizione, senza gli anabbaglianti.'
+    en: 'Fog lights can be switched on with the side lights only, without dipped beams.'
   parametri:
   - nome: NSW_EIN_AUF_LDS_STL
     target: aktiv
@@ -490,7 +530,8 @@
   - F57
   - F60
   note:
-    it: ''
+    it: 'Servono i fendinebbia. Una fonte BMW dice che restano accesi anche con gli abbaglianti. Verifica che sia consentito nel tuo paese.'
+    en: 'Needs fog lights. A BMW source says they also stay on with high beams. Check it is allowed in your country.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/319265-coding-parameters-that-actually-work-using-bimmercode-expert-mode.html
@@ -511,6 +552,9 @@
   titolo:
     it: Start/Stop spento a ogni avvio
     en: Start/Stop off at every start
+  descrizione:
+    it: 'Lo Start/Stop parte sempre spento a ogni avvio; lo accendi tu col tasto se lo vuoi.'
+    en: 'Start/Stop is always off at every start; you turn it on with the button if you want it.'
   parametri:
   - nome: TCM_MSA_DEFAULT_OFF
     target: aktiv
@@ -524,10 +568,8 @@
   - F57
   - F60
   note:
-    it: 'Fonte mini-f56-forum.de, tabella di un F54 03/2018 portato a ID6. Alternativa alla memoria (già attiva):
-      parte sempre spento.'
-    en: 'Source: mini-f56-forum.de, table from an F54 03/2018 updated to ID6. An alternative to the memory (already
-      active): it always starts switched off.'
+    it: 'È un''alternativa alla memoria dello Start/Stop. Fonte: mini-f56-forum.de, tabella di una F54 03/2018 aggiornata a ID6.'
+    en: 'It is an alternative to the Start/Stop memory. Source: mini-f56-forum.de, table of an F54 03/2018 updated to ID6.'
   fonti:
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -546,6 +588,9 @@
   titolo:
     it: Start/Stop spento in ECO PRO
     en: Start/Stop off in ECO PRO
+  descrizione:
+    it: 'In modalità ECO PRO (Green) lo Start/Stop non si attiva da solo.'
+    en: 'In ECO PRO (Green) mode Start/Stop does not switch on by itself.'
   parametri:
   - nome: TCM_MSA_ECO_MODE
     target: nicht_aktiv
@@ -558,8 +603,8 @@
   - F56
   - F57
   note:
-    it: Stessa fonte. Lo Start/Stop non si attiva da solo in modalità Green.
-    en: Same source. Start/Stop does not switch itself on in Green mode.
+    it: 'Stessa fonte della voce precedente, più cheat sheet BMW e coreani.'
+    en: 'Same source as the previous entry, plus BMW and Korean cheat sheets.'
   fonti:
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -576,6 +621,9 @@
   titolo:
     it: Velocità massima per ripiegare gli specchi
     en: Maximum speed for folding the mirrors
+  descrizione:
+    it: 'Cambia fino a che velocità puoi ripiegare gli specchi; di fabbrica 20 km/h.'
+    en: 'Changes up to what speed you can fold the mirrors; factory value 20 km/h.'
   parametri:
   - nome: ASP_MAX_GESCHWINDIGKEIT_BEIKLAPPEN
     regolabile: true
@@ -592,8 +640,8 @@
   - F57
   - F60
   note:
-    it: 'Fonte mini-f56-forum.de. Un utente non ha visto effetti: attenzione a decimale/esadecimale.'
-    en: 'Source: mini-f56-forum.de. One user saw no effect: watch out for decimal versus hexadecimal.'
+    it: 'Valore esadecimale: una fonte francese usa 31 (49 km/h), un''altra FF (255 km/h). Su mini-f56-forum.de un utente non ha visto effetti: attenzione a non confondere decimale ed esadecimale.'
+    en: 'Hex value: a French source uses 31 (49 km/h), another FF (255 km/h). On mini-f56-forum.de one user saw no effect: be careful not to mix up decimal and hex.'
   fonti:
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -611,6 +659,9 @@
   titolo:
     it: Durata effetto ambient light all'apertura porta
     en: Duration of the ambient light effect when the door opens
+  descrizione:
+    it: 'Cambia la durata dell''effetto delle luci ambiente che scorrono quando apri la porta.'
+    en: 'Changes the length of the ambient light running effect when you open the door.'
   parametri:
   - nome: AMBIENTE_RGB_LAUFLICHT_BEI_TUEROEFFNEN
     regolabile: true
@@ -625,9 +676,8 @@
   - F55
   - F56
   note:
-    it: 'Fonte mini-f56-forum.de: il valore è esadecimale, chi l''ha inserito in decimale ha ottenuto l''effetto
-      opposto.'
-    en: 'Source: mini-f56-forum.de. The value is hexadecimal: entering it as decimal gave the opposite effect.'
+    it: 'Il valore è esadecimale: su mini-f56-forum.de chi l''ha inserito in decimale ha ottenuto l''effetto opposto. Serve l''illuminazione ambiente.'
+    en: 'The value is hex: on mini-f56-forum.de someone who entered it in decimal got the opposite effect. Needs ambient lighting.'
   fonti: &id002
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   osservazioni:
@@ -641,6 +691,9 @@
   titolo:
     it: Lampeggi di conferma alla chiusura
     en: Confirmation flashes when locking
+  descrizione:
+    it: 'Cambia quante volte lampeggiano le frecce quando chiudi l''auto, o li toglie.'
+    en: 'Changes how many times the indicators flash when you lock the car, or removes them.'
   parametri:
   - nome: QUITTBLK_SICHERN_ANZAHL
     regolabile: true
@@ -657,8 +710,8 @@
   - F57
   - F60
   note:
-    it: 'Elenco BimmerCode: 1, 2, 3 volte oppure spento.'
-    en: 'BimmerCode list: 1, 2 or 3 times, or off.'
+    it: 'Il valore vale lampeggi meno uno (01 = 2 lampeggi secondo una fonte); dall''elenco BimmerCode: 1, 2, 3 volte oppure spento.'
+    en: 'The value is flashes minus one (01 = 2 flashes per one source); from the BimmerCode list: 1, 2, 3 times or off.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -674,6 +727,9 @@
   titolo:
     it: Lampeggi di conferma all'apertura
     en: Confirmation flashes when unlocking
+  descrizione:
+    it: 'Cambia quante volte lampeggiano le frecce quando apri l''auto, o li toglie.'
+    en: 'Changes how many times the indicators flash when you unlock the car, or removes them.'
   parametri:
   - nome: QUITTBLK_ENTSCHAERFEN_ANZAHL
     regolabile: true
@@ -690,8 +746,8 @@
   - F57
   - F60
   note:
-    it: 'Elenco BimmerCode: 1, 2, 3 volte oppure spento.'
-    en: 'BimmerCode list: 1, 2 or 3 times, or off.'
+    it: 'Il valore vale lampeggi meno uno (02 = 3 lampeggi secondo una fonte); dall''elenco BimmerCode: 1, 2, 3 volte oppure spento.'
+    en: 'The value is flashes minus one (02 = 3 flashes per one source); from the BimmerCode list: 1, 2, 3 times or off.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -707,6 +763,9 @@
   titolo:
     it: Luce di benvenuto solo al buio
     en: Welcome light only in the dark
+  descrizione:
+    it: 'Le luci di benvenuto si accendono solo quando è buio, non di giorno.'
+    en: 'Welcome lights only come on when it is dark, not during the day.'
   parametri:
   - nome: WL_ABHAENGIG_VON_DUNKELHEIT
     target: aktiv
@@ -720,8 +779,8 @@
   - F57
   - F60
   note:
-    it: 'Elenco BimmerCode. Evita che fari e luci si accendano di giorno all''apertura. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
-    en: 'BimmerCode list. Stops headlights and lights from coming on in daylight when you unlock. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
+    it: 'Nessuna fonte pubblica descrive il parametro: l''abbinamento viene dal nome nel FWL e dall''elenco di BimmerCode.'
+    en: 'No public source describes the parameter: the match comes from the name in the FWL and the BimmerCode list.'
   fonti: &id001
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -735,6 +794,9 @@
   titolo:
     it: Durata della luce di benvenuto
     en: Welcome light duration
+  descrizione:
+    it: 'Cambia per quanto tempo restano accese le luci di benvenuto.'
+    en: 'Changes how long the welcome lights stay on.'
   parametri:
   - nome: WL_TIMEOUT
     regolabile: true
@@ -751,8 +813,8 @@
   - F57
   - F60
   note:
-    it: 'Elenco BimmerCode: da 5 a 60 secondi. Valore esadecimale.'
-    en: 'BimmerCode list: 5 to 60 seconds. Hexadecimal value.'
+    it: 'Valore esadecimale in secondi: una fonte francese usa 3C (60 s, di fabbrica 20 s); l''elenco BimmerCode va da 5 a 60 secondi.'
+    en: 'Hex value in seconds: a French source uses 3C (60 s, factory 20 s); the BimmerCode list goes from 5 to 60 seconds.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -767,6 +829,9 @@
   titolo:
     it: Luci incluse nel benvenuto
     en: Lights included in the welcome light
+  descrizione:
+    it: 'Sceglie quali luci si accendono con la luce di benvenuto e con il follow-me-home - anabbaglianti, fendinebbia, luci diurne.'
+    en: 'Chooses which lights come on with the welcome light and follow-me-home - dipped beams, fog lights, daytime running lights.'
   parametri:
   - nome: MAPPING_ABBLENDL_L_PART_OF
     regolabile: true
@@ -790,14 +855,8 @@
   - F57
   - F60
   note:
-    it: Su questo BDC i parametri si chiamano MAPPING_<luce>_PART_OF (non _PART_OF_WL come su altre F5x). Nella
-      F54 di riferimento luci di posizione, targa e luci design sono già nel benvenuto (WLH_FMH_RL), gli anabbaglianti
-      solo nel follow-me-home (FMH_RL), fendinebbia e DRL anteriori no (off). Cambia una coppia sinistra/destra
-      alla volta.
-    en: On this BDC the parameters are called MAPPING_<light>_PART_OF (not _PART_OF_WL as on other F5x). On the
-      reference F54 parking lights, number plate and design lights are already part of the welcome light (WLH_FMH_RL),
-      low beams only of follow-me-home (FMH_RL), fog lights and front DRL are not (off). Change one left/right pair
-      at a time.
+    it: 'Il valore dice di quali funzioni fa parte la luce: WLH è il benvenuto, FMH il follow-me-home. Su questo BDC i parametri si chiamano MAPPING_<luce>_PART_OF (non _PART_OF_WL come su altre F5x). Le fonti per i fendinebbia distinguono soft_on (accensione graduale) e hard_on. Cambia una coppia sinistra/destra alla volta.'
+    en: 'The value says which functions the light belongs to: WLH is the welcome light, FMH follow-me-home. On this BDC the parameters are called MAPPING_<light>_PART_OF (not _PART_OF_WL as on other F5x cars). Sources for fog lights distinguish soft_on (gradual) and hard_on. Change one left/right pair at a time.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
@@ -819,6 +878,9 @@
   titolo:
     it: Memoria del volante riscaldato
     en: Heated steering wheel memory
+  descrizione:
+    it: 'Il volante riscaldato resta acceso alla ripartenza anche dopo una sosta lunga; di fabbrica lo stato viene ricordato solo per 15 minuti.'
+    en: 'Steering wheel heating stays on when you restart even after a long stop; from the factory the state is only remembered for 15 minutes.'
   parametri:
   - nome: NACHLAUFZEIT_LENKRADHEIZUNG
     regolabile: true
@@ -835,10 +897,8 @@
   - F57
   - F60
   note:
-    it: Richiede il volante riscaldato (SA 248). Di fabbrica lo stato viene ricordato solo per 15 minuti dopo lo
-      spegnimento.
-    en: Requires the heated steering wheel (SA 248). From the factory the state is remembered only for 15 minutes
-      after switching off.
+    it: 'Serve il volante riscaldato (SA 248). Una fonte usa 03 per ricordarlo sempre.'
+    en: 'Needs a heated steering wheel (SA 248). One source uses 03 to always remember it.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
@@ -855,6 +915,9 @@
   titolo:
     it: Memoria dei sedili riscaldati
     en: Heated seats memory
+  descrizione:
+    it: 'Il riscaldamento dei sedili anteriori resta acceso alla ripartenza anche dopo una sosta lunga; di fabbrica lo stato viene ricordato solo per 15 minuti.'
+    en: 'Front seat heating stays on when you restart even after a long stop; from the factory the state is only remembered for 15 minutes.'
   parametri:
   - nome: NACHLAUFZEIT_SITZHEIZUNG_FRONT
     regolabile: true
@@ -871,8 +934,8 @@
   - F57
   - F60
   note:
-    it: 'Stesso principio per i sedili anteriori (SA 494). Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
-    en: 'Same principle for the front seats (SA 494). No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
+    it: 'Serve il riscaldamento dei sedili (SA 494). Nessuna fonte pubblica descrive il parametro: l''abbinamento viene dal nome nel FWL e dall''elenco di BimmerCode. Con il sedile elettrico il tempo può stare anche nella centralina del sedile (SMFA).'
+    en: 'Needs heated seats (SA 494). No public source describes the parameter: the match comes from the name in the FWL and the BimmerCode list. With an electric seat the time may also be in the seat unit (SMFA).'
   fonti: *id001
   osservazioni:
   - telaio: F54
@@ -887,6 +950,9 @@
   titolo:
     it: Sensibilità del sensore pioggia/luce
     en: Rain/light sensor sensitivity
+  descrizione:
+    it: 'Cambia quanto presto il sensore accende i fari in AUTO quando la luce cala.'
+    en: 'Changes how early the sensor turns on the headlights in AUTO as light fades.'
   parametri:
   - nome: RLS_DEF_FLC_SCHWELLWERT_SATZ
     regolabile: true
@@ -903,8 +969,8 @@
   - F57
   - F60
   note:
-    it: Elenco BimmerCode. Agisce sull'accensione automatica dei fari in AUTO.
-    en: BimmerCode list. Affects automatic headlights in AUTO.
+    it: 'Le fonti BMW usano unempfindlich (meno sensibile, i fari si accendono più tardi); l''elenco BimmerCode va da poco a molto sensibile.'
+    en: 'BMW sources use unempfindlich (less sensitive, headlights come on later); the BimmerCode list goes from low to high sensitivity.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -922,6 +988,9 @@
   titolo:
     it: Passate del tergicristallo dopo il lavaggio
     en: Wiper passes after washing
+  descrizione:
+    it: 'Cambia quante passate fa il tergicristallo anteriore dopo lo spruzzo del lavavetri.'
+    en: 'Changes how many wipes the front wiper makes after spraying washer fluid.'
   parametri:
   - nome: WW_ANZAHL_NACHWISCHZ_FRONT
     regolabile: true
@@ -938,8 +1007,8 @@
   - F57
   - F60
   note:
-    it: Elenco BimmerCode.
-    en: BimmerCode list.
+    it: 'Da 1 a 5; una fonte indica 3 come valore di fabbrica.'
+    en: 'From 1 to 5; one source gives 3 as the factory value.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -955,6 +1024,9 @@
   titolo:
     it: Tergicristallo rallenta da fermo
     en: Wipers slow down when stationary
+  descrizione:
+    it: 'Quando l''auto si ferma il tergicristallo passa da solo alla velocità inferiore.'
+    en: 'When the car stops, the wiper drops to the lower speed by itself.'
   parametri:
   - nome: WW_STANDRUECKSCHALTUNG
     target: aktiv
@@ -968,7 +1040,8 @@
   - F57
   - F60
   note:
-    it: ''
+    it: 'Sulle MINI lette è già attivo. Nessuna fonte pubblica descrive il parametro: l''abbinamento viene dal nome nel FWL e dall''elenco di BimmerCode.'
+    en: 'Already on in the MINIs read. No public source describes the parameter: the match comes from the name in the FWL and the BimmerCode list.'
   note:
     it: 'Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
     en: 'No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
@@ -984,6 +1057,9 @@
   titolo:
     it: Tergicristallo completa il ciclo allo spegnimento
     en: Wipers finish their cycle when switched off
+  descrizione:
+    it: 'Se spegni l''auto mentre il tergicristallo è in movimento, finisce la passata invece di fermarsi a metà vetro.'
+    en: 'If you switch off while the wiper is moving, it finishes the sweep instead of stopping mid-screen.'
   parametri:
   - nome: WW_ZYCLUS_VOLLEND_KLR_AUS
     target: aktiv
@@ -997,7 +1073,8 @@
   - F57
   - F60
   note:
-    it: ''
+    it: 'Sulle MINI lette è già attivo.'
+    en: 'Already on in the MINIs read.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Headlamp-Washers.md
   osservazioni:
@@ -1011,6 +1088,9 @@
   titolo:
     it: Velocità minima per le luci di stop lampeggianti
     en: Minimum speed for flashing brake lights
+  descrizione:
+    it: 'Cambia la velocità minima da cui le luci di stop lampeggiano in una frenata d''emergenza; di fabbrica 50 km/h.'
+    en: 'Changes the minimum speed from which the brake lights flash in an emergency stop; factory value 50 km/h.'
   parametri:
   - nome: ESS_AKTIVIERUNG_GESCHW
     regolabile: true
@@ -1027,8 +1107,8 @@
   - F57
   - F60
   note:
-    it: Elenco BimmerCode (Gefahrenbremslicht). Abbassa la velocità da cui scattano in frenata d'emergenza.
-    en: BimmerCode list (Gefahrenbremslicht). Lowers the speed above which they trigger under emergency braking.
+    it: 'Valore esadecimale in km/h: una fonte francese usa 14 (20 km/h), un cheat sheet coreano 0A (10 km/h).'
+    en: 'Hex value in km/h: a French source uses 14 (20 km/h), a Korean cheat sheet 0A (10 km/h).'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -1045,6 +1125,9 @@
   titolo:
     it: Decelerazione che attiva le luci di stop lampeggianti
     en: Deceleration that triggers flashing brake lights
+  descrizione:
+    it: 'Cambia quanto forte devi frenare perché le luci di stop lampeggino; di fabbrica 7 m/s².'
+    en: 'Changes how hard you must brake for the brake lights to flash; factory value 7 m/s².'
   parametri:
   - nome: ESS_AKTIVIERUNG_REALE_VERZ
     regolabile: true
@@ -1061,8 +1144,8 @@
   - F57
   - F60
   note:
-    it: Elenco BimmerCode.
-    en: BimmerCode list.
+    it: 'Una fonte francese usa 06 (3 m/s²), un cheat sheet coreano 04. Un valore più basso le fa scattare con frenate meno forti.'
+    en: 'A French source uses 06 (3 m/s²), a Korean cheat sheet 04. A lower value triggers them with less hard braking.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -1078,6 +1161,9 @@
   titolo:
     it: Modalità di guida all'avvio
     en: Driving mode at start-up
+  descrizione:
+    it: 'Sceglie con quale modalità di guida parte l''auto, per esempio Sport o Green.'
+    en: 'Chooses which driving mode the car starts in, for example Sport or Green.'
   parametri:
   - nome: FesInitMode
     regolabile: true
@@ -1094,12 +1180,8 @@
   - F57
   - F60
   note:
-    it: 'Elenco BimmerCode e forum. Sceglie con quale modalità parte l''auto. Si può scegliere solo tra le modalità
-      presenti nel BDC (FesHasModeN); sulla F54 di riferimento sono MID, Sport e Green (FesHasMode3/4/7): scegli
-      tra queste.'
-    en: 'BimmerCode list and forums. Chooses the mode the car starts in. You can only choose among the modes present
-      in the BDC (FesHasModeN); on the reference F54 these are MID, Sport and Green (FesHasMode3/4/7): pick one
-      of them.'
+    it: 'Si può scegliere solo tra le modalità presenti nel BDC (FesHasModeN): sulle MINI lette sono MID, Sport e Green (FesHasMode3/4/7). Una fonte BMW usa 07 per partire in ECO PRO.'
+    en: 'You can only choose among the modes present in the BDC (FesHasModeN): on the MINIs read they are MID, Sport and Green (FesHasMode3/4/7). A BMW source uses 07 to start in ECO PRO.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
@@ -1115,6 +1197,9 @@
   titolo:
     it: Leva del cambio in S attiva la modalità Sport
     en: Gear lever in S selects Sport mode
+  descrizione:
+    it: 'Spostando la leva del cambio automatico in S l''auto passa anche in modalità Sport.'
+    en: 'Moving the automatic gear lever to S also switches the car to Sport mode.'
   parametri:
   - nome: FesGwsKopplung
     target: aktiv
@@ -1131,8 +1216,8 @@
   - F55
   - F56
   note:
-    it: Fonte mini-f56-forum.de. Spostando la leva in S la vettura passa anche in modalità Sport.
-    en: 'Source: mini-f56-forum.de. Moving the lever to S also switches the car to Sport mode.'
+    it: 'Fonte mini-f56-forum.de: FesGwsKopplung = aktiv e FesGwsSportMode = Sport. Solo con cambio automatico.'
+    en: 'Source: mini-f56-forum.de: FesGwsKopplung = aktiv and FesGwsSportMode = Sport. Automatic gearbox only.'
   fonti: *id002
   osservazioni:
   - telaio: F54
@@ -1145,6 +1230,9 @@
   titolo:
     it: Modalità Sport+ (DSC meno invasivo)
     en: Sport+ mode (less intrusive DSC)
+  descrizione:
+    it: 'Aggiunge una modalità di guida Sport+ in cui il controllo di stabilità interviene meno.'
+    en: 'Adds a Sport+ driving mode in which stability control intervenes less.'
   parametri:
   - nome: FesHasMode5
     target: aktiv
@@ -1158,10 +1246,8 @@
   - F55
   - F56
   note:
-    it: Fonte mini-f56-forum.de. Cambia l'intervento del controllo di stabilità. Un utente ha poi avuto il quadro
-      senza indicazione della modalità e ha dovuto toccare anche FDS_MENUE_* nel KOMBI.
-    en: 'Source: mini-f56-forum.de. Changes how the stability control intervenes. One user then had no mode shown
-      in the cluster and also had to change FDS_MENUE_* in the KOMBI.'
+    it: 'Fonte mini-f56-forum.de. Un utente ha poi avuto il quadro senza indicazione della modalità e ha dovuto cambiare anche FDS_MENUE_* nel KOMBI. Cambia il comportamento del DSC: sconsigliata.'
+    en: 'Source: mini-f56-forum.de. One user then had no mode shown in the cluster and also had to change FDS_MENUE_* in the KOMBI. It changes DSC behaviour: not recommended.'
   fonti: *id002
   osservazioni:
   - telaio: F54
@@ -1174,6 +1260,9 @@
   titolo:
     it: Avvio motore senza premere il freno
     en: Start the engine without pressing the brake
+  descrizione:
+    it: 'Con il cambio automatico il motore si avvia senza premere il freno.'
+    en: 'With the automatic gearbox the engine starts without pressing the brake.'
   parametri:
   - nome: TCM_STARTLOCK_BRAKE
     target: nicht_aktiv
@@ -1186,8 +1275,8 @@
   - F56
   - F57
   note:
-    it: Citato su NAM. Toglie un blocco di sicurezza contro le partenze involontarie con la marcia inserita.
-    en: Mentioned on NAM. Removes a safety interlock against unintended moves with a gear engaged.
+    it: 'Toglie un blocco di sicurezza contro le partenze involontarie. Citata su NAM e in cheat sheet BMW (esclusa la i3): sconsigliata.'
+    en: 'Removes a safety lock against unintended moving off. Mentioned on NAM and in BMW cheat sheets (i3 excluded): not recommended.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -1203,8 +1292,11 @@
 - id: bdc_body.clacson-alla-chiusura-con-allarme
   centralina: BDC_BODY
   titolo:
-    it: Clacson alla chiusura con allarme
-    en: Horn when locking with the alarm
+    it: 'Clacson se chiudi l''auto col motore acceso'
+    en: 'Horn when locking with the engine running'
+  descrizione:
+    it: 'Se chiudi l''auto mentre il motore è acceso, il clacson suona due volte; impostandolo su nicht_aktiv non suona più.'
+    en: 'If you lock the car while the engine is running, the horn sounds twice; set to nicht_aktiv it no longer sounds.'
   parametri:
   - nome: VAM_HORN_AT_SECURE
     target: nicht_aktiv
@@ -1217,8 +1309,8 @@
   - F56
   - F57
   note:
-    it: Fonte mini-f56-forum.de. Toglie il colpo di clacson quando inserisci l'allarme.
-    en: 'Source: mini-f56-forum.de. Removes the horn chirp when you arm the alarm.'
+    it: 'Così lo descrivono un cheat sheet BMW (confermato) e uno coreano. Non è il segnale di conferma alla chiusura: quello è della sirena dell''allarme (voce FZD e voce della HU). Sulle MINI lette è attivo.'
+    en: 'This is how a BMW cheat sheet (confirmed) and a Korean one describe it. It is not the lock confirmation signal: that comes from the alarm siren (FZD entry and HU entry). On in the MINIs read.'
   fonti:
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/jokinawa.xml
@@ -1235,6 +1327,9 @@
   titolo:
     it: Luci maniglie in retromarcia
     en: Door handle lights in reverse
+  descrizione:
+    it: 'In retromarcia si accendono le luci delle maniglie esterne.'
+    en: 'In reverse the exterior door handle lights come on.'
   parametri:
   - nome: OVT_BEI_RUECKFAHRLICHT
     target: aktiv
@@ -1248,10 +1343,8 @@
   - F57
   - F60
   note:
-    it: 'Elenco BimmerCode, NAM e forum tedesco. Alcuni PSdZData non danno un nome al valore attuale: controlla
-      prima in auto se le maniglie già si accendono in retro.'
-    en: 'BimmerCode list, NAM and the German forum. Some PSdZData have no name for the current value: first check
-      in the car whether the handles already light up in reverse.'
+    it: 'Serve l''illuminazione delle maniglie. Fonti: elenco BimmerCode, NAM e forum tedesco. Con alcune versioni dei dati di E-Sys il valore attuale non ha nome: controlla prima in auto se le maniglie si accendono già in retro.'
+    en: 'Needs door handle lighting. Sources: BimmerCode list, NAM and German forum. With some E-Sys data versions the current value has no name: check in the car first whether the handles already light up in reverse.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming.html
@@ -1272,6 +1365,9 @@
   titolo:
     it: Tergicristallo a intervalli invece del sensore pioggia
     en: Interval wipers instead of the rain sensor
+  descrizione:
+    it: 'Il tergicristallo funziona a intervalli fissi invece di usare il sensore pioggia.'
+    en: 'The wiper works at fixed intervals instead of using the rain sensor.'
   parametri:
   - nome: WW_REGENSENSOR
     regolabile: true
@@ -1286,9 +1382,8 @@
   - F55
   - F56
   note:
-    it: 'Fonte mini-f56-forum.de. Lo stesso sensore gestisce l''accensione automatica dei fari: rischi di perdere
-      anche quella.'
-    en: 'Source: mini-f56-forum.de. The same sensor drives the automatic headlights: you may lose those too.'
+    it: 'Fonte mini-f56-forum.de: si dice al BDC che il sensore non è montato. Lo stesso sensore gestisce l''accensione automatica dei fari: rischi di perdere anche quella. Sconsigliata.'
+    en: 'Source: mini-f56-forum.de: the BDC is told the sensor is not fitted. The same sensor handles automatic headlights: you may lose that too. Not recommended.'
   fonti: *id002
   osservazioni:
   - telaio: F54
@@ -1301,6 +1396,9 @@
   titolo:
     it: Clacson se chiudi la porta del guidatore senza la P inserita
     en: Horn if you close the driver's door without P engaged
+  descrizione:
+    it: 'Nessuna fonte descrive il parametro. Dal nome il clacson suona se chiudi la porta del guidatore senza aver inserito la P.'
+    en: 'No source describes the parameter. From its name the horn sounds if you close the driver''s door without engaging P.'
   parametri:
   - nome: VAM_HORN_AT_CLOSING_DRD_NOT_IN_P
     target: aktiv
@@ -1314,8 +1412,8 @@
   - F57
   - F60
   note:
-    it: 'Avviso che l''auto non è in parcheggio quando scendi. Il nome del parametro è chiaro, l''effetto va confermato in auto. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
-    en: 'Warns that the car is not in park when you get out. The parameter name is clear, but the effect needs confirming in the car. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
+    it: 'L''abbinamento viene dal nome nel FWL e dall''elenco di BimmerCode: l''effetto va confermato in auto. Solo con cambio automatico.'
+    en: 'The match comes from the name in the FWL and the BimmerCode list: the effect must be confirmed in the car. Automatic gearbox only.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -1329,6 +1427,9 @@
   titolo:
     it: Apertura e chiusura comfort dei finestrini con il telecomando
     en: Comfort opening and closing of the windows with the remote
+  descrizione:
+    it: 'Tenendo premuto apri o chiudi sul telecomando si aprono o si chiudono finestrini e tetto.'
+    en: 'Holding unlock or lock on the key opens or closes the windows and roof.'
   parametri:
   - nome: KOMFORTOEFFNUNG_FB
     target: aktiv
@@ -1344,10 +1445,8 @@
   - F57
   - F60
   note:
-    it: 'Tenendo premuto apri o chiudi sul telecomando si aprono o chiudono finestrini e tetto. Nella F54 di riferimento
-      E-Sys mostra ''aktiv'' con dato 00: se non funziona, controlla il valore nella lista.'
-    en: 'Holding open or close on the remote opens or closes the windows and the roof. On the reference F54 E-Sys
-      shows ''aktiv'' with data 00: if it does not work, check the value in the list.'
+    it: 'Una fonte precisa che l''apertura parte dopo 2 secondi e la chiusura subito. Su una F54 E-Sys mostra aktiv con dato 00: se non funziona, controlla il valore nella lista.'
+    en: 'One source notes that opening starts after 2 seconds and closing immediately. On an F54 E-Sys shows aktiv with data 00: if it does not work, check the value in the list.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-2.html
   - https://bimmercode.app/vehicles/f56
@@ -1367,6 +1466,9 @@
   titolo:
     it: Richiusura automatica delle porte se non vengono aperte
     en: Automatic relock if no door is opened
+  descrizione:
+    it: 'Se apri l''auto con la chiave e non apri nessuna porta, si richiude da sola dopo un po''.'
+    en: 'If you unlock the car with the key and open no door, it locks itself again after a while.'
   parametri:
   - nome: CLI_DEFAULT_LOCK_AT_TIMEOUT
     regolabile: true
@@ -1383,8 +1485,8 @@
   - F57
   - F60
   note:
-    it: 'Impostazione predefinita della richiusura dopo lo sblocco. Effetto da verificare: potrebbe essere solo il valore iniziale del menu iDrive. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
-    en: 'Default setting for relocking after unlocking. Effect to be verified: it may only be the initial value of the iDrive menu. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
+    it: 'Potrebbe essere solo il valore iniziale della voce nel menu iDrive. Il tempo è in un parametro a parte (sulle BMW con FEM: CLM_TIME_PIA_LOCK_AT_TIMEOUT). Nessuna fonte pubblica descrive il parametro: l''abbinamento viene dal nome nel FWL e dall''elenco di BimmerCode.'
+    en: 'It may only be the initial value of the iDrive menu item. The time is a separate parameter (on BMWs with a FEM: CLM_TIME_PIA_LOCK_AT_TIMEOUT). No public source describes the parameter: the match comes from the name in the FWL and the BimmerCode list.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -1398,6 +1500,9 @@
   titolo:
     it: Avviso uscita di corsia acceso a ogni avvio
     en: Lane departure warning on at every start
+  descrizione:
+    it: 'L''avviso di uscita di corsia è già acceso a ogni avvio, senza doverlo attivare dal tasto.'
+    en: 'Lane departure warning is already on at every start, without enabling it with the button.'
   parametri:
   - nome: PIA_DEFAULT_SPURVERLASSENS_WARNUNG
     target: aktiv
@@ -1411,10 +1516,8 @@
   - F57
   - F60
   note:
-    it: 'Valore iniziale del profilo: l''avviso parte già acceso. Ha senso solo dopo aver attivato l''avviso di
-      uscita corsia (voci KAFAS e HU).'
-    en: 'Initial profile value: the warning starts switched on. Only useful after enabling the lane departure warning
-      (KAFAS and HU entries).'
+    it: 'È il valore iniziale del profilo. Ha senso solo dopo aver attivato l''avviso di uscita di corsia (voci KAFAS e HU).'
+    en: 'It is the profile''s initial value. Only makes sense after enabling lane departure warning (KAFAS and HU entries).'
   fonti:
   - https://www.minif56.com/threads/lane-departure-warning-coding-on-f54-clubman.89617/
   - https://github.com/butterflywaltz/BMW_Coding/blob/main/FDL%20Codes/BDC_FDL_Final.txt
@@ -1429,6 +1532,9 @@
   titolo:
     it: Luci posteriori accese insieme alle luci diurne
     en: Rear lights on together with the daytime running lights
+  descrizione:
+    it: 'Con le luci diurne accese si accendono anche le luci posteriori.'
+    en: 'With daytime running lights on, the tail lights come on too.'
   parametri:
   - nome: MAPPING_TAGFAHRL_1_H_L_OUTPUT
     target: sl_l
@@ -1442,12 +1548,8 @@
   - F55
   - F56
   note:
-    it: 'Usa le luci di posizione posteriori come diurne: con la DRL attiva il retro dell''auto resta acceso. Confermata
-      da più utenti F5x sul forum tedesco. Le luci diurne devono essere attive nel menu iDrive. Verifica la conformità
-      alle norme del tuo paese.'
-    en: 'Uses the rear parking lights as daytime lights: with the DRL on, the rear of the car stays lit. Confirmed
-      by several F5x owners on the German forum. Daytime running lights must be enabled in the iDrive menu. Check
-      that it complies with the rules in your country.'
+    it: 'Confermata da più utenti F5x sul forum tedesco. Le luci diurne devono essere attive nel menu iDrive. Sulle auto con due coppie di luci posteriori vedi anche la voce della seconda coppia. Verifica la conformità alle norme del tuo paese.'
+    en: 'Confirmed by several F5x owners on the German forum. Daytime running lights must be on in the iDrive menu. On cars with two pairs of tail lights see also the second pair entry. Check compliance with your country''s rules.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-25.html
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
@@ -1464,6 +1566,9 @@
   titolo:
     it: Fendinebbia spenti quando accendi gli abbaglianti
     en: Fog lights off when you switch on the high beams
+  descrizione:
+    it: 'Decide se i fendinebbia si spengono quando accendi gli abbaglianti (aktiv) o restano accesi (nicht_aktiv).'
+    en: 'Decides whether fog lights switch off when you turn on high beams (aktiv) or stay on (nicht_aktiv).'
   parametri:
   - nome: NSW_AUS_BEI_FL
     regolabile: true
@@ -1482,8 +1587,8 @@
   - F57
   - F60
   note:
-    it: Voce dell'elenco BimmerCode, parametro confermato sul forum tedesco.
-    en: Entry from the BimmerCode list, parameter confirmed on the German forum.
+    it: 'Le fonti BMW e francesi lo usano per tenerli accesi con gli abbaglianti. Servono i fendinebbia.'
+    en: 'BMW and French sources use it to keep them on with high beams. Needs fog lights.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
   - https://www.mini-f56-forum.de/forum/thread/258-codierung-im-mini-f54-f55-f56-rpa-licht-bis-hin-zu-ssa-anwendung-auf-eigene-gefa/
@@ -1503,6 +1608,9 @@
   titolo:
     it: Funzioni del terzo tasto della chiave e allarme panico
     en: Key fob third button and panic alarm
+  descrizione:
+    it: 'Sceglie cosa fa il terzo tasto della chiave con pressione breve, media e lunga - nessuna azione, apertura del baule, allarme panico o follow-me-home.'
+    en: 'Chooses what the key''s third button does with a short, medium and long press - nothing, opening the boot, panic alarm or follow-me-home.'
   parametri:
   - nome: RC_PANIC_ALARM
     regolabile: true
@@ -1517,10 +1625,8 @@
   - nome: RC_TIME_DELAY_PANIC
     regolabile: true
   valori_suggeriti:
-    it: 00 nessuna azione, 02 follow-me-home, 03 riscaldamento/raffrescamento ausiliario, 04 altre funzioni secondo
-      il CAFD; tempi in esadecimale
-    en: 00 no action, 02 follow-me-home, 03 auxiliary heating/cooling, 04 other functions depending on the CAFD;
-      times in hex
+    it: '00 nessuna azione, 02 apertura del baule, 03 allarme panico, 04 follow-me-home. Tempi in esadecimale: le fonti usano 14 per RC_TIME_DELAY_BOOTLID e 28 per RC_TIME_DELAY_PANIC.'
+    en: '00 no action, 02 open boot, 03 panic alarm, 04 follow-me-home. Times in hex: sources use 14 for RC_TIME_DELAY_BOOTLID and 28 for RC_TIME_DELAY_PANIC.'
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -1537,11 +1643,8 @@
   - F85
   - F86
   note:
-    it: Sceglie cosa fa il terzo tasto con pressione breve, media e lunga, e il ritardo di bagagliaio e allarme
-      panico. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su
-      GitHub.
-    en: Chooses what the third button does on short, medium and long press, and the delay for tailgate and panic
-      alarm. Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'RC_PANIC_ALARM abilita l''allarme panico. Una fonte francese propone: breve = follow-me-home, media = baule, lunga = allarme panico. RC_TIME_DELAY_BOOTLID è per quanto va tenuto premuto il tasto del baule.'
+    en: 'RC_PANIC_ALARM enables the panic alarm. A French source suggests: short = follow-me-home, medium = boot, long = panic alarm. RC_TIME_DELAY_BOOTLID is how long the boot button must be held.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -1563,6 +1666,9 @@
   titolo:
     it: 'Frecce anteriori a LED: controllo lampadine'
     en: 'LED front turn signals: bulb check'
+  descrizione:
+    it: 'Adatta il controllo delle lampadine guaste alle frecce anteriori a LED montate dopo, per evitare spie e lampeggio veloce.'
+    en: 'Adapts the bulb failure check to aftermarket LED front indicators, to avoid warnings and fast flashing.'
   parametri:
   - nome: FRA_V_L_KALTUEBERWACHUNG
     target: nicht_aktiv
@@ -1592,10 +1698,8 @@
   - F54
   - F56
   note:
-    it: 'Solo se hai montato frecce a LED: adegua il controllo guasti per evitare spie e lampeggio veloce. Parametro
-      presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'Only if you fitted LED turn signals: adapts the fault check to avoid warnings and hyper-flashing. Parameter
-      present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'Solo se hai montato frecce a LED al posto delle lampadine. Sulle MINI lette i valori sono già quelli indicati.'
+    en: 'Only if you fitted LED indicators instead of bulbs. On the MINIs read the values are already the ones shown.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/Turn-Signals.md
@@ -1611,6 +1715,9 @@
   titolo:
     it: Ritardo di apertura e chiusura comfort
     en: Comfort opening and closing delay
+  descrizione:
+    it: 'Riduce l''attesa prima che finestrini, tetto e specchi si muovano tenendo premuto il tasto del telecomando o con il Comfort Access.'
+    en: 'Shortens the wait before windows, roof and mirrors move when you hold the key button or use Comfort Access.'
   parametri:
   - nome: KOMFORT_SCHLIESSEN
     regolabile: true
@@ -1650,10 +1757,8 @@
   - F85
   - F86
   note:
-    it: Riduce l'attesa prima che finestrini, tetto e specchi si muovano tenendo premuto il telecomando. Parametro
-      presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Shortens the wait before windows, roof and mirrors move while holding the remote. Parameter present in the
-      reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Esadecimale in decimi di secondo (0A = 1 s): una fonte francese indica 1,5 s di fabbrica in chiusura e 2,5 s in apertura; altre fonti usano 00 per toglierlo.'
+    en: 'Hex in tenths of a second (0A = 1 s): a French source gives 1.5 s from the factory for closing and 2.5 s for opening; other sources use 00 to remove it.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-2.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
@@ -1672,6 +1777,9 @@
   titolo:
     it: 'Apertura comfort, chiusura col Comfort Access e specchi riaperti'
     en: 'Comfort opening, closing with Comfort Access and mirrors unfolded'
+  descrizione:
+    it: 'Attiva l''apertura dei finestrini tenendo premuto il tasto di apertura, la chiusura tenendo il dito sulla maniglia (Comfort Access) e la riapertura degli specchi.'
+    en: 'Enables opening the windows by holding the unlock button, closing by holding a finger on the handle (Comfort Access) and unfolding the mirrors.'
   parametri:
   - nome: KOMFORTOEFFNUNG
     target: aktiv
@@ -1692,8 +1800,8 @@
   - F80
   - F82
   note:
-    it: 'Interruttori, non ritardi: KOMFORTOEFFNUNG apre i finestrini tenendo premuto il tasto di apertura, KOMFORTSCHLIESSUNG_PA chiude tenendo il dito sulla maniglia (Comfort Access), ASP_AUSKLAPPEN_NACH_KOMFORTSCHLIESSEN riapre gli specchi. Provata con esito su una X1 F48. I ritardi sono nella voce a parte.'
-    en: 'Switches, not delays: KOMFORTOEFFNUNG opens the windows by holding the unlock button, KOMFORTSCHLIESSUNG_PA closes by holding a finger on the handle (Comfort Access), ASP_AUSKLAPPEN_NACH_KOMFORTSCHLIESSEN unfolds the mirrors. Tested successfully on an X1 F48. The delays have their own entry.'
+    it: 'Sono interruttori, non ritardi: i ritardi sono nella voce a parte. Provata con esito su una X1 F48. Sulle MINI lette è già attivo.'
+    en: 'These are switches, not delays: the delays are in the separate entry. Tested successfully on an X1 F48. Already on in the MINIs read.'
   fonti:
   - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/11
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -1717,6 +1825,9 @@
   titolo:
     it: Finestrini che si chiudono a porta aperta
     en: Windows closing with the door open
+  descrizione:
+    it: 'I finestrini continuano a salire anche con la porta aperta.'
+    en: 'The windows keep going up even with the door open.'
   parametri:
   - nome: FH_TUERAUF_STOP_MAUT
     target: nicht_aktiv
@@ -1764,10 +1875,8 @@
   - F85
   - F86
   note:
-    it: 'Toglie il blocco che ferma i finestrini a porta aperta: rischio di schiacciamento. Sconsigliata. Parametro
-      presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'Removes the lock that stops the windows with the door open: risk of trapping. Not recommended. Parameter
-      present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'Toglie il blocco che ferma i finestrini a porta aperta: rischio di schiacciamento. Sconsigliata.'
+    en: 'Removes the lock that stops the windows with the door open: risk of trapping. Not recommended.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
@@ -1786,6 +1895,9 @@
   titolo:
     it: Lampeggianti di emergenza dopo una frenata brusca
     en: Hazard lights after hard braking
+  descrizione:
+    it: 'Dopo una frenata brusca si accendono le quattro frecce.'
+    en: 'After hard braking the hazard lights come on.'
   parametri:
   - nome: WB_GB_ENABLE
     target: aktiv
@@ -1833,11 +1945,8 @@
   - F85
   - F86
   note:
-    it: 'Accende le quattro frecce dopo una frenata forte. Le fonti la attivano o la disattivano: disattivarla riduce
-      la sicurezza. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet
-      su GitHub.'
-    en: 'Turns on the hazards after hard braking. Sources enable or disable it: disabling it reduces safety. Parameter
-      present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'Sulle MINI lette WB_GB_ENABLE è già attivo. Le fonti lo attivano o lo disattivano; un cheat sheet coreano usa 50 km/h come soglia (WB_GB_GEFAHRENWERT_MIN). Spegnerlo riduce la sicurezza.'
+    en: 'On the MINIs read WB_GB_ENABLE is already on. Sources enable or disable it; a Korean cheat sheet uses 50 km/h as threshold (WB_GB_GEFAHRENWERT_MIN). Turning it off reduces safety.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -1853,6 +1962,9 @@
   titolo:
     it: 'Fendinebbia a LED: controllo lampadine'
     en: 'LED fog lights: bulb check'
+  descrizione:
+    it: 'Adatta il controllo delle lampadine guaste ai fendinebbia a LED montati dopo, per evitare la spia di lampadina guasta.'
+    en: 'Adapts the bulb failure check to aftermarket LED fog lights, to avoid the bulb failure warning.'
   parametri:
   - nome: NSW_L_KALTUEBERWACHUNG
     target: nicht_aktiv
@@ -1882,10 +1994,8 @@
   - F54
   - F56
   note:
-    it: 'Solo con fendinebbia a LED montati dopo: evita la spia di lampadina guasta. Parametro presente nei FWL
-      della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'Only with retrofitted LED fog lights: avoids the bulb failure warning. Parameter present in the reference
-      F54 FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'Solo se hai montato fendinebbia a LED al posto delle lampadine. Fonte: cheat sheet coreani.'
+    en: 'Only if you fitted LED fog lights instead of bulbs. Source: Korean cheat sheets.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   osservazioni:
@@ -1900,6 +2010,9 @@
   titolo:
     it: 'Frecce posteriori a LED: controllo lampadine'
     en: 'LED rear turn signals: bulb check'
+  descrizione:
+    it: 'Adatta il controllo delle lampadine guaste alle frecce posteriori a LED montate dopo, per evitare spie e lampeggio veloce.'
+    en: 'Adapts the bulb failure check to aftermarket LED rear indicators, to avoid warnings and fast flashing.'
   parametri:
   - nome: FRA_H_L_KALTUEBERWACHUNG
     target: nicht_aktiv
@@ -1927,10 +2040,8 @@
   - F54
   - F56
   note:
-    it: 'Solo con frecce posteriori a LED montate dopo: evita spie e lampeggio veloce. Parametro presente nei FWL
-      della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'Only with retrofitted LED rear turn signals: avoids warnings and hyper-flashing. Parameter present in the
-      reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'Solo se hai montato frecce posteriori a LED al posto delle lampadine.'
+    en: 'Only if you fitted LED rear indicators instead of bulbs.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-37.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -1947,6 +2058,9 @@
   titolo:
     it: 'Brake Force Display: intensità delle luci'
     en: 'Brake Force Display: light settings'
+  descrizione:
+    it: 'Cambia l''intensità delle luci del Brake Force Display, che in frenata forte accende più luci di stop.'
+    en: 'Changes the light intensity of Brake Force Display, which lights more brake lamps under hard braking.'
   parametri:
   - nome: MAPPING_BRAKEFORCED_1_L_PRIORITY
     regolabile: true
@@ -1995,11 +2109,8 @@
   - F54
   - F56
   note:
-    it: 'Tabelle luci del Brake Force Display documentate solo su F15 e "in prova". Tocca le luci di stop: rischio
-      di non conformità. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
-      sheet su GitHub.'
-    en: 'Brake Force Display light tables documented only on F15 and "testing". Touches the brake lights: compliance
-      risk. Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'Tabelle documentate solo su F15 e marcate "in prova". Tocca le luci di stop: rischio di non conformità. Sconsigliata.'
+    en: 'Tables documented only on F15 and marked "testing". It touches the brake lights: risk of non-compliance. Not recommended.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
@@ -2019,6 +2130,9 @@
   titolo:
     it: Numero di lampeggi della freccia comfort
     en: Comfort turn signal flash count
+  descrizione:
+    it: 'Cambia quante volte lampeggia la freccia con un tocco leggero della levetta.'
+    en: 'Changes how many times the indicator flashes with a light touch of the stalk.'
   parametri:
   - nome: BLINKZYKLEN_ANZAHL_TIPP
     regolabile: true
@@ -2067,10 +2181,8 @@
   - F85
   - F86
   note:
-    it: Alternativa a PIA_DEFAULT_TIPPBLINKEN su alcuni i-level. Una fonte indica che non vale per l'i-step 3.61.x.
-      Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Alternative to PIA_DEFAULT_TIPPBLINKEN on some i-levels. One source says it does not apply to i-step 3.61.x.
-      Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'È l''alternativa a PIA_DEFAULT_TIPPBLINKEN su alcuni i-level; due fonti dicono che non vale dall''i-step 3.61.x in poi. Il valore vale lampeggi meno uno (04 = 5). Non tutti i FWL elencano questo parametro.'
+    en: 'It is the alternative to PIA_DEFAULT_TIPPBLINKEN on some i-levels; two sources say it does not apply from i-step 3.61.x onwards. The value is flashes minus one (04 = 5). Not every FWL lists this parameter.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
@@ -2089,6 +2201,9 @@
   titolo:
     it: Avvio motore senza freno (in P)
     en: Engine start without the brake (in P)
+  descrizione:
+    it: 'Il motore si avvia in P senza premere il freno.'
+    en: 'The engine starts in P without pressing the brake.'
   parametri:
   - nome: TCM_STARTLOCK_PARK
     target: '00'
@@ -2119,10 +2234,8 @@
   - F82
   - F83
   note:
-    it: Toglie un blocco di sicurezza all'avviamento. Sconsigliata. Parametro presente nei FWL della F54 di riferimento;
-      la codifica è documentata nei cheat sheet su GitHub.
-    en: Removes a safety interlock at start-up. Not recommended. Parameter present in the reference F54 FWL files;
-      the coding is documented in GitHub cheat sheets.
+    it: 'Toglie un blocco di sicurezza all''avviamento. Sconsigliata.'
+    en: 'Removes a safety lock at start-up. Not recommended.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -2139,6 +2252,9 @@
   titolo:
     it: Retronebbia su entrambi i lati
     en: Rear fog light on both sides
+  descrizione:
+    it: 'Il retronebbia si accende da entrambi i lati invece che da uno solo.'
+    en: 'The rear fog light comes on on both sides instead of only one.'
   parametri:
   - nome: MAPPING_NEBELSCHLUSSL_L_OUTPUT
     regolabile: true
@@ -2162,11 +2278,8 @@
   - F80
   - F82
   note:
-    it: Fa accendere il retronebbia da entrambi i lati. Sulle BMW va abbinato a REM o FEM. Verifica le norme del
-      tuo paese. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet
-      su GitHub.
-    en: Makes the rear fog light work on both sides. On BMWs it goes with REM or FEM. Check your local rules. Parameter
-      present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'È il primo passaggio: serve anche la voce "Retronebbia montato" (NSL_VERBAUT); sulle BMW va abbinato al REM o al FEM. Verifica le norme del tuo paese.'
+    en: 'It is the first step: the entry "Rear fog light fitted" (NSL_VERBAUT) is also needed; on BMWs it goes with the REM or FEM. Check your country''s rules.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
@@ -2189,6 +2302,9 @@
   titolo:
     it: Luci adattive (AFS) e abbaglianti antiabbagliamento
     en: Adaptive lights (AFS) and glare-free high beam
+  descrizione:
+    it: 'Abilita nel BDC i fari adattivi (AFS) e gli abbaglianti antiabbagliamento.'
+    en: 'Enables adaptive headlights (AFS) and glare-free high beams in the BDC.'
   parametri:
   - nome: LUT_FLC_FORWARDLIGHTING_Y
     regolabile: true
@@ -2217,11 +2333,8 @@
   - F85
   - F86
   note:
-    it: Richiede fari con AFS o abbaglianti antiabbagliamento (F15, F80/F82). Senza quell'hardware i fari possono
-      funzionare male. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
-      sheet su GitHub.
-    en: Needs headlights with AFS or glare-free high beam (F15, F80/F82). Without that hardware the headlights may
-      misbehave. Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Va codificata insieme a telecamera (KAFAS) e moduli fari (FLE). Richiede fari con AFS o abbaglianti antiabbagliamento (F15, F80/F82): senza quell''hardware i fari possono funzionare male. Sconsigliata.'
+    en: 'Must be coded together with the camera (KAFAS) and headlight modules (FLE). Needs headlights with AFS or glare-free high beams (F15, F80/F82): without that hardware the headlights may malfunction. Not recommended.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/pmooiweer.xml
@@ -2242,6 +2355,9 @@
   titolo:
     it: 'Abbaglianti automatici: modalità autostrada'
     en: 'High-beam assistant: motorway mode'
+  descrizione:
+    it: 'Cambia a che velocità gli abbaglianti automatici entrano ed escono dalla modalità autostrada; di fabbrica entrano a 140 km/h ed escono a 90.'
+    en: 'Changes at which speed automatic high beams enter and leave motorway mode; from the factory they enter at 140 km/h and leave at 90.'
   parametri:
   - nome: C_HBA_HGWY_V_LO
     regolabile: true
@@ -2263,10 +2379,8 @@
   - F54
   - F56
   note:
-    it: Velocità di ingresso e uscita dalla modalità autostrada degli abbaglianti automatici. Parametro presente
-      nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Speeds to enter and leave the high-beam assistant motorway mode. Parameter present in the reference F54
-      FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Una fonte francese la fa partire subito da 120 km/h, oppure tra 90 e 110 km/h dopo 15 secondi. Velocità in esadecimale (8C = 140, 5A = 90).'
+    en: 'A French source makes it start immediately from 120 km/h, or between 90 and 110 km/h after 15 seconds. Speeds in hex (8C = 140, 5A = 90).'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/High-Beam-Assistant.md
@@ -2286,6 +2400,9 @@
   titolo:
     it: Palette del cambio al volante
     en: Steering wheel paddles
+  descrizione:
+    it: 'Abilita le palette del cambio al volante.'
+    en: 'Enables the steering wheel gearshift paddles.'
   parametri:
   - nome: PADDLES_VERBAUT
     target: aktiv
@@ -2313,10 +2430,8 @@
   - F82
   - F83
   note:
-    it: Abilita le palette se montate. Una fonte F55/F56 la riporta. Parametro presente nei FWL della F54 di riferimento;
-      la codifica è documentata nei cheat sheet su GitHub.
-    en: Enables the paddles if fitted. One F55/F56 source reports it. Parameter present in the reference F54 FWL
-      files; the coding is documented in GitHub cheat sheets.
+    it: 'Servono le palette montate e il cambio automatico. Sulle MINI lette è già attivo.'
+    en: 'Needs paddles fitted and an automatic gearbox. Already on in the MINIs read.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -2332,6 +2447,9 @@
   titolo:
     it: Avvio motore senza premere la frizione
     en: Engine start without pressing the clutch
+  descrizione:
+    it: 'Con il cambio manuale il motore si avvia senza premere la frizione.'
+    en: 'With a manual gearbox the engine starts without pressing the clutch.'
   parametri:
   - nome: TCM_STARTLOCK_CLUTCH
     target: '00'
@@ -2359,10 +2477,8 @@
   - F82
   - F83
   note:
-    it: 'Cambio manuale: toglie il blocco che evita partenze con la marcia inserita. Sconsigliata. Parametro presente
-      nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'Manual gearbox: removes the interlock against starting in gear. Not recommended. Parameter present in the
-      reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'Toglie il blocco che evita partenze con la marcia inserita. Sconsigliata.'
+    en: 'Removes the lock that prevents starting in gear. Not recommended.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-19.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
@@ -2378,6 +2494,9 @@
   titolo:
     it: Frequenza delle luci di stop lampeggianti
     en: Flashing brake light frequency
+  descrizione:
+    it: 'Aumenta la frequenza di lampeggio delle luci di stop nella frenata d''emergenza; di fabbrica 3 Hz.'
+    en: 'Increases the flashing rate of the brake lights in an emergency stop; factory value 3 Hz.'
   parametri:
   - nome: ESS_BLINKFREQ_1
     regolabile: true
@@ -2397,10 +2516,8 @@
   - F80
   - F82
   note:
-    it: Solo luci LED. Aumenta la frequenza di lampeggio in frenata d'emergenza. Parametro presente nei FWL della
-      F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: LED lights only. Raises the flashing rate under emergency braking. Parameter present in the reference F54
-      FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Solo con luci posteriori a LED. Le fonti usano 05.'
+    en: 'Only with LED rear lights. Sources use 05.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
@@ -2421,6 +2538,9 @@
   titolo:
     it: Luci di ingombro laterali (sidemarker)
     en: Side marker lights
+  descrizione:
+    it: 'Accende o spegne le luci di ingombro laterali (sidemarker), come sulle auto americane.'
+    en: 'Turns the side marker lights on or off, as on US cars.'
   parametri:
   - nome: MAPPING_SIDEMARKER_L_OUTPUT
     regolabile: true
@@ -2442,10 +2562,8 @@
   - F54
   - F56
   note:
-    it: Impostazione da auto USA. Verifica le norme del tuo paese. Parametro presente nei FWL della F54 di riferimento;
-      la codifica è documentata nei cheat sheet su GitHub.
-    en: US car setting. Check your local rules. Parameter present in the reference F54 FWL files; the coding is
-      documented in GitHub cheat sheets.
+    it: 'Impostazione da auto USA. Verifica le norme del tuo paese.'
+    en: 'A US-car setting. Check your country''s rules.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-42.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -2468,6 +2586,9 @@
   titolo:
     it: 'Abbaglianti automatici: velocità di attivazione'
     en: 'High-beam assistant: activation speed'
+  descrizione:
+    it: 'Cambia la velocità sopra la quale gli abbaglianti automatici si attivano e sotto la quale si disattivano.'
+    en: 'Changes the speed above which automatic high beams activate and below which they deactivate.'
   parametri:
   - nome: C_HBA_ENA_V_LO
     regolabile: true
@@ -2485,10 +2606,8 @@
   - F54
   - F56
   note:
-    it: Velocità sopra cui si attivano e sotto cui si disattivano. Parametro presente nei FWL della F54 di riferimento;
-      la codifica è documentata nei cheat sheet su GitHub.
-    en: Speed above which they turn on and below which they turn off. Parameter present in the reference F54 FWL
-      files; the coding is documented in GitHub cheat sheets.
+    it: 'Una fonte francese indica 70 e 60 km/h di fabbrica e li porta a 50 e 45 (32 e 2D in esadecimale).'
+    en: 'A French source gives 70 and 60 km/h from the factory and changes them to 50 and 45 (32 and 2D in hex).'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/High-Beam-Assistant.md
@@ -2508,12 +2627,15 @@
   titolo:
     it: 'Quarto tasto della chiave: pressione breve'
     en: 'Key fob fourth button: short press'
+  descrizione:
+    it: 'Sceglie cosa fa il quarto tasto della chiave con una pressione breve.'
+    en: 'Chooses what the key''s fourth button does with a short press.'
   parametri:
   - nome: RC_DEFAULT_IDG_4TH_BUTTON_SHORT
     regolabile: true
   valori_suggeriti:
-    it: 00 nessuna azione, 02 follow-me-home, 03 riscaldamento/raffrescamento ausiliario
-    en: 00 no action, 02 follow-me-home, 03 auxiliary heating/cooling
+    it: '00 nessuna azione, 02 apertura del baule, 03 allarme panico, 04 follow-me-home.'
+    en: '00 no action, 02 open boot, 03 panic alarm, 04 follow-me-home.'
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -2522,10 +2644,8 @@
   - F54
   - F56
   note:
-    it: Documentato su F15. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
-      sheet su GitHub.
-    en: Documented on F15. Parameter present in the reference F54 FWL files; the coding is documented in GitHub
-      cheat sheets.
+    it: 'Documentato su F15; serve una chiave con quattro tasti.'
+    en: 'Documented on F15; needs a key with four buttons.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
@@ -2544,12 +2664,15 @@
   titolo:
     it: 'Quarto tasto della chiave: pressione media'
     en: 'Key fob fourth button: medium press'
+  descrizione:
+    it: 'Sceglie cosa fa il quarto tasto della chiave con una pressione media.'
+    en: 'Chooses what the key''s fourth button does with a medium press.'
   parametri:
   - nome: RC_DEFAULT_IDG_4TH_BUTTON_MID
     regolabile: true
   valori_suggeriti:
-    it: 00 nessuna azione, 02 follow-me-home, 03 riscaldamento/raffrescamento ausiliario
-    en: 00 no action, 02 follow-me-home, 03 auxiliary heating/cooling
+    it: '00 nessuna azione, 02 apertura del baule, 03 allarme panico, 04 follow-me-home.'
+    en: '00 no action, 02 open boot, 03 panic alarm, 04 follow-me-home.'
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -2558,10 +2681,8 @@
   - F54
   - F56
   note:
-    it: Documentato su F15. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
-      sheet su GitHub.
-    en: Documented on F15. Parameter present in the reference F54 FWL files; the coding is documented in GitHub
-      cheat sheets.
+    it: 'Documentato su F15; serve una chiave con quattro tasti.'
+    en: 'Documented on F15; needs a key with four buttons.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
@@ -2580,12 +2701,15 @@
   titolo:
     it: 'Quarto tasto della chiave: pressione lunga'
     en: 'Key fob fourth button: long press'
+  descrizione:
+    it: 'Sceglie cosa fa il quarto tasto della chiave con una pressione lunga.'
+    en: 'Chooses what the key''s fourth button does with a long press.'
   parametri:
   - nome: RC_DEFAULT_IDG_4TH_BUTTON_LONG
     regolabile: true
   valori_suggeriti:
-    it: 00 nessuna azione, 02 follow-me-home, 03 riscaldamento/raffrescamento ausiliario
-    en: 00 no action, 02 follow-me-home, 03 auxiliary heating/cooling
+    it: '00 nessuna azione, 02 apertura del baule, 03 allarme panico, 04 follow-me-home.'
+    en: '00 no action, 02 open boot, 03 panic alarm, 04 follow-me-home.'
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -2594,10 +2718,8 @@
   - F54
   - F56
   note:
-    it: Documentato su F15. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
-      sheet su GitHub.
-    en: Documented on F15. Parameter present in the reference F54 FWL files; the coding is documented in GitHub
-      cheat sheets.
+    it: 'Documentato su F15; serve una chiave con quattro tasti.'
+    en: 'Documented on F15; needs a key with four buttons.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
@@ -2616,6 +2738,9 @@
   titolo:
     it: Lavafari attivo o disattivato
     en: Headlight washers on or off
+  descrizione:
+    it: 'Attiva o disattiva il lavafari.'
+    en: 'Enables or disables the headlight washer.'
   parametri:
   - nome: WW_SCHEINWERFERREINIGUNG
     regolabile: true
@@ -2631,10 +2756,8 @@
   - F54
   - F56
   note:
-    it: 'Con fari LED o allo xeno il lavafari può essere obbligatorio: verifica le norme. Parametro presente nei
-      FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'With LED or xenon headlights washers may be mandatory: check the rules. Parameter present in the reference
-      F54 FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'Con fari LED o allo xeno il lavafari può essere obbligatorio: verifica le norme. Serve il lavafari montato.'
+    en: 'With LED or xenon headlights the washer may be mandatory: check the rules. Needs the headlight washer fitted.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -2656,6 +2779,9 @@
   titolo:
     it: 'Lavafari: ogni quanti lavaggi del parabrezza'
     en: 'Headlight washers: every how many windscreen washes'
+  descrizione:
+    it: 'Cambia ogni quanti lavaggi del parabrezza interviene anche il lavafari; di fabbrica ogni 10.'
+    en: 'Changes after how many windscreen washes the headlight washer also works; factory value every 10.'
   parametri:
   - nome: WW_ANZAHL_WASCHBET_ZUR_SRA
     regolabile: true
@@ -2671,8 +2797,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Esadecimale: le fonti usano 02, 04 o 05.'
+    en: 'Hex: sources use 02, 04 or 05.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/packetpilot.xml
@@ -2693,6 +2819,9 @@
   titolo:
     it: 'Lavafari: numero di spruzzi'
     en: 'Headlight washers: number of sprays'
+  descrizione:
+    it: 'Cambia quanti spruzzi fa il lavafari; di fabbrica 2.'
+    en: 'Changes how many sprays the headlight washer makes; factory value 2.'
   parametri:
   - nome: WW_ANZAHL_SPRITZIMPULSE_SRA
     regolabile: true
@@ -2708,8 +2837,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Le fonti usano 03 per uno spruzzo in più.'
+    en: 'Sources use 03 for one extra spray.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/packetpilot.xml
@@ -2730,6 +2859,9 @@
   titolo:
     it: 'Brake Force Display: lampeggio delle luci'
     en: 'Brake Force Display: flashing lights'
+  descrizione:
+    it: 'In frenata forte le luci del Brake Force Display lampeggiano.'
+    en: 'Under hard braking the Brake Force Display lights flash.'
   parametri:
   - nome: MAPPING_BRAKEFORCED_1_L_OUTPUT
     regolabile: true
@@ -2750,10 +2882,8 @@
   - F54
   - F56
   note:
-    it: 'Documentato solo su F15. Tocca le luci di stop: rischio di non conformità. Parametro presente nei FWL della
-      F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'Documented only on F15. Touches the brake lights: compliance risk. Parameter present in the reference F54
-      FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'Documentato solo su F15. Tocca le luci di stop: rischio di non conformità. Sconsigliata.'
+    en: 'Documented only on F15. It touches the brake lights: risk of non-compliance. Not recommended.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
@@ -2773,6 +2903,9 @@
   titolo:
     it: Seconda coppia di luci posteriori con le diurne
     en: Second pair of rear lights with the DRL
+  descrizione:
+    it: 'Con le luci diurne accese si accende anche la seconda coppia di luci posteriori.'
+    en: 'With daytime running lights on, the second pair of tail lights comes on too.'
   parametri:
   - nome: MAPPING_TAGFAHRL_2_H_L_OUTPUT
     target: sl_2_l
@@ -2788,11 +2921,8 @@
   - F54
   - F56
   note:
-    it: Terzo passaggio della procedura "luci posteriori con le diurne" (F15/F16/F25 e F56). Verifica le norme del
-      tuo paese. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet
-      su GitHub.
-    en: Third step of the "rear lights with DRL" procedure (F15/F16/F25 and F56). Check your local rules. Parameter
-      present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Terzo passaggio della procedura "luci posteriori con le diurne", documentata su F15/F16/F25 e F56. Verifica le norme del tuo paese.'
+    en: 'Third step of the "tail lights with DRL" procedure, documented on F15/F16/F25 and F56. Check your country''s rules.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/5
@@ -2807,6 +2937,9 @@
   titolo:
     it: 'Lavafari: attesa tra due lavaggi'
     en: 'Headlight washers: wait between washes'
+  descrizione:
+    it: 'Cambia quanto tempo deve passare prima che il lavafari intervenga di nuovo; di fabbrica 10 minuti.'
+    en: 'Changes how long before the headlight washer works again; factory value 10 minutes.'
   parametri:
   - nome: WW_SRA_SPERRZEIT
     regolabile: true
@@ -2822,8 +2955,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Minuti in esadecimale: le fonti usano 03 o 05.'
+    en: 'Minutes in hex: sources use 03 or 05.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Headlamp-Washers.md
@@ -2843,6 +2976,9 @@
   titolo:
     it: 'Tergilunotto: passate dopo il lavaggio'
     en: 'Rear wiper: wipes after washing'
+  descrizione:
+    it: 'Cambia quante passate fa il tergilunotto dopo lo spruzzo del lavavetri; di fabbrica 2.'
+    en: 'Changes how many wipes the rear wiper makes after spraying washer fluid; factory value 2.'
   parametri:
   - nome: WW_ANZAHL_NACHWISCHZ_HECK
     regolabile: true
@@ -2858,8 +2994,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Le fonti usano da 01 a 04.'
+    en: 'Sources use 01 to 04.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -2878,6 +3014,9 @@
   titolo:
     it: Retronebbia montato
     en: Rear fog light fitted
+  descrizione:
+    it: 'Dice al BDC che il retronebbia è montato.'
+    en: 'Tells the BDC that the rear fog light is fitted.'
   parametri:
   - nome: NSL_VERBAUT
     regolabile: true
@@ -2895,10 +3034,8 @@
   - F80
   - F82
   note:
-    it: Secondo passaggio per il retronebbia su entrambi i lati. Parametro presente nei FWL della F54 di riferimento;
-      la codifica è documentata nei cheat sheet su GitHub.
-    en: Second step for the rear fog light on both sides. Parameter present in the reference F54 FWL files; the
-      coding is documented in GitHub cheat sheets.
+    it: 'È il secondo passaggio per il retronebbia su entrambi i lati; sulle BMW va abbinato al REM. Sulle MINI lette è già verbaut.'
+    en: 'It is the second step for the rear fog light on both sides; on BMWs it goes with the REM. Already verbaut in the MINIs read.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-8.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -2920,6 +3057,9 @@
   titolo:
     it: 'Stop lampeggianti: soglia di disattivazione'
     en: 'Flashing brake lights: switch-off threshold'
+  descrizione:
+    it: 'Cambia sotto quale decelerazione le luci di stop smettono di lampeggiare dopo una frenata d''emergenza.'
+    en: 'Changes below which deceleration the brake lights stop flashing after an emergency stop.'
   parametri:
   - nome: ESS_DEAKTIVIERUNG_REALE_VERZ
     regolabile: true
@@ -2938,10 +3078,8 @@
   - F54
   - F56
   note:
-    it: Decelerazione sotto cui le luci di stop smettono di lampeggiare. Parametro presente nei FWL della F54 di
-      riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Deceleration below which the brake lights stop flashing. Parameter present in the reference F54 FWL files;
-      the coding is documented in GitHub cheat sheets.
+    it: 'L''unica fonte è un cheat sheet coreano, che usa 04.'
+    en: 'The only source is a Korean cheat sheet, which uses 04.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   osservazioni:
@@ -2955,6 +3093,9 @@
   titolo:
     it: Fendinebbia accesi in retromarcia
     en: Fog lights on in reverse
+  descrizione:
+    it: 'In retromarcia si accendono i fendinebbia, come luci di svolta.'
+    en: 'In reverse the fog lights come on, as cornering lights.'
   parametri:
   - nome: C_CLC_REV_ALWAYS_ON
     regolabile: true
@@ -2972,10 +3113,8 @@
   - F54
   - F56
   note:
-    it: Usa i fendinebbia come luci di svolta anche in retro. Verifica le norme. Parametro presente nei FWL della
-      F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Uses the fog lights as cornering lights in reverse too. Check the rules. Parameter present in the reference
-      F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'L''unica fonte, francese, usa 01 per entrambi i parametri. Servono i fendinebbia e la funzione luci di svolta. Verifica le norme del tuo paese.'
+    en: 'The only source, French, uses 01 for both parameters. Needs fog lights and the cornering light function. Check your country''s rules.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -2994,6 +3133,9 @@
   titolo:
     it: Fendinebbia nella luce di benvenuto
     en: Fog lights in the welcome light
+  descrizione:
+    it: 'Collega i fendinebbia alle uscite giuste perché si accendano con la luce di benvenuto.'
+    en: 'Maps the fog lights to the right outputs so they come on with the welcome light.'
   parametri:
   - nome: MAPPING_NEBELSCHW_L_OUTPUT
     regolabile: true
@@ -3012,10 +3154,8 @@
   - F56
   - F57
   note:
-    it: Fonte F55/F56/F57/F45. Va con MAPPING_NEBELSCHW_*_PART_OF nella voce sulle luci del benvenuto. Parametro
-      presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: F55/F56/F57/F45 source. Goes with MAPPING_NEBELSCHW_*_PART_OF in the welcome lights entry. Parameter present
-      in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Fonte F55/F56/F57/F45 (cheat sheet coreano, 0B e 0C). Va con MAPPING_NEBELSCHW_*_PART_OF nella voce "Luci incluse nel benvenuto". Servono i fendinebbia.'
+    en: 'Source: F55/F56/F57/F45 (Korean cheat sheet, 0B and 0C). Goes with MAPPING_NEBELSCHW_*_PART_OF in the entry "Lights included in the welcome". Needs fog lights.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:
@@ -3029,6 +3169,9 @@
   titolo:
     it: 'Luci di stop a LED: controllo lampadine'
     en: 'LED brake lights: bulb check'
+  descrizione:
+    it: 'Adatta il controllo delle lampadine guaste alle luci di stop a LED montate dopo, per evitare la spia di lampadina guasta.'
+    en: 'Adapts the bulb failure check to aftermarket LED brake lights, to avoid the bulb failure warning.'
   parametri:
   - nome: BL_L_IS_LED
     target: aktiv
@@ -3052,10 +3195,8 @@
   - F55
   - F56
   note:
-    it: Solo con luci di stop LED montate dopo. Parametro presente nei FWL della F54 di riferimento; la codifica
-      è documentata nei cheat sheet su GitHub.
-    en: Only with retrofitted LED brake lights. Parameter present in the reference F54 FWL files; the coding is
-      documented in GitHub cheat sheets.
+    it: 'Solo se hai montato luci di stop a LED al posto delle lampadine: dichiara la luce come LED e spegne il controllo a freddo e a caldo.'
+    en: 'Only if you fitted LED brake lights instead of bulbs: it declares the light as LED and turns off the cold and warm checks.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-11.html
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-37.html
@@ -3071,6 +3212,9 @@
   titolo:
     it: 'Retronebbia a LED: controllo lampadine'
     en: 'LED rear fog lights: bulb check'
+  descrizione:
+    it: 'Dichiara il retronebbia come LED, per i retronebbia a LED montati dopo.'
+    en: 'Declares the rear fog light as LED, for aftermarket LED rear fog lights.'
   parametri:
   - nome: NSL_L_IS_LED
     target: aktiv
@@ -3085,10 +3229,8 @@
   - F54
   - F56
   note:
-    it: Solo con retronebbia LED montati dopo. Parametro presente nei FWL della F54 di riferimento; la codifica
-      è documentata nei cheat sheet su GitHub.
-    en: Only with retrofitted LED rear fog lights. Parameter present in the reference F54 FWL files; the coding
-      is documented in GitHub cheat sheets.
+    it: 'Solo se hai montato un retronebbia a LED al posto della lampadina. Fonte: cheat sheet coreano.'
+    en: 'Only if you fitted an LED rear fog light instead of a bulb. Source: Korean cheat sheet.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   osservazioni:
@@ -3107,6 +3249,9 @@
   titolo:
     it: 'Luci di retromarcia a LED: controllo lampadine'
     en: 'LED reversing lights: bulb check'
+  descrizione:
+    it: 'Adatta il controllo delle lampadine guaste alle luci di retromarcia a LED montate dopo.'
+    en: 'Adapts the bulb failure check to aftermarket LED reversing lights.'
   parametri:
   - nome: RFS_L_IS_LED
     target: aktiv
@@ -3130,10 +3275,8 @@
   - F56
   - F60
   note:
-    it: Solo con luci di retro LED montate dopo. Parametro presente nei FWL della F54 di riferimento; la codifica
-      è documentata nei cheat sheet su GitHub.
-    en: Only with retrofitted LED reversing lights. Parameter present in the reference F54 FWL files; the coding
-      is documented in GitHub cheat sheets.
+    it: 'Solo se hai montato luci di retromarcia a LED al posto delle lampadine: dichiara la luce come LED e spegne il controllo a freddo e a caldo.'
+    en: 'Only if you fitted LED reversing lights instead of bulbs: it declares the light as LED and turns off the cold and warm checks.'
   fonti:
   - https://www.northamericanmotoring.com/forums/2nd-gen-countryman-f60-talk-2016-2024/317869-e-sys-coding-on-f60-3.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -3148,6 +3291,9 @@
   titolo:
     it: 'Specchio antiabbagliante: lunotto scuro o chiaro'
     en: 'Auto-dimming mirror: dark or light rear window'
+  descrizione:
+    it: 'Adatta lo specchio interno antiabbagliante al tipo di lunotto, chiaro o oscurato.'
+    en: 'Adapts the auto-dimming interior mirror to the rear window type, clear or tinted.'
   parametri:
   - nome: ISP_HECKSCHEIBE
     regolabile: true
@@ -3162,10 +3308,8 @@
   - F54
   - F56
   note:
-    it: Adegua la sensibilità dello specchio al tipo di lunotto (vetri oscurati). Parametro presente nei FWL della
-      F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Adapts the mirror sensitivity to the rear window type (tinted glass). Parameter present in the reference
-      F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: '00 = lunotto chiaro, 01 = lunotto scuro. Scegli quello che corrisponde ai vetri della tua auto.'
+    en: '00 = clear rear window, 01 = tinted rear window. Pick the one that matches your car''s glass.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   osservazioni:
@@ -3184,6 +3328,9 @@
   titolo:
     it: Tergilunotto automatico in retromarcia
     en: Automatic rear wiper in reverse
+  descrizione:
+    it: 'Con il tergicristallo acceso, inserendo la retromarcia parte anche il tergilunotto.'
+    en: 'With the wipers on, engaging reverse also starts the rear wiper.'
   parametri:
   - nome: WW_HECKWISCHER_EIN_RUECKWGANG
     regolabile: true
@@ -3199,8 +3346,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Di fabbrica è attivo; le fonti lo spengono con nicht_aktiv.'
+    en: 'On from the factory; sources turn it off with nicht_aktiv.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3219,6 +3366,9 @@
   titolo:
     it: Abbaglianti automatici attivabili dalla levetta luci
     en: High-beam assistant from the light switch
+  descrizione:
+    it: 'Permette di attivare gli abbaglianti automatici anche dalla posizione 2 della manopola luci, non solo da A.'
+    en: 'Lets you enable automatic high beams from light switch position 2 too, not only from A.'
   parametri:
   - nome: FLA_AKTIVIERUNG
     regolabile: true
@@ -3234,8 +3384,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Valore LDS_in_A_oder_2 secondo una fonte francese; un''altra fonte non è sicura di cosa faccia.'
+    en: 'Value LDS_in_A_oder_2 according to a French source; another source is unsure what it does.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://f48.bimmerpost.com/forums/showthread/1222484/bmw-e-sys-coding-for-the-f48-x1/page/5
@@ -3255,6 +3405,9 @@
   titolo:
     it: Luce ambiente all'apertura
     en: Ambient light when unlocking
+  descrizione:
+    it: 'Le luci ambiente dell''abitacolo si accendono quando apri l''auto.'
+    en: 'The interior ambient lights come on when you unlock the car.'
   parametri:
   - nome: WELCOME_AMBIENTE
     target: aktiv
@@ -3267,8 +3420,8 @@
   - F54
   - F56
   note:
-    it: 'Le fonti (F20/F30) lo portano ad aktiv. Sulla F54 di riferimento il valore attuale è 64 e non ha un nome, quindi in E-Sys controlla se tra le opzioni c''è davvero aktiv prima di cambiarlo.'
-    en: 'Sources (F20/F30) set it to aktiv. On the reference F54 the current value is 64 with no name, so check in E-Sys that aktiv really is one of the options before changing it.'
+    it: 'Le fonti (F20/F30) lo portano ad aktiv. Su una F54 il valore letto è 64 e non ha un nome: in E-Sys controlla se tra le opzioni c''è davvero aktiv prima di cambiarlo. Serve l''illuminazione ambiente.'
+    en: 'Sources (F20/F30) set it to aktiv. On an F54 the value read is 64 with no name: check in E-Sys whether aktiv really is an option before changing it. Needs ambient lighting.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -3288,6 +3441,9 @@
   titolo:
     it: Lampeggio all'apertura del portellone
     en: Flash when opening the tailgate
+  descrizione:
+    it: 'Quando apri il portellone le frecce lampeggiano una volta invece di due.'
+    en: 'When you open the tailgate the indicators flash once instead of twice.'
   parametri:
   - nome: HECKKLAPPE_REVERSIEREN_BLINKEN
     regolabile: true
@@ -3303,8 +3459,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Fonte francese: 00 = lampeggio singolo.'
+    en: 'French source: 00 = single flash.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3323,6 +3479,9 @@
   titolo:
     it: Follow-me-home dalla chiave
     en: Follow-me-home from the key
+  descrizione:
+    it: 'Accende le luci di accompagnamento (follow-me-home) dal tasto della chiave.'
+    en: 'Turns on the follow-me-home lights from the key button.'
   parametri:
   - nome: FOLLOWMEHOME_VIA_FFB
     target: aktiv
@@ -3335,10 +3494,8 @@
   - F54
   - F56
   note:
-    it: Va con KEY_CONF_COMFORT_HOMELIGHT nella HU. Parametro presente nei FWL della F54 di riferimento; la codifica
-      è documentata nei cheat sheet su GitHub.
-    en: Goes with KEY_CONF_COMFORT_HOMELIGHT in the HU. Parameter present in the reference F54 FWL files; the coding
-      is documented in GitHub cheat sheets.
+    it: 'Va con KEY_CONF_COMFORT_HOMELIGHT nella HU. Una fonte francese dice che si usa il quarto tasto o una pressione breve sul terzo.'
+    en: 'Goes with KEY_CONF_COMFORT_HOMELIGHT in the HU. A French source says you use the fourth button or a short press on the third.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3357,6 +3514,9 @@
   titolo:
     it: Durata del follow-me-home
     en: Follow-me-home duration
+  descrizione:
+    it: 'Cambia per quanto tempo restano accese le luci di accompagnamento; di fabbrica 20 secondi.'
+    en: 'Changes how long the follow-me-home lights stay on; factory value 20 seconds.'
   parametri:
   - nome: PIA_DEFAULT_FMH
     regolabile: true
@@ -3372,8 +3532,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Secondi in esadecimale: una fonte francese usa 1E (30 s).'
+    en: 'Seconds in hex: a French source uses 1E (30 s).'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   osservazioni:
@@ -3392,12 +3552,15 @@
   titolo:
     it: Velocità della chiusura automatica in marcia
     en: Automatic locking speed
+  descrizione:
+    it: 'Cambia a che velocità le porte si chiudono da sole quando parti.'
+    en: 'Changes at which speed the doors lock by themselves when you drive off.'
   parametri:
   - nome: VAM_SPEED_LIMIT_PIA_AUTO_LOCK
     regolabile: true
   valori_suggeriti:
-    it: 01 nella fonte F55/F56 (circa 16 km/h)
-    en: 01 in the F55/F56 source (about 16 km/h)
+    it: 'Esadecimale in km/h: la fonte F55/F56 usa 10 (16 km/h).'
+    en: 'Hex in km/h: the F55/F56 source uses 10 (16 km/h).'
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -3408,10 +3571,8 @@
   - F56
   - F57
   note:
-    it: Fonte F55/F56/F57/F45. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei
-      cheat sheet su GitHub.
-    en: F55/F56/F57/F45 source. Parameter present in the reference F54 FWL files; the coding is documented in GitHub
-      cheat sheets.
+    it: 'Serve la chiusura automatica in marcia attiva. Fonte: cheat sheet coreano per F55/F56/F57/F45.'
+    en: 'Needs automatic locking while driving on. Source: Korean cheat sheet for F55/F56/F57/F45.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:
@@ -3425,6 +3586,9 @@
   titolo:
     it: Luce di benvenuto anche più volte di seguito
     en: Welcome light on repeated unlocking
+  descrizione:
+    it: 'Nessuna fonte descrive bene il parametro. Dal nome (Wiederholsperre, blocco di ripetizione) decide se la luce di benvenuto può accendersi più volte di seguito.'
+    en: 'No source describes the parameter well. From its name (Wiederholsperre, repeat lock) it decides whether the welcome light can come on several times in a row.'
   parametri:
   - nome: WL_WIEDERHOLSPERRE_AKTIV
     regolabile: true
@@ -3445,8 +3609,8 @@
   - F85
   - F86
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Un cheat sheet coreano lo imposta a 01 insieme alla luce di benvenuto. Sulle MINI lette vale aktiv.'
+    en: 'A Korean cheat sheet sets it to 01 together with the welcome light. aktiv on the MINIs read.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:
@@ -3465,6 +3629,9 @@
   titolo:
     it: Follow-me-home anche più volte di seguito
     en: Follow-me-home on repeated activation
+  descrizione:
+    it: 'Nessuna fonte descrive bene il parametro. Dal nome (Wiederholsperre, blocco di ripetizione) decide se il follow-me-home può accendersi più volte di seguito.'
+    en: 'No source describes the parameter well. From its name (Wiederholsperre, repeat lock) it decides whether follow-me-home can come on several times in a row.'
   parametri:
   - nome: FMH_WIEDERHOLSPERRE_AKTIV
     regolabile: true
@@ -3485,8 +3652,8 @@
   - F85
   - F86
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Un cheat sheet coreano lo imposta a 01 insieme al follow-me-home. Sulle MINI lette vale aktiv.'
+    en: 'A Korean cheat sheet sets it to 01 together with follow-me-home. aktiv on the MINIs read.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:
@@ -3505,6 +3672,9 @@
   titolo:
     it: Luci di parcheggio laterali
     en: Parking lights
+  descrizione:
+    it: 'Abilita le luci di parcheggio, per lasciare accesa la posizione di un solo lato ad auto ferma.'
+    en: 'Enables parking lights, to leave one side''s lights on when parked.'
   parametri:
   - nome: PARKLICHT_MOEGLICH
     target: aktiv
@@ -3517,8 +3687,8 @@
   - F80
   - F82
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Sulle MINI lette è già attivo.'
+    en: 'Already on in the MINIs read.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml
   osservazioni:
@@ -3537,6 +3707,9 @@
   titolo:
     it: 'Specchio passeggero in retro: posizione orizzontale'
     en: 'Passenger mirror in reverse: horizontal position'
+  descrizione:
+    it: 'Regola la posizione orizzontale dello specchio del passeggero quando si abbassa in retromarcia.'
+    en: 'Adjusts the horizontal position of the passenger mirror when it tilts down in reverse.'
   parametri:
   - nome: ASP_HORIZONTALE_MIN_POS
     regolabile: true
@@ -3552,10 +3725,8 @@
   - F54
   - F56
   note:
-    it: Da usare se ASP_BORDSTEINAUTOMATIK_DELTA non basta. Parametro presente nei FWL della F54 di riferimento;
-      la codifica è documentata nei cheat sheet su GitHub.
-    en: Use it if ASP_BORDSTEINAUTOMATIK_DELTA is not enough. Parameter present in the reference F54 FWL files;
-      the coding is documented in GitHub cheat sheets.
+    it: 'Un cheat sheet coreano lo usa (1E) quando l''angolo verticale (ASP_BORDSTEINAUTOMATIK_DELTA) non basta.'
+    en: 'A Korean cheat sheet uses it (1E) when the vertical angle (ASP_BORDSTEINAUTOMATIK_DELTA) is not enough.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
   osservazioni:
@@ -3574,6 +3745,9 @@
   titolo:
     it: 'Lavafari: durata dello spruzzo'
     en: 'Headlight washers: spray duration'
+  descrizione:
+    it: 'Cambia quanto dura ogni spruzzo del lavafari; di fabbrica 1 secondo.'
+    en: 'Changes how long each headlight washer spray lasts; factory value 1 second.'
   parametri:
   - nome: WW_DAUER_SPRITZIMPULSE_SRA
     regolabile: true
@@ -3587,8 +3761,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Esadecimale in decimi di secondo (0A = 1 s).'
+    en: 'Hex in tenths of a second (0A = 1 s).'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Headlamp-Washers.md
   osservazioni:
@@ -3607,6 +3781,9 @@
   titolo:
     it: 'Lavafari: velocità massima di attivazione'
     en: 'Headlight washers: maximum speed'
+  descrizione:
+    it: 'Cambia fino a che velocità interviene il lavafari; di fabbrica 130 km/h.'
+    en: 'Changes up to what speed the headlight washer works; factory value 130 km/h.'
   parametri:
   - nome: WW_SRA_GESCHWINDIGKEITS_DEAKTIVIERUNG
     regolabile: true
@@ -3620,8 +3797,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Esadecimale in km/h (82 = 130).'
+    en: 'Hex in km/h (82 = 130).'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Headlamp-Washers.md
   osservazioni:
@@ -3640,6 +3817,9 @@
   titolo:
     it: 'Lavafari: pausa tra gli spruzzi'
     en: 'Headlight washers: pause between sprays'
+  descrizione:
+    it: 'Cambia la pausa tra uno spruzzo e l''altro del lavafari.'
+    en: 'Changes the pause between headlight washer sprays.'
   parametri:
   - nome: WW_PAUSE_SPRITZIMPULSE_SRA
     regolabile: true
@@ -3653,8 +3833,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Esadecimale in decimi di secondo.'
+    en: 'Hex in tenths of a second.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Headlamp-Washers.md
   osservazioni:
@@ -3673,6 +3853,9 @@
   titolo:
     it: Ritardo tra finestrini anteriori e posteriori
     en: Delay between front and rear windows
+  descrizione:
+    it: 'Cambia il ritardo tra il movimento dei finestrini anteriori e quello dei posteriori nell''apertura comfort.'
+    en: 'Changes the delay between front and rear windows moving during comfort opening.'
   parametri:
   - nome: KOMFORT_OEFF_HINTEN
     regolabile: true
@@ -3686,8 +3869,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Una fonte usa 05. Serve un''auto con finestrini posteriori elettrici.'
+    en: 'One source uses 05. Needs a car with electric rear windows.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Windows-Doors.md
   osservazioni:
@@ -3706,6 +3889,9 @@
   titolo:
     it: Ritardo tra i finestrini anteriori in chiusura
     en: Delay between front windows when closing
+  descrizione:
+    it: 'Cambia il ritardo tra i due finestrini anteriori nella chiusura comfort.'
+    en: 'Changes the delay between the two front windows during comfort closing.'
   parametri:
   - nome: KOMFORT_SCHL_VORNE
     regolabile: true
@@ -3719,8 +3905,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Una fonte usa 05.'
+    en: 'One source uses 05.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Windows-Doors.md
   osservazioni:
@@ -3739,6 +3925,9 @@
   titolo:
     it: Ritardo tra finestrini e tetto
     en: Delay between windows and sunroof
+  descrizione:
+    it: 'Cambia il ritardo tra finestrini e tetto apribile nell''apertura comfort.'
+    en: 'Changes the delay between the windows and the sunroof during comfort opening.'
   parametri:
   - nome: KOMFORT_OEFF_SHD
     regolabile: true
@@ -3752,8 +3941,8 @@
   - F54
   - F56
   note:
-    it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Una fonte usa 23. Serve il tetto apribile.'
+    en: 'One source uses 23. Needs a sunroof.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Windows-Doors.md
   osservazioni:
@@ -3772,6 +3961,9 @@
   titolo:
     it: Variante del devioguida per le frecce morbide
     en: Steering column switch variant for soft turn signals
+  descrizione:
+    it: 'Dice al BDC che tipo di devioguida (le levette al volante) è montato; una fonte lo cambia per le frecce morbide.'
+    en: 'Tells the BDC which steering column switch (the stalks) is fitted; one source changes it for soft turn signals.'
   parametri:
   - nome: LIN_VARIANTE_SZL
     regolabile: true
@@ -3785,10 +3977,8 @@
   - F54
   - F56
   note:
-    it: 'Deve corrispondere all''hardware montato: un valore sbagliato può disattivare comandi del devioguida. Parametro
-      presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'Must match the fitted hardware: a wrong value can disable stalk functions. Parameter present in the reference
-      F54 FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'Deve corrispondere all''hardware montato: un valore sbagliato può disattivare comandi del devioguida.'
+    en: 'It must match the fitted hardware: a wrong value can disable stalk controls.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Lighting/Turn-Signals.md
   osservazioni:
@@ -3807,6 +3997,9 @@
   titolo:
     it: Temperature dei sedili riscaldati
     en: Heated seat temperatures
+  descrizione:
+    it: 'Cambia la temperatura di ogni livello del riscaldamento, per seduta e schienale, anteriori e posteriori.'
+    en: 'Changes the temperature of each heating level, for cushion and backrest, front and rear.'
   parametri:
   - nome: TEMP_LEHNE_STUFE_1_FRONT
     regolabile: true
@@ -3842,10 +4035,8 @@
   - F54
   - F56
   note:
-    it: 'Temperature per ogni livello di seduta e schienale, anteriori e posteriori. Non esagerare: rischio di scottature.
-      Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
-    en: 'Temperatures for each level of cushion and backrest, front and rear. Do not overdo it: risk of burns. Parameter
-      present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.'
+    it: 'La fonte americana dà i valori di fabbrica in °F (da 94 a 116). Non esagerare: rischio di scottature. Serve il riscaldamento dei sedili.'
+    en: 'The US source gives the factory values in °F (94 to 116). Do not overdo it: risk of burns. Needs heated seats.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/03-Features/Comfort-Features.md
   osservazioni:
@@ -3864,6 +4055,9 @@
   titolo:
     it: 'Luci di stop supplementari (BFD) a LED: controllo lampadine'
     en: 'Additional brake lights (BFD) with LEDs: bulb check'
+  descrizione:
+    it: 'Adatta il controllo delle lampadine guaste alle luci di stop supplementari (BFD) a LED montate dopo.'
+    en: 'Adapts the bulb failure check to aftermarket LED additional brake lights (BFD).'
   parametri:
   - nome: BFD_L_IS_LED
     target: 'aktiv'
@@ -3885,8 +4079,8 @@
   - F55
   - F56
   note:
-    it: 'Solo con lampadine LED montate dopo: dichiara la luce come LED e spegne il controllo a freddo e a caldo, così non compare l''avviso di lampadina guasta. Gruppo 3061 della BDC_BODY.'
-    en: 'Only with retrofitted LED bulbs: declares the light as LED and turns off the cold and warm checks, so no bulb failure warning appears. Group 3061 of BDC_BODY.'
+    it: 'Solo se hai montato lampadine LED: dichiara la luce come LED e spegne il controllo a freddo e a caldo, così non compare l''avviso di lampadina guasta. Gruppo 3061 del BDC.'
+    en: 'Only if you fitted LED bulbs: it declares the light as LED and turns off the cold and warm checks, so no bulb failure warning appears. Group 3061 of the BDC.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-37.html
   osservazioni:
@@ -3900,6 +4094,9 @@
   titolo:
     it: 'Tasto del bagagliaio sul telecomando disattivato ad auto chiusa'
     en: 'Key fob boot button disabled while locked'
+  descrizione:
+    it: 'Con l''auto chiusa il tasto del portellone sul telecomando non fa nulla; prima devi aprire l''auto.'
+    en: 'With the car locked the tailgate button on the key does nothing; you must unlock the car first.'
   parametri:
   - nome: VAM_DISABLE_OPEN_LID_AT_NOT_UNLOCKED
     target: 'aktiv'
@@ -3912,8 +4109,8 @@
   - F56
   - F60
   note:
-    it: 'Con l''auto chiusa il tasto del portellone sul telecomando non fa nulla: prima si apre l''auto. Evita aperture accidentali in tasca.'
-    en: 'With the car locked the fob tailgate button does nothing: unlock the car first. Avoids accidental opening in a pocket.'
+    it: 'Evita aperture accidentali con la chiave in tasca.'
+    en: 'Prevents accidental opening with the key in your pocket.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-28.html
   - https://www.northamericanmotoring.com/forums/2nd-gen-countryman-f60-talk-2016-2024/317869-e-sys-coding-on-f60.html
@@ -3928,6 +4125,9 @@
   titolo:
     it: 'Porte sbloccate allo spegnimento dopo la chiusura automatica'
     en: 'Doors unlocked at switch-off after auto lock'
+  descrizione:
+    it: 'Se le porte si sono chiuse da sole in marcia, spegnendo il motore si sbloccano tutte.'
+    en: 'If the doors locked themselves while driving, switching off the engine unlocks them all.'
   parametri:
   - nome: VAM_UNLOCK_KL15OFF_AFTER_PIA_AUTO_LOCK
     target: 'aktiv'
@@ -3940,8 +4140,8 @@
   - F56
   - F60
   note:
-    it: 'Se la chiusura automatica in marcia è attiva, spegnendo il motore le porte si sbloccano tutte. Su una F48 la variante con nome CLM_ ha dato problemi; sulle MINI il nome è VAM_.'
-    en: 'If auto lock while driving is on, all doors unlock when the engine is switched off. On an F48 the CLM_ variant caused problems; on MINIs the name is VAM_.'
+    it: 'Su una F48 la variante con il nome CLM_ ha dato problemi; sulle MINI il nome è VAM_. Non tutti i FWL elencano questo parametro.'
+    en: 'On an F48 the CLM_ variant caused problems; on MINIs the name is VAM_. Not every FWL lists this parameter.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-4.html
   - https://www.northamericanmotoring.com/forums/2nd-gen-countryman-f60-talk-2016-2024/317869-e-sys-coding-on-f60.html
@@ -3956,6 +4156,9 @@
   titolo:
     it: 'Luce di svolta con la freccia: velocità massima'
     en: 'Cornering light with turn signal: maximum speed'
+  descrizione:
+    it: 'Cambia fino a che velocità la luce di svolta si accende insieme alla freccia; di fabbrica circa 40 km/h.'
+    en: 'Changes up to what speed the cornering light comes on with the indicator; about 40 km/h from the factory.'
   parametri:
   - nome: C_CLC_BLINK_V0
     regolabile: true
@@ -3972,8 +4175,8 @@
   - F55
   - F56
   note:
-    it: 'Di fabbrica la luce di svolta si accende con la freccia fino a circa 40 km/h; questi due valori ne regolano le soglie. Sulla F54 il valore letto è il preset di paese (F056ROW).'
-    en: 'From the factory the cornering light comes on with the turn signal up to about 40 km/h; these two values set the thresholds. On the F54 the value read is the country preset (F056ROW).'
+    it: 'Velocità in km/h, in esadecimale. Su una F54 il valore letto è il preset di paese (F056ROW).'
+    en: 'Speed in km/h, in hex. On an F54 the value read is the country preset (F056ROW).'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-8.html
   osservazioni:
@@ -3987,6 +4190,9 @@
   titolo:
     it: 'Anabbaglianti spenti in posizione 0 e automatico solo in A'
     en: 'Low beams off in position 0, automatic only in A'
+  descrizione:
+    it: 'Cambia la manopola luci come sulle auto americane - in posizione 0 restano accese solo le luci diurne, anche di notte, e l''accensione automatica funziona solo in A.'
+    en: 'Changes the light switch like on US cars - in position 0 only the daytime running lights stay on, even at night, and automatic lights work only in A.'
   parametri:
   - nome: FLC_AKTIV
     target: 'freigeschaltet_in_Stellung_A'
@@ -3999,8 +4205,8 @@
   - F56
   - F60
   note:
-    it: 'Cambia il comportamento della manopola luci come sulle auto USA: in posizione 0 restano solo le diurne, anche di notte. In Europa le luci devono accendersi da sole al buio: sconsigliata.'
-    en: 'Changes the light switch behaviour as on US cars: in position 0 only the DRLs stay on, even at night. In Europe lights must come on by themselves in the dark: not recommended.'
+    it: 'In Europa le luci devono accendersi da sole al buio: sconsigliata.'
+    en: 'In Europe lights must come on by themselves in the dark: not recommended.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-40.html
   - https://www.northamericanmotoring.com/forums/2nd-gen-countryman-f60-talk-2016-2024/317869-e-sys-coding-on-f60-5.html
@@ -4015,12 +4221,15 @@
   titolo:
     it: 'Ritardo di apertura del portellone col piede (Comfort Access)'
     en: 'Kick-to-open tailgate delay (Comfort Access)'
+  descrizione:
+    it: 'Riduce o toglie l''attesa tra il movimento del piede sotto il paraurti e lo sblocco del portellone.'
+    en: 'Shortens or removes the wait between the foot movement under the bumper and the tailgate unlocking.'
   parametri:
   - nome: VAM_TIMEOUT_HK_SMO
     regolabile: true
   valori_suggeriti:
-    it: 'Esadecimale a passi di 0,1 s. Sulla F54 di riferimento vale 0C (1,2 s); le fonti BMW usano 01–03 (0,1–0,3 s).'
-    en: 'Hexadecimal, 0.1 s steps. The reference F54 reads 0C (1.2 s); BMW sources use 01–03 (0.1–0.3 s).'
+    it: 'Esadecimale a passi di 0,1 s. Su una F54 vale 0C (1,2 s); le fonti BMW usano 01-03 (0,1-0,3 s).'
+    en: 'Hex in 0.1 s steps. On an F54 it reads 0C (1.2 s); BMW sources use 01-03 (0.1-0.3 s).'
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -4029,8 +4238,8 @@
   - F56
   - F60
   note:
-    it: 'È il ritardo tra il movimento del piede sotto il paraurti (Smart Opener) e lo sblocco del portellone. Sulle BMW con FEM il parametro si chiama CLM_TIMEOUT_HK_SMO ed è documentato in quattro cheat sheet; un post su F54/F60 lo cita nella BDC con quel nome. Nella BDC della F54 di riferimento esiste invece VAM_TIMEOUT_HK_SMO: stesso nome con il prefisso VAM_ al posto di CLM_, come succede per VAM_/CLM_UNLOCK_KL15OFF_AFTER_PIA_AUTO_LOCK. La corrispondenza è dedotta dal nome: da verificare.'
-    en: 'It is the delay between the kick under the bumper (Smart Opener) and the tailgate unlocking. On BMWs with a FEM the parameter is called CLM_TIMEOUT_HK_SMO and is documented in four cheat sheets; a post about F54/F60 names it in the BDC. The reference F54 BDC has VAM_TIMEOUT_HK_SMO instead: the same name with the VAM_ prefix instead of CLM_, as happens with VAM_/CLM_UNLOCK_KL15OFF_AFTER_PIA_AUTO_LOCK. The match is inferred from the name: to be verified.'
+    it: 'Solo con Comfort Access e Smart Opener. Sulle BMW con FEM il parametro si chiama CLM_TIMEOUT_HK_SMO ed è in quattro cheat sheet; sul BDC MINI esiste con il prefisso VAM_, come succede per altri parametri delle chiusure. La corrispondenza è dedotta dal nome: da verificare.'
+    en: 'Only with Comfort Access and Smart Opener. On BMWs with a FEM the parameter is called CLM_TIMEOUT_HK_SMO and is in four cheat sheets; on the MINI BDC it exists with the VAM_ prefix, as for other locking parameters. The match is inferred from the name: to be verified.'
   fonti:
   - https://www.northamericanmotoring.com/forums/2nd-gen-countryman-f60-talk-2016-2024/317869-e-sys-coding-on-f60.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
@@ -4053,6 +4262,9 @@
   titolo:
     it: 'Ritardo di sblocco del baule (senza Smart Opener)'
     en: 'Boot unlock delay (without Smart Opener)'
+  descrizione:
+    it: 'Riduce o toglie il ritardo con cui il baule si sblocca dal tasto, senza Smart Opener.'
+    en: 'Shortens or removes the delay before the boot unlocks from the button, without Smart Opener.'
   parametri:
   - nome: VAM_TIME_DELAY_BOOTLID
     regolabile: true
@@ -4066,8 +4278,8 @@
   - F54
   - F56
   note:
-    it: 'Ritardo con cui il baule si sblocca, senza Smart Opener (una fonte: di fabbrica 0,3 s). Il tempo per cui va tenuto premuto il tasto del baule sul telecomando è un altro parametro, RC_TIME_DELAY_BOOTLID. Sulle BMW con FEM il parametro si chiama CLM_TIME_DELAY_BOOTLID; nella BDC della F54 di riferimento esiste VAM_TIME_DELAY_BOOTLID, con il prefisso VAM_ al posto di CLM_ come per altri parametri delle chiusure. La corrispondenza è dedotta dal nome: da verificare.'
-    en: 'Delay with which the boot unlocks, without Smart Opener (one source: factory 0.3 s). How long the boot button on the remote must be held is a different parameter, RC_TIME_DELAY_BOOTLID. On BMWs with a FEM the parameter is called CLM_TIME_DELAY_BOOTLID; the reference F54 BDC has VAM_TIME_DELAY_BOOTLID, with the VAM_ prefix instead of CLM_ as for other locking parameters. The match is inferred from the name: to be verified.'
+    it: 'Una fonte indica 0,3 s di fabbrica. Il tempo per cui va tenuto premuto il tasto del baule sul telecomando è un altro parametro (RC_TIME_DELAY_BOOTLID). Sulle BMW con FEM si chiama CLM_TIME_DELAY_BOOTLID; sul BDC MINI c''è con il prefisso VAM_. La corrispondenza è dedotta dal nome: da verificare.'
+    en: 'One source gives 0.3 s from the factory. How long the boot button on the key must be held is another parameter (RC_TIME_DELAY_BOOTLID). On BMWs with a FEM it is called CLM_TIME_DELAY_BOOTLID; on the MINI BDC it has the VAM_ prefix. The match is inferred from the name: to be verified.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
@@ -4087,6 +4299,9 @@
   titolo:
     it: 'Tempo prima della richiusura automatica'
     en: 'Time before automatic relocking'
+  descrizione:
+    it: 'Se apri l''auto con la chiave e non apri nessuna porta, si richiude da sola dopo questo tempo.'
+    en: 'If you unlock the car with the key and open no door, it locks itself again after this time.'
   parametri:
   - nome: VAM_TIME_PIA_LOCK_AT_TIMEOUT
     regolabile: true
@@ -4103,8 +4318,8 @@
   - F57
   - F60
   note:
-    it: 'Se apri l''auto e non apri nessuna porta, dopo questo tempo si richiude da sola; serve la richiusura automatica attiva (CLI_DEFAULT_LOCK_AT_TIMEOUT). Sulle BMW con FEM il parametro si chiama CLM_TIME_PIA_LOCK_AT_TIMEOUT; nella BDC della F54 di riferimento esiste VAM_TIME_PIA_LOCK_AT_TIMEOUT, con il prefisso VAM_ al posto di CLM_ come per altri parametri delle chiusure. La corrispondenza è dedotta dal nome: da verificare.'
-    en: 'If you unlock the car and open no door, it relocks after this time; automatic relocking must be on (CLI_DEFAULT_LOCK_AT_TIMEOUT). On BMWs with a FEM the parameter is called CLM_TIME_PIA_LOCK_AT_TIMEOUT; the reference F54 BDC has VAM_TIME_PIA_LOCK_AT_TIMEOUT, with the VAM_ prefix instead of CLM_ as for other locking parameters. The match is inferred from the name: to be verified.'
+    it: 'Serve la richiusura automatica attiva (CLI_DEFAULT_LOCK_AT_TIMEOUT). Sulle BMW con FEM il parametro si chiama CLM_TIME_PIA_LOCK_AT_TIMEOUT; sul BDC MINI c''è con il prefisso VAM_. La corrispondenza è dedotta dal nome: da verificare.'
+    en: 'Needs automatic relocking on (CLI_DEFAULT_LOCK_AT_TIMEOUT). On BMWs with a FEM the parameter is called CLM_TIME_PIA_LOCK_AT_TIMEOUT; on the MINI BDC it has the VAM_ prefix. The match is inferred from the name: to be verified.'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -4120,12 +4335,15 @@
   titolo:
     it: 'Ritardo del tetto nella chiusura comfort'
     en: 'Sunroof delay during comfort closing'
+  descrizione:
+    it: 'Cambia il ritardo tra finestrini e tetto apribile nella chiusura comfort.'
+    en: 'Changes the delay between the windows and the sunroof during comfort closing.'
   parametri:
   - nome: KOMFORT_SCHL_SHD
     regolabile: true
   valori_suggeriti:
-    it: 'Esadecimale; sulla F54 di riferimento vale 23 (valore di fabbrica secondo la fonte).'
-    en: 'Hexadecimal; the reference F54 reads 23 (factory value per the source).'
+    it: 'Esadecimale; la fonte indica 23 come valore di fabbrica.'
+    en: 'Hex; the source gives 23 as the factory value.'
   rischio: basso
   consiglio: ok
   affidabilita: da_verificare
@@ -4133,8 +4351,8 @@
   - F54
   - F56
   note:
-    it: 'Ritardo tra finestrini e tetto quando si chiude con la chiusura comfort. È un valore, non un interruttore.'
-    en: 'Delay between windows and sunroof when closing with comfort closing. It is a value, not a switch.'
+    it: 'È un valore, non un interruttore. Serve il tetto apribile.'
+    en: 'It is a value, not a switch. Needs a sunroof.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Windows-Doors.md
   osservazioni:
@@ -4153,6 +4371,9 @@
   titolo:
     it: 'Specchio sinistro che si inclina in svolta'
     en: 'Left mirror tilting when turning'
+  descrizione:
+    it: 'Lo specchio sinistro si inclina quando svolti a sinistra, in base a freccia e sterzo.'
+    en: 'The left mirror tilts when you turn left, based on the indicator and steering.'
   parametri:
   - nome: ASP_ABA_AKTIVIERUNG
     target: aktiv
@@ -4163,8 +4384,8 @@
   - F54
   - F56
   note:
-    it: 'Provata su una F54: lo specchio sinistro si inclina svoltando a sinistra, in base a freccia e sterzo. L''autore poi l''ha riportata al valore di fabbrica.'
-    en: 'Tried on an F54: the left mirror tilts when turning left, based on turn signal and steering. The author then set it back to the factory value.'
+    it: 'Provata su una F54: funziona, ma l''autore l''ha poi riportata al valore di fabbrica.'
+    en: 'Tested on an F54: it works, but the author then set it back to the factory value.'
   fonti:
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5953565/note.aspx
   osservazioni:

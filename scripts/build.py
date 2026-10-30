@@ -54,6 +54,12 @@ def load_db():
                     err("requisiti_sa deve essere una lista di codici SA")
                 else:
                     e["requisiti_sa"] = [str(x).upper() for x in e["requisiti_sa"]]
+            for campo in ("descrizione", "note"):
+                v = e.get(campo)
+                if v is not None and not (isinstance(v, dict) and all(isinstance(v.get(k), str) and v.get(k).strip() for k in ("it", "en"))):
+                    err(f"{campo} deve avere sia it sia en")
+            if not e.get("descrizione"):
+                err("manca la descrizione (descrizione.it e descrizione.en)")
             if "insieme_a" in e and not (isinstance(e["insieme_a"], list) and all(isinstance(x, str) for x in e["insieme_a"])):
                 err("insieme_a deve essere una lista di id di voci")
             if not params and e.get("stato_mappatura") != "da_mappare":

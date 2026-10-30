@@ -6,6 +6,9 @@
   titolo:
     it: 'Entrata facilitata: il sedile arretra all''apertura della porta'
     en: 'Easy entry: the seat moves back when the door opens'
+  descrizione:
+    it: 'Il sedile del guidatore arretra quando apri la porta e torna in posizione all''avvio, per salire e scendere più comodamente.'
+    en: 'The driver''s seat moves back when you open the door and returns when you start, for easier getting in and out.'
   parametri:
   - nome: EA_Hilfe
     target: aktiv
@@ -21,10 +24,8 @@
   - F57
   - F60
   note:
-    it: Il sedile del guidatore arretra quando apri la porta e torna in posizione all'avvio. Controlla che dietro
-      il sedile non ci siano oggetti o bambini.
-    en: The driver's seat moves back when you open the door and returns to position when you start. Make sure there
-      are no objects or children behind the seat.
+    it: 'Serve il sedile elettrico (centralina SMFA). L''unica fonte è un cheat sheet coreano, che la indica come "in prova" (01 guidatore, 02 passeggero). Controlla che dietro il sedile non ci siano oggetti o bambini.'
+    en: 'Needs the electric seat (SMFA unit). The only source is a Korean cheat sheet, which marks it as "testing" (01 driver, 02 passenger). Make sure there are no objects or children behind the seat.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
@@ -39,6 +40,9 @@
   titolo:
     it: Memoria del riscaldamento sedile (centralina sedile)
     en: Seat heating memory (seat module)
+  descrizione:
+    it: 'Cambia per quanto tempo dopo lo spegnimento il riscaldamento del sedile viene ricordato; di fabbrica 15 minuti.'
+    en: 'Changes how long after switching off the seat heating setting is remembered; factory value 15 minutes.'
   parametri:
   - nome: Nachlauf_Schalter
     regolabile: true
@@ -59,8 +63,8 @@
   - F57
   - F60
   note:
-    it: 'Sulle auto con sedile elettrico la memoria del riscaldamento può stare nella centralina del sedile oltre che nel BDC (NACHLAUFZEIT_SITZHEIZUNG_FRONT). Se cambiarla nel BDC non basta, prova qui. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54 e dalla descrizione dell''elenco BimmerCode.'
-    en: 'On cars with an electric seat the heating memory may sit in the seat module as well as in the BDC (NACHLAUFZEIT_SITZHEIZUNG_FRONT). If changing it in the BDC is not enough, try here. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL and the BimmerCode list description.'
+    it: 'Sulle auto con sedile elettrico il tempo può stare nella centralina del sedile oltre che nel BDC (NACHLAUFZEIT_SITZHEIZUNG_FRONT): se cambiarlo nel BDC non basta, prova qui. Nessuna fonte pubblica descrive il parametro: l''abbinamento viene dal nome nel FWL e dall''elenco di BimmerCode.'
+    en: 'On cars with an electric seat the time may be in the seat unit as well as in the BDC (NACHLAUFZEIT_SITZHEIZUNG_FRONT): if changing it in the BDC is not enough, try here. No public source describes the parameter: the match comes from the name in the FWL and the BimmerCode list.'
   fonti:
   - https://bimmercode.app/vehicles/f56
   osservazioni:
@@ -74,6 +78,9 @@
   titolo:
     it: Funzione Gentleman (sedile passeggero dal posto guida)
     en: Gentleman function (passenger seat from the driver side)
+  descrizione:
+    it: 'Dal posto guida puoi spostare il sedile del passeggero.'
+    en: 'From the driver''s seat you can move the passenger seat.'
   parametri:
   - nome: Gentleman
     regolabile: true
@@ -122,10 +129,8 @@
   - F85
   - F86
   note:
-    it: Serve il sedile passeggero elettrico con memoria. Parametro presente nei FWL della F54 di riferimento; la
-      codifica è documentata nei cheat sheet su GitHub.
-    en: Requires an electric passenger seat with memory. Parameter present in the reference F54 FWL files; the coding
-      is documented in GitHub cheat sheets.
+    it: 'Serve il sedile passeggero elettrico. Le fonti sono cheat sheet coreani (valore 01); uno dice che va abbinata alla centralina del sedile passeggero (SM2).'
+    en: 'Needs an electric passenger seat. The sources are Korean cheat sheets (value 01); one says it works together with the passenger seat unit (SM2).'
   fonti:
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
   osservazioni:

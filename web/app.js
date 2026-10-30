@@ -186,7 +186,7 @@ function renderRows() {
     .filter(it => !fe || parts(it).some(r => r.entry.centralina === fe))
     .filter(it => !fs || it.stato === fs)
     .filter(it => !hide || !parts(it).some(r => r.entry.consiglio === 'sconsigliata'))
-    .filter(it => !q || [it.tipo === 'funzione' ? tr(it.funzione.titolo) : '', ...parts(it).flatMap(r => [tr(r.entry.titolo), r.entry.centralina, ...r.entry.parametri.map(p => p.nome)])].join(' ').toLowerCase().includes(q))
+    .filter(it => !q || [it.tipo === 'funzione' ? tr(it.funzione.titolo) : '', ...parts(it).flatMap(r => [tr(r.entry.titolo), tr(r.entry.descrizione) || '', r.entry.centralina, ...r.entry.parametri.map(p => p.nome)])].join(' ').toLowerCase().includes(q))
     .sort((a, b) => RANK[a.stato] - RANK[b.stato] || allOther(a) - allOther(b) || (b.tipo === 'funzione') - (a.tipo === 'funzione') || firstUnit(a).localeCompare(firstUnit(b)));
   // Con la FA di un telaio che il database non copre ancora, un avviso unico in cima.
   const serie = state.fa?.serie;
@@ -268,7 +268,7 @@ function rowView(r, nested = false) {
     e.parametri.length ? params : null,
     e.valori_suggeriti ? el('p', {}, el('b', { text: t().suggested + ': ' }), tr(e.valori_suggeriti)) : null,
     e.requisiti_sa?.length ? el('p', {}, el('b', { text: t().needsSa + ': ' }), e.requisiti_sa.join(', ')) : null,
-    tr(e.note) ? el('p', { class: 'note', text: tr(e.note) }) : null,
+    tr(e.note) ? el('p', { class: 'note' }, el('b', { text: t().goodToKnow + ': ' }), tr(e.note)) : null,
     nested ? null : togetherView(e),
     seen.length ? el('p', { class: 'seen', text: `${t().seenOn}: ${seen.join('; ')}` }) : null,
     sourcesView(e.fonti),
@@ -279,7 +279,8 @@ function rowView(r, nested = false) {
       switchEl,
       el('div', { class: 'row-title' },
         el('h3', {}, tr(e.titolo), titleLang),
-        el('p', { class: 'row-sub' }, el('span', { class: 'ecu', text: e.centralina }), ' ', el('span', { class: 'state', text: t().stati[r.stato] }), ...tags)),
+        el('p', { class: 'row-sub' }, el('span', { class: 'ecu', text: e.centralina }), ' ', el('span', { class: 'state', text: t().stati[r.stato] }), ...tags),
+        tr(e.descrizione) ? el('p', { class: 'row-desc', text: tr(e.descrizione) }) : null),
       actionable ? el('label', { class: 'pick', for: id, title: t().addToList },
         el('input', { type: 'checkbox', id, checked: state.selected.has(e.id), onchange: ev => { ev.target.checked ? state.selected.add(e.id) : state.selected.delete(e.id); renderDock(); } }),
         el('span', { class: 'sr', text: t().addToList })) : null),
