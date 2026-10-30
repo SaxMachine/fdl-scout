@@ -80,6 +80,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'Spegne la spia delle cinture nel quadro. Documentato sull''ACSM di G11/G30 con questo nome esatto e su F10/F20/F30 come Gurtzustandsanzeige_*_GWF_GZA_*; non ancora sul CAFD MINI. Riguarda la sicurezza: sconsigliata. Vedi anche le voci sull''avviso cinture (SeatBeltReminder_*).'
     en: 'Turns off the seat belt light in the cluster. Documented on the G11/G30 ACSM with this exact name and on F10/F20/F30 as Gurtzustandsanzeige_*_GWF_GZA_*; not yet on the MINI CAFD. Safety-related: not recommended. See also the seat belt reminder entries (SeatBeltReminder_*).'
@@ -92,6 +93,11 @@
     i_level: F056-26-03-519
     valore_letto: Gurtzustandsanzeige_Fahrer=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Parametro presente, non provato
 - id: acsm.spia-cinture-passeggero
   centralina: ACSM
   titolo:
@@ -105,6 +111,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'Spegne la spia delle cinture nel quadro. Documentato sull''ACSM di G11/G30 con questo nome esatto e su F10/F20/F30 come Gurtzustandsanzeige_*_GWF_GZA_*; non ancora sul CAFD MINI. Riguarda la sicurezza: sconsigliata. Vedi anche le voci sull''avviso cinture (SeatBeltReminder_*).'
     en: 'Turns off the seat belt light in the cluster. Documented on the G11/G30 ACSM with this exact name and on F10/F20/F30 as Gurtzustandsanzeige_*_GWF_GZA_*; not yet on the MINI CAFD. Safety-related: not recommended. See also the seat belt reminder entries (SeatBeltReminder_*).'
@@ -117,6 +124,11 @@
     i_level: F056-26-03-519
     valore_letto: Gurtzustandsanzeige_Beifahrer=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Parametro presente, non provato
 - id: acsm.durata-avviso-cinture
   centralina: ACSM
   titolo:

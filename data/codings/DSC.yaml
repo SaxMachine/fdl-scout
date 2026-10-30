@@ -109,6 +109,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   - F80
   note:
     it: 'Impostazioni del controllo di stabilità per M3/M4 F80/F82 USA. Su altre auto: sconsigliata. Parametro presente
@@ -123,6 +124,11 @@
     i_level: F056-26-03-519
     valore_letto: C_AMR_2_c=1, C_AMR_3_c=0
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: C_AMR_2_c=1, C_AMR_3_c=0
+    esito: Parametro presente, non provato
 - id: dsc.dynamic-brake-control
   centralina: DSC
   titolo:
@@ -166,6 +172,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'Documentata su una F54 (centralina DSC2): con MACRO_FDS = popup_and_config nella HU compare la configurazione della modalità Sport in iDrive. Sulle BMW con ICM l''equivalente è ICMKOD_B_SPORTINDIVIDUALISIERBAR.'
     en: 'Documented on an F54 (DSC2 unit): with MACRO_FDS = popup_and_config in the HU the Sport mode configuration appears in iDrive. On BMWs with an ICM the equivalent is ICMKOD_B_SPORTINDIVIDUALISIERBAR.'
@@ -179,3 +186,8 @@
     i_level: F056-26-03-519
     valore_letto: QdmKfvSportIndividualisierbarDep=NichtIndividualisierbar
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: Individualisierbar
+    esito: Già attivo

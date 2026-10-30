@@ -58,7 +58,7 @@ export const T = {
     tabShare: 'Contribuisci',
     stati: {
       attivabile: 'Attivabile', regolabile: 'Regolabile', attiva: 'Già attiva', manca_optional: 'Manca l\'optional',
-      non_disponibile: 'Non disponibile', centralina_non_letta: 'Centralina non letta', da_mappare: 'Da mappare',
+      non_disponibile: 'Non nel tuo FWL', centralina_non_letta: 'Centralina non letta', da_mappare: 'Da mappare',
       parziale: 'Attiva in parte',
     },
     statiHelp: {
@@ -66,7 +66,7 @@ export const T = {
       regolabile: 'I parametri ci sono, il valore è a tua scelta',
       attiva: 'Già al valore indicato',
       manca_optional: 'La FA non ha l\'optional che questa funzione richiede',
-      non_disponibile: 'La centralina non ha questo parametro con il tuo CAFD',
+      non_disponibile: 'Il parametro non compare in questo FWL: può mancare nel tuo CAFD oppure avere un altro nome nella versione di E-Sys con cui hai esportato',
       centralina_non_letta: 'Carica l\'FWL di questa centralina per saperlo',
       da_mappare: 'Mancano ancora i nomi dei parametri',
       parziale: 'Funzione su più parti: alcune sono già a posto, altre no',
@@ -201,7 +201,7 @@ export const T = {
     tabShare: 'Contribute',
     stati: {
       attivabile: 'Can be enabled', regolabile: 'Adjustable', attiva: 'Already on', manca_optional: 'Option missing',
-      non_disponibile: 'Not available', centralina_non_letta: 'Unit not read', da_mappare: 'Not mapped yet',
+      non_disponibile: 'Not in your FWL', centralina_non_letta: 'Unit not read', da_mappare: 'Not mapped yet',
       parziale: 'Partly on',
     },
     statiHelp: {
@@ -209,7 +209,7 @@ export const T = {
       regolabile: 'Parameters exist, the value is up to you',
       attiva: 'Already set to the documented value',
       manca_optional: 'Your FA lacks the option this feature needs',
-      non_disponibile: 'Your CAFD does not have this parameter',
+      non_disponibile: 'The parameter is not in this FWL: your CAFD may lack it, or the E-Sys version you exported with may use another name',
       centralina_non_letta: 'Load the FWL of this unit to find out',
       da_mappare: 'Parameter names are still missing',
       parziale: 'Multi-part feature: some parts are already set, others are not',

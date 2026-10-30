@@ -14,6 +14,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'Documentata per la PMA delle serie F come AKT_RUECKWAERTSROLLEN → aktiv. Sul CAFD della F54 (0000146B) il
       parametro si chiama aktivierung_rueckwaertsrollen e vale 00: il nome è diverso, la centralina e la funzione
@@ -29,6 +30,11 @@
     i_level: F056-26-03-519
     valore_letto: aktivierung_rueckwaertsrollen=00
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: initwert
+    esito: Parametro presente, non provato
 - id: pma.soglie-spegnimento-retrocamera
   centralina: PMA
   titolo:

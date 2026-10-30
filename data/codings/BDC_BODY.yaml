@@ -19,8 +19,8 @@
   - F57
   - F60
   note:
-    it: Già attivo nel BDC. Nella DME risulta Wert_00, ma la funzione la gestisce il BDC.
-    en: Already active in the BDC. The DME shows Wert_00, but the function is handled by the BDC.
+    it: 'Codificata e provata su F54: lo Start/Stop resta come l''hai lasciato. Basta il BDC: nella DME il parametro resta Wert_00.'
+    en: 'Coded and tested on F54: Start/Stop stays as you left it. The BDC is enough: in the DME the parameter stays Wert_00.'
   fonti:
   - https://minkara.carview.co.jp/userid/1338285/car/2786797/5658504/note.aspx
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-12.html
@@ -34,7 +34,7 @@
     anno: 2022
     i_level: F056-26-03-519
     valore_letto: aktiv
-    esito: Già attivo
+    esito: 'Codificata e provata: ricorda l''ultimo stato'
 - id: bdc_body.specchio-passeggero-inclinato-in-retromarcia
   centralina: BDC_BODY
   titolo:
@@ -176,6 +176,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'Fa parte del gruppo TCM_LOGIC_15_OFF_* (spegnimento del morsetto 15: con la cintura, la chiusura, la presa OBD…). Lo spegnimento di radio e navigazione aprendo la porta è un altro parametro, TCM_LOGIC_R_OFF_DOOR. Nessuna fonte trovata riporta questo parametro: l''effetto va provato.'
     en: 'Part of the TCM_LOGIC_15_OFF_* group (terminal 15 switch-off: with the belt, locking, the OBD port…). Switching off radio and navigation when the door is opened is a different parameter, TCM_LOGIC_R_OFF_DOOR. No source found gives this parameter: the effect has to be tested.'
@@ -185,6 +186,11 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: bdc_body.comportamento-drl-con-luci-di-posizione
   centralina: BDC_BODY
   titolo:
@@ -1527,6 +1533,7 @@
   - F30
   - F48
   - F54
+  - F56
   - F85
   - F86
   note:
@@ -1546,6 +1553,11 @@
     valore_letto: RC_PANIC_ALARM=03, RC_DEFAULT_IDG_3RD_BUTTON_SHORT=Wert_00, RC_DEFAULT_IDG_3RD_BUTTON_MID=Wert_00,
       RC_DEFAULT_IDG_3RD_BUTTON_LONG=Wert_02, RC_TIME_DELAY_BOOTLID=01, RC_TIME_DELAY_PANIC=00
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: RC_PANIC_ALARM=nicht_aktiv, RC_DEFAULT_IDG_3RD_BUTTON_SHORT=Wert_00, RC_DEFAULT_IDG_3RD_BUTTON_MID=Wert_02, RC_DEFAULT_IDG_3RD_BUTTON_LONG=Wert_00, RC_TIME_DELAY_BOOTLID=wert_01, RC_TIME_DELAY_PANIC=Wert_00
+    esito: Parametro presente, non provato
 - id: bdc_body.frecce-anteriori-led
   centralina: BDC_BODY
   titolo:
@@ -1676,6 +1688,7 @@
   - F30
   - F48
   - F54
+  - F56
   - F80
   - F82
   note:
@@ -1692,6 +1705,11 @@
   - telaio: F54
     anno: 2022
     i_level: F056-26-03-519
+    valore_letto: KOMFORTOEFFNUNG=aktiv, KOMFORTSCHLIESSUNG_PA=aktiv, ASP_AUSKLAPPEN_NACH_KOMFORTSCHLIESSEN=aktiv
+    esito: Già attivo
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
     valore_letto: KOMFORTOEFFNUNG=aktiv, KOMFORTSCHLIESSUNG_PA=aktiv, ASP_AUSKLAPPEN_NACH_KOMFORTSCHLIESSEN=aktiv
     esito: Già attivo
 - id: bdc_body.finestrini-con-porta-aperta
@@ -1975,6 +1993,7 @@
   telai:
   - F15
   - F54
+  - F56
   note:
     it: 'Tabelle luci del Brake Force Display documentate solo su F15 e "in prova". Tocca le luci di stop: rischio
       di non conformità. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
@@ -1990,6 +2009,11 @@
     valore_letto: MAPPING_BRAKEFORCED_1_L_PRIORITY=priority_1, MAPPING_BRAKEFORCED_1_L_PWM_1_BFD=100%, MAPPING_BRAKEFORCED_1_L_PWM_4=pwm_1,
       MAPPING_BRAKEFORCED_1_L_DEPENDENCY_FUNC=function_1, MAPPING_BRAKEFORCED_1_R_PR
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: MAPPING_BRAKEFORCED_1_L_PRIORITY=priority_1, MAPPING_BRAKEFORCED_1_L_PWM_1_BFD=Ersatzwert, MAPPING_BRAKEFORCED_1_L_PWM_4=pwm_1, MAPPING_BRAKEFORCED_1_L_DEPENDENCY_FUNC=function_1, MAPPING_BRAKEFORCED_1_R_PRIORITY=priority_1, MAPPING_BRAKEFORCED_1_R_PWM_1_BFD=Ersatzwert, MAPPING_BRAKEFORCED_1_R_PWM_4=pwm_1, MAPPING_BRAKEFORCED_1_R_DEPENDENCY_FUNC=function_1, MAPPING_BRAKEFORCED_2_L_PRIORITY=priority_1, MAPPING_BRAKEFORCED_2_L_PWM_1_BFD=Ersatzwert, MAPPING_BRAKEFORCED_2_L_PWM_2_ESS_1=12.7V, MAPPING_BRAKEFORCED_2_L_PWM_3_ESS_2=12.7V, MAPPING_BRAKEFORCED_2_L_PWM_4=0V, MAPPING_BRAKEFORCED_2_R_PRIORITY=priority_1, MAPPING_BRAKEFORCED_2_R_PWM_1_BFD=Ersatzwert, MAPPING_BRAKEFORCED_2_R_PWM_2_ESS_1=12.7V, MAPPING_BRAKEFORCED_2_R_PWM_3_ESS_2=12.7V, MAPPING_BRAKEFORCED_2_R_PWM_4=0V
+    esito: Parametro presente, non provato
 - id: bdc_body.lampeggi-freccia-comfort
   centralina: BDC_BODY
   titolo:
@@ -2134,6 +2158,7 @@
   - F20
   - F30
   - F54
+  - F56
   - F80
   - F82
   note:
@@ -2154,6 +2179,11 @@
     valore_letto: MAPPING_NEBELSCHLUSSL_L_OUTPUT=nsl_l, MAPPING_NEBELSCHLUSSL_L_FUNCTION=nebelschlusslicht, MAPPING_NEBELSCHLUSSL_R_OUTPUT=nsl_r,
       MAPPING_NEBELSCHLUSSL_R_FUNCTION=nebelschlusslicht
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: MAPPING_NEBELSCHLUSSL_L_OUTPUT=nsl_l, MAPPING_NEBELSCHLUSSL_L_FUNCTION=nebelschlusslicht, MAPPING_NEBELSCHLUSSL_R_OUTPUT=off, MAPPING_NEBELSCHLUSSL_R_FUNCTION=nebelschlusslicht
+    esito: Parametro presente, non provato
 - id: bdc_body.luci-adattive-afs-e-abbaglianti
   centralina: BDC_BODY
   titolo:
@@ -2181,6 +2211,7 @@
   - F26
   - F48
   - F54
+  - F56
   - F80
   - F82
   - F85
@@ -2201,6 +2232,11 @@
     valore_letto: LUT_FLC_FORWARDLIGHTING_Y=I001Codierwert ohne AFS, C_AFS_ENA=F015disable, ComAdapterPdu_095_Objektdaten_Stufenloser_Fernlicht_Assistent=inaktiv,
       C_HBA_ENA=F015disable
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: LUT_FLC_FORWARDLIGHTING_Y=M013_ohne_AFS, C_AFS_ENA=M013_disable, ComAdapterPdu_095_Objektdaten_Stufenloser_Fernlicht_Assistent=inaktiv, C_HBA_ENA=M013_disable
+    esito: Parametro presente, non provato
 - id: bdc_body.abbaglianti-automatici-autostrada
   centralina: BDC_BODY
   titolo:
@@ -2225,6 +2261,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Velocità di ingresso e uscita dalla modalità autostrada degli abbaglianti automatici. Parametro presente
       nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
@@ -2239,6 +2276,11 @@
     i_level: F056-26-03-519
     valore_letto: C_HBA_HGWY_V_LO=defaultwert, C_HBA_HGWY_V_HI=defaultwert, C_HBA_HGWY_V_MIN=defaultwert, C_HBA_HGWY_T_MIN=defaultwert
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: C_HBA_HGWY_V_LO=defaultwert, C_HBA_HGWY_V_HI=defaultwert, C_HBA_HGWY_V_MIN=defaultwert, C_HBA_HGWY_T_MIN=defaultwert
+    esito: Parametro presente, non provato
 - id: bdc_body.palette-al-volante
   centralina: BDC_BODY
   titolo:
@@ -2351,6 +2393,7 @@
   - F20
   - F30
   - F54
+  - F56
   - F80
   - F82
   note:
@@ -2368,6 +2411,11 @@
     i_level: F056-26-03-519
     valore_letto: ESS_BLINKFREQ_1=3_Hz, ESS_BLINKFREQ_2=3_Hz
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: ESS_BLINKFREQ_1=3_Hz, ESS_BLINKFREQ_2=3_Hz
+    esito: Parametro presente, non provato
 - id: bdc_body.luci-laterali-sidemarker
   centralina: BDC_BODY
   titolo:
@@ -2392,6 +2440,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Impostazione da auto USA. Verifica le norme del tuo paese. Parametro presente nei FWL della F54 di riferimento;
       la codifica è documentata nei cheat sheet su GitHub.
@@ -2409,6 +2458,11 @@
     valore_letto: MAPPING_SIDEMARKER_L_OUTPUT=off, MAPPING_SIDEMARKER_R_OUTPUT=off, MAPPING_SIDEMARKER_L_FUNCTION=standlicht,
       MAPPING_SIDEMARKER_R_FUNCTION=standlicht
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: MAPPING_SIDEMARKER_L_OUTPUT=off, MAPPING_SIDEMARKER_R_OUTPUT=off, MAPPING_SIDEMARKER_L_FUNCTION=standlicht, MAPPING_SIDEMARKER_R_FUNCTION=standlicht
+    esito: Parametro presente, non provato
 - id: bdc_body.abbaglianti-automatici-velocita
   centralina: BDC_BODY
   titolo:
@@ -2429,6 +2483,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Velocità sopra cui si attivano e sotto cui si disattivano. Parametro presente nei FWL della F54 di riferimento;
       la codifica è documentata nei cheat sheet su GitHub.
@@ -2443,6 +2498,11 @@
     i_level: F056-26-03-519
     valore_letto: C_HBA_ENA_V_LO=F015Codierwert, C_HBA_ENA_V_HI=defaultwert
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: C_HBA_ENA_V_LO=defaultwert, C_HBA_ENA_V_HI=defaultwert
+    esito: Parametro presente, non provato
 - id: bdc_body.quarto-tasto-chiave-breve
   centralina: BDC_BODY
   titolo:
@@ -2460,6 +2520,7 @@
   telai:
   - F15
   - F54
+  - F56
   note:
     it: Documentato su F15. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
       sheet su GitHub.
@@ -2473,6 +2534,11 @@
     i_level: F056-26-03-519
     valore_letto: RC_DEFAULT_IDG_4TH_BUTTON_SHORT=Wert_00
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: Wert_00
+    esito: Parametro presente, non provato
 - id: bdc_body.quarto-tasto-chiave-media
   centralina: BDC_BODY
   titolo:
@@ -2490,6 +2556,7 @@
   telai:
   - F15
   - F54
+  - F56
   note:
     it: Documentato su F15. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
       sheet su GitHub.
@@ -2503,6 +2570,11 @@
     i_level: F056-26-03-519
     valore_letto: RC_DEFAULT_IDG_4TH_BUTTON_MID=Wert_00
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: Wert_00
+    esito: Parametro presente, non provato
 - id: bdc_body.quarto-tasto-chiave-lunga
   centralina: BDC_BODY
   titolo:
@@ -2520,6 +2592,7 @@
   telai:
   - F15
   - F54
+  - F56
   note:
     it: Documentato su F15. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
       sheet su GitHub.
@@ -2533,6 +2606,11 @@
     i_level: F056-26-03-519
     valore_letto: RC_DEFAULT_IDG_4TH_BUTTON_LONG=Wert_00
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: Wert_00
+    esito: Parametro presente, non provato
 - id: bdc_body.lavafari
   centralina: BDC_BODY
   titolo:
@@ -2551,6 +2629,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: 'Con fari LED o allo xeno il lavafari può essere obbligatorio: verifica le norme. Parametro presente nei
       FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
@@ -2567,6 +2646,11 @@
     i_level: F056-26-03-519
     valore_letto: WW_SCHEINWERFERREINIGUNG=09
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: bdc_body.lavafari-ogni-quanti-lavaggi
   centralina: BDC_BODY
   titolo:
@@ -2585,6 +2669,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -2598,6 +2683,11 @@
     i_level: F056-26-03-519
     valore_letto: WW_ANZAHL_WASCHBET_ZUR_SRA=10_Betaetigungen
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: 10_Betaetigungen
+    esito: Parametro presente, non provato
 - id: bdc_body.lavafari-numero-spruzzi
   centralina: BDC_BODY
   titolo:
@@ -2616,6 +2706,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -2629,6 +2720,11 @@
     i_level: F056-26-03-519
     valore_letto: WW_ANZAHL_SPRITZIMPULSE_SRA=0A
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: 2_Impulse
+    esito: Parametro presente, non provato
 - id: bdc_body.brake-force-display-lampeggio
   centralina: BDC_BODY
   titolo:
@@ -2652,6 +2748,7 @@
   telai:
   - F15
   - F54
+  - F56
   note:
     it: 'Documentato solo su F15. Tocca le luci di stop: rischio di non conformità. Parametro presente nei FWL della
       F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
@@ -2666,6 +2763,11 @@
     valore_letto: MAPPING_BRAKEFORCED_1_L_OUTPUT=bl_l, MAPPING_BRAKEFORCED_1_R_OUTPUT=bl_r, MAPPING_BRAKEFORCED_2_L_OUTPUT=sl_l,
       MAPPING_BRAKEFORCED_2_R_OUTPUT=sl_r
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: MAPPING_BRAKEFORCED_1_L_OUTPUT=bl_l, MAPPING_BRAKEFORCED_1_R_OUTPUT=bl_r, MAPPING_BRAKEFORCED_2_L_OUTPUT=off, MAPPING_BRAKEFORCED_2_R_OUTPUT=off
+    esito: Parametro presente, non provato
 - id: bdc_body.seconda-coppia-luci-posteriori-con-diurne
   centralina: BDC_BODY
   titolo:
@@ -2718,6 +2820,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -2730,6 +2833,11 @@
     i_level: F056-26-03-519
     valore_letto: WW_SRA_SPERRZEIT=02
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: 10_min
+    esito: Parametro presente, non provato
 - id: bdc_body.tergilunotto-passate-dopo-lavaggio
   centralina: BDC_BODY
   titolo:
@@ -2748,6 +2856,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -2759,6 +2868,11 @@
     i_level: F056-26-03-519
     valore_letto: WW_ANZAHL_NACHWISCHZ_HECK=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: 2_mal_Nachwischen
+    esito: Parametro presente, non provato
 - id: bdc_body.retronebbia-presente
   centralina: BDC_BODY
   titolo:
@@ -2777,6 +2891,7 @@
   - F20
   - F30
   - F54
+  - F56
   - F80
   - F82
   note:
@@ -2795,6 +2910,11 @@
     i_level: F056-26-03-519
     valore_letto: NSL_VERBAUT=verbaut
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: verbaut
+    esito: Parametro presente, non provato
 - id: bdc_body.disattivazione-stop-lampeggianti
   centralina: BDC_BODY
   titolo:
@@ -2850,6 +2970,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Usa i fendinebbia come luci di svolta anche in retro. Verifica le norme. Parametro presente nei FWL della
       F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
@@ -2863,6 +2984,11 @@
     i_level: F056-26-03-519
     valore_letto: C_CLC_REV_ALWAYS_ON=F015Codierwert, C_CLC_REV_CURV_BOTH_ON=F015Codierwert
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: C_CLC_REV_ALWAYS_ON=M013_Codierwert, C_CLC_REV_CURV_BOTH_ON=M013_Codierwert
+    esito: Parametro presente, non provato
 - id: bdc_body.fendinebbia-nel-benvenuto
   centralina: BDC_BODY
   titolo:
@@ -2957,6 +3083,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Solo con retronebbia LED montati dopo. Parametro presente nei FWL della F54 di riferimento; la codifica
       è documentata nei cheat sheet su GitHub.
@@ -2970,6 +3097,11 @@
     i_level: F056-26-03-519
     valore_letto: NSL_L_IS_LED=aktiv, NSL_R_IS_LED=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: NSL_L_IS_LED=aktiv, NSL_R_IS_LED=nicht_aktiv
+    esito: Parametro presente, non provato
 - id: bdc_body.luci-retromarcia-led
   centralina: BDC_BODY
   titolo:
@@ -3028,6 +3160,7 @@
   telai:
   - F15
   - F54
+  - F56
   note:
     it: Adegua la sensibilità dello specchio al tipo di lunotto (vetri oscurati). Parametro presente nei FWL della
       F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
@@ -3041,6 +3174,11 @@
     i_level: F056-26-03-519
     valore_letto: ISP_HECKSCHEIBE=Dunkel
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: Dunkel
+    esito: Parametro presente, non provato
 - id: bdc_body.tergilunotto-in-retromarcia
   centralina: BDC_BODY
   titolo:
@@ -3059,6 +3197,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3070,6 +3209,11 @@
     i_level: F056-26-03-519
     valore_letto: WW_HECKWISCHER_EIN_RUECKWGANG=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Parametro presente, non provato
 - id: bdc_body.abbaglianti-automatici-dalla-levetta
   centralina: BDC_BODY
   titolo:
@@ -3088,6 +3232,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3100,6 +3245,11 @@
     i_level: F056-26-03-519
     valore_letto: FLA_AKTIVIERUNG=LDS_in_A
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: LDS_in_A
+    esito: Parametro presente, non provato
 - id: bdc_body.luce-ambiente-all-apertura
   centralina: BDC_BODY
   titolo:
@@ -3115,6 +3265,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: 'Le fonti (F20/F30) lo portano ad aktiv. Sulla F54 di riferimento il valore attuale è 64 e non ha un nome, quindi in E-Sys controlla se tra le opzioni c''è davvero aktiv prima di cambiarlo.'
     en: 'Sources (F20/F30) set it to aktiv. On the reference F54 the current value is 64 with no name, so check in E-Sys that aktiv really is one of the options before changing it.'
@@ -3127,6 +3278,11 @@
     i_level: F056-26-03-519
     valore_letto: WELCOME_AMBIENTE=64
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: bdc_body.lampeggio-apertura-portellone
   centralina: BDC_BODY
   titolo:
@@ -3145,6 +3301,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3156,6 +3313,11 @@
     i_level: F056-26-03-519
     valore_letto: HECKKLAPPE_REVERSIEREN_BLINKEN=doppelt
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: doppelt
+    esito: Parametro presente, non provato
 - id: bdc_body.follow-me-home-dalla-chiave
   centralina: BDC_BODY
   titolo:
@@ -3171,6 +3333,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Va con KEY_CONF_COMFORT_HOMELIGHT nella HU. Parametro presente nei FWL della F54 di riferimento; la codifica
       è documentata nei cheat sheet su GitHub.
@@ -3184,6 +3347,11 @@
     i_level: F056-26-03-519
     valore_letto: FOLLOWMEHOME_VIA_FFB=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: bdc_body.durata-follow-me-home
   centralina: BDC_BODY
   titolo:
@@ -3202,6 +3370,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3213,6 +3382,11 @@
     i_level: F056-26-03-519
     valore_letto: PIA_DEFAULT_FMH=01
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: wert_01
+    esito: Parametro presente, non provato
 - id: bdc_body.velocita-chiusura-automatica
   centralina: BDC_BODY
   titolo:
@@ -3267,6 +3441,7 @@
   - F26
   - F48
   - F54
+  - F56
   - F85
   - F86
   note:
@@ -3280,6 +3455,11 @@
     i_level: F056-26-03-519
     valore_letto: WL_WIEDERHOLSPERRE_AKTIV=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Parametro presente, non provato
 - id: bdc_body.follow-me-home-ripetuto
   centralina: BDC_BODY
   titolo:
@@ -3301,6 +3481,7 @@
   - F26
   - F48
   - F54
+  - F56
   - F85
   - F86
   note:
@@ -3314,6 +3495,11 @@
     i_level: F056-26-03-519
     valore_letto: FMH_WIEDERHOLSPERRE_AKTIV=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Parametro presente, non provato
 - id: bdc_body.luci-di-parcheggio
   centralina: BDC_BODY
   titolo:
@@ -3327,6 +3513,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   - F80
   - F82
   note:
@@ -3340,6 +3527,11 @@
     i_level: F056-26-03-519
     valore_letto: PARKLICHT_MOEGLICH=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: bdc_body.specchio-passeggero-posizione-orizzontale
   centralina: BDC_BODY
   titolo:
@@ -3358,6 +3550,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Da usare se ASP_BORDSTEINAUTOMATIK_DELTA non basta. Parametro presente nei FWL della F54 di riferimento;
       la codifica è documentata nei cheat sheet su GitHub.
@@ -3371,6 +3564,11 @@
     i_level: F056-26-03-519
     valore_letto: ASP_HORIZONTALE_MIN_POS=75
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: 117_Digits
+    esito: Parametro presente, non provato
 - id: bdc_body.lavafari-durata-spruzzo
   centralina: BDC_BODY
   titolo:
@@ -3387,6 +3585,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3398,6 +3597,11 @@
     i_level: F056-26-03-519
     valore_letto: WW_DAUER_SPRITZIMPULSE_SRA=00
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: 1000_ms
+    esito: Parametro presente, non provato
 - id: bdc_body.lavafari-velocita-massima
   centralina: BDC_BODY
   titolo:
@@ -3414,6 +3618,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3425,6 +3630,11 @@
     i_level: F056-26-03-519
     valore_letto: WW_SRA_GESCHWINDIGKEITS_DEAKTIVIERUNG=0A
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: 130_kmh
+    esito: Parametro presente, non provato
 - id: bdc_body.lavafari-pausa-tra-spruzzi
   centralina: BDC_BODY
   titolo:
@@ -3441,6 +3651,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3452,6 +3663,11 @@
     i_level: F056-26-03-519
     valore_letto: WW_PAUSE_SPRITZIMPULSE_SRA=00
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: 1000_ms
+    esito: Parametro presente, non provato
 - id: bdc_body.ritardo-finestrini-posteriori
   centralina: BDC_BODY
   titolo:
@@ -3468,6 +3684,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3479,6 +3696,11 @@
     i_level: F056-26-03-519
     valore_letto: KOMFORT_OEFF_HINTEN=wert_01
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: wert_01
+    esito: Parametro presente, non provato
 - id: bdc_body.ritardo-finestrini-anteriori
   centralina: BDC_BODY
   titolo:
@@ -3495,6 +3717,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3506,6 +3729,11 @@
     i_level: F056-26-03-519
     valore_letto: KOMFORT_SCHL_VORNE=wert_01
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: wert_01
+    esito: Parametro presente, non provato
 - id: bdc_body.ritardo-tetto-apertura-comfort
   centralina: BDC_BODY
   titolo:
@@ -3522,6 +3750,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3533,6 +3762,11 @@
     i_level: F056-26-03-519
     valore_letto: KOMFORT_OEFF_SHD=wert_01
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: wert_01
+    esito: Parametro presente, non provato
 - id: bdc_body.variante-devioguida
   centralina: BDC_BODY
   titolo:
@@ -3549,6 +3783,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'Deve corrispondere all''hardware montato: un valore sbagliato può disattivare comandi del devioguida. Parametro
       presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
@@ -3562,6 +3797,11 @@
     i_level: F056-26-03-519
     valore_letto: LIN_VARIANTE_SZL=szl_HW_aic_4Band_fla
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: szl_HW_aic_fla
+    esito: Parametro presente, non provato
 - id: bdc_body.temperature-sedili-riscaldati
   centralina: BDC_BODY
   titolo:
@@ -3600,6 +3840,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'Temperature per ogni livello di seduta e schienale, anteriori e posteriori. Non esagerare: rischio di scottature.
       Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
@@ -3613,6 +3854,11 @@
     i_level: F056-26-03-519
     valore_letto: 'TEMP_LEHNE_STUFE_1_FRONT=00, TEMP_LEHNE_STUFE_2_FRONT=96, TEMP_LEHNE_STUFE_3_FRONT=9E, TEMP_SITZ_STUFE_1_FRONT=AE, TEMP_SITZ_STUFE_2_FRONT=35_grad, TEMP_SITZ_STUFE_3_FRONT=9E, TEMP_LEHNE_STUFE_1_FOND=00000000, TEMP_LEHNE_STUFE_2_FOND=90, TEMP_LEHNE_STUFE_3_FOND=9A, TEMP_SITZ_STUFE_1_FOND=AA, TEMP_SITZ_STUFE_2_FOND=35_grad, TEMP_SITZ_STUFE_3_FOND=96'
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: TEMP_LEHNE_STUFE_1_FRONT=32_grad, TEMP_LEHNE_STUFE_2_FRONT=37_grad, TEMP_LEHNE_STUFE_3_FRONT=45_grad, TEMP_SITZ_STUFE_1_FRONT=32_grad, TEMP_SITZ_STUFE_2_FRONT=37_grad, TEMP_SITZ_STUFE_3_FRONT=42_grad, TEMP_LEHNE_STUFE_1_FOND=32_grad, TEMP_LEHNE_STUFE_2_FOND=37_grad, TEMP_LEHNE_STUFE_3_FOND=45_grad, TEMP_SITZ_STUFE_1_FOND=35_grad, TEMP_SITZ_STUFE_2_FOND=35_grad, TEMP_SITZ_STUFE_3_FOND=43_grad
+    esito: Parametro presente, non provato
 - id: bdc_body.terzo-stop-led
   centralina: BDC_BODY
   titolo:
@@ -3780,6 +4026,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   - F60
   note:
     it: 'È il ritardo tra il movimento del piede sotto il paraurti (Smart Opener) e lo sblocco del portellone. Sulle BMW con FEM il parametro si chiama CLM_TIMEOUT_HK_SMO ed è documentato in quattro cheat sheet; un post su F54/F60 lo cita nella BDC con quel nome. Nella BDC della F54 di riferimento esiste invece VAM_TIMEOUT_HK_SMO: stesso nome con il prefisso VAM_ al posto di CLM_, come succede per VAM_/CLM_UNLOCK_KL15OFF_AFTER_PIA_AUTO_LOCK. La corrispondenza è dedotta dal nome: da verificare.'
@@ -3796,6 +4043,11 @@
     i_level: F056-26-03-519
     valore_letto: VAM_TIMEOUT_HK_SMO=0C
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: Wert_00
+    esito: Parametro presente, non provato
 - id: bdc_body.ritardo-apertura-baule-tasto
   centralina: BDC_BODY
   titolo:
@@ -3812,6 +4064,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'Ritardo con cui il baule si sblocca, senza Smart Opener (una fonte: di fabbrica 0,3 s). Il tempo per cui va tenuto premuto il tasto del baule sul telecomando è un altro parametro, RC_TIME_DELAY_BOOTLID. Sulle BMW con FEM il parametro si chiama CLM_TIME_DELAY_BOOTLID; nella BDC della F54 di riferimento esiste VAM_TIME_DELAY_BOOTLID, con il prefisso VAM_ al posto di CLM_ come per altri parametri delle chiusure. La corrispondenza è dedotta dal nome: da verificare.'
     en: 'Delay with which the boot unlocks, without Smart Opener (one source: factory 0.3 s). How long the boot button on the remote must be held is a different parameter, RC_TIME_DELAY_BOOTLID. On BMWs with a FEM the parameter is called CLM_TIME_DELAY_BOOTLID; the reference F54 BDC has VAM_TIME_DELAY_BOOTLID, with the VAM_ prefix instead of CLM_ as for other locking parameters. The match is inferred from the name: to be verified.'
@@ -3824,6 +4077,11 @@
     i_level: F056-26-03-519
     valore_letto: VAM_TIME_DELAY_BOOTLID=wert_01
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: wert_01
+    esito: Parametro presente, non provato
 - id: bdc_body.tempo-richiusura-automatica
   centralina: BDC_BODY
   titolo:
@@ -3873,6 +4131,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'Ritardo tra finestrini e tetto quando si chiude con la chiusura comfort. È un valore, non un interruttore.'
     en: 'Delay between windows and sunroof when closing with comfort closing. It is a value, not a switch.'
@@ -3884,6 +4143,11 @@
     i_level: F056-26-03-519
     valore_letto: KOMFORT_SCHL_SHD=wert_01
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: wert_01
+    esito: Parametro presente, non provato
 - id: bdc_body.specchio-inclinato-in-svolta
   centralina: BDC_BODY
   titolo:
@@ -3897,6 +4161,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'Provata su una F54: lo specchio sinistro si inclina svoltando a sinistra, in base a freccia e sterzo. L''autore poi l''ha riportata al valore di fabbrica.'
     en: 'Tried on an F54: the left mirror tilts when turning left, based on turn signal and steering. The author then set it back to the factory value.'
@@ -3908,3 +4173,8 @@
     i_level: F056-26-03-519
     valore_letto: ASP_ABA_AKTIVIERUNG=Nicht Aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: Nicht Aktiv
+    esito: Parametro presente, non provato

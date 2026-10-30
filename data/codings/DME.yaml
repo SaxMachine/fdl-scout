@@ -17,6 +17,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'Disattiva la carica intelligente: la batteria resta piena ma si perde un po'' di efficienza. Codifica sulla
       centralina motore. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat
@@ -31,6 +32,11 @@
     i_level: F056-26-03-519
     valore_letto: IGR=Wert_01
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: Wert_01
+    esito: Parametro presente, non provato
 - id: dme.memoria-start-stop
   centralina: DME
   titolo:
@@ -44,11 +50,12 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   - G11
   - G30
   note:
-    it: 'Parte nella centralina motore della memoria Start/Stop: secondo una guida ricorda lo stato anche a motore spento con quadro acceso. Documentata sulla DME di G11/G30; nella DME della F54 di riferimento il parametro esiste e vale Wert_00. Va con la parte nella BDC.'
-    en: 'Engine-unit part of the Start/Stop memory: per one guide it keeps the state also with the engine off and ignition on. Documented on the G11/G30 DME; in the reference F54 DME the parameter exists and reads Wert_00. Goes with the BDC part.'
+    it: 'Parte nella centralina motore della memoria Start/Stop: secondo una guida ricorda lo stato anche a motore spento con quadro acceso. Documentata sulla DME di G11/G30. Sulla F54 non serve: la memoria funziona con la sola voce nel BDC (provata), con questo parametro a Wert_00.'
+    en: 'Engine-unit part of the Start/Stop memory: per one guide it keeps the state also with the engine off and ignition on. Documented on the G11/G30 DME. On the F54 it is not needed: the memory works with the BDC entry alone (tested), with this parameter at Wert_00.'
   fonti:
   - https://github.com/Dauxdu/bmw-coding/blob/main/e-sys/02-Codings/Body/Start-Stop.md
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml
@@ -59,3 +66,8 @@
     i_level: F056-26-03-519
     valore_letto: TCM_MSA_MEMORY=Wert_00
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: Wert_00
+    esito: Parametro presente, non provato

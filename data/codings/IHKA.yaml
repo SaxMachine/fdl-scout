@@ -45,6 +45,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'Manca la pompa acqua elettrica supplementare (ZUSATZWASSERPUMPE non montata). Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
     en: 'Missing the auxiliary electric water pump (ZUSATZWASSERPUMPE not fitted). No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
@@ -54,6 +55,11 @@
     i_level: F056-26-03-519
     valore_letto: NICHT_AKTIV
     esito: Non possibile
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: NICHT_AKTIV
+    esito: Parametro presente, non provato
 - id: ihka.memoria-del-clima-spento
   centralina: IHKA
   titolo:

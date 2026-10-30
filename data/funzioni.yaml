@@ -26,9 +26,6 @@
 - id: limitatore-lim
   titolo: { it: "Limitatore di velocità (LIM)", en: "Speed limiter (LIM)" }
   parti: [dsc.limitatore-di-velocita, kombi.limitatore-nel-quadro]
-- id: memoria-start-stop
-  titolo: { it: "Memoria dello Start/Stop", en: "Start/Stop memory" }
-  parti: [bdc_body.memoria-start-stop-ultimo-stato, dme.memoria-start-stop]
 - id: video-in-marcia
   titolo: { it: "Video e menu in marcia", en: "Video and menus while driving" }
   parti: [hu_nbt2.blocchi-in-marcia, hu_nbt2.navigazione-e-menu-in-movimento, hu_nbt2.menu-sblocco-media]

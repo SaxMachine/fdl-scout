@@ -14,6 +14,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'IHKA ha AUC=AKTIV e il BDC ha il sensore (AIC_AUC_SENSOR analogico): manca solo la voce nel menu della HU. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
     en: 'IHKA has AUC=AKTIV and the BDC has the sensor (analogue AIC_AUC_SENSOR): only the menu entry in the HU is missing. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
@@ -23,6 +24,11 @@
     i_level: F056-26-03-519
     valore_letto: auc_nicht_vorhanden
     esito: Consigliato
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: auc_nicht_vorhanden
+    esito: Parametro presente, non provato
 - id: hu_nbt2.voce-menu-chiusura-automatica-in-marcia
   centralina: HU_NBT2
   titolo:
@@ -36,6 +42,7 @@
   affidabilita: confermata
   telai:
   - F54
+  - F56
   note:
     it: La logica è nel BDC (CLI_DEFAULT_LOCK_AT_SPEED già impostato). Così la gestisci dalle impostazioni del veicolo.
     en: The logic is in the BDC (CLI_DEFAULT_LOCK_AT_SPEED already set). This lets you manage it from the vehicle
@@ -48,6 +55,11 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Consigliato
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.voce-menu-ribaltamento-specchietti-alla-chiusura
   centralina: HU_NBT2
   titolo:
@@ -61,6 +73,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Nel BDC ASP_BEIKLAPPEN è già attivo. Sulla grafica MINI la voce non sempre compare.
     en: ASP_BEIKLAPPEN is already active in the BDC. With the MINI graphics the entry does not always appear.
@@ -72,6 +85,11 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
   requisiti_sa:
   - '313'
 - id: hu_nbt2.memoria-sedile-richiamata-dalla-chiave
@@ -114,8 +132,8 @@
   - F55
   - F56
   note:
-    it: Nel BDC VAM_HORN_AT_SECURE è attivo. La voce permette di attivarla o spegnerla dal menu.
-    en: VAM_HORN_AT_SECURE is active in the BDC. The entry lets you switch it on or off from the menu.
+    it: 'Secondo le fonti aggiunge al menu iDrive la voce per accendere o spegnere il segnale acustico di chiusura. Il suono lo dà il BDC con VAM_HORN_AT_SECURE: sulla F54 di riferimento l''auto suona alla chiusura anche con questo parametro spento e senza la voce nel menu.'
+    en: 'According to the sources it adds the iDrive menu entry to switch the audible lock signal on or off. The sound itself comes from the BDC via VAM_HORN_AT_SECURE: on the reference F54 the car beeps on locking even with this parameter off and no menu entry.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-12.html
   - https://www.bimmerfest.com/threads/f45-f46-f48-f55-f56-coding-thread.891935/
@@ -142,6 +160,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'Accende i sedili in base alla temperatura esterna. Su IHKA monozona MINI il supporto non è garantito. Il parametro è documentato con lo stesso nome nella head unit HU_MGU delle BMW G05.'
     en: 'Switches the seats on depending on the outside temperature. Support is not guaranteed with the MINI single-zone IHKA. The parameter is documented with the same name in the HU_MGU head unit of BMW G05.'
@@ -153,6 +172,11 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
   requisiti_sa:
   - '494'
 - id: hu_nbt2.distanza-alla-prossima-svolta-nell-hud
@@ -341,6 +365,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'Mostra il livello olio nell''iDrive. Funziona solo se il B48 ha il sensore OENS; altrimenti il menu resta vuoto. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
     en: 'Shows the oil level in iDrive. It only works if the B48 has the OENS sensor; otherwise the menu stays empty. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
@@ -350,6 +375,11 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: OELSTANDSMENUE=nicht_aktiv, OELSTAND_OENS=nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.disattivazione-active-sound-design
   centralina: HU_NBT2
   titolo:
@@ -2299,6 +2329,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Può richiedere i servizi connessi attivi. Parametro presente nei FWL della F54 di riferimento; la codifica
       è documentata nei cheat sheet su GitHub.
@@ -2314,6 +2345,11 @@
     valore_letto: NAVI_TRAFFIC_INFO_MAP=aktiv, TI_CA_TMC=nicht_aktiv, TI_VINFO=aktiv, TI_TMC_REGIONAL=nicht_aktiv,
       TI_FALLBACK_DISABLED=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: NAVI_TRAFFIC_INFO_MAP=aktiv, TI_CA_TMC=nicht_aktiv, TI_VINFO=aktiv, TI_TMC_REGIONAL=nicht_aktiv, TI_FALLBACK_DISABLED=nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.indicatore-sportivo-hud
   centralina: HU_NBT2
   titolo:
@@ -2328,17 +2364,15 @@
     target: aktiv
   rischio: basso
   consiglio: ok
-  affidabilita: da_verificare
+  affidabilita: confermata
   telai:
   - F20
   - F30
   - F54
   - F56
   note:
-    it: Contagiri e marcia nell'HUD in modalità sport. Va con le stesse voci nel KOMBI. Parametro presente nei FWL
-      della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
-    en: Rev counter and gear in the HUD in sport mode. Goes with the same entries in the KOMBI. Parameter present
-      in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
+    it: 'Contagiri e marcia nell''HUD in modalità Sport. Va codificata insieme alla voce nel KOMBI (stessi tre parametri): servono tutte e due. Richiede l''HUD. Provata su F54: funziona. Dopo la codifica l''iDrive può mostrare vari errori: chiudi l''auto e aspetta 30 secondi.'
+    en: 'Rev counter and gear in the HUD in Sport mode. Code it together with the KOMBI entry (same three parameters): both are needed. Requires the HUD. Tested on F54: it works. After coding the iDrive may show various errors: lock the car and wait 30 seconds.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-24.html
   - https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml
@@ -2351,7 +2385,7 @@
     anno: 2022
     i_level: F056-26-03-519
     valore_letto: HUD_SPORTANZEIGE_ENABLE=aktiv, HUD_SPORTANZEIGE_FES_ENABLE=aktiv, HUD_SPORTANZEIGE_MS_GASSE_ENABLE=aktiv
-    esito: Da verificare
+    esito: 'Codificata e provata: contagiri e marcia nell''HUD in Sport'
 - id: hu_nbt2.video-da-ipod
   centralina: HU_NBT2
   titolo:
@@ -2495,6 +2529,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   - F80
   - F82
   note:
@@ -2509,6 +2544,11 @@
     valore_letto: TWO_PHONES_PARALLEL=aktiv, CONTACT_BOOK_PICTURES=aktiv, BLUETOOTH_2ND_HFP=aktiv, MACRO_PIM=aktiv,
       PIM_BILDER_EIN_AUS=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: TWO_PHONES_PARALLEL=aktiv, CONTACT_BOOK_PICTURES=aktiv, BLUETOOTH_2ND_HFP=aktiv, MACRO_PIM=aktiv, PIM_BILDER_EIN_AUS=aktiv
+    esito: Già attivo
 - id: hu_nbt2.miracast
   centralina: HU_NBT2
   titolo:
@@ -2530,6 +2570,7 @@
   - F15
   - F30
   - F54
+  - F56
   note:
     it: Documentato su F15/F30 e G11. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
       nei cheat sheet su GitHub.
@@ -2545,6 +2586,11 @@
     valore_letto: ENT_MIRACAST=nicht_aktiv, ENT_MIRACAST_DISPLAY_SETTINGS=nicht_aktiv, WLAN_WIFI_DIRECT=nicht_aktiv,
       WLAN_STATUS=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: ENT_MIRACAST=nicht_aktiv, ENT_MIRACAST_DISPLAY_SETTINGS=nicht_aktiv, WLAN_WIFI_DIRECT=nicht_aktiv, WLAN_STATUS=nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.simulatore-percorso
   centralina: HU_NBT2
   titolo:
@@ -2562,6 +2608,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -2574,6 +2621,11 @@
     i_level: F056-26-03-519
     valore_letto: ROUTE_FLIGHT=nicht_aktiv, NAVI_SCROLLING_ALONG_ROUTE=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: ROUTE_FLIGHT=nicht_aktiv, NAVI_SCROLLING_ALONG_ROUTE=nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.voce-navigazione-inglese-uk
   centralina: HU_NBT2
   titolo:
@@ -2596,6 +2648,7 @@
   - F15
   - F30
   - F54
+  - F56
   note:
     it: Una fonte la indica solo per ID4. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
       nei cheat sheet su GitHub.
@@ -2611,6 +2664,11 @@
     i_level: F056-26-03-519
     valore_letto: LANGUAGE_ENGLISH_UK=list, LANGUAGE_ENGLISH_US=nicht_aktiv, NAVI_DESTINATION_INPUT_US=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: LANGUAGE_ENGLISH_UK=list, LANGUAGE_ENGLISH_US=nicht_aktiv, NAVI_DESTINATION_INPUT_US=nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.copertine-a-tutto-schermo
   centralina: HU_NBT2
   titolo:
@@ -2627,6 +2685,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -2639,6 +2698,11 @@
     i_level: F056-26-03-519
     valore_letto: ENT_MC_COVER_SCALE=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.database-gracenote
   centralina: HU_NBT2
   titolo:
@@ -2654,6 +2718,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -2665,6 +2730,11 @@
     i_level: F056-26-03-519
     valore_letto: ENT_GRACENOTE_INSTALLED=nicht_aktiv, ENT_GRACENOTE_USB=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: ENT_GRACENOTE_INSTALLED=nicht_aktiv, ENT_GRACENOTE_USB=nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.importazione-destinazioni
   centralina: HU_NBT2
   titolo:
@@ -2682,6 +2752,7 @@
   - F15
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -2693,6 +2764,11 @@
     i_level: F056-26-03-519
     valore_letto: NAVI_DEST_IMPORT=nicht_aktiv, NAVI_MYPOI_IMPORT=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: NAVI_DEST_IMPORT=nicht_aktiv, NAVI_MYPOI_IMPORT=nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.localizzazione-veicolo
   centralina: HU_NBT2
   titolo:
@@ -2710,6 +2786,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Una fonte dice che senza abbonamento non funziona. Parametro presente nei FWL della F54 di riferimento;
       la codifica è documentata nei cheat sheet su GitHub.
@@ -2723,6 +2800,11 @@
     i_level: F056-26-03-519
     valore_letto: ASSIST_SVR_SHOW=nicht_aktiv, ASSIST_VEHICLEFINDER_SHOW=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: ASSIST_SVR_SHOW=nicht_aktiv, ASSIST_VEHICLEFINDER_SHOW=aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.tethering-bluetooth
   centralina: HU_NBT2
   titolo:
@@ -2743,6 +2825,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: 'La fonte dice che serve anche modificare il provisioning XML: procedura per esperti. Parametro presente
       nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
@@ -2756,6 +2839,11 @@
     i_level: F056-26-03-519
     valore_letto: DUN_PROFILE=nicht_aktiv, PAN_PROFILE=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: DUN_PROFILE=nicht_aktiv, PAN_PROFILE=nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.visite-guidate
   centralina: HU_NBT2
   titolo:
@@ -2773,6 +2861,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: La fonte la indica "in prova". Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
       nei cheat sheet su GitHub.
@@ -2786,6 +2875,11 @@
     i_level: F056-26-03-519
     valore_letto: GUIDED_TOURS=nicht_aktiv, ROUTEN_ID_GUIDEDTOURS=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: GUIDED_TOURS=nicht_aktiv, ROUTEN_ID_GUIDEDTOURS=nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.pdc-automatico
   centralina: HU_NBT2
   titolo:
@@ -2803,6 +2897,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Una fonte dice che non funziona senza hardware specifico. Parametro presente nei FWL della F54 di riferimento;
       la codifica è documentata nei cheat sheet su GitHub.
@@ -2816,6 +2911,11 @@
     i_level: F056-26-03-519
     valore_letto: AUTO_PDC=nicht_aktiv, ACTIVE_PDC=FF
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: AUTO_PDC=nicht_aktiv, ACTIVE_PDC=FF
+    esito: Parametro presente, non provato
 - id: hu_nbt2.radio-onde-corte-am
   centralina: HU_NBT2
   titolo:
@@ -2831,6 +2931,7 @@
   - F15
   - F30
   - F54
+  - F56
   note:
     it: Pensata per F15 40e, i3 e i8. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
       nei cheat sheet su GitHub.
@@ -2844,6 +2945,11 @@
     i_level: F056-26-03-519
     valore_letto: RADIO_BAND_KW=0000000000000000000000000000000000000000
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: '0000000000000000000000000000000000000000'
+    esito: Parametro presente, non provato
 - id: hu_nbt2.suono-asd-4
   centralina: HU_NBT2
   titolo:
@@ -2857,6 +2963,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Parte del menu configurazione suono ASD. Parametro presente nei FWL della F54 di riferimento; la codifica
       è documentata nei cheat sheet su GitHub.
@@ -2872,6 +2979,11 @@
     i_level: F056-26-03-519
     valore_letto: ASD_SOUND_4=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: hu_nbt2.categorie-info-traffico
   centralina: HU_NBT2
   titolo:
@@ -2887,6 +2999,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -2899,6 +3012,11 @@
     i_level: F056-26-03-519
     valore_letto: TRAFFIC_CATEGORIES=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.follow-me-home-impostazione-chiave
   centralina: HU_NBT2
   titolo:
@@ -2914,6 +3032,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Va con FOLLOWMEHOME_VIA_FFB nel BDC. Parametro presente nei FWL della F54 di riferimento; la codifica è
       documentata nei cheat sheet su GitHub.
@@ -2928,6 +3047,11 @@
     i_level: F056-26-03-519
     valore_letto: KEY_CONF_COMFORT_HOMELIGHT=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.popup-guida-navigazione
   centralina: HU_NBT2
   titolo:
@@ -2943,6 +3067,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -2955,6 +3080,11 @@
     i_level: F056-26-03-519
     valore_letto: NAVI_FULL_GUIDINGPOPUP=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: hu_nbt2.radio-meteo-noaa
   centralina: HU_NBT2
   titolo:
@@ -2968,6 +3098,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Serve solo negli Stati Uniti. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
       nei cheat sheet su GitHub.
@@ -2984,6 +3115,11 @@
     i_level: F056-26-03-519
     valore_letto: RADIO_WEATHERBAND=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.poi-rifornimento
   centralina: HU_NBT2
   titolo:
@@ -3002,6 +3138,7 @@
   - F15
   - F30
   - F54
+  - F56
   note:
     it: Sceglie se mostrare distributori, colonnine o entrambi. Parametro presente nei FWL della F54 di riferimento;
       la codifica è documentata nei cheat sheet su GitHub.
@@ -3015,6 +3152,11 @@
     i_level: F056-26-03-519
     valore_letto: CAR_TYPE_POI=benzin_diesel
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: benzin_diesel
+    esito: Parametro presente, non provato
 - id: hu_nbt2.incroci-nell-hud
   centralina: HU_NBT2
   titolo:
@@ -3030,6 +3172,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3042,6 +3185,11 @@
     i_level: F056-26-03-519
     valore_letto: JUNCTION_VIEW_HUD=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: hu_nbt2.proposta-sosta-rifornimento
   centralina: HU_NBT2
   titolo:
@@ -3057,6 +3205,7 @@
   - F20
   - F30
   - F54
+  - F56
   - F80
   - F82
   note:
@@ -3071,6 +3220,11 @@
     i_level: F056-26-03-519
     valore_letto: NAVI_FUELSTOP_PROPOSAL=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: hu_nbt2.menu-sviluppatore
   centralina: HU_NBT2
   titolo:
@@ -3086,6 +3240,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Mostra versioni e dati tecnici. Non modificare nulla da lì. Parametro presente nei FWL della F54 di riferimento;
       la codifica è documentata nei cheat sheet su GitHub.
@@ -3101,6 +3256,11 @@
     i_level: F056-26-03-519
     valore_letto: ENTWICKLER_MENUE=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.zoom-automatico-svolte
   centralina: HU_NBT2
   titolo:
@@ -3116,6 +3276,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Una fonte riporta che non funziona. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
       nei cheat sheet su GitHub.
@@ -3130,6 +3291,11 @@
     i_level: F056-26-03-519
     valore_letto: NAVI_AUTOZOOM=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: hu_nbt2.menu-audio-high-end
   centralina: HU_NBT2
   titolo:
@@ -3146,6 +3312,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   - F80
   - F82
   note:
@@ -3161,6 +3328,11 @@
     i_level: F056-26-03-519
     valore_letto: HIGH_END_AUDIO_MENUE=kein_menue
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: kein_menue
+    esito: Parametro presente, non provato
 - id: hu_nbt2.info-eco-pro-nel-quadro
   centralina: HU_NBT2
   titolo:
@@ -3174,6 +3346,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3185,6 +3358,11 @@
     i_level: F056-26-03-519
     valore_letto: ECO_INFO_DISPLAY=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: hu_nbt2.mappa-con-frecce
   centralina: HU_NBT2
   titolo:
@@ -3198,6 +3376,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3209,6 +3388,11 @@
     i_level: F056-26-03-519
     valore_letto: NAVI_MAP_ARROWVIEW=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: hu_nbt2.formato-24-ore
   centralina: HU_NBT2
   titolo:
@@ -3224,6 +3408,7 @@
   - F15
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3235,6 +3420,11 @@
     i_level: F056-26-03-519
     valore_letto: DEFAULT_ZEIT_EINHEIT=24h
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: 24h
+    esito: Già attivo
 - id: hu_nbt2.brano-successivo-nel-quadro
   centralina: HU_NBT2
   titolo:
@@ -3250,6 +3440,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: La fonte la indica per i quadri base. Parametro presente nei FWL della F54 di riferimento; la codifica è
       documentata nei cheat sheet su GitHub.
@@ -3263,6 +3454,11 @@
     i_level: F056-26-03-519
     valore_letto: BASIS_KOMBI_MMI_LIST=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.segnalibri-musica
   centralina: HU_NBT2
   titolo:
@@ -3278,6 +3474,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3289,6 +3486,11 @@
     i_level: F056-26-03-519
     valore_letto: ENT_MC_SONG_BOOKMARKS=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.durata-elenchi-hud
   centralina: HU_NBT2
   titolo:
@@ -3307,6 +3509,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3318,6 +3521,11 @@
     i_level: F056-26-03-519
     valore_letto: DISPLAYTIME_LIST_HUD_KOMBI=wert_6_4000ms
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: wert_6_4000ms
+    esito: Parametro presente, non provato
 - id: hu_nbt2.casella-punto-di-cambiata
   centralina: HU_NBT2
   titolo:
@@ -3333,6 +3541,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Va con SPA_KOMBISELECT_DISABLE nel KOMBI. Parametro presente nei FWL della F54 di riferimento; la codifica
       è documentata nei cheat sheet su GitHub.
@@ -3346,6 +3555,11 @@
     i_level: F056-26-03-519
     valore_letto: SPA_CHECKBOX=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.avviso-vicino-ai-poi
   centralina: HU_NBT2
   titolo:
@@ -3361,6 +3575,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3372,6 +3587,11 @@
     i_level: F056-26-03-519
     valore_letto: NAVI_ALERT_POI=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.calcolo-percorso-online
   centralina: HU_NBT2
   titolo:
@@ -3387,6 +3607,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Richiede i servizi connessi. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
       nei cheat sheet su GitHub.
@@ -3400,6 +3621,11 @@
     i_level: F056-26-03-519
     valore_letto: NAVI_ONLINE_OPTIMIZATION_BUTTON=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.tappa-intermedia-magnete
   centralina: HU_NBT2
   titolo:
@@ -3415,6 +3641,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3426,6 +3653,11 @@
     i_level: F056-26-03-519
     valore_letto: NAVI_ROUTENMAGNET=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: hu_nbt2.strade-veloci-nelle-preferenze
   centralina: HU_NBT2
   titolo:
@@ -3441,6 +3673,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3452,6 +3685,11 @@
     i_level: F056-26-03-519
     valore_letto: NAVI_EXPRESS_ROADS=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.siri-eyes-free
   centralina: HU_NBT2
   titolo:
@@ -3470,6 +3708,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3482,6 +3721,11 @@
     i_level: F056-26-03-519
     valore_letto: CE_DEVICE_SPEECH_RECOGNITION=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.menu-controllo-trazione
   centralina: HU_NBT2
   titolo:
@@ -3497,6 +3741,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Una fonte dice che il menu compare ma non fa nulla. Parametro presente nei FWL della F54 di riferimento;
       la codifica è documentata nei cheat sheet su GitHub.
@@ -3510,6 +3755,11 @@
     i_level: F056-26-03-519
     valore_letto: TRACTION_DEMAND_CONTROL=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: hu_nbt2.icone-dei-contatti
   centralina: HU_NBT2
   titolo:
@@ -3525,6 +3775,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Una fonte riporta che non funziona. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
       nei cheat sheet su GitHub.
@@ -3538,6 +3789,11 @@
     i_level: F056-26-03-519
     valore_letto: CONTACTS_ICON=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.assistente-uscita-parcheggio
   centralina: HU_NBT2
   titolo:
@@ -3553,6 +3809,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Una fonte dice che serve hardware specifico. Parametro presente nei FWL della F54 di riferimento; la codifica
       è documentata nei cheat sheet su GitHub.
@@ -3566,6 +3823,11 @@
     i_level: F056-26-03-519
     valore_letto: MACRO_PMA_AUSPARKEN=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.spegnimento-luce-ambiente
   centralina: HU_NBT2
   titolo:
@@ -3584,6 +3846,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Una fonte riporta che non funziona (solo F4x). Parametro presente nei FWL della F54 di riferimento; la codifica
       è documentata nei cheat sheet su GitHub.
@@ -3597,6 +3860,11 @@
     i_level: F056-26-03-519
     valore_letto: DEAKTIVIERUNGSMOEGLICHKEIT_AMBILIGHT=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.stato-batteria
   centralina: HU_NBT2
   titolo:
@@ -3612,6 +3880,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Una fonte riporta che non funziona. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
       nei cheat sheet su GitHub.
@@ -3625,6 +3894,11 @@
     i_level: F056-26-03-519
     valore_letto: KI_SELECTION_SOC=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.apertura-comfort-doppio-clic
   centralina: HU_NBT2
   titolo:
@@ -3640,6 +3914,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: La fonte la indica "in prova". Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
       nei cheat sheet su GitHub.
@@ -3653,6 +3928,11 @@
     i_level: F056-26-03-519
     valore_letto: COMFORT_OPENING=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.zoom-automatico-mappa
   centralina: HU_NBT2
   titolo:
@@ -3668,6 +3948,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Una fonte riporta che non funziona. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
       nei cheat sheet su GitHub.
@@ -3681,6 +3962,11 @@
     i_level: F056-26-03-519
     valore_letto: AUTO_MAP_ZOOM=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: hu_nbt2.telefono-e-media-nell-hud
   centralina: HU_NBT2
   titolo:
@@ -3702,6 +3988,7 @@
   - F26
   - F48
   - F54
+  - F56
   - F85
   - F86
   note:
@@ -3717,6 +4004,11 @@
     i_level: F056-26-03-519
     valore_letto: HUD_VZA=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.logo-m-nell-hud
   centralina: HU_NBT2
   titolo:
@@ -3738,6 +4030,7 @@
   - F26
   - F48
   - F54
+  - F56
   - F85
   - F86
   note:
@@ -3752,6 +4045,11 @@
     i_level: F056-26-03-519
     valore_letto: HUD_M=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.tasto-menu-dvd
   centralina: HU_NBT2
   titolo:
@@ -3765,6 +4063,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Solo con lettore DVD. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei
       cheat sheet su GitHub.
@@ -3778,6 +4077,11 @@
     i_level: F056-26-03-519
     valore_letto: ENT_VIDEO_HMI=dvd_hmi
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: dvd_hmi
+    esito: Parametro presente, non provato
 - id: hu_nbt2.regione-radio
   centralina: HU_NBT2
   titolo:
@@ -3794,6 +4098,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Deve corrispondere al paese in cui usi l'auto. Parametro presente nei FWL della F54 di riferimento; la codifica
       è documentata nei cheat sheet su GitHub.
@@ -3807,6 +4112,11 @@
     i_level: F056-26-03-519
     valore_letto: RADIO_COUNTRY=ece
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: ece
+    esito: Parametro presente, non provato
 - id: hu_nbt2.deenfasi-fm
   centralina: HU_NBT2
   titolo:
@@ -3823,6 +4133,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3834,6 +4145,11 @@
     i_level: F056-26-03-519
     valore_letto: FM_DEEMPHASIS=50us
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: 50us
+    esito: Parametro presente, non provato
 - id: hu_nbt2.frequenza-in-mhz
   centralina: HU_NBT2
   titolo:
@@ -3850,6 +4166,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Mostra 101.2 invece di 10120. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
       nei cheat sheet su GitHub.
@@ -3863,6 +4180,11 @@
     i_level: F056-26-03-519
     valore_letto: ANZEIGE_FREQ=02
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: '02'
+    esito: Parametro presente, non provato
 - id: hu_nbt2.menu-sblocco-media
   centralina: HU_NBT2
   titolo:
@@ -3876,6 +4198,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -3887,6 +4210,11 @@
     i_level: F056-26-03-519
     valore_letto: SPEEDLOCK_FREISCHALTMENU=0000000000000000000000000000000000000000000000000000000000000000
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: hu_nbt2.veleggio-eco-pro
   centralina: HU_NBT2
   titolo:
@@ -3900,6 +4228,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'Seconda parte: serve anche la funzione nel cambio o nella DME. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub. Una guida lo indica come parte 2 di 4 (con SEGELN_ENABLE, C_Segeln_vorhanden e Segeln nella EGS; solo cambio automatico). Nei FWL della F54 di riferimento SEGELN_ENABLE è nella KOMBI e C_Segeln_vorhanden nel DSC, entrambi già attivi; nella EGS il parametro Segeln non c''è.'
     en: 'Second part: the function is also needed in the gearbox or DME. Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets. One guide gives it as part 2 of 4 (with SEGELN_ENABLE, C_Segeln_vorhanden and Segeln in the EGS; automatic only). In the reference F54 FWL files SEGELN_ENABLE is in the KOMBI and C_Segeln_vorhanden in the DSC, both already active; the EGS has no Segeln parameter.'
@@ -3911,6 +4240,11 @@
     i_level: F056-26-03-519
     valore_letto: EFF_DYN_SAILING=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: hu_nbt2.opzione-freccia-5-lampeggi
   centralina: HU_NBT2
   titolo:
@@ -3924,6 +4258,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   - G05
   note:
     it: 'Mostra la scelta dei 5 lampeggi nelle impostazioni delle luci. Il valore predefinito della freccia comfort sta nella BDC (PIA_DEFAULT_TIPPBLINKEN, vedi la voce "Lampeggio comfort"). Documentato con lo stesso nome nella head unit HU_MGU delle BMW G05.'
@@ -3935,4 +4270,9 @@
     anno: 2022
     i_level: F056-26-03-519
     valore_letto: 5_FACH_TIPPBLINKEN=aktiv
+    esito: Già attivo
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
     esito: Già attivo

@@ -68,6 +68,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'L''HUD lo fa già (HUD_SLI_WARNUNG_ENABLE). Così il segnale lampeggia anche nel quadro quando l''HUD è spento. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
     en: 'The HUD already does it (HUD_SLI_WARNUNG_ENABLE). This makes the sign flash in the cluster too when the HUD is off. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
@@ -77,6 +78,11 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Consigliato
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: kombi.marcia-inserita-nell-hud
   centralina: KOMBI
   titolo:
@@ -95,10 +101,8 @@
   - F57
   - F60
   note:
-    it: 'Documentato su F55/F56. Le tre voci HUD_SPORTANZEIGE_* sono già attive sia in HU sia nel KOMBI: manca solo
-      questa.'
-    en: 'Documented on F55/F56. The three HUD_SPORTANZEIGE_* entries are already active in both the HU and the KOMBI:
-      only this one is missing.'
+    it: 'Documentato su F55/F56. Sulla F54 la marcia compare già in modalità Sport con l''indicatore sportivo (voci HUD_SPORTANZEIGE_* in HU e KOMBI), anche con questo parametro spento; fuori da Sport resta un cerchietto vuoto. Cosa aggiunga questo parametro sulla F54 non è ancora verificato.'
+    en: 'Documented on F55/F56. On the F54 the gear already shows in Sport mode with the sport display (HUD_SPORTANZEIGE_* entries in HU and KOMBI), even with this parameter off; outside Sport an empty circle remains. What this parameter adds on the F54 is not verified yet.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-40.html
   - https://minkara.carview.co.jp/userid/3574209/car/3489593/7495761/note.aspx
@@ -109,7 +113,7 @@
     anno: 2022
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
-    esito: Consigliato
+    esito: Da verificare
 - id: kombi.ora-sincronizzata-da-gps
   centralina: KOMBI
   titolo:
@@ -154,6 +158,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'Il quadro IC_MID non ha sempre la grafica per mostrarla. Nessuna fonte trovata riporta il nome del parametro: l''abbinamento con la funzione viene dal nome presente nel FWL della F54.'
     en: 'The IC_MID cluster does not always have the graphics to show it. No source found gives the parameter name: the match with the function comes from the name in the F54 FWL.'
@@ -163,6 +168,11 @@
     i_level: F056-26-03-519
     valore_letto: nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: kombi.speed-limit-assist-acc-adotta-il-limite
   centralina: KOMBI
   titolo:
@@ -593,6 +603,7 @@
   - F36
   - F48
   - F54
+  - F56
   - F80
   - F82
   - F83
@@ -611,6 +622,11 @@
     i_level: F056-26-03-519
     valore_letto: HUD_ENTERTAINMENT_ENABLE=aktiv, HUD_STARTUP_ENABLE=aktiv, HUD_VZA_ENABLE=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: HUD_ENTERTAINMENT_ENABLE=nicht_aktiv, HUD_STARTUP_ENABLE=nicht_aktiv, HUD_VZA_ENABLE=nicht_aktiv
+    esito: Parametro presente, non provato
 - id: kombi.frecce-nell-hud-quadro
   centralina: KOMBI
   titolo:
@@ -653,6 +669,7 @@
   - F36
   - F48
   - F54
+  - F56
   - F80
   - F82
   - F83
@@ -675,6 +692,11 @@
     i_level: F056-26-03-519
     valore_letto: HUD_BLINKER_ENABLE=aktiv, HUD_PIA_BLINKER=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: HUD_BLINKER_ENABLE=nicht_aktiv, HUD_PIA_BLINKER=nicht_aktiv
+    esito: Parametro presente, non provato
 - id: kombi.marcia-in-modalita-sport
   centralina: KOMBI
   titolo:
@@ -795,6 +817,7 @@
   - F26
   - F30
   - F54
+  - F56
   note:
     it: 'Il tachimetro per legge non deve indicare meno della velocità reale: sconsigliata. Parametro presente nei
       FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
@@ -811,6 +834,11 @@
     i_level: F056-26-03-519
     valore_letto: BC_V_KORREKTUR=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Parametro presente, non provato
 - id: kombi.distanza-acc-nell-hud-quadro
   centralina: KOMBI
   titolo:
@@ -830,6 +858,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Serve l'ACC. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet
       su GitHub.
@@ -844,6 +873,11 @@
     i_level: F056-26-03-519
     valore_letto: IBRAKE_ABSTAND_ENABLE=nicht_aktiv, IBRAKE_VERBAUT=aktiv, HUD_IBRAKE_ENABLE=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: IBRAKE_ABSTAND_ENABLE=nicht_aktiv, IBRAKE_VERBAUT=aktiv, HUD_IBRAKE_ENABLE=nicht_aktiv
+    esito: Parametro presente, non provato
 - id: kombi.visione-notturna-nel-quadro
   centralina: KOMBI
   titolo:
@@ -861,6 +895,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Serve la telecamera Night Vision. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
       nei cheat sheet su GitHub.
@@ -874,6 +909,11 @@
     i_level: F056-26-03-519
     valore_letto: FGS_NIVI_KI_ENABLE=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: kombi.temperatura-motore-nel-computer
   centralina: KOMBI
   titolo:
@@ -889,6 +929,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -900,6 +941,11 @@
     i_level: F056-26-03-519
     valore_letto: BC_MOTORTEMP_ENABLE=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: kombi.primo-avviso-autonomia
   centralina: KOMBI
   titolo:
@@ -918,6 +964,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -929,6 +976,11 @@
     i_level: F056-26-03-519
     valore_letto: CC_RW_WARNUNG_2=90_km
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: 90_km
+    esito: Parametro presente, non provato
 - id: kombi.secondo-avviso-autonomia
   centralina: KOMBI
   titolo:
@@ -947,6 +999,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -958,6 +1011,11 @@
     i_level: F056-26-03-519
     valore_letto: CC_RW_WARNUNG=50_km
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: 50_km
+    esito: Parametro presente, non provato
 - id: kombi.limitatore-nel-quadro
   centralina: KOMBI
   titolo:
@@ -971,6 +1029,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   - F80
   - F82
   note:
@@ -987,6 +1046,11 @@
     i_level: F056-26-03-519
     valore_letto: SLD_ENABLE=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: kombi.punto-di-cambiata
   centralina: KOMBI
   titolo:
@@ -1002,6 +1066,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Va con SPA_CHECKBOX nella HU. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
       nei cheat sheet su GitHub.
@@ -1015,6 +1080,11 @@
     i_level: F056-26-03-519
     valore_letto: SPA_KOMBISELECT_DISABLE=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Parametro presente, non provato
 - id: kombi.marcia-nel-quadro
   centralina: KOMBI
   titolo:
@@ -1030,6 +1100,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -1041,6 +1112,11 @@
     i_level: F056-26-03-519
     valore_letto: SPA_IST_GANG_ENABLE=aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: aktiv
+    esito: Già attivo
 - id: kombi.durata-avvio-hud
   centralina: KOMBI
   titolo:
@@ -1059,6 +1135,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -1071,6 +1148,11 @@
     i_level: F056-26-03-519
     valore_letto: HUD_STARTUP_TIME=03
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: '03'
+    esito: Parametro presente, non provato
 - id: kombi.posizione-hud
   centralina: KOMBI
   titolo:
@@ -1086,6 +1168,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: La fonte la indica "in prova". Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
       nei cheat sheet su GitHub.
@@ -1099,6 +1182,11 @@
     i_level: F056-26-03-519
     valore_letto: HUD_POSITIONCHANGE_ENABLE=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: kombi.segnale-acustico-retromarcia
   centralina: KOMBI
   titolo:
@@ -1115,6 +1203,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -1126,6 +1215,11 @@
     i_level: F056-26-03-519
     valore_letto: R_GANG_AKUSTIK_ENABLE=nicht_aktiv
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: nicht_aktiv
+    esito: Parametro presente, non provato
 - id: kombi.indicatore-sportivo-hud
   centralina: KOMBI
   titolo:
@@ -1140,14 +1234,14 @@
     target: aktiv
   rischio: basso
   consiglio: ok
-  affidabilita: da_verificare
+  affidabilita: confermata
   telai:
   - F54
   - F55
   - F56
   note:
-    it: 'Va codificata insieme alla voce sulla HU (stessi tre parametri in HU_NBT2): servono tutte e due perché il contagiri compaia nell''HUD. Richiede l''HUD.'
-    en: 'Code it together with the HU entry (same three parameters in HU_NBT2): both are needed for the rev counter to show in the HUD. Requires the HUD.'
+    it: 'Contagiri e marcia nell''HUD in modalità Sport. Va codificata insieme alla voce sulla HU (stessi tre parametri): servono tutte e due. Richiede l''HUD. Provata su F54: funziona. Dopo la codifica l''iDrive può mostrare vari errori: chiudi l''auto e aspetta 30 secondi.'
+    en: 'Rev counter and gear in the HUD in Sport mode. Code it together with the HU entry (same three parameters): both are needed. Requires the HUD. Tested on F54: it works. After coding the iDrive may show various errors: lock the car and wait 30 seconds.'
   fonti:
   - https://www.northamericanmotoring.com/forums/f55-f56-hatch-talk-2014/279326-mini-coding-programming-24.html
   - https://www.minif56.com/threads/the-other-coding-options-tracker-f55-f56-f54.40969/
@@ -1158,7 +1252,7 @@
     anno: 2022
     i_level: F056-26-03-519
     valore_letto: HUD_SPORTANZEIGE_ENABLE=aktiv, HUD_SPORTANZEIGE_FES_ENABLE=aktiv, HUD_SPORTANZEIGE_MS_GASSE_ENABLE=aktiv
-    esito: Da verificare
+    esito: 'Codificata e provata: contagiri e marcia nell''HUD in Sport'
 - id: kombi.limiti-velocita-nel-quadro
   centralina: KOMBI
   titolo:

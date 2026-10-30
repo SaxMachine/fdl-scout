@@ -18,6 +18,7 @@
   telai:
   - F15
   - F54
+  - F56
   - F80
   - F82
   note:
@@ -37,3 +38,8 @@
     i_level: F056-26-03-519
     valore_letto: Blendfreies_Fernlicht_Idx=00010200000002000000
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: 30_Value
+    esito: Parametro presente, non provato

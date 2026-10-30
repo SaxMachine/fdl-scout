@@ -17,6 +17,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Cambia il suono sintetico riprodotto in abitacolo. Il valore deve esistere nella lista del tuo CAFD. Parametro
       presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
@@ -30,3 +31,8 @@
     i_level: F056-26-03-519
     valore_letto: Engine=B48A20
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: B48A20
+    esito: Parametro presente, non provato

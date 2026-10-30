@@ -36,7 +36,7 @@ Guida passo passo all'esportazione da E-Sys: [docs/ESPORTARE-DA-ESYS.md](docs/ES
 | Attiva in parte | Funzione su più parti (spesso centraline diverse): alcune sono già a posto, altre no |
 | Già attiva | Tutti i parametri sono già al valore indicato |
 | Manca l'optional | Hai caricato la FA e non c'è l'optional (SA) che la funzione richiede |
-| Non disponibile | La centralina è stata letta ma il tuo CAFD non ha questo parametro |
+| Non nel tuo FWL | La centralina è stata letta ma il parametro non compare: può mancare nel tuo CAFD oppure avere un altro nome nella versione di E-Sys con cui hai esportato (lo stesso CAFD esportato con dati diversi può elencare parametri diversi) |
 | Centralina non letta | Manca l'FWL di quella centralina |
 | Da mappare | La funzione è nota ma i nomi dei parametri non sono ancora documentati |
 
@@ -119,7 +119,7 @@ Step-by-step export guide: [docs/en/EXPORTING-FROM-ESYS.md](docs/en/EXPORTING-FR
 | Partly on | Multi-part feature (often across units): some parts are already set, others are not |
 | Already on | Every parameter is already at the documented value |
 | Option missing | You loaded the FA and the option (SA) the feature needs is not there |
-| Not available | The unit was read but your CAFD does not have this parameter |
+| Not in your FWL | The unit was read but the parameter is missing: your CAFD may lack it, or the E-Sys version you exported with may use another name (the same CAFD exported with different data can list different parameters) |
 | Unit not read | The FWL of that unit is missing |
 | Not mapped yet | The feature is known but the parameter names are not documented yet |
 

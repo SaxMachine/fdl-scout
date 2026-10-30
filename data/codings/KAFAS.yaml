@@ -17,6 +17,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Mostra il tempo di distanza. L'ACC su F54 è a telecamera; l'effetto varia.
     en: Shows the time gap. ACC on the F54 is camera-based; the effect varies.
@@ -29,6 +30,11 @@
     i_level: F056-26-03-519
     valore_letto: coded_off
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: coded_off
+    esito: Parametro presente, non provato
 - id: kafas.avviso-uscita-corsia-attivazione
   centralina: KAFAS
   titolo:
@@ -160,6 +166,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -172,6 +179,11 @@
     valore_letto: DELAY_AFTER_ONCOMING=default, ONCOMING_HIGH_SPEED_DELAY=default, DELAY_AFTER_PRECEDING=default,
       DELAY_AFTER_SLOW_OVERTAKING=default
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: DELAY_AFTER_ONCOMING=default, ONCOMING_HIGH_SPEED_DELAY=default, DELAY_AFTER_PRECEDING=default, DELAY_AFTER_SLOW_OVERTAKING=default
+    esito: Parametro presente, non provato
 - id: kafas.distanza-acc-nell-hud
   centralina: KAFAS
   titolo:
@@ -194,6 +206,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Va con le voci nel KOMBI e nella HU. Serve l'ACC. Parametro presente nei FWL della F54 di riferimento; la
       codifica è documentata nei cheat sheet su GitHub.
@@ -208,6 +221,11 @@
     i_level: F056-26-03-519
     valore_letto: SEND_STATUS_IBRAKE=IBRAKE_STAT_on_ENCAP_F45_F46_F48, SEND_PARAM_IBRAKE=ENCAP_F45_F46_F48
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: SEND_STATUS_IBRAKE=IBRAKE_STAT_on_ENCAP_F45_F46_F48, SEND_PARAM_IBRAKE=ENCAP_F45_F46_F48
+    esito: Parametro presente, non provato
 - id: kafas.avviso-corsia-velocita
   centralina: KAFAS
   titolo:
@@ -228,6 +246,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -240,6 +259,11 @@
     i_level: F056-26-03-519
     valore_letto: THRV_AVAI_TLC_HIGH=rest_of_the_world, THRV_AVAI_TLC_LOW=rest_of_the_world
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: THRV_AVAI_TLC_HIGH=rest_of_the_world, THRV_AVAI_TLC_LOW=rest_of_the_world
+    esito: Parametro presente, non provato
 - id: kafas.avviso-bordo-strada
   centralina: KAFAS
   titolo:
@@ -255,6 +279,7 @@
   - F20
   - F30
   - F54
+  - F56
   - F80
   - F82
   note:
@@ -270,6 +295,11 @@
     i_level: F056-26-03-519
     valore_letto: ROAD_EDGE_WARNING_ENABLED=detection_for_grass_edge_and_curb_stone
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: detection_for_grass_edge_and_curb_stone
+    esito: Già attivo
 - id: kafas.sensibilita-abbaglianti-automatici
   centralina: KAFAS
   titolo:
@@ -288,6 +318,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Una fonte riporta che non funziona. Parametro presente nei FWL della F54 di riferimento; la codifica è documentata
       nei cheat sheet su GitHub.
@@ -301,6 +332,11 @@
     i_level: F056-26-03-519
     valore_letto: ALLOW_SENS_CHANGE=no_sensitivity_change
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: no_sensitivity_change
+    esito: Parametro presente, non provato
 - id: kafas.abbaglianti-automatici-citta
   centralina: KAFAS
   titolo:
@@ -319,6 +355,7 @@
   - F20
   - F30
   - F54
+  - F56
   note:
     it: Parametro presente nei FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.
     en: Parameter present in the reference F54 FWL files; the coding is documented in GitHub cheat sheets.
@@ -330,6 +367,11 @@
     i_level: F056-26-03-519
     valore_letto: HIGH_SPEED_SWITCHING_HIGH_BEAMS=all_others
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: all_others
+    esito: Parametro presente, non provato
 - id: kafas.limiti-solo-da-telecamera
   centralina: KAFAS
   titolo:
@@ -351,6 +393,7 @@
   - F26
   - F48
   - F54
+  - F56
   - F85
   - F86
   note:
@@ -367,6 +410,11 @@
     i_level: F056-26-03-519
     valore_letto: COD_CAM_ONLY=fusion_mode
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: fusion_mode
+    esito: Parametro presente, non provato
 - id: kafas.divieto-sorpasso-hud-telecamera
   centralina: KAFAS
   titolo:
@@ -416,6 +464,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   - F80
   - F82
   note:
@@ -431,6 +480,11 @@
     i_level: F056-26-03-519
     valore_letto: GLAREFREE_HIGHBEAM_ENABLED=F020_F025_F045_F056_RR01_M013_off
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: F020_F025_F045_F056_RR01_M013_off
+    esito: Parametro presente, non provato
 - id: kafas.avviso-collisione-soglie
   centralina: KAFAS
   titolo:
@@ -463,6 +517,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: 'Cambia quando scatta l''avviso di collisione. Riguarda la sicurezza: sconsigliata. Parametro presente nei
       FWL della F54 di riferimento; la codifica è documentata nei cheat sheet su GitHub.'
@@ -476,6 +531,11 @@
     i_level: F056-26-03-519
     valore_letto: 'SPEED_THRV_FCW_ACUTE_DYNAMIC=default, SPEED_THRV_FCW_ADVANCE_DYNAMIC=default, MIN_TIME_ADVANCE_WARN=default, MIN_TIME_ACUTE_WARN=default, MAX_DIST_ACUTE=default, TTC_THRV_ADV_EARLY=ENCAP_F45_F46_F48_F54_F60, TTC_THRV_ACUTE_EARLY=ENCAP_F45_F46_F48_F54_F60, TTC_THRV_SHIFT_BRAKE_ACUTE_EARLY=all_others, TTC_THRV_SHIFT_BRAKE_ACUTE_LATE=default'
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: SPEED_THRV_FCW_ACUTE_DYNAMIC=default, SPEED_THRV_FCW_ADVANCE_DYNAMIC=default, MIN_TIME_ADVANCE_WARN=default, MIN_TIME_ACUTE_WARN=default, MAX_DIST_ACUTE=default, TTC_THRV_ADV_EARLY=all_others, TTC_THRV_ACUTE_EARLY=all_others, TTC_THRV_SHIFT_BRAKE_ACUTE_EARLY=ENCAP_F45_F46_F48_F54_F60, TTC_THRV_SHIFT_BRAKE_ACUTE_LATE=default
+    esito: Parametro presente, non provato
 - id: kafas.regione-telecamera
   centralina: KAFAS
   titolo:
@@ -496,6 +556,7 @@
   affidabilita: da_verificare
   telai:
   - F54
+  - F56
   note:
     it: Deve corrispondere al paese in cui usi l'auto. Parametro presente nei FWL della F54 di riferimento; la codifica
       è documentata nei cheat sheet su GitHub.
@@ -509,6 +570,11 @@
     i_level: F056-26-03-519
     valore_letto: COUNTRY_VARIATION=ECE, TSM_COUNTRY_VARIATION=ECE, COUNTRY_CODING_DISPLAY=country_specific
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: COUNTRY_VARIATION=ECE, TSM_COUNTRY_VARIATION=ECE, COUNTRY_CODING_DISPLAY=country_specific
+    esito: Parametro presente, non provato
 - id: kafas.avviso-collisione-spento
   centralina: KAFAS
   titolo:
@@ -523,6 +589,7 @@
   telai:
   - F48
   - F54
+  - F56
   note:
     it: 'Con FCW_off l''avviso resta spento e il tasto non lo riattiva più. Provato su una X1 F48 (KAFAS2, gruppo 3060/3150). Sulla F54 il valore di fabbrica ha lo stesso nome della F48 (FCW_on_ENCAP_F45_F46_F48), quindi la centralina è la stessa famiglia. Riguarda la sicurezza attiva: sconsigliata.'
     en: 'With FCW_off the warning stays off and the button cannot turn it back on. Tested on an X1 F48 (KAFAS2, group 3060/3150). On the F54 the factory value has the same name as on the F48 (FCW_on_ENCAP_F45_F46_F48), so the unit is the same family. Active safety: not recommended.'
@@ -534,6 +601,11 @@
     i_level: F056-26-03-519
     valore_letto: FCW_ON_OFF=FCW_on_ENCAP_F45_F46_F48
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: FCW_on_ENCAP_F45_F46_F48
+    esito: Parametro presente, non provato
 - id: kafas.pre-crash-spento
   centralina: KAFAS
   titolo:
@@ -548,6 +620,7 @@
   telai:
   - F48
   - F54
+  - F56
   note:
     it: 'È la funzione che può frenare l''auto da sola prima di un urto. Provato su una X1 F48 (KAFAS2, gruppo 3060/3150). Sulla F54 il valore di fabbrica ha lo stesso nome della F48 (pre_crash_on_ENCAP_F45_F46_F48), quindi la centralina è la stessa famiglia. Riguarda la sicurezza attiva: sconsigliata.'
     en: 'This is the function that can brake the car by itself before a crash. Tested on an X1 F48 (KAFAS2, group 3060/3150). On the F54 the factory value has the same name as on the F48 (pre_crash_on_ENCAP_F45_F46_F48), so the unit is the same family. Active safety: not recommended.'
@@ -559,6 +632,11 @@
     i_level: F056-26-03-519
     valore_letto: PRE_CRASH_ON_OFF=pre_crash_on_ENCAP_F45_F46_F48
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: pre_crash_on_ENCAP_F45_F46_F48
+    esito: Parametro presente, non provato
 - id: kafas.avviso-pedoni-spento
   centralina: KAFAS
   titolo:
@@ -573,6 +651,7 @@
   telai:
   - F48
   - F54
+  - F56
   note:
     it: 'Disattiva la protezione pedoni della telecamera. Provato su una X1 F48 (KAFAS2, gruppo 3060/3150). Il parametro esiste con lo stesso nome nella KAFAS della F54, che per FCW e pre-crash usa gli stessi valori ENCAP F45/F46/F48. Riguarda la sicurezza attiva: sconsigliata.'
     en: 'Disables the camera pedestrian protection. Tested on an X1 F48 (KAFAS2, group 3060/3150). The parameter exists with the same name in the F54 KAFAS, which uses the same ENCAP F45/F46/F48 values for FCW and pre-crash. Active safety: not recommended.'
@@ -584,3 +663,8 @@
     i_level: F056-26-03-519
     valore_letto: PPP_MANUAL_ACTIVATION_ON_OFF=default
     esito: Da verificare
+  - telaio: F56
+    anno: 2023
+    i_level: F056-26-03-550
+    valore_letto: default
+    esito: Parametro presente, non provato
